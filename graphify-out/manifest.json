@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "PROJECT.md": {
-    "mtime": 1791663492.93962,
-    "seen": 1791663711.6109736,
-    "ast_hash": "5d5a8b90cde87500e07097ae94f1b3ec",
+    "mtime": 1791663991.7935452,
+    "seen": 1791664147.104292,
+    "ast_hash": "9e60348a79d2b5e3963713abceec2422",
     "semantic_hash": ""
   },
   "README.md": {
@@ -198,15 +198,27 @@
     "semantic_hash": ""
   },
   "v14_html.inc": {
-    "mtime": 1791663657.792233,
-    "seen": 1791663711.6109736,
-    "ast_hash": "fc51f40b976be4bceb154ec4ede19bed",
+    "mtime": 1791664132.855597,
+    "seen": 1791664147.104292,
+    "ast_hash": "6eb8875db8d4f6ac7ffe1bfcf73f3a0f",
     "semantic_hash": ""
   },
   "v14.html": {
-    "mtime": 1791663649.1900492,
-    "seen": 1791663711.6109736,
-    "ast_hash": "03b8b89aebcd464da24c7b263ab66659",
+    "mtime": 1791664088.6463833,
+    "seen": 1791664147.104292,
+    "ast_hash": "baab77b8d829cc1a3dd05af36b701b22",
+    "semantic_hash": ""
+  },
+  "LOTTO_v8_k6_t5_100.0000pct_20261010_222446.txt": {
+    "mtime": 1791663886.717077,
+    "seen": 1791664147.104292,
+    "ast_hash": "909596d4309f26e4e31d8a322052c0a4",
+    "semantic_hash": ""
+  },
+  "LOTTO_v8_k6_t5_100.0000pct_20261010_222638.txt": {
+    "mtime": 1791663998.2480912,
+    "seen": 1791664147.104292,
+    "ast_hash": "78550a5bd93c5af8564b166dd01f9323",
     "semantic_hash": ""
   }
 }
