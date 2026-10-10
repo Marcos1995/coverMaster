@@ -1524,14 +1524,21 @@ static void api_dispatch(SOCKET s, const char *body) {
         FILE *f;
         uint64_t *bets = NULL;
         int n = 0, cap = 0;
+        const char *pay, *fin = NULL;
         if (g_ocupado) { responder_ok(s, 0, "Espera a que termine."); return; }
-        memset(&ofn, 0, sizeof ofn);
-        ofn.lStructSize = sizeof ofn;
-        ofn.lpstrFilter = "Texto (*.txt)\0*.txt\0Todos (*.*)\0*.*\0";
-        ofn.lpstrFile = file;
-        ofn.nMaxFile = MAX_PATH;
-        ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST;
-        if (!GetOpenFileNameA(&ofn)) { responder_ok(s, 1, NULL); return; }
+        pay = json_valor(body, NULL, "payload");
+        if (pay && *pay == '{') objeto_fin(pay, &fin); else { pay = body; fin = NULL; }
+        json_str(pay, fin, "archivo", file, sizeof file);
+        if (!file[0]) {
+            memset(&ofn, 0, sizeof ofn);
+            ofn.lStructSize = sizeof ofn;
+            ofn.hwndOwner = GetForegroundWindow();
+            ofn.lpstrFilter = "Texto (*.txt)\0*.txt\0Todos (*.*)\0*.*\0";
+            ofn.lpstrFile = file;
+            ofn.nMaxFile = MAX_PATH;
+            ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_EXPLORER;
+            if (!GetOpenFileNameA(&ofn)) { responder_ok(s, 1, NULL); return; }
+        }
         f = fopen(file, "rb");
         if (!f) { responder_ok(s, 0, "No se ha podido leer el archivo."); return; }
         char linea[512];
@@ -1560,6 +1567,15 @@ static void api_dispatch(SOCKET s, const char *body) {
         return;
     }
     responder_ok(s, 0, "Acción desconocida.");
+}
+
+static void atender(SOCKET s);
+
+static DWORD WINAPI atender_hilo(LPVOID p) {
+    SOCKET *box = (SOCKET *)p;
+    atender(*box);
+    free(box);
+    return 0;
 }
 
 static void atender(SOCKET s) {
@@ -1664,12 +1680,19 @@ static int servir(int puerto_fijo, int abrir) {
     }
     while (!g_salir) {
         SOCKET c = accept(srv, NULL, NULL);
+        SOCKET *box;
+        HANDLE h;
         if (c == INVALID_SOCKET) break;
         {
             DWORD ms = 8000;
             setsockopt(c, SOL_SOCKET, SO_RCVTIMEO, (char *)&ms, sizeof ms);
         }
-        atender(c);
+        box = (SOCKET *)malloc(sizeof *box);
+        if (!box) { closesocket(c); continue; }
+        *box = c;
+        h = CreateThread(NULL, 0, atender_hilo, box, 0, NULL);
+        if (!h) { atender(c); free(box); }
+        else CloseHandle(h);
     }
     closesocket(srv);
     {

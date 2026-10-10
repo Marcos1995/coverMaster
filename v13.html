@@ -155,7 +155,8 @@
     }
     .caja { width: 3.4rem !important; text-align: center; }
     #premio { width: 18rem !important; max-width: 100%; text-align: left; font-variant-numeric: tabular-nums; }
-    #grupos, #incluir { width: 15rem !important; max-width: 100%; text-align: left; }
+    #grupos, #incluir { display: block !important; width: 16rem !important; max-width: 100%; margin-top: .2rem; text-align: left; }
+    #rotulo-numeros, #rotulo-filtros { font-size: 15px; font-weight: 700; }
     @media (max-width: 720px) {
       #zona { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) minmax(12rem, 1fr); }
     }
@@ -275,12 +276,12 @@
 <div id="zona" class="flex-1 min-h-0 grid grid-cols-[auto_minmax(0,1fr)] gap-2 px-2 pb-2">
 <section class="min-h-0 overflow-y-auto">
 <div class="flex items-center justify-between mb-1">
-<span class="text-[12px] font-bold">Números</span>
+<span id="rotulo-numeros">Números</span>
 <span id="counter-badge" class="text-[10px] bg-surface-container-high px-1 rounded font-bold">0</span>
 </div>
 <div id="loto-grid" class="grid"></div>
-<button id="panel-filtros" type="button" class="mt-1 text-[11px] font-semibold text-on-surface-variant" aria-expanded="false">Filtros</button>
-<div id="content-filtros" class="hidden text-[11px] space-y-0.5 mt-1">
+<p id="rotulo-filtros" class="mt-1 mb-0">Filtros</p>
+<div id="content-filtros" class="text-[11px] space-y-0.5 mt-1">
 <label class="flex items-center gap-1"><input type="checkbox" id="f-suma"> Sumas <input id="suma0" placeholder="mín" aria-label="Suma mínima" class="caja bg-surface-container rounded"> <input id="suma1" placeholder="máx" aria-label="Suma máxima" class="caja bg-surface-container rounded"></label>
 <label class="flex items-center gap-1"><input type="checkbox" id="f-pares"> Pares <input id="pares0" placeholder="mín" aria-label="Pares mínimo" class="caja bg-surface-container rounded"> <input id="pares1" placeholder="máx" aria-label="Pares máximo" class="caja bg-surface-container rounded"></label>
 <label class="flex items-center gap-1"><input type="checkbox" id="f-bajos"> Bajos <input id="bajos0" placeholder="mín" aria-label="Bajos mínimo" class="caja bg-surface-container rounded"> <input id="bajos1" placeholder="máx" aria-label="Bajos máximo" class="caja bg-surface-container rounded"></label>
@@ -319,7 +320,7 @@
 <h3>El resto de acciones</h3>
 <p>Garantías dice qué premios cubre la lista. Análisis la reparte. Validar comprueba que cumple la garantía. Estadísticas resume sumas, pares y el resto. Cargar abre un archivo de apuestas. Guardar escribe el sistema propio. Usar récord carga la reducida conocida (la de Lotoideas, si existe para esa base). Mejorar récord intenta superarla.</p>
 <h3>Filtros</h3>
-<p>Van cerrados. Ábrelos solo si quieres acotar. La casilla activa el filtro. Mín y máx son los límites: sumas de la apuesta, cantidad de pares, de bajos (la mitad baja del bombo), de distancias, de seguidos, de decenas distintas y de terminaciones. Grupos lleva números, un mínimo y un máximo de aciertos, separados por punto y coma. Apuestas condicionadas fuerza combinaciones que tienen que salir.</p>
+<p>Están siempre a la vista y no se cierran. La casilla activa el filtro. Mín y máx son los límites: sumas de la apuesta, cantidad de pares, de bajos (la mitad baja del bombo), de distancias, de seguidos, de decenas distintas y de terminaciones. Si el mínimo o el máximo se dejan vacíos, ese lado no limita. Grupos va en su recuadro, una línea por grupo: números, un mínimo y un máximo de aciertos, separados por punto y coma. Debajo, Apuestas condicionadas: números que tienen que salir en cada apuesta.</p>
 <h3>Registro</h3>
 <p>El recuadro verde es lo que va haciendo el programa. Cada acción nueva empieza bajo una raya, para separar la anterior. Limpiar vacía ese registro. La página no se desplaza: si el texto no cabe, se mueve solo dentro del registro.</p>
 <form method="dialog"><button type="submit" class="mt-2 bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Cerrar</button></form>
@@ -417,11 +418,6 @@
         try { localStorage.setItem("loto-tema", siguiente); } catch (e) {}
         aplicarTema(siguiente);
       });
-      document.getElementById("panel-filtros").addEventListener("click", function () {
-        var panel = document.getElementById("content-filtros");
-        var abierto = panel.classList.toggle("hidden") === false;
-        document.getElementById("panel-filtros").setAttribute("aria-expanded", abierto ? "true" : "false");
-      });
       document.getElementById("ayuda").addEventListener("click", function () {
         var dlg = document.getElementById("ayuda-dlg");
         dlg.showModal();
@@ -472,15 +468,20 @@
         aviso("Programa", "El cálculo corre al abrir LottoOptimizerV3_13.");
       }
       async function llamar(nombre) {
+        if (!nombre) return;
         if (!window.pywebview || !window.pywebview.api) { sinPrograma(); return; }
-        var r = await window.pywebview.api[nombre](leer());
-        if (r && r.ok === false && r.error) aviso("Error", r.error);
+        try {
+          var r = await window.pywebview.api[nombre](leer());
+          if (r && r.ok === false && r.error) aviso("Error", r.error);
+        } catch (e) {
+          aviso("Error", "No llega la respuesta del programa.");
+        }
       }
       document.getElementById("calcular").addEventListener("click", function () { llamar("calcular"); });
       document.getElementById("parar").addEventListener("click", function () { llamar("parar"); });
       document.getElementById("revisar-botones").addEventListener("click", function (ev) {
         var btn = ev.target.closest("button");
-        if (!btn) return;
+        if (!btn || !btn.getAttribute("data-accion")) return;
         llamar(btn.getAttribute("data-accion"));
       });
       window.addEventListener("pywebviewready", function () {

@@ -4,6 +4,71 @@
   "graph": {},
   "nodes": [
     {
+      "id": "lottooptimizerv3_10_bitutils",
+      "label": "BitUtils",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "bitutils",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L88"
+    },
+    {
+      "id": "lottooptimizerv3_10_condiciongrupo",
+      "label": "CondicionGrupo",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "condiciongrupo",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L68"
+    },
+    {
+      "id": "lottooptimizerv3_11_bitutils",
+      "label": "BitUtils",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "bitutils",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L154"
+    },
+    {
+      "id": "lottooptimizerv3_11_condiciongrupo",
+      "label": "CondicionGrupo",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "condiciongrupo",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L68"
+    },
+    {
+      "id": "lottooptimizerv3_11_configuracion",
+      "label": "Configuracion",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "configuracion",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L142"
+    },
+    {
       "id": "lottooptimizerv3_11_filtros",
       "label": "Filtros",
       "_callable": true,
@@ -14,6 +79,32 @@
       "file_type": "code",
       "norm_label": "filtros",
       "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L79"
+    },
+    {
+      "id": "lottooptimizerv3_11_motormutaciones",
+      "label": "MotorMutaciones",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "motormutaciones",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L187"
+    },
+    {
+      "id": "lottooptimizerv3_10_configuracion",
+      "label": "Configuracion",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": "configuracion",
+      "source_file": "LottoOptimizerV3_10.py",
       "source_location": "L79"
     },
     {
@@ -30,17 +121,17 @@
       "source_location": "L136"
     },
     {
-      "id": "lottooptimizerv3_11_configuracion",
-      "label": "Configuracion",
+      "id": "lottooptimizerv3_10_motormutaciones",
+      "label": "MotorMutaciones",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 19,
+      "community": 1,
       "community_name": "LottoOptimizerV3",
       "file_type": "code",
-      "norm_label": "configuracion",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L142"
+      "norm_label": "motormutaciones",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L121"
     },
     {
       "id": "lottooptimizerv3_11_lottooptimizerv3",
@@ -56,95 +147,196 @@
       "source_location": "L202"
     },
     {
-      "id": "lottooptimizerv3_11_motormutaciones",
-      "label": "MotorMutaciones",
+      "id": "lottooptimizerv3_10_analizar_entrada_numeros",
+      "label": "analizar_entrada_numeros()",
       "_callable": true,
-      "_callable_class": true,
       "_origin": "ast",
-      "community": 19,
-      "community_name": "LottoOptimizerV3",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
       "file_type": "code",
-      "norm_label": "motormutaciones",
+      "norm_label": "analizar_entrada_numeros()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L18"
+    },
+    {
+      "id": "lottooptimizerv3_10_bitutils_bits_a_lista",
+      "label": ".bits_a_lista()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": ".bits_a_lista()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L103"
+    },
+    {
+      "id": "lottooptimizerv3_10_bitutils_contar_coincidencias",
+      "label": ".contar_coincidencias()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": ".contar_coincidencias()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L113"
+    },
+    {
+      "id": "lottooptimizerv3_10_bitutils_lista_a_bits",
+      "label": ".lista_a_bits()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": ".lista_a_bits()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L93"
+    },
+    {
+      "id": "lottooptimizerv3_10_condiciongrupo_post_init",
+      "label": ".__post_init__()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": ".__post_init__()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L74"
+    },
+    {
+      "id": "lottooptimizerv3_10_configurar_consola",
+      "label": "configurar_consola()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "configurar_consola()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L44"
+    },
+    {
+      "id": "lottooptimizerv3_10_grupos_desde_texto",
+      "label": "_grupos_desde_texto()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "_grupos_desde_texto()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L775"
+    },
+    {
+      "id": "lottooptimizerv3_10_leer_entero",
+      "label": "leer_entero()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "leer_entero()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L36"
+    },
+    {
+      "id": "lottooptimizerv3_10_leer_grupos",
+      "label": "leer_grupos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "leer_grupos()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L349"
+    },
+    {
+      "id": "lottooptimizerv3_10_leer_parametros",
+      "label": "leer_parametros()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "leer_parametros()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L327"
+    },
+    {
+      "id": "lottooptimizerv3_10_limpiar_pantalla",
+      "label": "limpiar_pantalla()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "limpiar_pantalla()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L32"
+    },
+    {
+      "id": "lottooptimizerv3_10_main",
+      "label": "main()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "main()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L720"
+    },
+    {
+      "id": "lottooptimizerv3_10_main_gui_mapear",
+      "label": "mapear()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "mapear()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L982"
+    },
+    {
+      "id": "lottooptimizerv3_10_personalizar_archivo",
+      "label": "personalizar_archivo()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "personalizar_archivo()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L705"
+    },
+    {
+      "id": "lottooptimizerv3_10_preguntar_reducida",
+      "label": "preguntar_reducida()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "preguntar_reducida()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L697"
+    },
+    {
+      "id": "lottooptimizerv3_11_analizar_entrada_numeros",
+      "label": "analizar_entrada_numeros()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "analizar_entrada_numeros()",
       "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L187"
-    },
-    {
-      "id": "lottooptimizerv3_10_condiciongrupo",
-      "label": "CondicionGrupo",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "condiciongrupo",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L68"
-    },
-    {
-      "id": "lottooptimizerv3_10_configuracion",
-      "label": "Configuracion",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "Configuracion",
-      "file_type": "code",
-      "norm_label": "configuracion",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L79"
-    },
-    {
-      "id": "lottooptimizerv3_10_motormutaciones",
-      "label": "MotorMutaciones",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "Configuracion",
-      "file_type": "code",
-      "norm_label": "motormutaciones",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L121"
-    },
-    {
-      "id": "lottooptimizerv3_10_bitutils",
-      "label": "BitUtils",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "BitUtils",
-      "file_type": "code",
-      "norm_label": "bitutils",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L88"
-    },
-    {
-      "id": "lottooptimizerv3_11_bitutils",
-      "label": "BitUtils",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "BitUtils",
-      "file_type": "code",
-      "norm_label": "bitutils",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L154"
-    },
-    {
-      "id": "lottooptimizerv3_11_condiciongrupo",
-      "label": "CondicionGrupo",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "condiciongrupo",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L68"
+      "source_location": "L18"
     },
     {
       "id": "lottooptimizerv3_11_apuesta_pasa_filtros",
@@ -159,6 +351,78 @@
       "source_location": "L94"
     },
     {
+      "id": "lottooptimizerv3_11_bitutils_bits_a_lista",
+      "label": ".bits_a_lista()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": ".bits_a_lista()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L169"
+    },
+    {
+      "id": "lottooptimizerv3_11_bitutils_contar_coincidencias",
+      "label": ".contar_coincidencias()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": ".contar_coincidencias()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L179"
+    },
+    {
+      "id": "lottooptimizerv3_11_bitutils_lista_a_bits",
+      "label": ".lista_a_bits()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": ".lista_a_bits()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L159"
+    },
+    {
+      "id": "lottooptimizerv3_11_condiciongrupo_post_init",
+      "label": ".__post_init__()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": ".__post_init__()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L74"
+    },
+    {
+      "id": "lottooptimizerv3_11_configurar_consola",
+      "label": "configurar_consola()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "configurar_consola()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L44"
+    },
+    {
+      "id": "lottooptimizerv3_11_descargar_reducida_lotoideas",
+      "label": "descargar_reducida_lotoideas()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "descargar_reducida_lotoideas()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L748"
+    },
+    {
       "id": "lottooptimizerv3_11_entero_ui",
       "label": "_entero_ui()",
       "_callable": true,
@@ -169,6 +433,18 @@
       "norm_label": "_entero_ui()",
       "source_file": "LottoOptimizerV3_11.py",
       "source_location": "L987"
+    },
+    {
+      "id": "lottooptimizerv3_11_escrutar_apuestas",
+      "label": "escrutar_apuestas()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "escrutar_apuestas()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L888"
     },
     {
       "id": "lottooptimizerv3_11_filtros_desde_ui",
@@ -195,6 +471,162 @@
       "source_location": "L999"
     },
     {
+      "id": "lottooptimizerv3_11_grupos_desde_texto",
+      "label": "_grupos_desde_texto()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "_grupos_desde_texto()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L850"
+    },
+    {
+      "id": "lottooptimizerv3_11_grupos_traducidos",
+      "label": "grupos_traducidos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "grupos_traducidos()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L870"
+    },
+    {
+      "id": "lottooptimizerv3_11_leer_entero",
+      "label": "leer_entero()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "leer_entero()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L36"
+    },
+    {
+      "id": "lottooptimizerv3_11_leer_grupos",
+      "label": "leer_grupos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "leer_grupos()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L424"
+    },
+    {
+      "id": "lottooptimizerv3_11_leer_parametros",
+      "label": "leer_parametros()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "leer_parametros()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L402"
+    },
+    {
+      "id": "lottooptimizerv3_11_lottooptimizerv3_init",
+      "label": ".__init__()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": ".__init__()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L203"
+    },
+    {
+      "id": "lottooptimizerv3_11_main",
+      "label": "main()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "main()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L795"
+    },
+    {
+      "id": "lottooptimizerv3_11_motormutaciones_init",
+      "label": ".__init__()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": ".__init__()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L188"
+    },
+    {
+      "id": "lottooptimizerv3_11_motormutaciones_mutar",
+      "label": ".mutar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": ".mutar()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L191"
+    },
+    {
+      "id": "lottooptimizerv3_11_personalizar_archivo",
+      "label": "personalizar_archivo()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "personalizar_archivo()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L780"
+    },
+    {
+      "id": "lottooptimizerv3_11_preguntar_reducida",
+      "label": "preguntar_reducida()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "preguntar_reducida()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L772"
+    },
+    {
+      "id": "lottooptimizerv3_11_texto_escrutinio",
+      "label": "texto_escrutinio()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "texto_escrutinio()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L897"
+    },
+    {
+      "id": "lottooptimizerv3_11_texto_estadisticas",
+      "label": "texto_estadisticas()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LottoOptimizerV3_11.py",
+      "file_type": "code",
+      "norm_label": "texto_estadisticas()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L924"
+    },
+    {
       "id": "lottooptimizerv3_11_texto_validacion",
       "label": "texto_validacion()",
       "_callable": true,
@@ -205,6 +637,42 @@
       "norm_label": "texto_validacion()",
       "source_file": "LottoOptimizerV3_11.py",
       "source_location": "L949"
+    },
+    {
+      "id": "lottooptimizerv3_10_descargar_reducida_lotoideas",
+      "label": "descargar_reducida_lotoideas()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": "descargar_reducida_lotoideas()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L673"
+    },
+    {
+      "id": "lottooptimizerv3_10_escribir_apuestas",
+      "label": "escribir_apuestas()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": "escribir_apuestas()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L53"
+    },
+    {
+      "id": "lottooptimizerv3_10_leer_enteros_gui",
+      "label": "_leer_enteros_gui()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": "_leer_enteros_gui()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L795"
     },
     {
       "id": "lottooptimizerv3_10_lottooptimizerv3_agregar_apuesta",
@@ -303,6 +771,18 @@
       "source_location": "L202"
     },
     {
+      "id": "lottooptimizerv3_10_lottooptimizerv3_guardar_mejor_record",
+      "label": ".guardar_mejor_record()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": ".guardar_mejor_record()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L302"
+    },
+    {
       "id": "lottooptimizerv3_10_lottooptimizerv3_indices_afectados",
       "label": "._indices_afectados()",
       "_callable": true,
@@ -313,6 +793,18 @@
       "norm_label": "._indices_afectados()",
       "source_file": "LottoOptimizerV3_10.py",
       "source_location": "L177"
+    },
+    {
+      "id": "lottooptimizerv3_10_lottooptimizerv3_init",
+      "label": ".__init__()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": ".__init__()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L137"
     },
     {
       "id": "lottooptimizerv3_10_lottooptimizerv3_num_apuestas",
@@ -363,6 +855,138 @@
       "source_location": "L253"
     },
     {
+      "id": "lottooptimizerv3_10_main_gui",
+      "label": "main_gui()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": "main_gui()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L813"
+    },
+    {
+      "id": "lottooptimizerv3_10_main_gui_aviso_record",
+      "label": "aviso_record()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": "aviso_record()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L881"
+    },
+    {
+      "id": "lottooptimizerv3_10_main_gui_escribir_log",
+      "label": "escribir_log()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": "escribir_log()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L909"
+    },
+    {
+      "id": "lottooptimizerv3_10_main_gui_flush",
+      "label": "flush()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": "flush()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L831"
+    },
+    {
+      "id": "lottooptimizerv3_10_main_gui_lanzar",
+      "label": "lanzar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": "lanzar()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L926"
+    },
+    {
+      "id": "lottooptimizerv3_10_main_gui_lanzar_trabajo",
+      "label": "trabajo()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": "trabajo()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L943"
+    },
+    {
+      "id": "lottooptimizerv3_10_main_gui_ocupado",
+      "label": "ocupado()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": "ocupado()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L919"
+    },
+    {
+      "id": "lottooptimizerv3_10_main_gui_parar",
+      "label": "parar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": "parar()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L977"
+    },
+    {
+      "id": "lottooptimizerv3_10_main_gui_write",
+      "label": "write()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": "write()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L826"
+    },
+    {
+      "id": "lottooptimizerv3_10_motormutaciones_init",
+      "label": ".__init__()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": ".__init__()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L122"
+    },
+    {
+      "id": "lottooptimizerv3_10_motormutaciones_mutar",
+      "label": ".mutar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": ".mutar()",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L125"
+    },
+    {
       "id": "lottooptimizerv3_13_abrir_ventana",
       "label": "abrir_ventana()",
       "_callable": true,
@@ -372,7 +996,7 @@
       "file_type": "code",
       "norm_label": "abrir_ventana()",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1618"
+      "source_location": "L1634"
     },
     {
       "id": "lottooptimizerv3_13_acaba_txt",
@@ -456,7 +1080,19 @@
       "file_type": "code",
       "norm_label": "atender()",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1565"
+      "source_location": "L1581"
+    },
+    {
+      "id": "lottooptimizerv3_13_atender_hilo",
+      "label": "atender_hilo()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
+      "file_type": "code",
+      "norm_label": "atender_hilo()",
+      "source_file": "LottoOptimizerV3_13.c",
+      "source_location": "L1574"
     },
     {
       "id": "lottooptimizerv3_13_bench",
@@ -468,7 +1104,7 @@
       "file_type": "code",
       "norm_label": "bench()",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1683"
+      "source_location": "L1706"
     },
     {
       "id": "lottooptimizerv3_13_buscar_navegador",
@@ -480,7 +1116,7 @@
       "file_type": "code",
       "norm_label": "buscar_navegador()",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1606"
+      "source_location": "L1622"
     },
     {
       "id": "lottooptimizerv3_13_buscar_url",
@@ -684,7 +1320,7 @@
       "file_type": "code",
       "norm_label": "ir_al_exe()",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1721"
+      "source_location": "L1744"
     },
     {
       "id": "lottooptimizerv3_13_json_bool",
@@ -828,7 +1464,7 @@
       "file_type": "code",
       "norm_label": "main()",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1728"
+      "source_location": "L1751"
     },
     {
       "id": "lottooptimizerv3_13_mapear",
@@ -1116,7 +1752,7 @@
       "file_type": "code",
       "norm_label": "servir()",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1639"
+      "source_location": "L1655"
     },
     {
       "id": "lottooptimizerv3_13_servir_html",
@@ -1335,6 +1971,18 @@
       "source_location": "L274"
     },
     {
+      "id": "lottooptimizerv3_11_lottooptimizerv3_guardar_mejor_record",
+      "label": ".guardar_mejor_record()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "code",
+      "norm_label": ".guardar_mejor_record()",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L377"
+    },
+    {
       "id": "lottooptimizerv3_11_lottooptimizerv3_indices_afectados",
       "label": "._indices_afectados()",
       "_callable": true,
@@ -1345,18 +1993,6 @@
       "norm_label": "._indices_afectados()",
       "source_file": "LottoOptimizerV3_11.py",
       "source_location": "L249"
-    },
-    {
-      "id": "lottooptimizerv3_11_lottooptimizerv3_init",
-      "label": ".__init__()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "LottoOptimizerV3",
-      "file_type": "code",
-      "norm_label": ".__init__()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L203"
     },
     {
       "id": "lottooptimizerv3_11_lottooptimizerv3_num_apuestas",
@@ -1405,186 +2041,6 @@
       "norm_label": "._pintar_ciclo()",
       "source_file": "LottoOptimizerV3_11.py",
       "source_location": "L325"
-    },
-    {
-      "id": "lottooptimizerv3_11_motormutaciones_init",
-      "label": ".__init__()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "LottoOptimizerV3",
-      "file_type": "code",
-      "norm_label": ".__init__()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L188"
-    },
-    {
-      "id": "lottooptimizerv3_11_motormutaciones_mutar",
-      "label": ".mutar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "LottoOptimizerV3",
-      "file_type": "code",
-      "norm_label": ".mutar()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L191"
-    },
-    {
-      "id": "lottooptimizerv3_10_condiciongrupo_post_init",
-      "label": ".__post_init__()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": ".__post_init__()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L74"
-    },
-    {
-      "id": "lottooptimizerv3_10_descargar_reducida_lotoideas",
-      "label": "descargar_reducida_lotoideas()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "descargar_reducida_lotoideas()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L673"
-    },
-    {
-      "id": "lottooptimizerv3_10_grupos_desde_texto",
-      "label": "_grupos_desde_texto()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "_grupos_desde_texto()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L775"
-    },
-    {
-      "id": "lottooptimizerv3_10_leer_enteros_gui",
-      "label": "_leer_enteros_gui()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "_leer_enteros_gui()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L795"
-    },
-    {
-      "id": "lottooptimizerv3_10_main_gui",
-      "label": "main_gui()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "main_gui()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L813"
-    },
-    {
-      "id": "lottooptimizerv3_10_main_gui_aviso_record",
-      "label": "aviso_record()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "aviso_record()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L881"
-    },
-    {
-      "id": "lottooptimizerv3_10_main_gui_escribir_log",
-      "label": "escribir_log()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "escribir_log()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L909"
-    },
-    {
-      "id": "lottooptimizerv3_10_main_gui_flush",
-      "label": "flush()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "flush()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L831"
-    },
-    {
-      "id": "lottooptimizerv3_10_main_gui_lanzar",
-      "label": "lanzar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "lanzar()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L926"
-    },
-    {
-      "id": "lottooptimizerv3_10_main_gui_lanzar_trabajo",
-      "label": "trabajo()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "trabajo()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L943"
-    },
-    {
-      "id": "lottooptimizerv3_10_main_gui_ocupado",
-      "label": "ocupado()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "ocupado()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L919"
-    },
-    {
-      "id": "lottooptimizerv3_10_main_gui_parar",
-      "label": "parar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "parar()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L977"
-    },
-    {
-      "id": "lottooptimizerv3_10_main_gui_write",
-      "label": "write()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "write()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L826"
     },
     {
       "id": "lottooptimizerv3_12_abrir_ventana",
@@ -2427,294 +2883,6 @@
       "source_location": "L535"
     },
     {
-      "id": "lottooptimizerv3_10_analizar_entrada_numeros",
-      "label": "analizar_entrada_numeros()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "main",
-      "file_type": "code",
-      "norm_label": "analizar_entrada_numeros()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L18"
-    },
-    {
-      "id": "lottooptimizerv3_10_configurar_consola",
-      "label": "configurar_consola()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "main",
-      "file_type": "code",
-      "norm_label": "configurar_consola()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L44"
-    },
-    {
-      "id": "lottooptimizerv3_10_leer_entero",
-      "label": "leer_entero()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "main",
-      "file_type": "code",
-      "norm_label": "leer_entero()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L36"
-    },
-    {
-      "id": "lottooptimizerv3_10_leer_grupos",
-      "label": "leer_grupos()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "main",
-      "file_type": "code",
-      "norm_label": "leer_grupos()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L349"
-    },
-    {
-      "id": "lottooptimizerv3_10_leer_parametros",
-      "label": "leer_parametros()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "main",
-      "file_type": "code",
-      "norm_label": "leer_parametros()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L327"
-    },
-    {
-      "id": "lottooptimizerv3_10_limpiar_pantalla",
-      "label": "limpiar_pantalla()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "main",
-      "file_type": "code",
-      "norm_label": "limpiar_pantalla()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L32"
-    },
-    {
-      "id": "lottooptimizerv3_10_main",
-      "label": "main()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "main",
-      "file_type": "code",
-      "norm_label": "main()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L720"
-    },
-    {
-      "id": "lottooptimizerv3_10_main_gui_mapear",
-      "label": "mapear()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "main",
-      "file_type": "code",
-      "norm_label": "mapear()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L982"
-    },
-    {
-      "id": "lottooptimizerv3_10_personalizar_archivo",
-      "label": "personalizar_archivo()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "main",
-      "file_type": "code",
-      "norm_label": "personalizar_archivo()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L705"
-    },
-    {
-      "id": "lottooptimizerv3_10_preguntar_reducida",
-      "label": "preguntar_reducida()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "main",
-      "file_type": "code",
-      "norm_label": "preguntar_reducida()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L697"
-    },
-    {
-      "id": "lottooptimizerv3_10_lottooptimizerv3_init",
-      "label": ".__init__()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "Configuracion",
-      "file_type": "code",
-      "norm_label": ".__init__()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L137"
-    },
-    {
-      "id": "lottooptimizerv3_10_motormutaciones_init",
-      "label": ".__init__()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "Configuracion",
-      "file_type": "code",
-      "norm_label": ".__init__()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L122"
-    },
-    {
-      "id": "lottooptimizerv3_10_motormutaciones_mutar",
-      "label": ".mutar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 24,
-      "community_name": "Configuracion",
-      "file_type": "code",
-      "norm_label": ".mutar()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L125"
-    },
-    {
-      "id": "lottooptimizerv3_10_bitutils_bits_a_lista",
-      "label": ".bits_a_lista()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "BitUtils",
-      "file_type": "code",
-      "norm_label": ".bits_a_lista()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L103"
-    },
-    {
-      "id": "lottooptimizerv3_10_bitutils_contar_coincidencias",
-      "label": ".contar_coincidencias()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "BitUtils",
-      "file_type": "code",
-      "norm_label": ".contar_coincidencias()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L113"
-    },
-    {
-      "id": "lottooptimizerv3_10_bitutils_lista_a_bits",
-      "label": ".lista_a_bits()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "BitUtils",
-      "file_type": "code",
-      "norm_label": ".lista_a_bits()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L93"
-    },
-    {
-      "id": "lottooptimizerv3_11_bitutils_bits_a_lista",
-      "label": ".bits_a_lista()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "BitUtils",
-      "file_type": "code",
-      "norm_label": ".bits_a_lista()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L169"
-    },
-    {
-      "id": "lottooptimizerv3_11_bitutils_contar_coincidencias",
-      "label": ".contar_coincidencias()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "BitUtils",
-      "file_type": "code",
-      "norm_label": ".contar_coincidencias()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L179"
-    },
-    {
-      "id": "lottooptimizerv3_11_bitutils_lista_a_bits",
-      "label": ".lista_a_bits()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "BitUtils",
-      "file_type": "code",
-      "norm_label": ".lista_a_bits()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L159"
-    },
-    {
-      "id": "lottooptimizerv3_10_escribir_apuestas",
-      "label": "escribir_apuestas()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "escribir_apuestas",
-      "file_type": "code",
-      "norm_label": "escribir_apuestas()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L53"
-    },
-    {
-      "id": "lottooptimizerv3_10_lottooptimizerv3_guardar_mejor_record",
-      "label": ".guardar_mejor_record()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "escribir_apuestas",
-      "file_type": "code",
-      "norm_label": ".guardar_mejor_record()",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L302"
-    },
-    {
-      "id": "lottooptimizerv3_11_analizar_entrada_numeros",
-      "label": "analizar_entrada_numeros()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "analizar_entrada_numeros()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L18"
-    },
-    {
-      "id": "lottooptimizerv3_11_condiciongrupo_post_init",
-      "label": ".__post_init__()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": ".__post_init__()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L74"
-    },
-    {
-      "id": "lottooptimizerv3_11_configurar_consola",
-      "label": "configurar_consola()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "configurar_consola()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L44"
-    },
-    {
       "id": "lottooptimizerv3_11_datos_desde_ui",
       "label": "datos_desde_ui()",
       "_callable": true,
@@ -2727,18 +2895,6 @@
       "source_location": "L1021"
     },
     {
-      "id": "lottooptimizerv3_11_descargar_reducida_lotoideas",
-      "label": "descargar_reducida_lotoideas()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "descargar_reducida_lotoideas()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L748"
-    },
-    {
       "id": "lottooptimizerv3_11_escribir_apuestas",
       "label": "escribir_apuestas()",
       "_callable": true,
@@ -2749,102 +2905,6 @@
       "norm_label": "escribir_apuestas()",
       "source_file": "LottoOptimizerV3_11.py",
       "source_location": "L53"
-    },
-    {
-      "id": "lottooptimizerv3_11_escrutar_apuestas",
-      "label": "escrutar_apuestas()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "escrutar_apuestas()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L888"
-    },
-    {
-      "id": "lottooptimizerv3_11_grupos_desde_texto",
-      "label": "_grupos_desde_texto()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "_grupos_desde_texto()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L850"
-    },
-    {
-      "id": "lottooptimizerv3_11_grupos_traducidos",
-      "label": "grupos_traducidos()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "grupos_traducidos()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L870"
-    },
-    {
-      "id": "lottooptimizerv3_11_leer_entero",
-      "label": "leer_entero()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "leer_entero()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L36"
-    },
-    {
-      "id": "lottooptimizerv3_11_leer_grupos",
-      "label": "leer_grupos()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "leer_grupos()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L424"
-    },
-    {
-      "id": "lottooptimizerv3_11_leer_parametros",
-      "label": "leer_parametros()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "leer_parametros()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L402"
-    },
-    {
-      "id": "lottooptimizerv3_11_lottooptimizerv3_guardar_mejor_record",
-      "label": ".guardar_mejor_record()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": ".guardar_mejor_record()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L377"
-    },
-    {
-      "id": "lottooptimizerv3_11_main",
-      "label": "main()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "main()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L795"
     },
     {
       "id": "lottooptimizerv3_11_main_gui",
@@ -3135,18 +3195,6 @@
       "source_location": "L1068"
     },
     {
-      "id": "lottooptimizerv3_11_personalizar_archivo",
-      "label": "personalizar_archivo()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "personalizar_archivo()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L780"
-    },
-    {
       "id": "lottooptimizerv3_11_porcentaje",
       "label": "_porcentaje()",
       "_callable": true,
@@ -3159,18 +3207,6 @@
       "source_location": "L1056"
     },
     {
-      "id": "lottooptimizerv3_11_preguntar_reducida",
-      "label": "preguntar_reducida()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "preguntar_reducida()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L772"
-    },
-    {
       "id": "lottooptimizerv3_11_texto_analisis",
       "label": "texto_analisis()",
       "_callable": true,
@@ -3181,30 +3217,6 @@
       "norm_label": "texto_analisis()",
       "source_file": "LottoOptimizerV3_11.py",
       "source_location": "L904"
-    },
-    {
-      "id": "lottooptimizerv3_11_texto_escrutinio",
-      "label": "texto_escrutinio()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "texto_escrutinio()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L897"
-    },
-    {
-      "id": "lottooptimizerv3_11_texto_estadisticas",
-      "label": "texto_estadisticas()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "code",
-      "norm_label": "texto_estadisticas()",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L924"
     },
     {
       "id": "lottooptimizerv3_10",
@@ -3249,6 +3261,17 @@
       "norm_label": "lotto optimizer v3.11 - pantalla limpia y guardado exclusivo del mejor record...",
       "source_file": "LottoOptimizerV3_11.py",
       "source_location": "L1"
+    },
+    {
+      "id": "lottooptimizerv3_10_rationale_303",
+      "label": "Guarda exclusivamente un \u00fanico archivo con el mejor r\u00e9cord absoluto de la sesi\u00f3n",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "rationale",
+      "norm_label": "guarda exclusivamente un unico archivo con el mejor record absoluto de la sesion",
+      "source_file": "LottoOptimizerV3_10.py",
+      "source_location": "L303"
     },
     {
       "id": "cursor_skills_jev_skill",
@@ -3642,6 +3665,17 @@
       "source_location": "L1"
     },
     {
+      "id": "lottooptimizerv3_11_rationale_378",
+      "label": "Guarda exclusivamente un \u00fanico archivo con el mejor r\u00e9cord absoluto de la sesi\u00f3n",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "LottoOptimizerV3",
+      "file_type": "rationale",
+      "norm_label": "guarda exclusivamente un unico archivo con el mejor record absoluto de la sesion",
+      "source_file": "LottoOptimizerV3_11.py",
+      "source_location": "L378"
+    },
+    {
       "id": "docs_lottooptimizerv3_10",
       "label": "LottoOptimizerV3_10.md",
       "_origin": "ast",
@@ -3980,17 +4014,6 @@
       "source_location": "L1"
     },
     {
-      "id": "lottooptimizerv3_10_rationale_303",
-      "label": "Guarda exclusivamente un \u00fanico archivo con el mejor r\u00e9cord absoluto de la sesi\u00f3n",
-      "_origin": "ast",
-      "community": 28,
-      "community_name": "escribir_apuestas",
-      "file_type": "rationale",
-      "norm_label": "guarda exclusivamente un unico archivo con el mejor record absoluto de la sesion",
-      "source_file": "LottoOptimizerV3_10.py",
-      "source_location": "L303"
-    },
-    {
       "id": "cursor_skills_debug_skill",
       "label": "debug/SKILL.md",
       "_origin": "ast",
@@ -4077,17 +4100,6 @@
       "norm_label": "red flags \u2192 back to step 1",
       "source_file": ".cursor/skills/debug/SKILL.md",
       "source_location": "L35"
-    },
-    {
-      "id": "lottooptimizerv3_11_rationale_378",
-      "label": "Guarda exclusivamente un \u00fanico archivo con el mejor r\u00e9cord absoluto de la sesi\u00f3n",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "main_gui",
-      "file_type": "rationale",
-      "norm_label": "guarda exclusivamente un unico archivo con el mejor record absoluto de la sesion",
-      "source_file": "LottoOptimizerV3_11.py",
-      "source_location": "L378"
     },
     {
       "id": "project",
@@ -4557,8 +4569,8 @@
       "id": "commdlg",
       "label": "commdlg",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "commdlg",
@@ -4569,8 +4581,8 @@
       "id": "ctype",
       "label": "ctype",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "ctype",
@@ -4581,8 +4593,8 @@
       "id": "limits",
       "label": "limits",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "limits",
@@ -4593,8 +4605,8 @@
       "id": "shellapi",
       "label": "shellapi",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "shellapi",
@@ -4605,8 +4617,8 @@
       "id": "stdint",
       "label": "stdint",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "stdint",
@@ -4617,8 +4629,8 @@
       "id": "stdio",
       "label": "stdio",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "stdio",
@@ -4629,8 +4641,8 @@
       "id": "stdlib",
       "label": "stdlib",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "stdlib",
@@ -4641,8 +4653,8 @@
       "id": "string",
       "label": "string",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "string",
@@ -4653,8 +4665,8 @@
       "id": "windows",
       "label": "windows",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "windows",
@@ -4665,8 +4677,8 @@
       "id": "winhttp",
       "label": "winhttp",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "winhttp",
@@ -4677,8 +4689,8 @@
       "id": "winsock2",
       "label": "winsock2",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "winsock2",
@@ -4689,8 +4701,8 @@
       "id": "ws2tcpip",
       "label": "ws2tcpip",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "ws2tcpip",
@@ -7756,7 +7768,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1630",
+      "source_location": "L1646",
       "weight": 1.0
     },
     {
@@ -8020,7 +8032,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1541",
+      "source_location": "L1548",
       "weight": 1.0
     },
     {
@@ -8032,7 +8044,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1553",
+      "source_location": "L1560",
       "weight": 1.0
     },
     {
@@ -8044,7 +8056,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1582",
+      "source_location": "L1598",
       "weight": 1.0
     },
     {
@@ -8056,7 +8068,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1596",
+      "source_location": "L1612",
       "weight": 1.0
     },
     {
@@ -8068,7 +8080,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1600",
+      "source_location": "L1616",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_13_atender_hilo",
+      "target": "lottooptimizerv3_13_atender",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_13.c",
+      "source_location": "L1576",
       "weight": 1.0
     },
     {
@@ -8080,7 +8104,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1690",
+      "source_location": "L1713",
       "weight": 1.0
     },
     {
@@ -8092,7 +8116,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1694",
+      "source_location": "L1717",
       "weight": 1.0
     },
     {
@@ -8104,7 +8128,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1696",
+      "source_location": "L1719",
       "weight": 1.0
     },
     {
@@ -8116,7 +8140,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1698",
+      "source_location": "L1721",
       "weight": 1.0
     },
     {
@@ -8128,7 +8152,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1699",
+      "source_location": "L1722",
       "weight": 1.0
     },
     {
@@ -8140,7 +8164,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1702",
+      "source_location": "L1725",
       "weight": 1.0
     },
     {
@@ -8152,7 +8176,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1711",
+      "source_location": "L1734",
       "weight": 1.0
     },
     {
@@ -8668,7 +8692,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1733",
+      "source_location": "L1756",
       "weight": 1.0
     },
     {
@@ -8680,7 +8704,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1735",
+      "source_location": "L1758",
       "weight": 1.0
     },
     {
@@ -8692,7 +8716,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1738",
+      "source_location": "L1761",
       "weight": 1.0
     },
     {
@@ -9112,7 +9136,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1663",
+      "source_location": "L1679",
       "weight": 1.0
     },
     {
@@ -9124,7 +9148,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1672",
+      "source_location": "L1694",
       "weight": 1.0
     },
     {
@@ -10360,7 +10384,19 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1565",
+      "source_location": "L1581",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_13_atender_hilo",
+      "target": "lottooptimizerv3_13_c_lpvoid",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "LottoOptimizerV3_13.c",
+      "source_location": "L1574",
       "weight": 1.0
     },
     {
@@ -10673,6 +10709,18 @@
       "context": "return_type",
       "source_file": "LottoOptimizerV3_12.c",
       "source_location": "L688",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_13_atender_hilo",
+      "target": "lottooptimizerv3_13_c_dword",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "source_file": "LottoOptimizerV3_13.c",
+      "source_location": "L1574",
       "weight": 1.0
     },
     {
@@ -13077,13 +13125,24 @@
     },
     {
       "source": "lottooptimizerv3_13",
+      "target": "lottooptimizerv3_13_atender_hilo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_13.c",
+      "source_location": "L1574",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_13",
       "target": "lottooptimizerv3_13_atender",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1565",
+      "source_location": "L1581",
       "weight": 1.0
     },
     {
@@ -13105,7 +13164,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1606",
+      "source_location": "L1622",
       "weight": 1.0
     },
     {
@@ -13116,7 +13175,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1618",
+      "source_location": "L1634",
       "weight": 1.0
     },
     {
@@ -13127,18 +13186,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1639",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_13",
-      "target": "lottooptimizerv3_13_bench",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1683",
+      "source_location": "L1655",
       "weight": 1.0
     },
     {
@@ -13154,24 +13202,24 @@
     },
     {
       "source": "lottooptimizerv3_13",
+      "target": "lottooptimizerv3_13_bench",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_13.c",
+      "source_location": "L1706",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_13",
       "target": "lottooptimizerv3_13_ir_al_exe",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1721",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_13",
-      "target": "lottooptimizerv3_13_main",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_13.c",
-      "source_location": "L1728",
+      "source_location": "L1744",
       "weight": 1.0
     },
     {
@@ -13183,6 +13231,17 @@
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_13.c",
       "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_13",
+      "target": "lottooptimizerv3_13_main",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_13.c",
+      "source_location": "L1751",
       "weight": 1.0
     },
     {
@@ -14291,5 +14350,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f1c91909063143f38ab4ed0744b9188a57ea988b"
+  "built_at_commit": "ec50bf73299a646605baa907ab46350fcf311b30"
 }
