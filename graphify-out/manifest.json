@@ -95,12 +95,6 @@
     "ast_hash": "edc69b72506ac6f6dad1f8d126ff59e5",
     "semantic_hash": ""
   },
-  "LOTTO_v8_k6_t5_100.0000pct_20261010_010048.txt": {
-    "mtime": 1791643371.0899248,
-    "seen": 1791643393.1144345,
-    "ast_hash": "9d3567dd251ec1883d7e8d14aee31d7e",
-    "semantic_hash": ""
-  },
   "docs/DECISIONES.md": {
     "mtime": 1791643038.6385279,
     "seen": 1791643393.1144345,
@@ -120,9 +114,9 @@
     "semantic_hash": ""
   },
   "LottoOptimizerV3_12.c": {
-    "mtime": 1791642862.9418192,
-    "seen": 1791643393.1144345,
-    "ast_hash": "3661bd658ee9c236409e4dec18be81df",
+    "mtime": 1791644580.8752325,
+    "seen": 1791644769.5105271,
+    "ast_hash": "9b2d464f6d4aeb0e0b8a72cb979ae904",
     "semantic_hash": ""
   },
   "reducidas.inc": {

@@ -849,57 +849,109 @@ static const char *buscar_url(int v, int k, int t, int m) {
     return NULL;
 }
 
+static void unir_ruta(wchar_t *dst, int cap, const wchar_t *path, const wchar_t *extra) {
+    int i = 0;
+    const wchar_t *ps;
+    for (ps = path; *ps && i < cap - 1; ps++) dst[i++] = *ps;
+    for (ps = extra; *ps && i < cap - 1; ps++) dst[i++] = *ps;
+    dst[i] = 0;
+}
+
 static int http_bajar(const char *url, unsigned char **out, int *nlen, char *err) {
-    wchar_t wurl[2048], host[256], path[1600], extra[600], full[2200];
-    URL_COMPONENTS uc;
-    HINTERNET ses = NULL, con = NULL, req = NULL;
+    char actual[2048];
     unsigned char *buf = NULL;
-    int n = 0, cap = 0, ok = 0;
-    DWORD flags, status = 0, sz;
+    int salto, n = 0, cap = 0, ok = 0;
     *out = NULL; *nlen = 0;
-    if (!MultiByteToWideChar(CP_UTF8, 0, url, -1, wurl, 2048)) { snprintf(err, 180, "url"); return 0; }
-    memset(&uc, 0, sizeof uc);
-    uc.dwStructSize = sizeof uc;
-    uc.lpszHostName = host; uc.dwHostNameLength = 256;
-    uc.lpszUrlPath = path; uc.dwUrlPathLength = 1600;
-    uc.lpszExtraInfo = extra; uc.dwExtraInfoLength = 600;
-    if (!WinHttpCrackUrl(wurl, 0, 0, &uc)) { snprintf(err, 180, "No se ha podido descargar la reducida."); return 0; }
-    ses = WinHttpOpen(L"Mozilla/5.0", WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, WINHTTP_NO_PROXY_NAME, WINHTTP_NO_PROXY_BYPASS, 0);
-    if (!ses) { snprintf(err, 180, "No se ha podido descargar la reducida."); return 0; }
-    WinHttpSetTimeouts(ses, 10000, 10000, 30000, 120000);
-    con = WinHttpConnect(ses, host, uc.nPort, 0);
-    if (!con) goto fin;
-    _snwprintf(full, 2200, L"%s%s", path, extra);
-    flags = (uc.nScheme == INTERNET_SCHEME_HTTPS) ? WINHTTP_FLAG_SECURE : 0;
-    req = WinHttpOpenRequest(con, L"GET", full, NULL, WINHTTP_NO_REFERER, WINHTTP_DEFAULT_ACCEPT_TYPES, flags);
-    if (!req || !WinHttpSendRequest(req, WINHTTP_NO_ADDITIONAL_HEADERS, 0, WINHTTP_NO_REQUEST_DATA, 0, 0, 0) || !WinHttpReceiveResponse(req, NULL))
-        goto fin;
-    sz = sizeof status;
-    WinHttpQueryHeaders(req, WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER, WINHTTP_HEADER_NAME_BY_INDEX, &status, &sz, WINHTTP_NO_HEADER_INDEX);
-    if (status != 200) { snprintf(err, 180, "No se ha podido descargar la reducida (%lu).", status); goto fin; }
-    for (;;) {
-        DWORD avail = 0, got = 0;
-        if (!WinHttpQueryDataAvailable(req, &avail) || !avail) break;
-        if (n + (int)avail > cap) {
-            int nc = cap ? cap * 2 : 65536;
-            unsigned char *nb;
-            while (nc < n + (int)avail) nc *= 2;
-            if (nc > 32 * 1024 * 1024) { snprintf(err, 180, "el zip es demasiado grande"); goto fin; }
-            nb = (unsigned char *)realloc(buf, (size_t)nc);
-            if (!nb) { snprintf(err, 180, "sin memoria"); goto fin; }
-            buf = nb; cap = nc;
+    snprintf(actual, sizeof actual, "%s", url);
+    for (salto = 0; salto < 5; salto++) {
+        wchar_t wurl[2048], host[300], path[1800], extra[800], full[2200], wloc[2048];
+        URL_COMPONENTS uc;
+        HINTERNET ses = NULL, con = NULL, req = NULL;
+        DWORD flags, status = 0, sz, pol;
+        char loc[2048];
+        int seguir = 0;
+        buf = NULL; n = 0; cap = 0;
+        if (!MultiByteToWideChar(CP_UTF8, 0, actual, -1, wurl, 2048)) { snprintf(err, 180, "url"); return 0; }
+        memset(&uc, 0, sizeof uc);
+        uc.dwStructSize = sizeof uc;
+        uc.lpszHostName = host; uc.dwHostNameLength = 299;
+        uc.lpszUrlPath = path; uc.dwUrlPathLength = 1799;
+        uc.lpszExtraInfo = extra; uc.dwExtraInfoLength = 799;
+        if (!WinHttpCrackUrl(wurl, 0, 0, &uc)) { snprintf(err, 180, "No se ha podido descargar la reducida."); return 0; }
+        if (uc.dwHostNameLength < 300) host[uc.dwHostNameLength] = 0;
+        if (uc.dwUrlPathLength < 1800) path[uc.dwUrlPathLength] = 0;
+        if (uc.dwExtraInfoLength < 800) extra[uc.dwExtraInfoLength] = 0;
+        ses = WinHttpOpen(L"Mozilla/5.0", WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, WINHTTP_NO_PROXY_NAME, WINHTTP_NO_PROXY_BYPASS, 0);
+        if (!ses) { snprintf(err, 180, "No se ha podido descargar la reducida."); return 0; }
+        WinHttpSetTimeouts(ses, 10000, 10000, 30000, 120000);
+        {
+            DWORD prot = WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2;
+            WinHttpSetOption(ses, WINHTTP_OPTION_SECURE_PROTOCOLS, &prot, sizeof prot);
         }
-        if (!WinHttpReadData(req, buf + n, avail, &got) || !got) break;
-        n += (int)got;
+        con = WinHttpConnect(ses, host, uc.nPort, 0);
+        if (!con) { WinHttpCloseHandle(ses); snprintf(err, 180, "No se ha podido descargar la reducida."); return 0; }
+        unir_ruta(full, 2200, path, extra);
+        flags = (uc.nScheme == INTERNET_SCHEME_HTTPS) ? WINHTTP_FLAG_SECURE : 0;
+        req = WinHttpOpenRequest(con, L"GET", full, NULL, WINHTTP_NO_REFERER, WINHTTP_DEFAULT_ACCEPT_TYPES, flags);
+        pol = WINHTTP_OPTION_REDIRECT_POLICY_NEVER;
+        if (req) WinHttpSetOption(req, WINHTTP_OPTION_REDIRECT_POLICY, &pol, sizeof pol);
+        if (!req || !WinHttpSendRequest(req, WINHTTP_NO_ADDITIONAL_HEADERS, 0, WINHTTP_NO_REQUEST_DATA, 0, 0, 0) || !WinHttpReceiveResponse(req, NULL)) {
+            if (req) WinHttpCloseHandle(req);
+            WinHttpCloseHandle(con); WinHttpCloseHandle(ses);
+            snprintf(err, 180, "No se ha podido descargar la reducida.");
+            return 0;
+        }
+        sz = sizeof status;
+        WinHttpQueryHeaders(req, WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER, WINHTTP_HEADER_NAME_BY_INDEX, &status, &sz, WINHTTP_NO_HEADER_INDEX);
+        if (status >= 300 && status < 400) {
+            sz = sizeof wloc;
+            if (WinHttpQueryHeaders(req, WINHTTP_QUERY_LOCATION, WINHTTP_HEADER_NAME_BY_INDEX, wloc, &sz, WINHTTP_NO_HEADER_INDEX)) {
+                WideCharToMultiByte(CP_UTF8, 0, wloc, -1, loc, sizeof loc, NULL, NULL);
+                if (strncmp(loc, "http", 4) == 0) { snprintf(actual, sizeof actual, "%s", loc); seguir = 1; }
+            }
+        }
+        if (seguir) {
+            WinHttpCloseHandle(req); WinHttpCloseHandle(con); WinHttpCloseHandle(ses);
+            continue;
+        }
+        if (status != 200) {
+            snprintf(err, 180, "No se ha podido descargar la reducida (%lu).", status);
+            WinHttpCloseHandle(req); WinHttpCloseHandle(con); WinHttpCloseHandle(ses);
+            return 0;
+        }
+        for (;;) {
+            DWORD avail = 0, got = 0;
+            if (!WinHttpQueryDataAvailable(req, &avail) || !avail) break;
+            if (n + (int)avail > cap) {
+                int nc = cap ? cap * 2 : 65536;
+                unsigned char *nb;
+                while (nc < n + (int)avail) nc *= 2;
+                if (nc > 32 * 1024 * 1024) {
+                    snprintf(err, 180, "el zip es demasiado grande");
+                    WinHttpCloseHandle(req); WinHttpCloseHandle(con); WinHttpCloseHandle(ses);
+                    free(buf);
+                    return 0;
+                }
+                nb = (unsigned char *)realloc(buf, (size_t)nc);
+                if (!nb) {
+                    snprintf(err, 180, "sin memoria");
+                    WinHttpCloseHandle(req); WinHttpCloseHandle(con); WinHttpCloseHandle(ses);
+                    free(buf);
+                    return 0;
+                }
+                buf = nb; cap = nc;
+            }
+            if (!WinHttpReadData(req, buf + n, avail, &got) || !got) break;
+            n += (int)got;
+        }
+        WinHttpCloseHandle(req); WinHttpCloseHandle(con); WinHttpCloseHandle(ses);
+        *out = buf; *nlen = n;
+        ok = n > 0;
+        if (!ok) snprintf(err, 180, "No se ha podido descargar la reducida.");
+        return ok;
     }
-    *out = buf; *nlen = n; buf = NULL; ok = n > 0;
-    if (!ok) snprintf(err, 180, "No se ha podido descargar la reducida.");
-fin:
-    if (req) WinHttpCloseHandle(req);
-    if (con) WinHttpCloseHandle(con);
-    if (ses) WinHttpCloseHandle(ses);
-    free(buf);
-    return ok;
+    snprintf(err, 180, "No se ha podido descargar la reducida.");
+    return 0;
 }
 
 static int acaba_txt(const char *s) {
@@ -1114,11 +1166,19 @@ static void texto_estadisticas(uint64_t *bets, int n) {
         if (num % 2 == 0) pares++; else impares++;
     }
     pos += snprintf(buf + pos, sizeof buf - pos, "Pares %d, impares %d\nPor decena: ", pares, impares);
-    for (i = 0; i < 8; i++) if (dec[i] && pos < (int)sizeof buf - 24)
-        pos += snprintf(buf + pos, sizeof buf - pos, "%s%d-%d:%d", pos > 30 ? ", " : "", i * 10 + 1, i * 10 + 10, dec[i]);
-    pos += snprintf(buf + pos, sizeof buf - pos, "\nPor terminación: ");
-    for (i = 0; i < 10; i++) if (fin[i] && pos < (int)sizeof buf - 16)
-        pos += snprintf(buf + pos, sizeof buf - pos, "%s%d:%d", i ? ", " : "", i, fin[i]);
+    {
+        int primero = 1;
+        for (i = 0; i < 8; i++) if (dec[i] && pos < (int)sizeof buf - 24) {
+            pos += snprintf(buf + pos, sizeof buf - pos, "%s%d-%d:%d", primero ? "" : ", ", i * 10 + 1, i * 10 + 10, dec[i]);
+            primero = 0;
+        }
+        primero = 1;
+        pos += snprintf(buf + pos, sizeof buf - pos, "\nPor terminación: ");
+        for (i = 0; i < 10; i++) if (fin[i] && pos < (int)sizeof buf - 16) {
+            pos += snprintf(buf + pos, sizeof buf - pos, "%s%d:%d", primero ? "" : ", ", i, fin[i]);
+            primero = 0;
+        }
+    }
     pos += snprintf(buf + pos, sizeof buf - pos, "\nFrecuencia:");
     for (num = 1; num <= MAXN && pos < (int)sizeof buf - 16; num++) if (freq[num])
         pos += snprintf(buf + pos, sizeof buf - pos, "\n  %02d  %d", num, freq[num]);
