@@ -128,6 +128,26 @@ static void anotar(const char *texto) {
     LeaveCriticalSection(&g_cs);
 }
 
+static void raya(void) {
+    const char *marca = "----------------";
+    EnterCriticalSection(&g_cs);
+    if (g_nlog > 0 && strcmp(g_log[g_nlog - 1], marca) != 0) {
+        if (g_nlog == LOGN) {
+            memmove(g_log, g_log + 1, (LOGN - 1) * 240);
+            g_nlog = LOGN - 1;
+        }
+        snprintf(g_log[g_nlog], 240, "%s", marca);
+        g_nlog++;
+    }
+    LeaveCriticalSection(&g_cs);
+}
+
+static void limpiar_log(void) {
+    EnterCriticalSection(&g_cs);
+    g_nlog = 0;
+    LeaveCriticalSection(&g_cs);
+}
+
 static void progreso(const char *linea, double cob) {
     EnterCriticalSection(&g_cs);
     snprintf(g_linea, sizeof g_linea, "%s", linea);
@@ -1444,6 +1464,12 @@ static void api_dispatch(SOCKET s, const char *body) {
         free(js);
         return;
     }
+    if (strcmp(nombre, "limpiar") == 0) {
+        limpiar_log();
+        responder_ok(s, 1, NULL);
+        return;
+    }
+    raya();
     if (strcmp(nombre, "parar") == 0) {
         InterlockedExchange(&g_parar, 1);
         anotar("Parar. Se guarda el mejor récord.");
