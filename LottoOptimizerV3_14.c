@@ -18,6 +18,7 @@
 
 #define MAXN 64
 #define UNIVERSO_DEF 50000
+#define MAX_SORTEOS 20000000
 #define LOGN 80
 
 typedef struct { int *idx; int n, cap; } Lista;
@@ -40,13 +41,14 @@ typedef struct {
     char url[600];
 } Job;
 typedef struct {
-    int v, k, t, m, filtro_v, universo_n, tiene_mapa, nap, cap, mejor_n, cubiertos, ngrupos;
+    int v, k, t, m, filtro_v, universo_n, tiene_mapa, nap, cap, mejor_n, cubiertos, ngrupos, exacto;
     int mapa[MAXN];
     uint64_t *universo, *ap, *mejor;
     int *conteos;
     unsigned *visto, sello;
     Lista por[MAXN + 1];
-    double temp, mejor_cob;
+    double temp, mejor_cob, cob_vista;
+    uint64_t total_sorteos;
     unsigned long long ciclos;
     Grupo grupos[32];
     Filtros filtros;
@@ -65,6 +67,8 @@ static volatile LONG g_parar, g_salir, g_ocupado;
 static char g_ahora[40] = "Listo";
 static char g_linea[240] = "Esperando. Calcular genera las apuestas.";
 static char g_cob[32] = "";
+static char g_nota[80] = "";
+static int g_exacto;
 static char g_log[LOGN][240];
 static int g_nlog, g_apuestas, g_v, g_k, g_t;
 static uint64_t *g_bets;
@@ -667,7 +671,14 @@ static int crecer(Opt *o) {
     return 1;
 }
 
+static int repetida(const Opt *o, uint64_t bits, int salvo) {
+    int i;
+    for (i = 0; i < o->nap; i++) if (i != salvo && o->ap[i] == bits) return 1;
+    return 0;
+}
+
 static int agregar(Opt *o, uint64_t bits) {
+    if (repetida(o, bits, -1)) return -1;
     if (!crecer(o)) return 0;
     o->ap[o->nap++] = bits;
     aplicar(o, bits, 1);
@@ -687,7 +698,7 @@ static void paso(Opt *o) {
     idx = (int)(rnd64() % (uint64_t)o->nap);
     antigua = o->ap[idx];
     nueva = mutar(o, antigua);
-    if (nueva != antigua && valida(o, nueva)) {
+    if (nueva != antigua && valida(o, nueva) && !repetida(o, nueva, idx)) {
         int g = ganancia(o, idx, nueva);
         int acepta = g > 0;
         if (!acepta && o->temp > 0.0001) {
@@ -722,6 +733,74 @@ static void opt_free(Opt *o) {
     free(o);
 }
 
+static uint64_t gcd_u(uint64_t a, uint64_t b) {
+    while (b) {
+        uint64_t t = a % b;
+        a = b;
+        b = t;
+    }
+    return a;
+}
+
+static uint64_t combinaciones(int n, int k) {
+    uint64_t r = 1;
+    int i;
+    if (k < 0 || n < 0 || k > n) return 0;
+    if (k > n - k) k = n - k;
+    for (i = 1; i <= k; i++) {
+        uint64_t num = (uint64_t)(n - k + i);
+        uint64_t den = (uint64_t)i;
+        uint64_t g = gcd_u(num, den);
+        num /= g;
+        den /= g;
+        g = gcd_u(r, den);
+        r /= g;
+        den /= g;
+        if (num && r > UINT64_MAX / num) return UINT64_MAX;
+        r *= num;
+        if (den > 1) r /= den;
+    }
+    return r;
+}
+
+static int llenar_sorteos(Opt *o) {
+    int c[MAXN], i, j, n = 0, m = o->m, v = o->v;
+    for (i = 0; i < m; i++) c[i] = i;
+    for (;;) {
+        uint64_t bits = 0;
+        if (n >= o->universo_n) return 0;
+        for (i = 0; i < m; i++) bits |= 1ull << c[i];
+        o->universo[n] = bits;
+        for (j = 0; j < m; j++) if (!lista_add(&o->por[c[j] + 1], n)) return 0;
+        n++;
+        for (i = m - 1; i >= 0 && c[i] == v - m + i; i--) ;
+        if (i < 0) break;
+        c[i]++;
+        for (j = i + 1; j < m; j++) c[j] = c[j - 1] + 1;
+    }
+    return n == o->universo_n;
+}
+
+static int reservar_universo(Opt *o, int U) {
+    int n;
+    o->universo_n = U;
+    o->universo = (uint64_t *)malloc((size_t)U * sizeof(uint64_t));
+    o->conteos = (int *)calloc((size_t)U, sizeof(int));
+    o->visto = (unsigned *)calloc((size_t)U, sizeof(unsigned));
+    if (!o->universo || !o->conteos || !o->visto) return 0;
+    if (o->exacto && o->m >= 1) {
+        uint64_t cada = combinaciones(o->v - 1, o->m - 1);
+        if (cada > (uint64_t)INT_MAX) return 0;
+        for (n = 1; n <= o->v; n++) {
+            int *p = (int *)malloc((size_t)cada * sizeof(int));
+            if (!p) return 0;
+            o->por[n].idx = p;
+            o->por[n].cap = (int)cada;
+        }
+    }
+    return 1;
+}
+
 static Opt *opt_nuevo(const Job *job) {
     Opt *o = (Opt *)calloc(1, sizeof *o);
     int U, i;
@@ -734,22 +813,75 @@ static Opt *opt_nuevo(const Job *job) {
     o->ngrupos = job->ngrupos;
     memcpy(o->grupos, job->grupos, sizeof o->grupos);
     o->temp = 1;
-    U = job->universo > 0 ? job->universo : UNIVERSO_DEF;
-    o->universo_n = U;
-    o->universo = (uint64_t *)malloc((size_t)U * sizeof(uint64_t));
-    o->conteos = (int *)calloc((size_t)U, sizeof(int));
-    o->visto = (unsigned *)calloc((size_t)U, sizeof(unsigned));
-    if (!o->universo || !o->conteos || !o->visto) { opt_free(o); return NULL; }
-    for (i = 0; i < U; i++) {
-        uint64_t s = muestra(o->v, o->m);
-        int n;
-        o->universo[i] = s;
-        for (n = 1; n <= o->v; n++) if (s & (1ull << (n - 1))) lista_add(&o->por[n], i);
+    o->cob_vista = -1;
+    o->total_sorteos = combinaciones(o->v, o->m);
+    o->exacto = o->total_sorteos > 0 && o->total_sorteos <= (uint64_t)MAX_SORTEOS
+        && o->total_sorteos <= (uint64_t)INT_MAX && o->m >= 1;
+    U = o->exacto ? (int)o->total_sorteos : UNIVERSO_DEF;
+    if (!reservar_universo(o, U)) {
+        if (!o->exacto) { opt_free(o); return NULL; }
+        opt_free(o);
+        o = (Opt *)calloc(1, sizeof *o);
+        if (!o) return NULL;
+        o->v = job->v; o->k = job->k; o->t = job->t; o->m = job->m;
+        o->filtro_v = job->nbase ? 49 : job->v;
+        o->tiene_mapa = job->nbase > 0;
+        if (o->tiene_mapa) memcpy(o->mapa, job->base, (size_t)job->nbase * sizeof(int));
+        o->filtros = job->filtros;
+        o->ngrupos = job->ngrupos;
+        memcpy(o->grupos, job->grupos, sizeof o->grupos);
+        o->temp = 1;
+        o->cob_vista = -1;
+        o->total_sorteos = combinaciones(o->v, o->m);
+        o->exacto = 0;
+        if (!reservar_universo(o, UNIVERSO_DEF)) { opt_free(o); return NULL; }
+    }
+    if (o->exacto) {
+        if (!llenar_sorteos(o)) { opt_free(o); return NULL; }
+    } else {
+        for (i = 0; i < o->universo_n; i++) {
+            uint64_t s = muestra(o->v, o->m);
+            int n;
+            o->universo[i] = s;
+            for (n = 1; n <= o->v; n++) if (s & (1ull << (n - 1))) lista_add(&o->por[n], i);
+        }
     }
     return o;
 }
 
-static void generar(Opt *o, int cantidad) {
+static void fijar_nota(uint64_t total, int exacto) {
+    EnterCriticalSection(&g_cs);
+    g_exacto = exacto;
+    if (!total) g_nota[0] = 0;
+    else if (exacto) snprintf(g_nota, sizeof g_nota, "sobre %llu sorteos", (unsigned long long)total);
+    else snprintf(g_nota, sizeof g_nota, "estimación, %llu sorteos", (unsigned long long)total);
+    LeaveCriticalSection(&g_cs);
+}
+
+static double cubrir_lista(const uint64_t *bets, int nb, int v, int m, int t, uint64_t total) {
+    int c[MAXN], i, j;
+    uint64_t hit = 0, visto = 0;
+    if (!total || total > 80000000ull || m < 1 || m > v) return -1;
+    for (i = 0; i < m; i++) c[i] = i;
+    for (;;) {
+        uint64_t bits = 0;
+        int cubre = 0;
+        for (i = 0; i < m; i++) bits |= 1ull << c[i];
+        for (j = 0; j < nb; j++) if (__builtin_popcountll(bets[j] & bits) >= t) { cubre = 1; break; }
+        hit += (uint64_t)cubre;
+        visto++;
+        for (i = m - 1; i >= 0 && c[i] == v - m + i; i--) ;
+        if (i < 0) break;
+        c[i]++;
+        for (j = i + 1; j < m; j++) c[j] = c[j - 1] + 1;
+    }
+    if (visto != total) return -1;
+    return 100.0 * (double)hit / (double)total;
+}
+
+static void volcar(Opt *o, const Job *job, double cob);
+
+static void generar(Opt *o, const Job *job, int cantidad) {
     int gen = 0, intentos = 0, maxi = cantidad * 2000;
     char buf[180];
     snprintf(buf, sizeof buf, "Generando %d apuestas.", cantidad);
@@ -758,11 +890,17 @@ static void generar(Opt *o, int cantidad) {
         uint64_t bits = muestra(o->v, o->k);
         intentos++;
         if (!valida(o, bits)) continue;
-        if (!agregar(o, bits)) break;
+        {
+            int metio = agregar(o, bits);
+            if (metio == 0) break;
+            if (metio < 0) continue;
+        }
         gen++;
         if (gen == cantidad || (gen % 20) == 0) {
-            snprintf(buf, sizeof buf, "Progreso: %d/%d | Cobertura actual: %.4f%%", gen, cantidad, cob_de(o));
-            progreso(buf, cob_de(o));
+            double cob = cob_de(o);
+            snprintf(buf, sizeof buf, "Progreso: %d/%d | Cobertura actual: %.4f%%", gen, cantidad, cob);
+            progreso(buf, o->exacto ? cob : -1);
+            volcar(o, job, o->exacto ? cob : -1);
         }
     }
     if (g_parar) {
@@ -771,7 +909,7 @@ static void generar(Opt *o, int cantidad) {
     }
 }
 
-static void optimizar(Opt *o, double objetivo) {
+static void optimizar(Opt *o, const Job *job, double objetivo) {
     char buf[200];
     if (!o->nap) return;
     o->mejor_cob = cob_de(o);
@@ -779,18 +917,33 @@ static void optimizar(Opt *o, double objetivo) {
     memcpy(o->mejor, o->ap, (size_t)o->nap * sizeof(uint64_t));
     o->mejor_n = o->nap;
     anotar("Optimizando. Pulsa Parar para guardar el mejor récord.");
-    while (!g_parar) {
-        paso(o);
-        if (g_tope && o->ciclos >= g_tope) break;
-        if (objetivo >= 0 && o->mejor_cob >= objetivo) {
-            snprintf(buf, sizeof buf, "Cobertura %.4f%% alcanza el objetivo %.4f%%.", o->mejor_cob, objetivo);
-            anotar(buf);
-            progreso(buf, o->mejor_cob);
-            break;
-        }
-        if ((o->ciclos % 100ull) == 0) {
-            snprintf(buf, sizeof buf, "Ciclo: %llu | Récord Cobertura: %.4f%% | Temp: %.4f", o->ciclos, o->mejor_cob, o->temp);
-            progreso(buf, o->mejor_cob);
+    {
+        unsigned long long ultima = 0;
+        while (!g_parar) {
+            double marca;
+            paso(o);
+            if (!o->exacto && (GetTickCount64() - ultima) >= 2000) {
+                double real = cubrir_lista(o->mejor_n ? o->mejor : o->ap, o->mejor_n ? o->mejor_n : o->nap, o->v, o->m, o->t, o->total_sorteos);
+                ultima = GetTickCount64();
+                if (real >= 0) o->cob_vista = real;
+            }
+            marca = o->exacto ? o->mejor_cob : o->cob_vista;
+            if (g_tope && o->ciclos >= g_tope) break;
+            if (objetivo >= 0 && marca >= objetivo) {
+                snprintf(buf, sizeof buf, "Cobertura %.4f%% alcanza el objetivo %.4f%%.", marca, objetivo);
+                anotar(buf);
+                progreso(buf, marca);
+                volcar(o, job, marca);
+                break;
+            }
+            if ((o->ciclos % 100ull) == 0) {
+                int real = o->exacto || o->cob_vista >= 0;
+                double cob = o->exacto ? o->mejor_cob : o->cob_vista;
+                if (real) snprintf(buf, sizeof buf, "Ciclo: %llu | Récord Cobertura: %.4f%% | Temp: %.4f", o->ciclos, cob, o->temp);
+                else snprintf(buf, sizeof buf, "Ciclo: %llu | Contando los %llu sorteos | Temp: %.4f", o->ciclos, (unsigned long long)o->total_sorteos, o->temp);
+                progreso(buf, real ? cob : -1);
+                volcar(o, job, real ? cob : -1);
+            }
         }
     }
     if (g_parar) anotar("Optimización detenida. Guardando el mejor récord.");
@@ -856,13 +1009,32 @@ static void publicar_bets(uint64_t *b, int n, int k, double cob) {
     LeaveCriticalSection(&g_cs);
 }
 
+static void volcar(Opt *o, const Job *job, double cob) {
+    uint64_t *src, *reales;
+    int n, i;
+    if (o->mejor_n > 0) { src = o->mejor; n = o->mejor_n; }
+    else { src = o->ap; n = o->nap; }
+    if (!n) return;
+    reales = (uint64_t *)malloc((size_t)n * sizeof(uint64_t));
+    if (!reales) return;
+    for (i = 0; i < n; i++) reales[i] = mapear(job, src[i]);
+    publicar_bets(reales, n, job->k, cob);
+    fijar_nota(o->total_sorteos, o->exacto || o->cob_vista >= 0);
+}
+
 static void guardar_opt(Opt *o, Job *job, const char *marca) {
     uint64_t *src, *reales;
     int n, i;
     double cob;
+    int medido;
     char nombre[260], msg[320];
     if (o->mejor_n > 0) { src = o->mejor; n = o->mejor_n; cob = o->mejor_cob; }
     else { src = o->ap; n = o->nap; cob = cob_de(o); }
+    medido = o->exacto;
+    if (!o->exacto) {
+        double real = cubrir_lista(src, n, o->v, o->m, o->t, o->total_sorteos);
+        if (real >= 0) { cob = real; medido = 1; }
+    }
     if (!n) { anotar("No hay apuestas que guardar."); return; }
     reales = (uint64_t *)malloc((size_t)n * sizeof(uint64_t));
     if (!reales) { anotar("Error: sin memoria."); return; }
@@ -873,6 +1045,7 @@ static void guardar_opt(Opt *o, Job *job, const char *marca) {
         return;
     }
     publicar_bets(reales, n, job->k, cob);
+    fijar_nota(o->total_sorteos, medido);
     g_v = job->v; g_t = job->t;
     snprintf(msg, sizeof msg, "Archivo: %s", nombre);
     anotar(msg);
@@ -1277,7 +1450,7 @@ static void texto_garantias(Job *job) {
         job->v, job->k, job->t, job->m, g_apuestas);
     if (url) pos += snprintf(buf + pos, sizeof buf - pos, "\nHay reducida récord pública de Lotoideas:\n%s", url);
     else pos += snprintf(buf + pos, sizeof buf - pos, "\nNo hay zip de Lotoideas para estos datos.");
-    if (g_cob[0]) pos += snprintf(buf + pos, sizeof buf - pos, "\nCobertura de la muestra: %s.", g_cob);
+    if (g_cob[0]) pos += snprintf(buf + pos, sizeof buf - pos, "\nCobertura %s: %s.", g_nota[0] ? g_nota : "contada", g_cob);
     anotar(buf);
     (void)pos;
 }
@@ -1311,9 +1484,19 @@ static DWORD WINAPI hilo(LPVOID p) {
             free(absb);
         }
     } else {
+        anotar("Preparando los sorteos de la base.");
         Opt *o = opt_nuevo(job);
         if (!o) anotar("Error: sin memoria.");
         else {
+            char info[180];
+            if (o->exacto)
+                snprintf(info, sizeof info, "Sorteos posibles: %llu. La cobertura los cuenta todos.", (unsigned long long)o->total_sorteos);
+            else if (o->total_sorteos <= 80000000ull)
+                snprintf(info, sizeof info, "Sorteos posibles: %llu. No caben en la búsqueda; el porcentaje los cuenta todos.", (unsigned long long)o->total_sorteos);
+            else
+                snprintf(info, sizeof info, "Sorteos posibles: %llu. El porcentaje es una estimación.", (unsigned long long)o->total_sorteos);
+            anotar(info);
+            fijar_nota(o->total_sorteos, o->exacto);
             if (strcmp(job->modo, "mejorar") == 0) {
                 uint64_t *absb = NULL;
                 int n = 0, i;
@@ -1326,13 +1509,13 @@ static DWORD WINAPI hilo(LPVOID p) {
                 } else {
                     for (i = 0; i < n && !g_parar; i++) agregar(o, absb[i]);
                     free(absb);
-                    if (o->nap && !g_parar) optimizar(o, -1);
+                    if (o->nap && !g_parar) optimizar(o, job, -1);
                     guardar_opt(o, job, NULL);
                 }
             } else {
                 int cantidad = job->cantidad >= 1 ? job->cantidad : 20;
-                generar(o, cantidad);
-                if (job->ciclos && o->nap && !g_parar) optimizar(o, job->modo_p ? job->porc : -1);
+                generar(o, job, cantidad);
+                if (job->ciclos && o->nap && !g_parar) optimizar(o, job, job->modo_p ? job->porc : -1);
                 guardar_opt(o, job, NULL);
             }
             opt_free(o);
@@ -1408,8 +1591,19 @@ static void estado_json(char *dst, int cap) {
         pos += snprintf(dst + pos, cap - pos, "%s\"%s\"", i == desde ? "" : ",", esc);
     }
     json_escape(esc, sizeof esc, g_cob);
-    pos += snprintf(dst + pos, cap - pos, "],\"apuestas\":%d,\"cobertura\":\"%s\",\"ocupado\":%s}",
-        g_apuestas, esc, g_ocupado ? "true" : "false");
+    pos += snprintf(dst + pos, cap - pos, "],\"apuestas\":%d,\"cobertura\":\"%s\",", g_apuestas, esc);
+    json_escape(esc, sizeof esc, g_nota);
+    pos += snprintf(dst + pos, cap - pos, "\"sobre\":\"%s\",\"exacto\":%s,\"ocupado\":%s,\"lista\":[",
+        esc, g_exacto ? "true" : "false", g_ocupado ? "true" : "false");
+    for (i = 0; i < g_nbets && pos < cap - 64; i++) {
+        int nums[MAXN], nr, j, lp = 0;
+        char linea[160];
+        nr = listar(g_bets[i], MAXN, nums);
+        for (j = 0; j < nr && lp < (int)sizeof linea - 4; j++)
+            lp += snprintf(linea + lp, sizeof linea - lp, "%s%02d", j ? " " : "", nums[j]);
+        pos += snprintf(dst + pos, cap - pos, "%s\"%s\"", i ? "," : "", linea);
+    }
+    pos += snprintf(dst + pos, cap - pos, "]}");
     LeaveCriticalSection(&g_cs);
 }
 
@@ -1482,9 +1676,9 @@ static void api_dispatch(SOCKET s, const char *body) {
     char nombre[32], err[200] = "", premio[512];
     if (!json_str(body, NULL, "nombre", nombre, sizeof nombre)) nombre[0] = 0;
     if (strcmp(nombre, "estado") == 0) {
-        char *js = (char *)malloc(48000);
+        char *js = (char *)malloc(600000);
         if (!js) { responder_ok(s, 0, "sin memoria"); return; }
-        estado_json(js, 48000);
+        estado_json(js, 600000);
         responder(s, "200 OK", "application/json; charset=utf-8", js, (int)strlen(js));
         free(js);
         return;
@@ -1568,12 +1762,15 @@ static void api_dispatch(SOCKET s, const char *body) {
         f = fopen(file, "rb");
         if (!f) { responder_error(s, "No se ha podido leer el archivo."); return; }
         char linea[512];
+        int quitadas = 0;
         while (fgets(linea, sizeof linea, f)) {
-            int nums[MAXN], cn, i;
+            int nums[MAXN], cn, i, ya = 0;
             uint64_t b = 0;
             cn = analizar_numeros(linea, nums, MAXN);
             if (!cn) continue;
             for (i = 0; i < cn; i++) if (nums[i] >= 1 && nums[i] <= MAXN) b |= 1ull << (nums[i] - 1);
+            for (i = 0; i < n; i++) if (bets[i] == b) { ya = 1; break; }
+            if (ya) { quitadas++; continue; }
             if (n >= cap) {
                 int nc = cap ? cap * 2 : 64;
                 uint64_t *nb = (uint64_t *)realloc(bets, (size_t)nc * sizeof(uint64_t));
@@ -1585,8 +1782,9 @@ static void api_dispatch(SOCKET s, const char *body) {
         fclose(f);
         publicar_bets(bets, n, n ? __builtin_popcountll(bets[0]) : 0, -1);
         {
-            char msg[MAX_PATH + 40];
-            snprintf(msg, sizeof msg, "Cargadas %d apuestas desde %s", n, file);
+            char msg[MAX_PATH + 80];
+            if (quitadas) snprintf(msg, sizeof msg, "Cargadas %d apuestas desde %s. Quitadas %d repetidas.", n, file, quitadas);
+            else snprintf(msg, sizeof msg, "Cargadas %d apuestas desde %s", n, file);
             anotar(msg);
         }
         responder_ok(s, 1, NULL);
@@ -1737,6 +1935,17 @@ static int bench(void) {
     int i, ok = 1;
     LARGE_INTEGER f, c0, c1;
     filtros_init(&job.filtros);
+    memset(&job, 0, sizeof job);
+    filtros_init(&job.filtros);
+    job.v = 5; job.k = 2; job.t = 2; job.m = 2;
+    o = opt_nuevo(&job);
+    if (!o || o->universo_n != 10 || !o->exacto) return 1;
+    if (!agregar(o, (1ull << 0) | (1ull << 1))) return 1;
+    if (agregar(o, (1ull << 0) | (1ull << 1)) != -1) return 1;
+    cob = cob_de(o);
+    printf("cobertura_par=%.4f n=%d\n", cob, o->universo_n);
+    if (cob < 9.9 || cob > 10.1 || o->nap != 1) ok = 0;
+    opt_free(o);
     memset(&job, 0, sizeof job);
     filtros_init(&job.filtros);
     job.v = 8; job.k = 6; job.t = 3; job.m = 6; job.universo = 3000;

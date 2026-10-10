@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "PROJECT.md": {
-    "mtime": 1791662618.5869448,
-    "seen": 1791662712.674703,
-    "ast_hash": "c0f4c8fa13f5ad55a1f2a785ab0316b1",
+    "mtime": 1791663492.93962,
+    "seen": 1791663711.6109736,
+    "ast_hash": "5d5a8b90cde87500e07097ae94f1b3ec",
     "semantic_hash": ""
   },
   "README.md": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "docs/DECISIONES.md": {
-    "mtime": 1791647011.7447515,
-    "seen": 1791647040.4698575,
-    "ast_hash": "c9f03aa77b03dabbdf1fa83fd2e0a3a1",
+    "mtime": 1791663247.9170785,
+    "seen": 1791663711.6109736,
+    "ast_hash": "cf6c8cbd216041be8bee75c1b53a05c6",
     "semantic_hash": ""
   },
   "LottoOptimizerV3_11.py": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "DESIGN.md": {
-    "mtime": 1791649806.535575,
-    "seen": 1791649871.673635,
-    "ast_hash": "ae23ac3c04bdba6a57c21514314f4df0",
+    "mtime": 1791663649.7235408,
+    "seen": 1791663711.6109736,
+    "ast_hash": "d69a5112fbb5e942bbb65cfcce518118",
     "semantic_hash": ""
   },
   "LottoOptimizerV3_12.c": {
@@ -192,21 +192,21 @@
     "semantic_hash": ""
   },
   "LottoOptimizerV3_14.c": {
-    "mtime": 1791662018.8136964,
-    "seen": 1791662079.2912004,
-    "ast_hash": "3911281205cfbc76217c98ff1a0f9147",
+    "mtime": 1791663603.304097,
+    "seen": 1791663711.6109736,
+    "ast_hash": "b2a6acfc8c1850e05a4de1e07d50a0d9",
     "semantic_hash": ""
   },
   "v14_html.inc": {
-    "mtime": 1791662638.3529406,
-    "seen": 1791662712.674703,
-    "ast_hash": "8fc9d3da5800f78c30e6746ca8e93995",
+    "mtime": 1791663657.792233,
+    "seen": 1791663711.6109736,
+    "ast_hash": "fc51f40b976be4bceb154ec4ede19bed",
     "semantic_hash": ""
   },
   "v14.html": {
-    "mtime": 1791662618.1774518,
-    "seen": 1791662712.674703,
-    "ast_hash": "ad0d7548bf3ae4f825d2a1f6746c5471",
+    "mtime": 1791663649.1900492,
+    "seen": 1791663711.6109736,
+    "ast_hash": "03b8b89aebcd464da24c7b263ab66659",
     "semantic_hash": ""
   }
 }
