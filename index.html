@@ -1,21 +1,487 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="h-full bg-[#08120c] text-stone-100 antialiased selection:bg-[#18E667] selection:text-[#032612]">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>coverMaster</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loto 3.11 — Optimizador de Reducidas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Public+Sans:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var g = localStorage.getItem("loto-tema");
+        var t = g || (matchMedia("(prefers-color-scheme: dark)").matches ? "oscuro" : "claro");
+        document.documentElement.dataset.tema = t;
+      } catch (e) {
+        document.documentElement.dataset.tema = "oscuro";
+      }
+    })();
+  </script>
   <style>
-    :root { color-scheme: light dark; }
-    body { font-family: system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.45; }
-    a { color: inherit; }
-    main { border: 1px solid currentColor; padding: 1rem 1.2rem; border-radius: 8px; }
+    section { transition: transform 0.2s ease, opacity 0.2s ease; }
+    .tap-effect:active { transform: scale(0.96); }
+    :focus-visible { outline: 2px solid #18E667; outline-offset: 2px; }
+    button:disabled { opacity: .4; cursor: default; }
+    input[type="checkbox"] { accent-color: #18E667; width: 1.05rem; height: 1.05rem; }
+    #loto-grid button.on {
+      background: #18E667 !important;
+      color: #032612 !important;
+      border-color: #18E667 !important;
+      font-weight: 900;
+    }
+    .modo-on { box-shadow: inset 0 0 0 2px #18E667; }
+    .tema {
+      position: relative; display: inline-flex; width: 3.5rem; height: 1.85rem;
+      padding: 0; border-radius: 999px; border: 1px solid #1c3a28; background: #112217;
+      cursor: pointer; flex: none;
+    }
+    .tema svg { position: absolute; width: .9rem; height: .9rem; top: 50%; transform: translateY(-50%); pointer-events: none; }
+    .tema .sol { left: .38rem; color: #F4F7F2; }
+    .tema .luna { right: .38rem; color: #F4F7F2; }
+    .tema .punto {
+      position: absolute; top: 2px; left: 2px; width: 1.45rem; height: 1.45rem;
+      border-radius: 999px; background: #18E667; transition: left .2s ease;
+    }
+    html[data-tema="oscuro"] .tema .punto { left: calc(100% - 1.45rem - 2px); }
+    #actividad { max-height: 11rem; overflow: auto; }
+    @media (prefers-reduced-motion: no-preference) {
+      .vista { animation: entra .45s ease both; }
+      .vista h1, .vista h2 { transform-origin: left center; animation: escala .5s ease; }
+    }
+    @keyframes entra { from { transform: translateY(12px); } to { transform: none; } }
+    @keyframes escala { from { transform: scale(.94); } to { transform: scale(1); } }
+    @media (prefers-reduced-motion: reduce) {
+      header, section, details, footer, .tema .punto { opacity: 1; transform: none; transition: none; animation: none; }
+    }
   </style>
 </head>
-<body>
-  <main id="app">
-    <h1>coverMaster</h1>
-    <p>Código: <a href="https://github.com/Marcos1995/coverMaster">https://github.com/Marcos1995/coverMaster</a></p>
-    <p>Vista en Chrome (repo público): GitHub Pages, <code>github.io</code>.</p>
+<body class="min-h-full bg-[#08120c] text-stone-100 font-sans pb-16">
+
+  <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-6 space-y-7">
+
+    <header class="pt-2 pb-1 space-y-3">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <span class="text-xs uppercase font-mono tracking-wide text-[#18E667]/80 font-semibold">
+          Reducidas · un fichero
+        </span>
+        <span class="inline-flex items-center gap-2">
+          <button type="button" id="tema" class="tema" role="switch" aria-label="Tema">
+            <svg class="sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+            <svg class="luna" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"/></svg>
+            <span class="punto"></span>
+          </button>
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#112217] border border-[#1c3a28] text-xs font-mono font-medium text-[#18E667]">
+            Loto 3.11
+          </span>
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
+        La actividad, a la vista
+      </h1>
+    </header>
+
+    <section id="hero" class="w-full bg-[#18E667] text-[#032612] rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-mono font-black uppercase tracking-wider bg-[#032612]/15 px-2.5 py-1 rounded-lg">
+          Ahora
+        </span>
+        <span id="pulso" class="w-3 h-3 rounded-full bg-[#032612]"></span>
+      </div>
+      <div id="ahora" class="text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-none mb-4">
+        Listo
+      </div>
+      <div class="pt-3 border-t border-[#032612]/20 space-y-2">
+        <p id="linea" class="font-mono text-xs sm:text-sm font-semibold tracking-tight text-[#032612]/90">
+          Esperando. Calcular genera las apuestas.
+        </p>
+        <pre id="actividad" class="font-mono text-xs sm:text-sm font-medium tracking-tight text-[#032612]/80 whitespace-pre-wrap m-0"></pre>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-3 gap-2 sm:gap-3.5 min-w-0">
+      <div class="bg-[#18E667] text-[#032612] rounded-2xl p-3.5 sm:p-5 flex flex-col justify-between min-w-0">
+        <span id="kpi-apuestas" class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-none">0</span>
+        <span class="text-[11px] sm:text-xs font-mono font-bold tracking-tight uppercase mt-2 text-[#032612]/80">apuestas</span>
+      </div>
+      <div class="bg-[#112217] border border-[#1c3a28] text-white rounded-2xl p-3.5 sm:p-5 flex flex-col justify-between min-w-0">
+        <span id="kpi-base" class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-none text-stone-100">0</span>
+        <span class="text-[11px] sm:text-xs font-mono font-medium tracking-tight uppercase mt-2 text-stone-400">en la base</span>
+      </div>
+      <div class="bg-[#112217] border border-[#1c3a28] text-white rounded-2xl p-3.5 sm:p-5 flex flex-col justify-between min-w-0">
+        <span id="kpi-cob" class="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-none text-stone-100">—</span>
+        <span class="text-[10px] sm:text-xs font-mono font-medium tracking-tight uppercase mt-2 text-stone-400 truncate">cobertura</span>
+      </div>
+    </section>
+
+    <section class="flex items-center gap-3">
+      <button type="button" id="calcular" class="flex-1 bg-[#0A3D22] hover:bg-[#0f5430] active:scale-[0.99] transition-all text-emerald-100 font-extrabold text-lg sm:text-xl py-4 px-6 rounded-2xl border border-[#1c4e31] shadow-lg flex items-center justify-center gap-2 tap-effect">
+        Calcular
+      </button>
+      <button type="button" id="parar" class="bg-[#112217] hover:bg-[#162b1e] active:scale-[0.99] transition-all text-stone-300 font-bold text-base sm:text-lg py-4 px-6 rounded-2xl border border-[#1c3a28] tap-effect" disabled>
+        Parar
+      </button>
+    </section>
+
+    <section class="bg-[#112217] border border-[#1c3a28] rounded-3xl p-5 sm:p-7 space-y-5">
+      <div>
+        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">Números</h2>
+        <p class="text-xs sm:text-sm text-stone-400 mt-1 font-mono">
+          Si marcas, esa es la base. Si no, vale el tamaño.
+        </p>
+      </div>
+      <div class="grid grid-cols-7 gap-1.5 sm:gap-2 select-none" id="loto-grid"></div>
+      <div class="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-[#1c3a28]">
+        <div class="flex items-center gap-4">
+          <div class="flex items-center gap-2">
+            <label for="base" class="text-xs font-mono font-medium text-stone-400">Base</label>
+            <input id="base" value="8" inputmode="numeric" class="w-14 px-2 py-1.5 rounded-xl bg-[#162b1e] border border-[#1c3a28] font-mono text-sm font-bold text-white text-center">
+          </div>
+          <div class="flex items-center gap-2">
+            <label for="k" class="text-xs font-mono font-medium text-stone-400">k</label>
+            <input id="k" value="6" inputmode="numeric" class="w-14 px-2 py-1.5 rounded-xl bg-[#162b1e] border border-[#1c3a28] font-mono text-sm font-bold text-white text-center">
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" id="azar" class="px-4 py-2 rounded-xl bg-[#162b1e] hover:bg-[#203c2a] border border-[#1c3a28] text-xs font-mono font-bold text-stone-200 tap-effect">
+            Al azar
+          </button>
+          <button type="button" id="vaciar" class="px-4 py-2 rounded-xl bg-transparent hover:bg-[#162b1e] text-xs font-mono font-medium text-stone-400 hover:text-stone-200 tap-effect">
+            Vaciar
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#0b170f] border border-[#1c3a28] rounded-3xl p-5 sm:p-7 space-y-5">
+      <div class="flex items-center justify-between gap-3">
+        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">Reducción</h2>
+        <div class="relative">
+          <label for="tipo" class="sr-only">Garantía</label>
+          <select id="tipo" class="appearance-none bg-[#112217] border border-[#1c3a28] text-[#18E667] font-mono text-sm font-bold py-2 pl-3.5 pr-8 rounded-xl focus:outline-none focus:border-[#18E667] cursor-pointer">
+            <option selected>5 si 6</option>
+            <option>4 si 6</option>
+            <option>3 si 6</option>
+            <option>5 si 5</option>
+            <option>4 si 5</option>
+            <option>3 si 5</option>
+            <option>4 si 4</option>
+            <option>3 si 4</option>
+            <option>3 si 3</option>
+            <option>Al 5 (n-1)</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-[#18E667]">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-between py-2 border-y border-[#1c3a28]/60">
+        <span class="text-sm font-mono text-stone-300 font-medium" id="ciclos-leyenda">Activar ciclos</span>
+        <button type="button" id="ciclos" role="switch" aria-checked="true" aria-labelledby="ciclos-leyenda" class="w-12 h-7 bg-[#18E667] rounded-full p-1 transition-colors duration-200 ease-in-out flex items-center justify-end">
+          <span class="w-5 h-5 bg-[#032612] rounded-full shadow-md"></span>
+        </button>
+      </div>
+      <div class="grid grid-cols-2 gap-3 pt-1">
+        <label class="modo modo-on bg-[#112217] border border-[#1c3a28] rounded-2xl p-4 flex flex-col justify-between cursor-pointer">
+          <span class="text-xs font-mono text-stone-400 uppercase font-medium">Nº de apuestas</span>
+          <input type="radio" name="modo" value="n" checked class="sr-only">
+          <input id="cantidad" value="20" inputmode="numeric" aria-label="Número de apuestas" class="w-full bg-transparent text-2xl sm:text-3xl font-black font-mono text-white mt-1 focus:outline-none">
+        </label>
+        <label class="modo bg-[#112217] border border-[#1c3a28] rounded-2xl p-4 flex flex-col justify-between cursor-pointer">
+          <span class="text-xs font-mono text-stone-400 uppercase font-medium">% de cobertura</span>
+          <input type="radio" name="modo" value="p" class="sr-only">
+          <input id="porc" value="100" inputmode="decimal" aria-label="Porcentaje de cobertura" class="w-full bg-transparent text-2xl sm:text-3xl font-black font-mono text-white mt-1 focus:outline-none">
+        </label>
+      </div>
+    </section>
+
+    <details id="panel-filtros" class="group bg-[#112217]/60 border border-[#1c3a28] rounded-2xl overflow-hidden">
+      <summary class="p-4 sm:p-5 flex items-center justify-between cursor-pointer list-none select-none hover:bg-[#112217]">
+        <div class="space-y-0.5">
+          <div class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+            <span>Filtros y grupos</span>
+            <span class="text-[10px] font-mono uppercase bg-[#162b1e] text-stone-400 px-2 py-0.5 rounded-full border border-[#1c3a28] group-open:hidden">Colapsado</span>
+          </div>
+          <p class="text-xs font-mono text-stone-400 group-open:hidden">
+            Cerrados. Ábrelos solo si hace falta.
+          </p>
+        </div>
+        <svg class="w-4 h-4 text-stone-400 transform group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+      <div class="px-4 sm:px-5 pb-5 space-y-3">
+        <label class="flex flex-wrap items-center gap-2 text-sm font-mono text-stone-300"><input type="checkbox" id="f-suma"> Sumas <input id="suma0" placeholder="mín" class="w-16 px-2 py-1 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-white"> <input id="suma1" placeholder="máx" class="w-16 px-2 py-1 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-white"></label>
+        <label class="flex flex-wrap items-center gap-2 text-sm font-mono text-stone-300"><input type="checkbox" id="f-pares"> Pares <input id="pares0" placeholder="mín" class="w-16 px-2 py-1 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-white"> <input id="pares1" placeholder="máx" class="w-16 px-2 py-1 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-white"></label>
+        <label class="flex flex-wrap items-center gap-2 text-sm font-mono text-stone-300"><input type="checkbox" id="f-bajos"> Bajos <input id="bajos0" placeholder="mín" class="w-16 px-2 py-1 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-white"> <input id="bajos1" placeholder="máx" class="w-16 px-2 py-1 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-white"></label>
+        <label class="flex flex-wrap items-center gap-2 text-sm font-mono text-stone-300"><input type="checkbox" id="f-dist"> Distancias <input id="dist0" placeholder="mín" class="w-16 px-2 py-1 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-white"> <input id="dist1" placeholder="máx" class="w-16 px-2 py-1 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-white"></label>
+        <label class="flex flex-wrap items-center gap-2 text-sm font-mono text-stone-300"><input type="checkbox" id="f-seguidos"> Seguidos <input id="seguidos0" placeholder="máx" class="w-16 px-2 py-1 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-white"></label>
+        <label class="flex flex-wrap items-center gap-2 text-sm font-mono text-stone-300"><input type="checkbox" id="f-decenas"> Decenas <input id="decenas0" placeholder="máx" class="w-16 px-2 py-1 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-white"></label>
+        <label class="flex flex-wrap items-center gap-2 text-sm font-mono text-stone-300"><input type="checkbox" id="f-term"> Terminaciones <input id="term0" placeholder="máx" class="w-16 px-2 py-1 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-white"></label>
+        <label for="grupos" class="block text-xs font-mono text-stone-400">Grupos · números ; mínimo ; máximo</label>
+        <textarea id="grupos" rows="2" class="w-full px-3 py-2 rounded-xl bg-[#162b1e] border border-[#1c3a28] font-mono text-sm text-white"></textarea>
+        <label for="incluir" class="block text-xs font-mono text-stone-400">Apuestas condicionadas</label>
+        <input id="incluir" class="w-full px-3 py-2 rounded-xl bg-[#162b1e] border border-[#1c3a28] font-mono text-sm text-white" placeholder="7 14 o 1-3">
+      </div>
+    </details>
+
+    <details id="panel-revisar" class="group bg-[#112217]/60 border border-[#1c3a28] rounded-2xl overflow-hidden">
+      <summary class="p-4 sm:p-5 flex items-center justify-between cursor-pointer list-none select-none hover:bg-[#112217]">
+        <div class="space-y-0.5">
+          <div class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+            <span>Revisar</span>
+            <span class="text-[10px] font-mono uppercase bg-[#162b1e] text-stone-400 px-2 py-0.5 rounded-full border border-[#1c3a28] group-open:hidden">Colapsado</span>
+          </div>
+          <p class="text-xs font-mono text-stone-400">
+            Escrutar, garantías, análisis, validar, estadísticas, cargar y guardar.
+          </p>
+        </div>
+        <svg class="w-4 h-4 text-stone-400 transform group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+      <div class="px-4 sm:px-5 pb-5 space-y-3">
+        <div class="flex gap-2">
+          <label for="premio" class="sr-only">Combinación a escrutar</label>
+          <input id="premio" class="flex-1 px-3 py-2 rounded-xl bg-[#162b1e] border border-[#1c3a28] font-mono text-sm text-white" placeholder="Combinación ganadora">
+          <button type="button" id="azar-premio" class="px-4 py-2 rounded-xl bg-[#18E667] text-[#032612] text-xs font-mono font-bold">G</button>
+        </div>
+        <div class="flex flex-wrap gap-2" id="revisar-botones">
+          <button type="button" data-accion="escrutar" class="px-4 py-2 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-xs font-mono font-bold text-stone-200">Escrutar</button>
+          <button type="button" data-accion="garantias" class="px-4 py-2 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-xs font-mono font-bold text-stone-200">Garantías</button>
+          <button type="button" data-accion="analizar" class="px-4 py-2 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-xs font-mono font-bold text-stone-200">Análisis</button>
+          <button type="button" data-accion="validar" class="px-4 py-2 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-xs font-mono font-bold text-stone-200">Validar</button>
+          <button type="button" data-accion="estadisticas" class="px-4 py-2 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-xs font-mono font-bold text-stone-200">Estadísticas</button>
+          <button type="button" data-accion="cargar" class="px-4 py-2 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-xs font-mono font-bold text-stone-200">Cargar</button>
+          <button type="button" data-accion="guardar" class="px-4 py-2 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-xs font-mono font-bold text-stone-200">Guardar</button>
+          <button type="button" data-accion="usar" class="px-4 py-2 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-xs font-mono font-bold text-stone-200">Usar récord</button>
+          <button type="button" data-accion="mejorar" class="px-4 py-2 rounded-xl bg-[#162b1e] border border-[#1c3a28] text-xs font-mono font-bold text-stone-200">Mejorar récord</button>
+        </div>
+      </div>
+    </details>
+
+    <footer class="pt-4 pb-8 text-center border-t border-[#1c3a28]/40">
+      <p class="font-mono text-xs text-stone-500 break-words px-2">
+        La cobertura se mide sobre una muestra de 50.000 sorteos.
+      </p>
+    </footer>
+
   </main>
+  <style>
+    html[data-tema="claro"] { background: #F4F7F2; color: #14241C; }
+    html[data-tema="claro"] body { background: #F4F7F2 !important; color: #14241C !important; }
+    html[data-tema="claro"] .bg-\[\#08120c\] { background-color: #F4F7F2 !important; }
+    html[data-tema="claro"] .bg-\[\#112217\],
+    html[data-tema="claro"] .bg-\[\#112217\]\/60,
+    html[data-tema="claro"] .bg-\[\#0b170f\],
+    html[data-tema="claro"] .hover\:bg-\[\#112217\]:hover { background-color: #ffffff !important; }
+    html[data-tema="claro"] .bg-\[\#162b1e\],
+    html[data-tema="claro"] .hover\:bg-\[\#162b1e\]:hover,
+    html[data-tema="claro"] .hover\:bg-\[\#203c2a\]:hover { background-color: #F4F7F2 !important; }
+    html[data-tema="claro"] .text-white,
+    html[data-tema="claro"] .text-stone-100,
+    html[data-tema="claro"] .text-stone-200,
+    html[data-tema="claro"] .text-stone-300,
+    html[data-tema="claro"] .hover\:text-stone-200:hover { color: #14241C !important; }
+    html[data-tema="claro"] .text-stone-400,
+    html[data-tema="claro"] .text-stone-500 { color: #3E5348 !important; }
+    html[data-tema="claro"] .border-\[\#1c3a28\],
+    html[data-tema="claro"] .border-\[\#1c3a28\]\/40,
+    html[data-tema="claro"] .border-\[\#1c3a28\]\/60,
+    html[data-tema="claro"] .border-\[\#1c4e31\] { border-color: #D5E0D8 !important; }
+    html[data-tema="claro"] .text-\[\#18E667\],
+    html[data-tema="claro"] .text-\[\#18E667\]\/80 { color: #0A3D22 !important; }
+    html[data-tema="claro"] .tema { background: #fff; border-color: #D5E0D8; }
+    html[data-tema="claro"] .tema .sol,
+    html[data-tema="claro"] .tema .luna { color: #14241C; }
+    html[data-tema="claro"] #calcular { color: #F4F7F2 !important; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    body { font-family: "Public Sans", sans-serif; }
+    #loto-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .4rem; }
+    #loto-grid button {
+      height: 2.5rem; border-radius: .75rem; border: 1px solid #3d7a56;
+      background: #1c4030; color: #E8F7EE; font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-weight: 600; cursor: pointer; min-width: 0; padding: 0;
+    }
+    html[data-tema="claro"] #loto-grid button { background: #E7EEE9; color: #14241C; border-color: #7FA892; }
+    #hero { background: #18E667 !important; color: #032612 !important; }
+    #hero, #hero * { color: #032612; }
+    #calcular { background: #0A3D22 !important; color: #F4F7F2 !important; border-color: #18E667 !important; }
+    html[data-tema="oscuro"] .bg-\[\#112217\],
+    html[data-tema="oscuro"] .bg-\[\#112217\]\/60,
+    html[data-tema="oscuro"] .bg-\[\#0b170f\] { background-color: #173628 !important; }
+    html[data-tema="oscuro"] .border-\[\#1c3a28\],
+    html[data-tema="oscuro"] .border-\[\#1c3a28\]\/60,
+    html[data-tema="oscuro"] .border-\[\#1c3a28\]\/40 { border-color: #3d7a56 !important; }
+    html[data-tema="oscuro"] .text-stone-400,
+    html[data-tema="oscuro"] .text-stone-500 { color: #c5e0d2 !important; }
+    html[data-tema="oscuro"] .text-stone-300,
+    html[data-tema="oscuro"] .text-stone-200 { color: #E8F7EE !important; }
+    html, body { overflow-x: clip; max-width: 100%; }
+    main { width: 100% !important; max-width: 64rem; box-sizing: border-box; overflow-x: clip; }
+    main, section, header, details, footer, #hero, #linea, #actividad { max-width: 100%; min-width: 0; }
+    #linea, #actividad, h1, p { overflow-wrap: anywhere; }
+    @media (max-width: 420px) {
+      #hero { padding: 1rem !important; }
+    }
+  </style>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['"Public Sans"', 'sans-serif'], mono: ['"JetBrains Mono"', 'monospace'] } } } };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    (function () {
+      var NUM = "h-9 sm:h-11 rounded-xl font-mono text-xs sm:text-sm font-semibold flex items-center justify-center bg-[#162b1e] text-stone-300 hover:bg-[#1f3a2a] border border-[#1c3a28]/60 tap-effect";
+      var rejilla = document.getElementById("loto-grid");
+      for (var n = 1; n <= 49; n++) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = NUM;
+        b.dataset.n = String(n);
+        b.textContent = (n < 10 ? "0" : "") + n;
+        b.setAttribute("aria-pressed", "false");
+        rejilla.appendChild(b);
+      }
+      var nums = Array.prototype.slice.call(rejilla.querySelectorAll("button"));
+      function marcados() {
+        return nums.filter(function (b) { return b.getAttribute("aria-pressed") === "true"; }).map(function (b) { return +b.dataset.n; });
+      }
+      function pintar(b, on) {
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+        b.classList.toggle("on", on);
+      }
+      function baseKpi() {
+        document.getElementById("kpi-base").textContent = String(marcados().length);
+      }
+      nums.forEach(function (b) {
+        b.addEventListener("click", function () {
+          pintar(b, b.getAttribute("aria-pressed") !== "true");
+          baseKpi();
+        });
+      });
+      function aviso(titulo, texto) {
+        document.getElementById("ahora").textContent = titulo;
+        document.getElementById("linea").textContent = texto;
+      }
+      document.getElementById("azar").addEventListener("click", function () {
+        var n = parseInt(document.getElementById("base").value, 10);
+        if (!(n >= 1 && n <= 49)) { aviso("Error", "La base al azar va de 1 a 49."); return; }
+        var elegidos = {};
+        while (Object.keys(elegidos).length < n) elegidos[1 + Math.floor(Math.random() * 49)] = 1;
+        nums.forEach(function (b) { pintar(b, elegidos[+b.dataset.n]); });
+        baseKpi();
+      });
+      document.getElementById("vaciar").addEventListener("click", function () {
+        nums.forEach(function (b) { pintar(b, false); });
+        baseKpi();
+      });
+      document.getElementById("azar-premio").addEventListener("click", function () {
+        var k = parseInt(document.getElementById("k").value, 10);
+        var origen = marcados();
+        if (!origen.length) { origen = []; for (var i = 1; i <= 49; i++) origen.push(i); }
+        if (!(k >= 1) || k > origen.length) { aviso("Error", "k es mayor que los números disponibles."); return; }
+        var copia = origen.slice();
+        for (var j = copia.length - 1; j > 0; j--) {
+          var s = Math.floor(Math.random() * (j + 1));
+          var tmp = copia[j]; copia[j] = copia[s]; copia[s] = tmp;
+        }
+        document.getElementById("premio").value = copia.slice(0, k).sort(function (a, c) { return a - c; }).map(function (x) { return (x < 10 ? "0" : "") + x; }).join(" ");
+      });
+      var ciclos = document.getElementById("ciclos");
+      ciclos.addEventListener("click", function () {
+        var on = ciclos.getAttribute("aria-checked") !== "true";
+        ciclos.setAttribute("aria-checked", on ? "true" : "false");
+        ciclos.classList.toggle("justify-end", on);
+        ciclos.classList.toggle("justify-start", !on);
+        ciclos.classList.toggle("bg-[#18E667]", on);
+        ciclos.classList.toggle("bg-[#162b1e]", !on);
+      });
+      function pintarModo() {
+        document.querySelectorAll(".modo").forEach(function (el) {
+          el.classList.toggle("modo-on", el.querySelector("input[type=radio]").checked);
+        });
+      }
+      document.querySelectorAll(".modo").forEach(function (el) {
+        el.addEventListener("click", function () {
+          el.querySelector("input[type=radio]").checked = true;
+          pintarModo();
+        });
+      });
+      var tema = document.getElementById("tema");
+      function aplicarTema(t) {
+        document.documentElement.dataset.tema = t;
+        tema.setAttribute("aria-checked", t === "oscuro" ? "true" : "false");
+      }
+      aplicarTema(document.documentElement.dataset.tema || "oscuro");
+      tema.addEventListener("click", function () {
+        var siguiente = document.documentElement.dataset.tema === "oscuro" ? "claro" : "oscuro";
+        try { localStorage.setItem("loto-tema", siguiente); } catch (e) {}
+        aplicarTema(siguiente);
+      });
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (ents) {
+          ents.forEach(function (en) { if (en.isIntersecting) en.target.classList.add("vista"); });
+        }, { threshold: 0.12 });
+        document.querySelectorAll("header, section, details, footer").forEach(function (el) { io.observe(el); });
+      }
+      function val(id) { return document.getElementById(id).value; }
+      function leer() {
+        var filtros = {};
+        ["suma", "pares", "bajos", "dist", "seguidos", "decenas", "term"].forEach(function (c) {
+          filtros[c] = document.getElementById("f-" + c).checked;
+        });
+        ["suma0", "suma1", "pares0", "pares1", "bajos0", "bajos1", "dist0", "dist1", "seguidos0", "decenas0", "term0"].forEach(function (c) {
+          filtros[c] = val(c);
+        });
+        var modo = "n";
+        document.querySelectorAll("input[name=modo]").forEach(function (r) { if (r.checked) modo = r.value; });
+        return {
+          base: val("base"), k: val("k"), tipo: val("tipo"),
+          ciclos: ciclos.getAttribute("aria-checked") === "true",
+          modo: modo, cantidad: val("cantidad"), porc: val("porc"),
+          marcados: marcados(), grupos: val("grupos"), incluir: val("incluir"),
+          filtros: filtros, premio: val("premio")
+        };
+      }
+      function ocupado(si) {
+        document.getElementById("calcular").disabled = si;
+        document.getElementById("parar").disabled = !si;
+        document.getElementById("pulso").classList.toggle("animate-pulse", si);
+      }
+      function pintarEstado(e) {
+        if (!e) return;
+        document.getElementById("ahora").textContent = e.ahora || "Listo";
+        document.getElementById("linea").textContent = e.linea || "";
+        document.getElementById("actividad").textContent = (e.log || []).join("\n");
+        document.getElementById("kpi-apuestas").textContent = String(e.apuestas != null ? e.apuestas : 0);
+        if (e.cobertura) document.getElementById("kpi-cob").textContent = e.cobertura;
+        ocupado(!!e.ocupado);
+        var caja = document.getElementById("actividad");
+        caja.scrollTop = caja.scrollHeight;
+      }
+      function sinPrograma() {
+        aviso("Programa", "El cálculo corre al abrir LottoOptimizerV3_11.");
+      }
+      async function llamar(nombre) {
+        if (!window.pywebview || !window.pywebview.api) { sinPrograma(); return; }
+        var r = await window.pywebview.api[nombre](leer());
+        if (r && r.ok === false && r.error) aviso("Error", r.error);
+      }
+      document.getElementById("calcular").addEventListener("click", function () { llamar("calcular"); });
+      document.getElementById("parar").addEventListener("click", function () { llamar("parar"); });
+      document.getElementById("revisar-botones").addEventListener("click", function (ev) {
+        var btn = ev.target.closest("button");
+        if (!btn) return;
+        llamar(btn.getAttribute("data-accion"));
+      });
+      window.addEventListener("pywebviewready", function () {
+        setInterval(async function () {
+          try { pintarEstado(await window.pywebview.api.estado()); } catch (e) {}
+        }, 200);
+      });
+    })();
+  </script>
 </body>
 </html>

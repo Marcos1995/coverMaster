@@ -272,7 +272,7 @@ class LottoOptimizerV3:
         self._aplicar_cobertura(bits, 1)
 
     def generar_aleatorias(self, cantidad: int) -> None:
-        print(f"\nGenerando {cantidad} apuestas... (PULSA Ctrl+C PARA PARAR)")
+        print(f"\nGenerando {cantidad} apuestas... (Pulsa Parar o Ctrl+C)")
         generadas = 0
         intentos = 0
         max_intentos = cantidad * 2000
@@ -970,510 +970,237 @@ def texto_validacion(apuestas: List[List[int]], k: int, permitidos: Optional[Lis
     return "Problemas:\n" + "\n".join(problemas[:40])
 
 
+_TIPOS = [
+    ("5 si 6", 5, 6),
+    ("4 si 6", 4, 6),
+    ("3 si 6", 3, 6),
+    ("5 si 5", 5, 5),
+    ("4 si 5", 4, 5),
+    ("3 si 5", 3, 5),
+    ("4 si 4", 4, 4),
+    ("3 si 4", 3, 4),
+    ("3 si 3", 3, 3),
+    ("Al 5 (n-1)", 0, 0),
+]
+
+
+def _entero_ui(valor) -> Optional[int]:
+    texto = str(valor or "").strip()
+    if texto == "":
+        return None
+    return int(texto)
+
+
+def _filtros_desde_ui(payload: dict) -> Optional[Filtros]:
+    crudos = payload.get("filtros") or {}
+    if not isinstance(crudos, dict):
+        crudos = {}
+
+    def activo(clave: str) -> bool:
+        return bool(crudos.get(clave))
+
+    incluir_texto = str(payload.get("incluir") or "")
+    if not any(activo(c) for c in ("suma", "pares", "bajos", "dist", "seguidos", "decenas", "term")) and not incluir_texto.strip():
+        return None
+    return Filtros(
+        suma_min=_entero_ui(crudos.get("suma0")) if activo("suma") else None,
+        suma_max=_entero_ui(crudos.get("suma1")) if activo("suma") else None,
+        pares_min=_entero_ui(crudos.get("pares0")) if activo("pares") else None,
+        pares_max=_entero_ui(crudos.get("pares1")) if activo("pares") else None,
+        bajos_min=_entero_ui(crudos.get("bajos0")) if activo("bajos") else None,
+        bajos_max=_entero_ui(crudos.get("bajos1")) if activo("bajos") else None,
+        distancia_min=_entero_ui(crudos.get("dist0")) if activo("dist") else None,
+        distancia_max=_entero_ui(crudos.get("dist1")) if activo("dist") else None,
+        seguidos_max=_entero_ui(crudos.get("seguidos0")) if activo("seguidos") else None,
+        por_decena_max=_entero_ui(crudos.get("decenas0")) if activo("decenas") else None,
+        por_terminacion_max=_entero_ui(crudos.get("term0")) if activo("term") else None,
+        incluir=analizar_entrada_numeros(incluir_texto),
+    )
+
+
+def datos_desde_ui(payload: dict) -> dict:
+    if not isinstance(payload, dict):
+        raise ValueError("Los datos no han llegado.")
+    k = int(payload.get("k") or 0)
+    nombre = str(payload.get("tipo") or "")
+    t = m = None
+    for etiqueta, tt, mm in _TIPOS:
+        if etiqueta == nombre:
+            t, m = tt, mm
+            break
+    if t is None:
+        raise ValueError("Elige una garantía.")
+    if t == 0:
+        t, m = k - 1, k
+    if t < 1:
+        raise ValueError("Con Al 5 (n-1), k tiene que ser al menos 2.")
+    base = sorted({int(n) for n in (payload.get("marcados") or [])})
+    v = len(base) if base else int(payload.get("base") or 0)
+    if not 1 <= k <= v:
+        raise ValueError("k tiene que estar entre 1 y el tamaño de la base.")
+    if not 1 <= m <= v or not 1 <= t <= min(k, m):
+        raise ValueError(f"La garantía {t} si {m} no cabe en v={v} y k={k}.")
+    texto_grupos = str(payload.get("grupos") or "")
+    grupos = grupos_traducidos(texto_grupos, base, k) if base else _grupos_desde_texto(texto_grupos, v, k)
+    return {
+        "v": v, "k": k, "t": t, "m": m, "base": base, "grupos": grupos,
+        "filtros": _filtros_desde_ui(payload),
+        "cantidad": int(payload.get("cantidad") or 0),
+        "porc": float(str(payload.get("porc") or "0").replace(",", ".")),
+        "ciclos": bool(payload.get("ciclos")),
+        "modo": payload.get("modo") or "n",
+        "premio": str(payload.get("premio") or ""),
+    }
+
+
+def _porcentaje(linea: str) -> str:
+    if "%" not in linea:
+        return ""
+    num = ""
+    for ch in reversed(linea.split("%", 1)[0]):
+        if ch.isdigit() or ch in ".,":
+            num = ch + num
+        elif num:
+            break
+    return (num.replace(",", ".") + "%") if num else ""
+
+
+def _palabra(linea: str) -> str:
+    t = linea.lower()
+    if "error" in t:
+        return "Error"
+    if "progreso" in t or "generando" in t:
+        return "Generando"
+    if "ciclo" in t or "optimiz" in t:
+        return "Optimizando"
+    if "incorporando" in t or "descargando" in t:
+        return "Cargando"
+    if "detenid" in t:
+        return "Parado"
+    if "archivo" in t or "guardad" in t:
+        return "Guardado"
+    if "%" in t:
+        return "Cobertura"
+    return "Ahora"
+
+
 def main_gui() -> None:
     import queue
     import threading
-    import tkinter as tk
-    from tkinter import filedialog, messagebox, ttk
+
+    try:
+        import webview
+    except ImportError:
+        print("Falta pywebview. Instálalo con: python -m pip install pywebview")
+        raise SystemExit(1)
 
     if getattr(sys, "frozen", False):
         os.chdir(os.path.dirname(sys.executable))
-
-    fondo = "#F3F6F4"
-    tarjeta = "#FFFFFF"
-    tinta = "#14241C"
-    suave = "#5C6B63"
-    linea = "#D5E0D8"
-    acento = "#18E667"
-    tinta_acento = "#032612"
-    primario = "#0A3D22"
-    claro = "#F4F7F5"
-    fuente = ("Segoe UI", 10)
-    fuente_sm = ("Segoe UI", 9)
-
-    mensajes: queue.Queue = queue.Queue()
-    sesion = {"opt": None, "arch": None, "apuestas": [], "base": None, "k": 6, "v": 8, "ocupado": False}
-    pista_win = {"w": None}
+        base = getattr(sys, "_MEIPASS", os.path.dirname(sys.executable))
+    else:
+        base = os.path.dirname(os.path.abspath(__file__))
+    html = os.path.join(base, "index.html")
+    if not os.path.isfile(html):
+        print(f"No está la pantalla: {html}")
+        raise SystemExit(1)
 
     class _Salida:
+        def __init__(self, cola: queue.Queue) -> None:
+            self.cola = cola
+
         def write(self, texto: str) -> int:
             if texto:
-                mensajes.put(texto)
-            return len(texto)
+                self.cola.put(texto)
+            return len(texto or "")
 
         def flush(self) -> None:
             pass
 
-    sys.stdout = _Salida()
-    sys.stderr = _Salida()
-
-    guia = """Calcular
-Genera las apuestas. Con los ciclos activos, después las mejora. Si eliges un % de cobertura, para cuando la muestra llega a ese porcentaje.
-
-Parar
-Corta lo que esté en marcha y guarda el mejor récord de la sesión.
-
-Usar récord
-Si Lotoideas publica un zip para esta base y esta garantía, lo descarga y lo guarda sin cambiar ni una apuesta.
-
-Mejorar récord
-Empieza por esa lista. Solo la sustituye si la cobertura de la muestra sube. Si no, se queda la de Lotoideas.
-
-Escrutar
-Compara las apuestas cargadas con la combinación ganadora y cuenta cuántas tienen 0, 1, 2… aciertos.
-
-Garantías
-Resume la garantía pedida (por ejemplo 5 si 6) y dice si hay reducida récord pública.
-
-Análisis
-Mira las apuestas: sumas, pares y los números que más y menos se repiten.
-
-Validar
-Avisa de apuestas repetidas, con números de más o de menos, fuera de la base o que no cumplen un filtro.
-
-Estadísticas
-Frecuencia de cada número, por decenas, por terminación, y el total de pares e impares.
-
-Cargar
-Abre un sistema propio. Un archivo de texto, una apuesta por línea.
-
-Guardar
-Escribe las apuestas que hay ahora en un archivo de texto.
-
-Rejilla
-Si marcas números, esa selección es la base y las apuestas salen con esos números. Si no marcas ninguno, se usan los números del 1 al tamaño de Base.
-
-Al azar
-Marca en la rejilla tantos números como indique Base.
-
-Vaciar
-Quita las marcas. Vuelves al modo de tamaño de Base.
-
-G
-Rellena la combinación a escrutar con k números al azar, de la base si hay una marcada.
-
-Tipo
-La garantía. «5 si 6» quiere decir: si los 6 números del sorteo caen dentro de la base, alguna apuesta acierta al menos 5.
-
-Al 5 (n-1)
-La garantía pasa a ser k−1 si k. Con k = 6 es un 5 si 6.
-
-Ciclos
-Encendidos, el programa intenta mejorar la cobertura después de generar. Apagados, solo genera y guarda.
-
-Nº de apuestas
-Cuántas combinaciones crear.
-
-% de cobertura
-Tope de los ciclos. La cobertura se mide sobre una muestra de 50.000 sorteos, no sobre todos los sorteos posibles.
-
-Filtros
-Una casilla apagada no se aplica. Sumas: mínimo y máximo de la suma. Pares: cuántos pares puede llevar la apuesta. Bajos: números hasta la mitad del universo. Distancias: hueco mínimo y máximo entre números seguidos. Seguidos: máximo de parejas consecutivas. Decenas y terminaciones: máximo de números con la misma decena o la misma última cifra.
-
-Grupos
-Una línea por grupo: números ; mínimo ; máximo. Cada apuesta tiene que incluir entre el mínimo y el máximo de esos números.
-
-Apuestas condicionadas
-Números que tienen que salir en todas las apuestas. Sirven rangos, por ejemplo 1-3 7.
-"""
-
-    tipos = [
-        ("5 si 6", 5, 6),
-        ("4 si 6", 4, 6),
-        ("3 si 6", 3, 6),
-        ("5 si 5", 5, 5),
-        ("4 si 5", 4, 5),
-        ("3 si 5", 3, 5),
-        ("4 si 4", 4, 4),
-        ("3 si 4", 3, 4),
-        ("3 si 3", 3, 3),
-        ("Al 5 (n-1)", 0, 0),
-    ]
-
-    raiz = tk.Tk()
-    raiz.title("Loto 3.11")
-    raiz.configure(bg=fondo)
-    raiz.minsize(1040, 720)
-    estilo = ttk.Style(raiz)
-    estilo.theme_use("clam")
-    estilo.configure(".", background=fondo, foreground=tinta, font=fuente)
-    estilo.configure("TCombobox", padding=4)
-    estilo.configure("TEntry", padding=4)
-    estilo.configure("TCheckbutton", background=tarjeta, foreground=tinta, font=fuente)
-    estilo.configure("TRadiobutton", background=tarjeta, foreground=tinta, font=fuente)
-    estilo.map("TCheckbutton", background=[("active", tarjeta)])
-    estilo.map("TRadiobutton", background=[("active", tarjeta)])
-
-    def cerrar_pista(_evento=None) -> None:
-        if pista_win["w"] is not None:
-            pista_win["w"].destroy()
-            pista_win["w"] = None
-
-    def pista(widget, texto: str) -> None:
-        def entrar(_evento, widget=widget, texto=texto) -> None:
-            cerrar_pista()
-            x = widget.winfo_rootx()
-            y = widget.winfo_rooty() + widget.winfo_height() + 6
-            ventana = tk.Toplevel(raiz)
-            ventana.wm_overrideredirect(True)
-            ventana.configure(bg=tinta)
-            ventana.geometry(f"+{x}+{y}")
-            tk.Label(
-                ventana, text=texto, bg=tinta, fg=claro, font=fuente_sm,
-                wraplength=320, justify="left", padx=10, pady=8,
-            ).pack()
-            pista_win["w"] = ventana
-
-        widget.bind("<Enter>", entrar)
-        widget.bind("<Leave>", cerrar_pista)
-
-    def tarjeta_frame(padre, **kwargs):
-        marco = tk.Frame(padre, bg=tarjeta, highlightthickness=1, highlightbackground=linea, **kwargs)
-        return marco
-
-    def etiqueta(padre, texto, fondo=tarjeta, color=tinta, fnt=fuente):
-        return tk.Label(padre, text=texto, bg=fondo, fg=color, font=fnt)
-
-    barra = tk.Frame(raiz, bg=fondo)
-    barra.pack(side="top", fill="x", padx=20, pady=(16, 4))
-    etiqueta(barra, "Loto 3.11", fondo, tinta, ("Segoe UI", 22, "bold")).pack(side="left")
-    etiqueta(barra, "Reducidas y escrutinio", fondo, suave, fuente_sm).pack(side="left", padx=(12, 0), pady=(10, 0))
-
-    numeros_var = tk.StringVar(value="0")
-    apuestas_var = tk.StringVar(value="0")
-    estado_var = tk.StringVar(value="Listo")
-
-    def cajon(variable, leyenda):
-        caja = tk.Frame(barra, bg=acento)
-        caja.pack(side="right", padx=(8, 0))
-        tk.Label(caja, textvariable=variable, bg=acento, fg=tinta_acento, font=("Segoe UI", 18, "bold"), padx=10).pack(side="left")
-        tk.Label(caja, text=leyenda, bg=acento, fg=tinta_acento, font=fuente_sm, padx=8).pack(side="left")
-        return caja
-
-    cajon(apuestas_var, "apuestas")
-    cajon(numeros_var, "en la base")
-
-    acciones = tk.Frame(raiz, bg=fondo)
-    acciones.pack(side="top", fill="x", padx=20, pady=(8, 4))
-
-    estado = tk.Frame(raiz, bg=fondo)
-    estado.pack(side="bottom", fill="x", padx=20, pady=(0, 12))
-    tk.Label(estado, textvariable=estado_var, bg=fondo, fg=suave, font=fuente_sm, anchor="w").pack(fill="x")
-
-    cuerpo = tk.Frame(raiz, bg=fondo)
-    cuerpo.pack(side="top", fill="both", expand=True, padx=20, pady=8)
-
-    izquierda = tarjeta_frame(cuerpo)
-    izquierda.pack(side="left", fill="y", padx=(0, 12))
-    etiqueta(izquierda, "Números", fnt=("Segoe UI", 12, "bold")).pack(anchor="w", padx=12, pady=(12, 0))
-    etiqueta(izquierda, "Si marcas, esa es la base. Si no, vale el tamaño.", color=suave, fnt=fuente_sm).pack(anchor="w", padx=12)
-
-    rejilla = tk.Frame(izquierda, bg=tarjeta)
-    rejilla.pack(padx=12, pady=10)
-    sel = {}
-    teclas = {}
-
-    def pintar_numero(n: int) -> None:
-        activo = sel[n].get()
-        teclas[n].configure(bg=acento if activo else tarjeta, fg=tinta_acento if activo else tinta)
-
-    mando = tk.Frame(izquierda, bg=tarjeta)
-    base_var = tk.StringVar(value="8")
-    k_var = tk.StringVar(value="6")
-
-    def marcados() -> List[int]:
-        return sorted(n for n, var in sel.items() if var.get())
-
-    def actualizar_resumen(*_args) -> None:
-        numeros_var.set(str(len(marcados())))
-        apuestas_var.set(str(len(sesion["apuestas"])))
-
-    def alternar(n: int) -> None:
-        sel[n].set(not sel[n].get())
-        pintar_numero(n)
-        actualizar_resumen()
-
-    for n in range(1, 50):
-        sel[n] = tk.BooleanVar(value=False)
-        if n % 10 == 0:
-            fila, col = 0, (n // 10) - 1
-        else:
-            fila, col = n % 10, n // 10
-        tecla = tk.Button(
-            rejilla, text=f"{n:02d}", width=3, relief="flat", bd=0,
-            bg=tarjeta, fg=tinta, font=("Segoe UI", 10), cursor="hand2",
-            highlightthickness=1, highlightbackground=linea, highlightcolor=acento,
-            command=lambda n=n: alternar(n),
-        )
-        tecla.grid(row=fila, column=col, padx=2, pady=2)
-        teclas[n] = tecla
-        pista(tecla, "Púlsalo para meterlo o sacarlo de la base.")
-
-    def al_azar() -> None:
-        try:
-            cuantos = int(base_var.get())
-        except ValueError:
-            messagebox.showerror("Base", "La base tiene que ser un entero.")
-            return
-        if not 1 <= cuantos <= 49:
-            messagebox.showerror("Base", "La base al azar va de 1 a 49.")
-            return
-        elegidos = set(random.sample(range(1, 50), cuantos))
-        for n, var in sel.items():
-            var.set(n in elegidos)
-            pintar_numero(n)
-        actualizar_resumen()
-
-    def vaciar() -> None:
-        for n, var in sel.items():
-            var.set(False)
-            pintar_numero(n)
-        actualizar_resumen()
-
-    premio = tk.StringVar()
-
-    def combinacion_azar() -> None:
-        try:
-            k = int(k_var.get())
-        except ValueError:
-            return
-        origen = marcados() or list(range(1, 50))
-        if k > len(origen):
-            messagebox.showerror("Combinación", "k es mayor que los números disponibles.")
-            return
-        premio.set(" ".join(f"{n:02d}" for n in sorted(random.sample(origen, k))))
-
-    mando.pack(fill="x", padx=12, pady=(0, 12))
-    etiqueta(mando, "Base").pack(side="left")
-    base_entry = tk.Entry(mando, textvariable=base_var, width=4, relief="flat", font=fuente, highlightthickness=1, highlightbackground=linea)
-    base_entry.pack(side="left", padx=(6, 10))
-    etiqueta(mando, "k").pack(side="left")
-    k_spin = tk.Spinbox(mando, from_=1, to=15, textvariable=k_var, width=3, relief="flat", font=fuente, highlightthickness=1, highlightbackground=linea, buttonbackground=tarjeta)
-    k_spin.pack(side="left", padx=(6, 10))
-
-    derecha = tk.Frame(cuerpo, bg=fondo)
-    derecha.pack(side="left", fill="both", expand=True)
-
-    escrutinio = tarjeta_frame(derecha)
-    escrutinio.pack(fill="x", pady=(0, 10))
-    etiqueta(escrutinio, "Combinación a escrutar", fnt=("Segoe UI", 12, "bold")).pack(anchor="w", padx=12, pady=(10, 0))
-    fila_premio = tk.Frame(escrutinio, bg=tarjeta)
-    fila_premio.pack(fill="x", padx=12, pady=(4, 12))
-    premio_entry = tk.Entry(fila_premio, textvariable=premio, relief="flat", font=("Segoe UI", 14), highlightthickness=1, highlightbackground=linea)
-    premio_entry.pack(side="left", fill="x", expand=True, ipady=4)
-
-    opciones = tarjeta_frame(derecha)
-    opciones.pack(fill="x", pady=(0, 10))
-    etiqueta(opciones, "Reducción", fnt=("Segoe UI", 12, "bold")).grid(row=0, column=0, sticky="w", padx=12, pady=(10, 4))
-    tipo_var = tk.StringVar(value="5 si 6")
-    tipo_box = ttk.Combobox(opciones, textvariable=tipo_var, values=[nombre for nombre, _, _ in tipos], width=16, state="readonly")
-    tipo_box.grid(row=0, column=1, sticky="w", pady=(10, 4))
-    ciclos_var = tk.BooleanVar(value=True)
-    ciclos_chk = ttk.Checkbutton(opciones, text="Activar ciclos", variable=ciclos_var)
-    ciclos_chk.grid(row=0, column=2, sticky="w", padx=12, pady=(10, 4))
-    modo_var = tk.StringVar(value="n")
-    modo_n = ttk.Radiobutton(opciones, text="Nº de apuestas", variable=modo_var, value="n")
-    modo_n.grid(row=1, column=0, sticky="w", padx=12)
-    cantidad_var = tk.StringVar(value="20")
-    cantidad_entry = tk.Entry(opciones, textvariable=cantidad_var, width=8, relief="flat", font=fuente, highlightthickness=1, highlightbackground=linea)
-    cantidad_entry.grid(row=1, column=1, sticky="w", pady=4)
-    modo_p = ttk.Radiobutton(opciones, text="% de cobertura", variable=modo_var, value="p")
-    modo_p.grid(row=2, column=0, sticky="w", padx=12, pady=(0, 10))
-    porc_var = tk.StringVar(value="100")
-    porc_entry = tk.Entry(opciones, textvariable=porc_var, width=8, relief="flat", font=fuente, highlightthickness=1, highlightbackground=linea)
-    porc_entry.grid(row=2, column=1, sticky="w", pady=(0, 10))
-
-    filtros_ui = tarjeta_frame(derecha)
-    filtros_ui.pack(fill="x", pady=(0, 10))
-    etiqueta(filtros_ui, "Filtros", fnt=("Segoe UI", 12, "bold")).grid(row=0, column=0, columnspan=6, sticky="w", padx=12, pady=(10, 4))
-    checks = {}
-    entradas = {}
-
-    def fila_filtro(fila: int, columna: int, clave: str, texto: str, campos: int, explicacion: str) -> None:
-        var = tk.BooleanVar(value=False)
-        checks[clave] = var
-        casilla = ttk.Checkbutton(filtros_ui, text=texto, variable=var)
-        casilla.grid(row=fila, column=columna, sticky="w", padx=(12, 4), pady=2)
-        pista(casilla, explicacion)
-        for i in range(campos):
-            ent = tk.StringVar()
-            entradas[f"{clave}{i}"] = ent
-            caja = tk.Entry(filtros_ui, textvariable=ent, width=6, relief="flat", font=fuente, highlightthickness=1, highlightbackground=linea)
-            caja.grid(row=fila, column=columna + 1 + i, padx=2, pady=2, sticky="w")
-            pista(caja, explicacion)
-
-    fila_filtro(1, 0, "suma", "Sumas", 2, "Mínimo y máximo de la suma de la apuesta.")
-    fila_filtro(2, 0, "pares", "Pares", 2, "Mínimo y máximo de números pares en la apuesta.")
-    fila_filtro(3, 0, "bajos", "Bajos", 2, "Mínimo y máximo de números bajos, los que van de 1 hasta la mitad.")
-    fila_filtro(4, 0, "dist", "Distancias", 2, "Hueco mínimo y máximo entre dos números seguidos de la apuesta.")
-    fila_filtro(1, 3, "seguidos", "Seguidos", 1, "Máximo de parejas consecutivas, como 7 y 8.")
-    fila_filtro(2, 3, "decenas", "Decenas", 1, "Máximo de números en la misma decena.")
-    fila_filtro(3, 3, "term", "Terminaciones", 1, "Máximo de números con la misma última cifra. También son los homólogos.")
-    etiqueta(filtros_ui, "Grupos   números ; mínimo ; máximo", color=suave, fnt=fuente_sm).grid(row=5, column=0, columnspan=6, sticky="w", padx=12, pady=(8, 0))
-    grupos_texto = tk.Text(filtros_ui, height=2, font=("Segoe UI", 10), relief="flat", highlightthickness=1, highlightbackground=linea)
-    grupos_texto.grid(row=6, column=0, columnspan=6, sticky="we", padx=12, pady=4)
-    etiqueta(filtros_ui, "Apuestas condicionadas", color=suave, fnt=fuente_sm).grid(row=7, column=0, columnspan=2, sticky="w", padx=12, pady=(0, 10))
-    incluir_var = tk.StringVar()
-    incluir_entry = tk.Entry(filtros_ui, textvariable=incluir_var, relief="flat", font=fuente, highlightthickness=1, highlightbackground=linea)
-    incluir_entry.grid(row=7, column=2, columnspan=4, sticky="we", padx=12, pady=(0, 10))
-    filtros_ui.grid_columnconfigure(5, weight=1)
-
-    actividad = tarjeta_frame(raiz, height=128)
-    actividad.pack_propagate(False)
-    actividad.pack(side="bottom", fill="x", padx=20, pady=(0, 4))
-    etiqueta(actividad, "Actividad", fnt=("Segoe UI", 12, "bold")).pack(anchor="w", padx=12, pady=(10, 0))
-    marco_log = tk.Frame(actividad, bg=tarjeta)
-    marco_log.pack(fill="both", expand=True, padx=12, pady=(4, 12))
-    barra_log = tk.Scrollbar(marco_log)
-    registro = tk.Text(
-        marco_log, height=5, font=("Consolas", 10), bg="#E7EEE9", fg=tinta, relief="flat",
-        wrap="word", padx=8, pady=8, yscrollcommand=barra_log.set,
-    )
-    barra_log.configure(command=registro.yview)
-    barra_log.pack(side="right", fill="y")
-    registro.pack(side="left", fill="both", expand=True)
-
-    def entero_opcional(clave: str) -> Optional[int]:
-        texto = entradas[clave].get().strip()
-        if texto == "":
-            return None
-        return int(texto)
-
-    def construir_filtros() -> Optional[Filtros]:
-        if not any(var.get() for var in checks.values()) and not incluir_var.get().strip():
-            return None
-        return Filtros(
-            suma_min=entero_opcional("suma0") if checks["suma"].get() else None,
-            suma_max=entero_opcional("suma1") if checks["suma"].get() else None,
-            pares_min=entero_opcional("pares0") if checks["pares"].get() else None,
-            pares_max=entero_opcional("pares1") if checks["pares"].get() else None,
-            bajos_min=entero_opcional("bajos0") if checks["bajos"].get() else None,
-            bajos_max=entero_opcional("bajos1") if checks["bajos"].get() else None,
-            distancia_min=entero_opcional("dist0") if checks["dist"].get() else None,
-            distancia_max=entero_opcional("dist1") if checks["dist"].get() else None,
-            seguidos_max=entero_opcional("seguidos0") if checks["seguidos"].get() else None,
-            por_decena_max=entero_opcional("decenas0") if checks["decenas"].get() else None,
-            por_terminacion_max=entero_opcional("term0") if checks["term"].get() else None,
-            incluir=analizar_entrada_numeros(incluir_var.get()),
-        )
-
-    def parametros():
-        k = int(k_var.get())
-        nombre = tipo_var.get()
-        t = m = None
-        for etiqueta_tipo, tt, mm in tipos:
-            if etiqueta_tipo == nombre:
-                t, m = tt, mm
-                break
-        if t == 0:
-            t, m = k - 1, k
-        if t < 1:
-            raise ValueError("Con Al 5 (n-1), k tiene que ser al menos 2.")
-        base = marcados()
-        if base:
-            v = len(base)
-        else:
-            v = int(base_var.get())
-        if not 1 <= k <= v:
-            raise ValueError("k tiene que estar entre 1 y el tamaño de la base.")
-        if not 1 <= m <= v or not 1 <= t <= min(k, m):
-            raise ValueError(f"La garantía {t} si {m} no cabe en v={v} y k={k}.")
-        texto_grupos = grupos_texto.get("1.0", "end")
-        grupos = grupos_traducidos(texto_grupos, base, k) if base else _grupos_desde_texto(texto_grupos, v, k)
-        filtros = construir_filtros()
-        cantidad = int(cantidad_var.get() or "0")
-        porc = float(porc_var.get() or "0")
-        return {
-            "v": v, "k": k, "t": t, "m": m, "base": base, "grupos": grupos,
-            "filtros": filtros, "cantidad": cantidad, "porc": porc,
-            "ciclos": ciclos_var.get(), "modo": modo_var.get(),
-        }
-
-    progreso = {"activo": False}
-
-    def escribir_log() -> None:
-        while True:
-            try:
-                texto = mensajes.get_nowait()
-            except queue.Empty:
-                break
-            for simbolo in ("🎯", "🌡️", "🔄", "🎰", "🛑", "✓"):
-                texto = texto.replace(simbolo, "")
-            es_progreso = "\r" in texto and "\n" not in texto.strip("\r")
-            if es_progreso:
-                limpio = " ".join(texto.replace("\r", " ").split())
-                if progreso["activo"]:
-                    registro.delete("progreso", "end")
-                else:
-                    if registro.index("end-1c") != "1.0":
-                        registro.insert("end", "\n")
-                    registro.mark_set("progreso", "end-1c")
-                    registro.mark_gravity("progreso", "left")
-                    progreso["activo"] = True
-                registro.insert("end", limpio)
-            else:
-                progreso["activo"] = False
-                trozo = texto.replace("\r", "\n")
-                if trozo and not trozo.endswith("\n"):
-                    trozo += "\n"
-                registro.insert("end", trozo)
-            registro.see("end")
-        raiz.after(200, escribir_log)
-
-    def anotar(texto: str) -> None:
-        mensajes.put(texto if texto.endswith("\n") else texto + "\n")
-        primera = texto.strip().splitlines()
-        if primera:
-            raiz.after(0, lambda linea_estado=primera[0][:140]: estado_var.set(linea_estado))
-
-    def ocupado(si: bool) -> None:
-        sesion["ocupado"] = si
-        estado = "disabled" if si else "normal"
-        for boton in accion:
-            boton.configure(state=estado)
-        parar_btn.configure(state="normal" if si else "disabled")
-        estado_var.set("Trabajando. Parar guarda el mejor récord." if si else "Listo")
-
-    def guardar_lista(datos, listas, marca: str = "v11") -> str:
-        arch = escribir_apuestas(datos["v"], datos["k"], datos["t"], listas, marca=marca)
-        sesion["arch"] = arch
-        sesion["apuestas"] = listas
-        sesion["base"] = datos["base"]
-        sesion["k"] = datos["k"]
-        sesion["v"] = datos["v"]
-        raiz.after(0, actualizar_resumen)
-        anotar(f"Archivo: {arch}")
-        return arch
-
-    def lanzar(modo: str) -> None:
-        if sesion["ocupado"]:
-            return
-        try:
-            datos = parametros()
-        except Exception as e:
-            messagebox.showerror("Datos", str(e))
-            return
-        url = None if datos["grupos"] else REDUCIDAS_LOTOIDEAS.get((datos["v"], datos["k"], datos["t"], datos["m"]))
-        if modo in ("usar", "mejorar") and not url:
-            messagebox.showinfo("Récord", "No hay zip público de Lotoideas para esta base y esta garantía, o hay grupos.")
-            return
-        if modo == "calcular" and datos["modo"] == "n" and datos["cantidad"] < 1:
-            messagebox.showerror("Datos", "El número de apuestas tiene que ser al menos 1.")
-            return
-
-        def a_reales(filas):
-            base = datos["base"]
-            if not base:
-                return filas
-            return [[base[n - 1] for n in fila] for fila in filas]
-
-        def trabajo() -> None:
+    class Api:
+        def __init__(self) -> None:
+            self.ventana = None
+            self.mensajes: queue.Queue = queue.Queue()
+            self.candado = threading.Lock()
+            self.ocupado = False
+            self.lineas: List[str] = []
+            self.progreso = ""
+            self.cobertura = ""
+            self.sesion = {"opt": None, "arch": None, "apuestas": [], "base": None, "k": 6, "v": 8}
+
+        def _anotar(self, texto: str) -> None:
+            self.mensajes.put(texto if texto.endswith("\n") else texto + "\n")
+
+        def _volcar(self) -> None:
+            while True:
+                try:
+                    texto = self.mensajes.get_nowait()
+                except queue.Empty:
+                    break
+                for simbolo in ("🎯", "🌡️", "🔄", "🎰", "🛑", "✓", "⚠️"):
+                    texto = texto.replace(simbolo, "")
+                if "\r" in texto and "\n" not in texto.strip("\r"):
+                    self.progreso = " ".join(texto.replace("\r", " ").split())
+                    hallado = _porcentaje(self.progreso)
+                    if hallado:
+                        self.cobertura = hallado
+                    continue
+                self.progreso = ""
+                for trozo in texto.replace("\r", "\n").splitlines():
+                    limpio = " ".join(trozo.split())
+                    if not limpio:
+                        continue
+                    self.lineas.append(limpio)
+                    hallado = _porcentaje(limpio)
+                    if hallado:
+                        self.cobertura = hallado
+            self.lineas = self.lineas[-80:]
+
+        def estado(self) -> dict:
+            with self.candado:
+                self._volcar()
+                linea = self.progreso or (self.lineas[-1] if self.lineas else "")
+                previas = self.lineas if self.progreso else self.lineas[:-1]
+                if not linea and not self.ocupado:
+                    return {
+                        "ahora": "Listo",
+                        "linea": "Esperando. Calcular genera las apuestas.",
+                        "log": previas[-40:],
+                        "apuestas": len(self.sesion["apuestas"]),
+                        "cobertura": self.cobertura,
+                        "ocupado": False,
+                    }
+                if not linea and self.ocupado:
+                    linea = "En marcha. Parar guarda el mejor récord."
+                return {
+                    "ahora": _palabra(linea) if linea != "En marcha. Parar guarda el mejor récord." else "Trabajando",
+                    "linea": linea,
+                    "log": previas[-40:],
+                    "apuestas": len(self.sesion["apuestas"]),
+                    "cobertura": self.cobertura,
+                    "ocupado": self.ocupado,
+                }
+
+        def _marcar(self, si: bool) -> None:
+            with self.candado:
+                self.ocupado = si
+
+        def _guardar(self, datos, listas, marca: str = "v11") -> str:
+            arch = escribir_apuestas(datos["v"], datos["k"], datos["t"], listas, marca=marca)
+            self.sesion["arch"] = arch
+            self.sesion["apuestas"] = listas
+            self.sesion["base"] = datos["base"]
+            self.sesion["k"] = datos["k"]
+            self.sesion["v"] = datos["v"]
+            self._anotar(f"Archivo: {arch}")
+            return arch
+
+        def _trabajo(self, modo: str, datos: dict, url: Optional[str]) -> None:
             try:
                 if modo == "usar":
-                    anotar(url)
-                    apuestas = a_reales(descargar_reducida_lotoideas(url, datos["v"], datos["k"]))
-                    guardar_lista(datos, apuestas, "lotoideas")
-                    anotar("Guardada la reducida récord de Lotoideas, sin cambiarla.")
+                    self._anotar(url or "")
+                    apuestas = self._reales(datos, descargar_reducida_lotoideas(url, datos["v"], datos["k"]))
+                    self._guardar(datos, apuestas, "lotoideas")
+                    self._anotar("Guardada la reducida récord de Lotoideas, sin cambiarla.")
                     return
                 config = Configuracion(
                     v=datos["v"], k=datos["k"], t=datos["t"], m=datos["m"],
@@ -1482,221 +1209,202 @@ Números que tienen que salir en todas las apuestas. Sirven rangos, por ejemplo 
                 )
                 opt = LottoOptimizerV3(config)
                 opt._detener = False
-                sesion["opt"] = opt
+                self.sesion["opt"] = opt
                 if modo == "mejorar":
-                    anotar(url)
-                    anotar("Si el recocido no la supera, se guarda la lista de Lotoideas.")
+                    self._anotar(url or "")
+                    self._anotar("Si el recocido no la supera, se guarda la lista de Lotoideas.")
                     opt.cargar_lista(descargar_reducida_lotoideas(url, datos["v"], datos["k"]))
                     if opt.num_apuestas and not opt._detener:
                         opt.optimizar(en_pantalla=False)
                 else:
                     cantidad = datos["cantidad"] if datos["cantidad"] >= 1 else 20
+                    self._anotar(f"Generando {cantidad} apuestas.")
                     opt.generar_aleatorias(cantidad)
                     if datos["ciclos"] and opt.num_apuestas and not opt._detener:
                         objetivo = datos["porc"] if datos["modo"] == "p" else None
                         opt.optimizar(en_pantalla=False, objetivo=objetivo)
                 if opt.num_apuestas:
                     fuente = opt.mejor_apuestas_bits or opt.apuestas_bits
-                    listas = a_reales([BitUtils.bits_a_lista(b, datos["v"]) for b in fuente])
+                    listas = self._reales(datos, [BitUtils.bits_a_lista(b, datos["v"]) for b in fuente])
                     cob = opt.mejor_cobertura if opt.mejor_cobertura > 0 else opt.cobertura
                     arch = escribir_apuestas(datos["v"], datos["k"], datos["t"], listas, cob)
-                    sesion["arch"] = arch
-                    sesion["apuestas"] = listas
-                    sesion["base"] = datos["base"]
-                    sesion["k"] = datos["k"]
-                    sesion["v"] = datos["v"]
-                    raiz.after(0, actualizar_resumen)
-                    anotar(f"Archivo: {arch}")
+                    self.sesion["arch"] = arch
+                    self.sesion["apuestas"] = listas
+                    self.sesion["base"] = datos["base"]
+                    self.sesion["k"] = datos["k"]
+                    self.sesion["v"] = datos["v"]
+                    self._anotar(f"Archivo: {arch}")
                 else:
-                    anotar("No hay apuestas que guardar.")
+                    self._anotar("No hay apuestas que guardar.")
             except Exception as e:
-                anotar(f"Error: {e}")
+                self._anotar(f"Error: {e}")
             finally:
-                raiz.after(0, lambda: ocupado(False))
+                self._marcar(False)
 
-        ocupado(True)
-        threading.Thread(target=trabajo, daemon=True).start()
+        def _reales(self, datos, filas):
+            base = datos["base"]
+            if not base:
+                return filas
+            return [[base[n - 1] for n in fila] for fila in filas]
 
-    def parar() -> None:
-        opt = sesion.get("opt")
-        if opt is not None:
-            opt._detener = True
+        def _lanzar(self, modo: str, payload) -> dict:
+            if self.ocupado:
+                return {"ok": False, "error": "Ya hay un cálculo en marcha."}
+            try:
+                datos = datos_desde_ui(payload if isinstance(payload, dict) else {})
+            except (ValueError, TypeError) as e:
+                return {"ok": False, "error": str(e)}
+            url = None if datos["grupos"] else REDUCIDAS_LOTOIDEAS.get((datos["v"], datos["k"], datos["t"], datos["m"]))
+            if modo in ("usar", "mejorar") and not url:
+                return {"ok": False, "error": "No hay zip público de Lotoideas para esta base y esta garantía, o hay grupos."}
+            if modo == "calcular" and datos["modo"] == "n" and datos["cantidad"] < 1:
+                return {"ok": False, "error": "El número de apuestas tiene que ser al menos 1."}
+            self._marcar(True)
+            threading.Thread(target=self._trabajo, args=(modo, datos, url), daemon=True).start()
+            return {"ok": True}
 
-    def exigir_apuestas():
-        if not sesion["apuestas"]:
-            messagebox.showinfo("Apuestas", "Primero calcula, carga o usa una reducida.")
-            return False
-        return True
+        def calcular(self, payload) -> dict:
+            return self._lanzar("calcular", payload)
 
-    def escrutar() -> None:
-        if not exigir_apuestas():
-            return
-        premiados = analizar_entrada_numeros(premio.get())
-        if len(premiados) < 1:
-            messagebox.showerror("Escrutar", "Escribe la combinación ganadora.")
-            return
-        conteo = escrutar_apuestas(sesion["apuestas"], premiados)
-        k_real = max(len(fila) for fila in sesion["apuestas"])
-        anotar(texto_escrutinio(conteo, len(sesion["apuestas"]), k_real))
+        def usar(self, payload) -> dict:
+            return self._lanzar("usar", payload)
 
-    def garantias() -> None:
-        try:
-            datos = parametros()
-        except Exception as e:
-            messagebox.showerror("Garantías", str(e))
-            return
-        url = None if datos["grupos"] else REDUCIDAS_LOTOIDEAS.get((datos["v"], datos["k"], datos["t"], datos["m"]))
-        lineas = [
-            f"Base de {datos['v']} números, apuestas de {datos['k']}.",
-            f"Garantía pedida: {datos['t']} si {datos['m']}.",
-            f"Apuestas cargadas: {len(sesion['apuestas'])}.",
-        ]
-        if url:
-            lineas.append("Hay reducida récord pública de Lotoideas:")
-            lineas.append(url)
-        else:
-            lineas.append("No hay zip de Lotoideas para estos datos.")
-        opt = sesion.get("opt")
-        if opt is not None and opt.total_sorteos:
-            lineas.append(f"Cobertura de la muestra: {opt.mejor_cobertura or opt.cobertura:.4f}%.")
-        anotar("\n".join(lineas))
+        def mejorar(self, payload) -> dict:
+            return self._lanzar("mejorar", payload)
 
-    def analizar() -> None:
-        if exigir_apuestas():
-            anotar(texto_analisis(sesion["apuestas"]))
+        def parar(self, _payload=None) -> dict:
+            opt = self.sesion.get("opt")
+            if opt is not None:
+                opt._detener = True
+            self._anotar("Parar. Se guarda el mejor récord.")
+            return {"ok": True}
 
-    def estadisticas() -> None:
-        if exigir_apuestas():
-            anotar(texto_estadisticas(sesion["apuestas"]))
+        def _con_apuestas(self) -> Optional[dict]:
+            if not self.sesion["apuestas"]:
+                return {"ok": False, "error": "Primero calcula, carga o usa una reducida."}
+            return None
 
-    def validar() -> None:
-        if not exigir_apuestas():
-            return
-        try:
-            datos = parametros()
-        except Exception as e:
-            messagebox.showerror("Validar", str(e))
-            return
-        permitidos = datos["base"] or None
-        if permitidos:
-            universo = 49
-        else:
-            mayor = max(n for fila in sesion["apuestas"] for n in fila)
-            universo = max(datos["v"], mayor)
-        anotar(texto_validacion(sesion["apuestas"], datos["k"], permitidos, datos["filtros"], universo))
+        def escrutar(self, payload) -> dict:
+            falta = self._con_apuestas()
+            if falta:
+                return falta
+            try:
+                datos = datos_desde_ui(payload if isinstance(payload, dict) else {})
+                premiados = analizar_entrada_numeros(datos["premio"])
+            except (ValueError, TypeError) as e:
+                return {"ok": False, "error": str(e)}
+            if len(premiados) < 1:
+                return {"ok": False, "error": "Escribe la combinación ganadora."}
+            conteo = escrutar_apuestas(self.sesion["apuestas"], premiados)
+            k_real = max(len(fila) for fila in self.sesion["apuestas"])
+            self._anotar(texto_escrutinio(conteo, len(self.sesion["apuestas"]), k_real))
+            return {"ok": True}
 
-    def cargar() -> None:
-        ruta = filedialog.askopenfilename(filetypes=[("Texto", "*.txt"), ("Todos", "*.*")])
-        if not ruta:
-            return
-        apuestas = []
-        with open(ruta, encoding="utf-8") as f:
-            for linea in f:
-                nums = analizar_entrada_numeros(linea)
-                if nums:
-                    apuestas.append(nums)
-        sesion["apuestas"] = apuestas
-        sesion["arch"] = ruta
-        if apuestas:
-            sesion["k"] = len(apuestas[0])
-        actualizar_resumen()
-        anotar(f"Cargadas {len(apuestas)} apuestas desde {ruta}")
+        def garantias(self, payload) -> dict:
+            try:
+                datos = datos_desde_ui(payload if isinstance(payload, dict) else {})
+            except (ValueError, TypeError) as e:
+                return {"ok": False, "error": str(e)}
+            url = None if datos["grupos"] else REDUCIDAS_LOTOIDEAS.get((datos["v"], datos["k"], datos["t"], datos["m"]))
+            lineas = [
+                f"Base de {datos['v']} números, apuestas de {datos['k']}.",
+                f"Garantía pedida: {datos['t']} si {datos['m']}.",
+                f"Apuestas cargadas: {len(self.sesion['apuestas'])}.",
+            ]
+            if url:
+                lineas.append("Hay reducida récord pública de Lotoideas:")
+                lineas.append(url)
+            else:
+                lineas.append("No hay zip de Lotoideas para estos datos.")
+            opt = self.sesion.get("opt")
+            if opt is not None and opt.total_sorteos:
+                lineas.append(f"Cobertura de la muestra: {opt.mejor_cobertura or opt.cobertura:.4f}%.")
+            self._anotar("\n".join(lineas))
+            return {"ok": True}
 
-    def guardar() -> None:
-        if not exigir_apuestas():
-            return
-        try:
-            datos = parametros()
-        except Exception:
-            datos = {"v": sesion["v"], "k": sesion["k"], "t": 1}
-        arch = escribir_apuestas(datos["v"], datos["k"], datos.get("t", 1), sesion["apuestas"], marca="propio")
-        sesion["arch"] = arch
-        anotar(f"Sistema propio guardado: {arch}")
+        def analizar(self, _payload=None) -> dict:
+            falta = self._con_apuestas()
+            if falta:
+                return falta
+            self._anotar(texto_analisis(self.sesion["apuestas"]))
+            return {"ok": True}
 
-    def ayuda() -> None:
-        ventana = tk.Toplevel(raiz)
-        ventana.title("Qué hace cada cosa")
-        ventana.geometry("560x640")
-        ventana.configure(bg=fondo)
-        caja = tk.Text(ventana, wrap="word", font=("Segoe UI", 11), bg=tarjeta, fg=tinta, relief="flat", padx=18, pady=14)
-        caja.pack(fill="both", expand=True, padx=16, pady=16)
-        caja.tag_configure("titulo", font=("Segoe UI", 12, "bold"), spacing1=12)
-        for bloque in guia.strip().split("\n\n"):
-            lineas = bloque.split("\n", 1)
-            caja.insert("end", lineas[0] + "\n", "titulo")
-            if len(lineas) > 1:
-                caja.insert("end", lineas[1] + "\n")
-        caja.configure(state="disabled")
+        def estadisticas(self, _payload=None) -> dict:
+            falta = self._con_apuestas()
+            if falta:
+                return falta
+            self._anotar(texto_estadisticas(self.sesion["apuestas"]))
+            return {"ok": True}
 
-    def hacer_boton(padre, texto, orden, ayuda_txt, primario_btn=False):
-        bg = primario if primario_btn else tarjeta
-        fg = claro if primario_btn else tinta
-        boton = tk.Button(
-            padre, text=texto, command=orden, bg=bg, fg=fg, font=("Segoe UI", 10, "bold" if primario_btn else "normal"),
-            relief="flat", bd=0, padx=12, pady=7, cursor="hand2",
-            activebackground=acento, activeforeground=tinta_acento,
-            highlightthickness=1, highlightbackground=linea, highlightcolor=acento,
-        )
-        pista(boton, ayuda_txt)
-        return boton
+        def validar(self, payload) -> dict:
+            falta = self._con_apuestas()
+            if falta:
+                return falta
+            try:
+                datos = datos_desde_ui(payload if isinstance(payload, dict) else {})
+            except (ValueError, TypeError) as e:
+                return {"ok": False, "error": str(e)}
+            permitidos = datos["base"] or None
+            if permitidos:
+                universo = 49
+            else:
+                mayor = max(n for fila in self.sesion["apuestas"] for n in fila)
+                universo = max(datos["v"], mayor)
+            self._anotar(texto_validacion(self.sesion["apuestas"], datos["k"], permitidos, datos["filtros"], universo))
+            return {"ok": True}
 
-    hacer = tk.Frame(acciones, bg=fondo)
-    hacer.pack(fill="x", pady=(0, 6))
-    revisar = tk.Frame(acciones, bg=fondo)
-    revisar.pack(fill="x")
-    etiqueta(hacer, "Hacer", fondo, suave, fuente_sm).pack(side="left", padx=(0, 8))
-    etiqueta(revisar, "Revisar", fondo, suave, fuente_sm).pack(side="left", padx=(0, 8))
+        def cargar(self, _payload=None) -> dict:
+            if self.ocupado:
+                return {"ok": False, "error": "Espera a que termine."}
+            rutas = self.ventana.create_file_dialog(
+                webview.FileDialog.OPEN,
+                file_types=("Texto (*.txt)", "Todos (*.*)"),
+            )
+            if not rutas:
+                return {"ok": True}
+            ruta = rutas[0]
+            apuestas = []
+            with open(ruta, encoding="utf-8") as f:
+                for linea in f:
+                    nums = analizar_entrada_numeros(linea)
+                    if nums:
+                        apuestas.append(nums)
+            self.sesion["apuestas"] = apuestas
+            self.sesion["arch"] = ruta
+            if apuestas:
+                self.sesion["k"] = len(apuestas[0])
+            self._anotar(f"Cargadas {len(apuestas)} apuestas desde {ruta}")
+            return {"ok": True}
 
-    accion = []
-    especificacion = [
-        (hacer, "Calcular", lambda: lanzar("calcular"), "Genera las apuestas y, si los ciclos están activos, las mejora.", True),
-        (hacer, "Usar récord", lambda: lanzar("usar"), "Descarga la reducida pública de Lotoideas y la guarda igual.", False),
-        (hacer, "Mejorar récord", lambda: lanzar("mejorar"), "Intenta superar la lista de Lotoideas. Si no puede, la deja igual.", False),
-        (revisar, "Escrutar", escrutar, "Cuenta los aciertos de tus apuestas contra la combinación ganadora.", False),
-        (revisar, "Garantías", garantias, "Muestra la garantía pedida y si hay zip público.", False),
-        (revisar, "Análisis", analizar, "Resume sumas, pares y números más repetidos.", False),
-        (revisar, "Validar", validar, "Busca apuestas repetidas, incompletas o fuera de los filtros.", False),
-        (revisar, "Estadísticas", estadisticas, "Frecuencias, decenas, terminaciones, pares e impares.", False),
-        (revisar, "Cargar", cargar, "Abre un sistema propio, una apuesta por línea.", False),
-        (revisar, "Guardar", guardar, "Guarda las apuestas actuales en un texto.", False),
-    ]
-    for padre, texto, orden, ayuda_txt, es_primario in especificacion:
-        boton = hacer_boton(padre, texto, orden, ayuda_txt, es_primario)
-        boton.pack(side="left", padx=(0, 6))
-        accion.append(boton)
-    parar_btn = hacer_boton(hacer, "Parar", parar, "Corta el cálculo y guarda el mejor récord.")
-    parar_btn.configure(state="disabled", bg=tinta, fg=claro)
-    parar_btn.pack(side="left", padx=(0, 6))
-    guia_btn = hacer_boton(revisar, "Qué hace cada cosa", ayuda, "Abre la explicación de cada botón y de cada campo.")
-    guia_btn.pack(side="right")
+        def guardar(self, payload) -> dict:
+            falta = self._con_apuestas()
+            if falta:
+                return falta
+            try:
+                datos = datos_desde_ui(payload if isinstance(payload, dict) else {})
+            except (ValueError, TypeError):
+                datos = {"v": self.sesion["v"], "k": self.sesion["k"], "t": 1}
+            arch = escribir_apuestas(datos["v"], datos["k"], datos.get("t", 1), self.sesion["apuestas"], marca="propio")
+            self.sesion["arch"] = arch
+            self._anotar(f"Sistema propio guardado: {arch}")
+            return {"ok": True}
 
-    azar_btn = hacer_boton(mando, "Al azar", al_azar, "Marca al azar tantos números como ponga Base.")
-    azar_btn.pack(side="left", padx=(0, 6))
-    vaciar_btn = hacer_boton(mando, "Vaciar", vaciar, "Quita todas las marcas de la rejilla.")
-    vaciar_btn.pack(side="left")
-    g_btn = hacer_boton(fila_premio, "G", combinacion_azar, "Rellena la combinación ganadora con k números al azar.")
-    g_btn.pack(side="left", padx=(8, 0))
-    accion.extend([azar_btn, vaciar_btn, g_btn])
-
-    pista(base_entry, "Tamaño de la base cuando la rejilla está vacía. Con 8, k 6 y 5 si 6 hay zip de Lotoideas.")
-    pista(k_spin, "Números de cada apuesta.")
-    pista(premio_entry, "La combinación ganadora. Números separados por espacios, comas o rangos.")
-    pista(tipo_box, "Garantía que pides. 5 si 6: si salen 6 de la base, alguna apuesta acierta 5 o más.")
-    pista(ciclos_chk, "Con los ciclos, el programa intenta mejorar la cobertura. Sin ellos, solo genera.")
-    pista(modo_n, "Crear exactamente este número de apuestas.")
-    pista(cantidad_entry, "Cuántas apuestas generar.")
-    pista(modo_p, "Parar los ciclos al llegar a este porcentaje de la muestra.")
-    pista(porc_entry, "Porcentaje de cobertura de la muestra. 100 es el tope.")
-    pista(grupos_texto, "Una línea por grupo: 1-12 ; 1 ; 3")
-    pista(incluir_entry, "Números obligatorios en todas las apuestas. Ejemplo: 7 14 o 1-3.")
-    pista(cajon_numeros := barra.winfo_children()[-1], "Cuántos números hay marcados en la rejilla.")
-
-    escribir_log()
-    raiz.update_idletasks()
-    ancho = min(1120, raiz.winfo_screenwidth() - 40)
-    alto = min(920, raiz.winfo_screenheight() - 80)
-    raiz.geometry(f"{ancho}x{alto}+{(raiz.winfo_screenwidth() - ancho) // 2}+{(raiz.winfo_screenheight() - alto) // 2}")
-    raiz.mainloop()
+    api = Api()
+    salida = _Salida(api.mensajes)
+    sys.stdout = salida
+    sys.stderr = salida
+    ventana = webview.create_window(
+        "Loto 3.11",
+        url=html,
+        js_api=api,
+        width=1100,
+        height=860,
+        min_size=(360, 640),
+        text_select=True,
+        background_color="#08120c",
+    )
+    api.ventana = ventana
+    webview.start(private_mode=False)
 
 
 if __name__ == "__main__":
