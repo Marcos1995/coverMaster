@@ -322,7 +322,7 @@
 <h3>Filtros</h3>
 <p>Están siempre a la vista y no se cierran. La casilla activa el filtro. Mín y máx son los límites: sumas de la apuesta, cantidad de pares, de bajos (la mitad baja del bombo), de distancias, de seguidos, de decenas distintas y de terminaciones. Si el mínimo o el máximo se dejan vacíos, ese lado no limita. Grupos va en su recuadro, una línea por grupo: números, un mínimo y un máximo de aciertos, separados por punto y coma. Debajo, Apuestas condicionadas: números que tienen que salir en cada apuesta.</p>
 <h3>Registro</h3>
-<p>El recuadro verde es lo que va haciendo el programa. Cada acción nueva empieza bajo una raya, para separar la anterior. Limpiar vacía ese registro. La página no se desplaza: si el texto no cabe, se mueve solo dentro del registro.</p>
+<p>El recuadro verde es lo que va haciendo el programa. Cada clic empieza con una raya y el nombre de la acción, y el resultado se queda debajo. Si el cálculo sigue, la línea de arriba no lo tapa durante unos segundos: el motivo queda escrito. Un clic que no se puede hacer (ya hay un cálculo, falta la lista, k no cabe) también queda escrito ahí. Limpiar vacía ese registro. La página no se desplaza: si el texto no cabe, se mueve solo dentro del registro.</p>
 <form method="dialog"><button type="submit" class="mt-2 bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Cerrar</button></form>
 </dialog>
 <script>
@@ -449,7 +449,6 @@
         };
       }
       function ocupado(si) {
-        document.getElementById("calcular").disabled = si;
         document.getElementById("parar").disabled = !si;
         document.getElementById("pulso").classList.toggle("animate-pulse", si);
       }

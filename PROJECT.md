@@ -10,7 +10,7 @@
 - `LottoOptimizerV3_10.py` no se toca: consola y ventana simple, un solo fichero.
 - `LottoOptimizerV3_11.py` sigue en un solo fichero: rejilla, filtros, escrutinio, garantías, análisis, validar, estadísticas, sistemas propios y el mismo recocido. La ventana es `index.html` (Stitch) dentro de pywebview. La barra verde dice qué hace en cada momento. Filtros y revisar van cerrados.
 - `LottoOptimizerV3_12.c` es el mismo programa en C (código máquina). La ventana es el mismo `index.html`. El recocido, los filtros, el escrutinio y las reducidas de Lotoideas hacen lo mismo; la muestra sigue siendo de 50 000 sorteos.
-- `LottoOptimizerV3_13.c` es el mismo programa que el 12. La ventana es `v13.html` y cabe sin scroll. Los filtros están siempre abiertos. Cada petición del programa va en su propio hilo, así un clic no bloquea los demás. El registro separa cada acción y se puede limpiar. Ayuda explica cada control. El 12 no cambia.
+- `LottoOptimizerV3_13.c` es el mismo programa que el 12. La ventana es `v13.html` y cabe sin scroll. Los filtros están siempre abiertos. Se puede pasar de una acción a otra: cada clic deja su nombre y su resultado en el registro, y el cálculo en marcha no borra esa línea. El 12 no cambia.
 - Lectura del algoritmo: `docs/LottoOptimizerV3_10.md`. El 11 usa esa lógica.
 - Si `(v, k, t, m)` tiene zip público en Lotoideas, se ofrece esa lista o intentar mejorarla. Si no sube la cobertura, se guarda la de Lotoideas.
 - Kit de agentes en `.cursor/` (skills, rules, agents) más `AGENTS.md`.

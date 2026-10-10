@@ -66,6 +66,7 @@ static char g_linea[240] = "Esperando. Calcular genera las apuestas.";
 static char g_cob[32] = "";
 static char g_log[LOGN][240];
 static int g_nlog, g_apuestas, g_v, g_k, g_t;
+static ULONGLONG g_fijo;
 static uint64_t *g_bets;
 static int g_nbets;
 static unsigned long long g_tope;
@@ -119,6 +120,7 @@ static void anotar(const char *texto) {
             snprintf(g_log[g_nlog], 240, "%s", p);
             snprintf(g_linea, sizeof g_linea, "%s", p);
             poner_ahora(p);
+            g_fijo = GetTickCount64();
             g_nlog++;
         }
         if (!nl) break;
@@ -128,8 +130,24 @@ static void anotar(const char *texto) {
     LeaveCriticalSection(&g_cs);
 }
 
-static void raya(void) {
-    const char *marca = "----------------";
+static const char *titulo_accion(const char *nombre) {
+    if (!strcmp(nombre, "calcular")) return "Calcular";
+    if (!strcmp(nombre, "parar")) return "Parar";
+    if (!strcmp(nombre, "escrutar")) return "Escrutar";
+    if (!strcmp(nombre, "garantias")) return "Garantías";
+    if (!strcmp(nombre, "analizar")) return "Análisis";
+    if (!strcmp(nombre, "validar")) return "Validar";
+    if (!strcmp(nombre, "estadisticas")) return "Estadísticas";
+    if (!strcmp(nombre, "cargar")) return "Cargar";
+    if (!strcmp(nombre, "guardar")) return "Guardar";
+    if (!strcmp(nombre, "usar")) return "Usar récord";
+    if (!strcmp(nombre, "mejorar")) return "Mejorar récord";
+    return nombre;
+}
+
+static void raya(const char *nombre) {
+    char marca[80];
+    snprintf(marca, sizeof marca, "-------- %s --------", titulo_accion(nombre));
     EnterCriticalSection(&g_cs);
     if (g_nlog > 0 && strcmp(g_log[g_nlog - 1], marca) != 0) {
         if (g_nlog == LOGN) {
@@ -150,8 +168,10 @@ static void limpiar_log(void) {
 
 static void progreso(const char *linea, double cob) {
     EnterCriticalSection(&g_cs);
-    snprintf(g_linea, sizeof g_linea, "%s", linea);
-    poner_ahora(linea);
+    if (GetTickCount64() - g_fijo >= 4000) {
+        snprintf(g_linea, sizeof g_linea, "%s", linea);
+        poner_ahora(linea);
+    }
     if (cob >= 0) snprintf(g_cob, sizeof g_cob, "%.4f%%", cob);
     LeaveCriticalSection(&g_cs);
 }
@@ -1385,7 +1405,7 @@ static void estado_json(char *dst, int cap) {
     pos += snprintf(dst + pos, cap - pos, "{\"ahora\":\"%s\",", esc);
     json_escape(esc, sizeof esc, g_linea);
     pos += snprintf(dst + pos, cap - pos, "\"linea\":\"%s\",\"log\":[", esc);
-    desde = g_nlog > 40 ? g_nlog - 40 : 0;
+    desde = g_nlog > 80 ? g_nlog - 80 : 0;
     for (i = desde; i < g_nlog && pos < cap - 80; i++) {
         json_escape(esc, sizeof esc, g_log[i]);
         pos += snprintf(dst + pos, cap - pos, "%s\"%s\"", i == desde ? "" : ",", esc);
@@ -1413,6 +1433,15 @@ static void responder(SOCKET s, const char *status, const char *ctype, const cha
         status, ctype, n);
     send_todo(s, hdr, h);
     if (n > 0) send_todo(s, body, n);
+}
+
+static void responder_ok(SOCKET s, int ok, const char *err);
+
+static void responder_error(SOCKET s, const char *err) {
+    char buf[240];
+    snprintf(buf, sizeof buf, "Error: %s", (err && err[0]) ? err : "no se ha podido hacer.");
+    anotar(buf);
+    responder_ok(s, 0, err);
 }
 
 static void responder_ok(SOCKET s, int ok, const char *err) {
@@ -1469,7 +1498,7 @@ static void api_dispatch(SOCKET s, const char *body) {
         responder_ok(s, 1, NULL);
         return;
     }
-    raya();
+    raya(nombre);
     if (strcmp(nombre, "parar") == 0) {
         InterlockedExchange(&g_parar, 1);
         anotar("Parar. Se guarda el mejor récord.");
@@ -1477,12 +1506,13 @@ static void api_dispatch(SOCKET s, const char *body) {
         return;
     }
     if (strcmp(nombre, "calcular") == 0 || strcmp(nombre, "usar") == 0 || strcmp(nombre, "mejorar") == 0) {
-        responder_ok(s, lanzar(nombre, body, err), err);
+        if (!lanzar(nombre, body, err)) responder_error(s, err);
+        else responder_ok(s, 1, NULL);
         return;
     }
     if (strcmp(nombre, "garantias") == 0) {
         Job job;
-        if (!parse_datos(body, &job, err)) { responder_ok(s, 0, err); return; }
+        if (!parse_datos(body, &job, err)) { responder_error(s, err); return; }
         texto_garantias(&job);
         responder_ok(s, 1, NULL);
         return;
@@ -1492,7 +1522,7 @@ static void api_dispatch(SOCKET s, const char *body) {
         uint64_t *b = NULL;
         int n = copiar_bets(&b);
         const char *pay, *fin = NULL;
-        if (!n) { free(b); responder_ok(s, 0, "Primero calcula, carga o usa una reducida."); return; }
+        if (!n) { free(b); responder_error(s, "Primero calcula, carga o usa una reducida."); return; }
         if (strcmp(nombre, "analizar") == 0) texto_analisis(b, n);
         else if (strcmp(nombre, "estadisticas") == 0) texto_estadisticas(b, n);
         else if (strcmp(nombre, "escrutar") == 0) {
@@ -1502,7 +1532,7 @@ static void api_dispatch(SOCKET s, const char *body) {
             texto_escrutinio(b, n, premio);
         } else if (strcmp(nombre, "validar") == 0) {
             Job job;
-            if (!parse_datos(body, &job, err)) { free(b); responder_ok(s, 0, err); return; }
+            if (!parse_datos(body, &job, err)) { free(b); responder_error(s, err); return; }
             texto_validacion(b, n, &job);
         } else {
             Job job;
@@ -1510,7 +1540,7 @@ static void api_dispatch(SOCKET s, const char *body) {
             int v, k, t;
             if (!parse_datos(body, &job, err)) { v = g_v ? g_v : 8; k = g_k ? g_k : 6; t = g_t ? g_t : 1; }
             else { v = job.v; k = job.k; t = job.t; }
-            if (!escribir(b, n, v, k, t, 0, "propio", nombre_f)) { free(b); responder_ok(s, 0, "No se ha podido guardar."); return; }
+            if (!escribir(b, n, v, k, t, 0, "propio", nombre_f)) { free(b); responder_error(s, "No se ha podido guardar."); return; }
             snprintf(msg, sizeof msg, "Sistema propio guardado: %s", nombre_f);
             anotar(msg);
         }
@@ -1525,7 +1555,7 @@ static void api_dispatch(SOCKET s, const char *body) {
         uint64_t *bets = NULL;
         int n = 0, cap = 0;
         const char *pay, *fin = NULL;
-        if (g_ocupado) { responder_ok(s, 0, "Espera a que termine."); return; }
+        if (g_ocupado) { responder_error(s, "Espera a que termine."); return; }
         pay = json_valor(body, NULL, "payload");
         if (pay && *pay == '{') objeto_fin(pay, &fin); else { pay = body; fin = NULL; }
         json_str(pay, fin, "archivo", file, sizeof file);
@@ -1540,7 +1570,7 @@ static void api_dispatch(SOCKET s, const char *body) {
             if (!GetOpenFileNameA(&ofn)) { responder_ok(s, 1, NULL); return; }
         }
         f = fopen(file, "rb");
-        if (!f) { responder_ok(s, 0, "No se ha podido leer el archivo."); return; }
+        if (!f) { responder_error(s, "No se ha podido leer el archivo."); return; }
         char linea[512];
         while (fgets(linea, sizeof linea, f)) {
             int nums[MAXN], cn, i;
@@ -1566,7 +1596,7 @@ static void api_dispatch(SOCKET s, const char *body) {
         responder_ok(s, 1, NULL);
         return;
     }
-    responder_ok(s, 0, "Acción desconocida.");
+    responder_error(s, "Acción desconocida.");
 }
 
 static void atender(SOCKET s);
