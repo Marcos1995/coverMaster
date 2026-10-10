@@ -1686,24 +1686,20 @@ static DWORD WINAPI hilo(LPVOID p) {
                 if (job->url[0] && !job->filtros.activo) {
                     uint64_t *absb = NULL;
                     int n = 0, i;
+                    char m[240];
                     anotar(job->url);
                     if (!descargar_reducida(job->url, job->v, job->k, &absb, &n, err)) {
-                        char m[240];
                         snprintf(m, sizeof m, "Error: %s", err[0] ? err : "descarga");
                         anotar(m);
-                    } else if (job->modo_p || n <= cantidad) {
+                    } else {
                         for (i = 0; i < n && !g_parar; i++) agregar(o, absb[i]);
                         free(absb);
                         semilla = o->nap;
-                        anotar("Parto de la reducida récord de Lotoideas.");
-                    } else {
-                        char m[180];
-                        snprintf(m, sizeof m, "El récord de Lotoideas usa %d apuestas; has pedido %d.", n, cantidad);
+                        snprintf(m, sizeof m, "Parto de la reducida récord de Lotoideas: %d apuestas.", semilla);
                         anotar(m);
-                        free(absb);
                     }
                 }
-                if (!job->modo_p && o->nap < cantidad) generar(o, job, cantidad - o->nap);
+                if (!semilla && !job->modo_p && o->nap < cantidad) generar(o, job, cantidad - o->nap);
                 else if (!semilla && job->modo_p) generar(o, job, cantidad);
                 if (o->nap && !g_parar && cob_de(o) < 99.9995 && !(job->modo_p && cob_de(o) >= job->porc) && job->ciclos)
                     optimizar(o, job, job->modo_p ? job->porc : -1);
