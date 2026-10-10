@@ -5,4 +5,4 @@ Expresivo y verde. Titular display grande (Public Sans, muy negro). La cifra pri
 - Proyecto Stitch: `10126078143812255072`
 - Sistema: `assets/14421814054853207531`
 - Pantalla del 12 (`index.html`): `a2b3005027f84817acfc3f242c94259a`
-- Pantalla del 13 (`v13.html`): `6a653384700f46c6ab14e51ed9c525f8`
+- Pantalla del 13 (`v13.html`): `43b008aa74f1401b8a63df20ac2c9b55`
