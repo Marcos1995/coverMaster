@@ -1,22 +1,22 @@
 # Graph Report - coverMaster  (2026-10-10)
 
 ## Corpus Check
-- 18 files · ~19,095 words
+- 20 files · ~28,414 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 4 file(s) not represented in the graph (top: .mdc 2, .spec 2)
+- Unclassified: 5 file(s) not represented in the graph (top: .mdc 2, .spec 2, .exe 1)
 
 ## Summary
-- 216 nodes · 344 edges · 26 communities (15 shown, 11 thin omitted)
+- 306 nodes · 580 edges · 25 communities (16 shown, 9 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c00479a7`
+- Built from commit: `f67cd6a2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- main_gui
+- main
 - LottoOptimizerV3
 - Lotto Optimizer V3.10
 - Debug
@@ -35,44 +35,42 @@
 - DECISIONES.md
 - LottoOptimizerV3
 - BitUtils
-- BitUtils
-- main
-- Configuracion
-- Configuracion
+- LottoOptimizerV3_12.c
+- hilo
 - DESIGN.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `main_gui()` - 23 edges
-2. `LottoOptimizerV3` - 18 edges
+2. `api_dispatch()` - 21 edges
 3. `LottoOptimizerV3` - 18 edges
-4. `Lotto Optimizer V3.10` - 16 edges
-5. `main()` - 12 edges
-6. `main()` - 12 edges
-7. `_anotar()` - 10 edges
-8. `main_gui()` - 9 edges
-9. `datos_desde_ui()` - 9 edges
-10. `_trabajo()` - 9 edges
+4. `LottoOptimizerV3` - 18 edges
+5. `Lotto Optimizer V3.10` - 16 edges
+6. `parse_datos()` - 15 edges
+7. `hilo()` - 14 edges
+8. `anotar()` - 13 edges
+9. `main()` - 12 edges
+10. `main()` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `main_gui()` --indirect_call--> `mapear()`  [INFERRED]
-  LottoOptimizerV3_10.py → LottoOptimizerV3_10.py  _Bridges community 0 → community 17_
 - `main()` --calls--> `limpiar_pantalla()`  [EXTRACTED]
-  LottoOptimizerV3_10.py → LottoOptimizerV3_10.py  _Bridges community 1 → community 17_
-- `main()` --calls--> `Configuracion`  [EXTRACTED]
-  LottoOptimizerV3_10.py → LottoOptimizerV3_10.py  _Bridges community 23 → community 17_
-- `trabajo()` --calls--> `Configuracion`  [EXTRACTED]
-  LottoOptimizerV3_10.py → LottoOptimizerV3_10.py  _Bridges community 23 → community 0_
-- `trabajo()` --calls--> `LottoOptimizerV3`  [EXTRACTED]
   LottoOptimizerV3_10.py → LottoOptimizerV3_10.py  _Bridges community 1 → community 0_
+- `cargar()` --calls--> `analizar_entrada_numeros()`  [EXTRACTED]
+  LottoOptimizerV3_11.py → LottoOptimizerV3_11.py  _Bridges community 17 → community 4_
+- `main()` --calls--> `LottoOptimizerV3`  [EXTRACTED]
+  LottoOptimizerV3_11.py → LottoOptimizerV3_11.py  _Bridges community 19 → community 17_
+- `_trabajo()` --calls--> `LottoOptimizerV3`  [EXTRACTED]
+  LottoOptimizerV3_11.py → LottoOptimizerV3_11.py  _Bridges community 19 → community 4_
+- `bench()` --calls--> `filtros_init()`  [EXTRACTED]
+  LottoOptimizerV3_12.c → LottoOptimizerV3_12.c  _Bridges community 21 → community 22_
 
 ## Import Cycles
 - None detected.
 
-## Communities (26 total, 11 thin omitted)
+## Communities (25 total, 9 thin omitted)
 
-### Community 0 - "main_gui"
-Cohesion: 0.17
-Nodes (10): descargar_reducida_lotoideas(), escribir_apuestas(), _grupos_desde_texto(), _leer_enteros_gui(), main_gui(), aviso_record(), lanzar(), trabajo() (+2 more)
+### Community 0 - "main"
+Cohesion: 0.09
+Nodes (22): analizar_entrada_numeros(), CondicionGrupo, Configuracion, configurar_consola(), descargar_reducida_lotoideas(), escribir_apuestas(), _grupos_desde_texto(), leer_entero() (+14 more)
 
 ### Community 2 - "Lotto Optimizer V3.10"
 Cohesion: 0.12
@@ -83,8 +81,8 @@ Cohesion: 0.29
 Nodes (6): 1. Root cause, 2. Compare, 3. Hypothesis, 4. Fix, Debug, Red flags → back to step 1
 
 ### Community 4 - "main_gui"
-Cohesion: 0.11
-Nodes (30): datos_desde_ui(), descargar_reducida_lotoideas(), escribir_apuestas(), escrutar_apuestas(), main_gui(), analizar(), _anotar(), calcular() (+22 more)
+Cohesion: 0.15
+Nodes (24): datos_desde_ui(), escribir_apuestas(), main_gui(), analizar(), _anotar(), calcular(), cargar(), _con_apuestas() (+16 more)
 
 ### Community 5 - "Contexto del proyecto"
 Cohesion: 0.29
@@ -123,32 +121,36 @@ Cohesion: 0.50
 Nodes (3): Docs, Project, Setup
 
 ### Community 17 - "LottoOptimizerV3_11.py"
-Cohesion: 0.11
-Nodes (28): dataclasses, datetime, io, analizar_entrada_numeros(), CondicionGrupo, configurar_consola(), leer_entero(), leer_grupos() (+20 more)
+Cohesion: 0.07
+Nodes (38): dataclasses, datetime, io, BitUtils, LOTTO OPTIMIZER V3.10 - Pantalla limpia y guardado exclusivo del MEJOR récord…, analizar_entrada_numeros(), apuesta_pasa_filtros(), CondicionGrupo (+30 more)
 
-### Community 22 - "main"
-Cohesion: 0.23
-Nodes (12): analizar_entrada_numeros(), CondicionGrupo, configurar_consola(), _grupos_desde_texto(), grupos_traducidos(), leer_entero(), leer_grupos(), leer_parametros() (+4 more)
+### Community 21 - "LottoOptimizerV3_12.c"
+Cohesion: 0.08
+Nodes (53): commdlg, ctype, Grupo, limits, abrir_ventana(), acaba_txt(), analizar_numeros(), api_dispatch() (+45 more)
+
+### Community 22 - "hilo"
+Cohesion: 0.14
+Nodes (33): DWORD, Job, Lista, agregar(), anotar(), aplicar(), bench(), cob_de() (+25 more)
 
 ## Knowledge Gaps
 - **48 isolated node(s):** `1. Root cause`, `2. Compare`, `3. Hypothesis`, `4. Fix`, `Red flags → back to step 1` (+43 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 90 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 109 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `main_gui()` connect `main_gui` to `LottoOptimizerV3_11.py`?**
-  _High betweenness centrality (0.081) - this node is a cross-community bridge._
-- **Why does `LottoOptimizerV3` connect `LottoOptimizerV3` to `main_gui`, `LottoOptimizerV3_11.py`, `Configuracion`?**
-  _High betweenness centrality (0.080) - this node is a cross-community bridge._
-- **Why does `LottoOptimizerV3` connect `LottoOptimizerV3` to `Configuracion`, `LottoOptimizerV3_11.py`, `main_gui`, `main`?**
-  _High betweenness centrality (0.077) - this node is a cross-community bridge._
+  _High betweenness centrality (0.070) - this node is a cross-community bridge._
+- **Why does `LottoOptimizerV3` connect `LottoOptimizerV3` to `main`, `LottoOptimizerV3_11.py`?**
+  _High betweenness centrality (0.067) - this node is a cross-community bridge._
+- **Why does `LottoOptimizerV3` connect `LottoOptimizerV3` to `LottoOptimizerV3_11.py`, `main_gui`?**
+  _High betweenness centrality (0.064) - this node is a cross-community bridge._
 - **What connects `1. Root cause`, `2. Compare`, `3. Hypothesis` to the rest of the system?**
   _48 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `main` be split into smaller, more focused modules?**
+  _Cohesion score 0.09247311827956989 - nodes in this community are weakly interconnected._
 - **Should `Lotto Optimizer V3.10` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
-- **Should `main_gui` be split into smaller, more focused modules?**
-  _Cohesion score 0.10695187165775401 - nodes in this community are weakly interconnected._
 - **Should `LottoOptimizerV3_11.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.11491935483870967 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07446808510638298 - nodes in this community are weakly interconnected._

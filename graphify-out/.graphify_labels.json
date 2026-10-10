@@ -1,5 +1,5 @@
 {
-  "0": "main_gui",
+  "0": "main",
   "1": "LottoOptimizerV3",
   "2": "Lotto Optimizer V3.10",
   "3": "Debug",
@@ -20,9 +20,8 @@
   "18": "DECISIONES.md",
   "19": "LottoOptimizerV3",
   "20": "BitUtils",
-  "21": "BitUtils",
-  "22": "main",
-  "23": "Configuracion",
-  "24": "Configuracion",
+  "21": "LottoOptimizerV3_12.c",
+  "22": "hilo",
+  "23": "reducidas.inc",
   "25": "DESIGN.md"
 }
