@@ -1,17 +1,17 @@
 # Graph Report - coverMaster  (2026-10-10)
 
 ## Corpus Check
-- 21 files · ~55,155 words
+- 21 files · ~55,205 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 8 file(s) not represented in the graph (top: .mdc 2, .spec 2, .exe 2)
 
 ## Summary
-- 392 nodes · 837 edges · 23 communities (16 shown, 7 thin omitted)
+- 393 nodes · 838 edges · 23 communities (16 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d5e45f8b`
+- Built from commit: `b5cf8a79`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -121,16 +121,16 @@ Cohesion: 0.50
 Nodes (3): Docs, Project, Setup
 
 ### Community 17 - "LottoOptimizerV3_13.c"
-Cohesion: 0.07
-Nodes (81): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), atender() (+73 more)
+Cohesion: 0.05
+Nodes (94): commdlg, ctype, limits, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar() (+86 more)
 
 ### Community 21 - "LottoOptimizerV3_12.c"
-Cohesion: 0.06
-Nodes (88): commdlg, ctype, limits, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar() (+80 more)
+Cohesion: 0.07
+Nodes (76): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), atender() (+68 more)
 
 ## Knowledge Gaps
 - **48 isolated node(s):** `1. Root cause`, `2. Compare`, `3. Hypothesis`, `4. Fix`, `Red flags → back to step 1` (+43 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 103 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 104 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions

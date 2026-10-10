@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <wchar.h>
 
 #define MAXN 64
 #define UNIVERSO_DEF 50000
@@ -1456,16 +1457,24 @@ static const char SHIM[] =
     "window.addEventListener('pagehide',function(){try{navigator.sendBeacon('/cerrar');}catch(e){}});"
     "window.dispatchEvent(new Event('pywebviewready'));})();</script>";
 
+static wchar_t g_dir[MAX_PATH];
+
 static void servir_html(SOCKET s) {
-    FILE *f = fopen("v13.html", "rb");
+    wchar_t ruta[MAX_PATH];
+    FILE *f;
     long n;
     char *buf, *body;
-    if (!f) { responder(s, "500 Internal Server Error", "text/plain", "No está la pantalla", 22); return; }
+    static const char falta[] = "Falta v13.html junto al programa.";
+    swprintf(ruta, MAX_PATH, L"%ls\\v13.html", g_dir);
+    f = _wfopen(ruta, L"rb");
+    if (!f) f = fopen("v13.html", "rb");
+    if (!f) { responder(s, "500 Internal Server Error", "text/plain; charset=utf-8", falta, (int)strlen(falta)); return; }
     fseek(f, 0, SEEK_END);
     n = ftell(f);
     rewind(f);
+    if (n < 0) { fclose(f); responder(s, "500 Internal Server Error", "text/plain; charset=utf-8", falta, (int)strlen(falta)); return; }
     buf = (char *)malloc((size_t)n + sizeof SHIM + 1);
-    if (!buf) { fclose(f); return; }
+    if (!buf) { fclose(f); responder(s, "500 Internal Server Error", "text/plain; charset=utf-8", falta, (int)strlen(falta)); return; }
     fread(buf, 1, (size_t)n, f);
     fclose(f);
     buf[n] = 0;
@@ -1768,10 +1777,14 @@ static int bench(void) {
 }
 
 static void ir_al_exe(void) {
-    char exe[MAX_PATH], *sl;
-    GetModuleFileNameA(NULL, exe, MAX_PATH);
-    sl = strrchr(exe, '\\');
-    if (sl) { *sl = 0; SetCurrentDirectoryA(exe); }
+    wchar_t exe[MAX_PATH], *sl;
+    if (!GetModuleFileNameW(NULL, exe, MAX_PATH)) return;
+    sl = wcsrchr(exe, L'\\');
+    if (!sl) return;
+    *sl = 0;
+    wcsncpy(g_dir, exe, MAX_PATH - 1);
+    g_dir[MAX_PATH - 1] = 0;
+    SetCurrentDirectoryW(g_dir);
 }
 
 int main(int argc, char **argv) {
