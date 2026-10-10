@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "PROJECT.md": {
-    "mtime": 1791658257.500516,
-    "seen": 1791658321.8588676,
-    "ast_hash": "bdfcdde3483755244a7203b0792025f5",
+    "mtime": 1791662035.2738214,
+    "seen": 1791662079.2912004,
+    "ast_hash": "68fd38e638bc154f89db27d53e2a31d8",
     "semantic_hash": ""
   },
   "README.md": {
@@ -189,6 +189,24 @@
     "mtime": 1791656243.0405152,
     "seen": 1791656563.5411584,
     "ast_hash": "dbc6a4af2688e528be9c56cc7e448dad",
+    "semantic_hash": ""
+  },
+  "LottoOptimizerV3_14.c": {
+    "mtime": 1791662018.8136964,
+    "seen": 1791662079.2912004,
+    "ast_hash": "3911281205cfbc76217c98ff1a0f9147",
+    "semantic_hash": ""
+  },
+  "v14_html.inc": {
+    "mtime": 1791662018.811702,
+    "seen": 1791662079.2912004,
+    "ast_hash": "f78412a4465b39f7b93d5a6867b96772",
+    "semantic_hash": ""
+  },
+  "v14.html": {
+    "mtime": 1791662018.806697,
+    "seen": 1791662079.2912004,
+    "ast_hash": "34d9ec429ebf25802f16e8c26be7c3f3",
     "semantic_hash": ""
   }
 }

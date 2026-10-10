@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Loto 3.13</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Public+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#12e465",
+            "on-tertiary-fixed-variant": "#02522d",
+            "tertiary": "#266b43",
+            "on-tertiary-fixed": "#00210f",
+            "on-secondary-fixed-variant": "#205033",
+            "on-background": "#00210e",
+            "primary-fixed": "#68ff8a",
+            "primary-fixed-dim": "#12e465",
+            "background": "#eaffeb",
+            "surface-container-highest": "#c5eccc",
+            "on-error-container": "#93000a",
+            "primary": "#006e2c",
+            "surface-dim": "#bde4c4",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#00210e",
+            "surface-container-low": "#d6fddd",
+            "secondary": "#396849",
+            "on-secondary-container": "#3f6e4f",
+            "on-error": "#ffffff",
+            "surface": "#eaffeb",
+            "on-primary-fixed-variant": "#00531f",
+            "outline-variant": "#bacbb7",
+            "on-tertiary-container": "#196039",
+            "on-primary-container": "#006126",
+            "on-secondary": "#ffffff",
+            "error": "#ba1a1a",
+            "inverse-on-surface": "#d3fada",
+            "tertiary-container": "#92d8a7",
+            "surface-bright": "#eaffeb",
+            "error-container": "#ffdad6",
+            "surface-variant": "#c5eccc",
+            "surface-tint": "#006e2c",
+            "secondary-container": "#bbefc7",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#90d6a5",
+            "tertiary-fixed": "#abf3c0",
+            "surface-container": "#d0f8d7",
+            "secondary-fixed": "#bbefc7",
+            "on-primary-fixed": "#002108",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#153721",
+            "secondary-fixed-dim": "#9fd2ad",
+            "on-secondary-fixed": "#00210f",
+            "surface-container-high": "#cbf2d2",
+            "outline": "#6b7b6a",
+            "on-surface-variant": "#3c4b3b",
+            "primary-container": "#18e667"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.25rem",
+            "space-xl": "2.5rem",
+            "gutter-mobile": "0.75rem",
+            "margin-mobile": "1rem",
+            "margin": "2.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "display-hero-mobile": ["Public Sans"],
+            "display-hero": ["Public Sans"],
+            "headline-md": ["Public Sans"],
+            "headline-lg-mobile": ["Public Sans"],
+            "headline-lg": ["Public Sans"],
+            "body-sm": ["Public Sans"],
+            "label-code-md": ["JetBrains Mono"],
+            "label-code-sm": ["JetBrains Mono"],
+            "body-lg": ["Public Sans"],
+            "headline-sm": ["Public Sans"],
+            "body-md": ["Public Sans"],
+            "label-code-lg": ["JetBrains Mono"]
+          },
+          "fontSize": {
+            "display-hero-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "label-code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "label-code-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-code-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<script>
+    (function () {
+      try {
+        var g = localStorage.getItem("loto-tema");
+        var oscuro = g ? g === "oscuro" : matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.tema = oscuro ? "oscuro" : "claro";
+        document.documentElement.classList.add(oscuro ? "dark" : "light");
+      } catch (e) {
+        document.documentElement.dataset.tema = "claro";
+      }
+    })();
+  </script>
+<style>
+    :focus-visible { outline: 2px solid #18E667; outline-offset: 2px; }
+    button:disabled { opacity: .45; cursor: default; }
+    input[type="checkbox"] { accent-color: #18E667; }
+    html, body { height: 100%; margin: 0; overflow: hidden; }
+    .tema { position: relative; width: 2.8rem; height: 1.45rem; padding: 0; border: 0; border-radius: 999px; background: #0A3D22; cursor: pointer; flex: none; }
+    .tema svg { position: absolute; width: .7rem; height: .7rem; top: 50%; transform: translateY(-50%); pointer-events: none; color: #E8F7EE; }
+    .tema .sol { left: .22rem; }
+    .tema .luna { right: .22rem; }
+    .tema .punto { position: absolute; top: 2px; left: 2px; width: 1.15rem; height: 1.15rem; border-radius: 999px; background: #18E667; transition: left .2s ease; }
+    html[data-tema="oscuro"] .tema .punto { left: calc(100% - 1.15rem - 2px); }
+    #loto-grid { width: max-content; grid-template-columns: repeat(7, 2rem); gap: .22rem; }
+    #loto-grid button { width: 2rem; height: 2rem; font-size: 12px; line-height: 1; padding: 0; }
+    #loto-grid button.on { background: #18E667 !important; color: #032612 !important; border: 2px solid #032612 !important; }
+    #calcular { background: #0A3D22 !important; color: #18E667 !important; }
+    #linea { flex-basis: 100%; }
+    @media (max-width: 520px) {
+      #loto-grid { grid-template-columns: repeat(7, 1.7rem); }
+      #loto-grid button { width: 1.7rem; height: 1.7rem; font-size: 11px; }
+    }
+    input:not([type="checkbox"]):not([type="radio"]), select {
+      box-sizing: border-box !important;
+      font-size: 13px !important;
+      line-height: 1.2 !important;
+      height: 1.7rem !important;
+      padding: 0 .4rem !important;
+      width: auto;
+    }
+    .caja { width: 3.4rem !important; text-align: center; }
+    #premio { width: 18rem !important; max-width: 100%; text-align: left; font-variant-numeric: tabular-nums; }
+    #grupos, #incluir { display: block !important; width: 16rem !important; max-width: 100%; margin-top: .2rem; text-align: left; }
+    #rotulo-numeros, #rotulo-filtros { font-size: 15px; font-weight: 700; }
+    @media (max-width: 720px) {
+      #zona { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) minmax(12rem, 1fr); }
+    }
+    .kpis { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .kpis > div { flex: 0 0 auto; width: auto; justify-content: flex-start; gap: .6rem; }
+    .kpis strong { font-size: 14px; font-weight: 700; }
+    #ayuda-dlg {
+      width: min(36rem, calc(100vw - 1.5rem));
+      max-height: min(78vh, 36rem);
+      overflow: auto;
+      border: 0;
+      border-radius: 12px;
+      padding: 1rem 1.1rem 1.1rem;
+      background: #eaffeb;
+      color: #032612;
+    }
+    #ayuda-dlg::backdrop { background: rgba(3, 38, 18, .5); }
+    #ayuda-dlg h2 { margin: 0 0 .6rem; font-size: 1.25rem; }
+    #ayuda-dlg h3 { margin: .7rem 0 .15rem; font-size: .8rem; letter-spacing: .02em; }
+    #ayuda-dlg p { margin: 0 0 .25rem; font-size: 13px; line-height: 1.4; }
+    html[data-tema="oscuro"] #ayuda-dlg { background: #06331c; color: #E8F7EE; }
+    #actividad { font-size: 13px; line-height: 1.35; }
+    #ciclos { position: relative; }
+    #ciclos .pulgar { position: absolute; top: 2px; left: 2px; width: .75rem; height: .75rem; border-radius: 999px; background: #032612; }
+    #ciclos[aria-checked="true"] .pulgar { left: calc(100% - .75rem - 2px); }
+    .modo-on { box-shadow: inset 0 0 0 2px #18E667; }
+    html[data-tema="oscuro"] body { background: #032612 !important; color: #E8F7EE !important; }
+    html[data-tema="oscuro"] header { background: #06331c !important; }
+    html[data-tema="oscuro"] .bg-background,
+    html[data-tema="oscuro"] .bg-surface { background-color: #032612 !important; }
+    html[data-tema="oscuro"] .bg-surface-container-lowest { background-color: #06331c !important; }
+    html[data-tema="oscuro"] .bg-surface-container,
+    html[data-tema="oscuro"] .bg-surface-container-low,
+    html[data-tema="oscuro"] .bg-surface-container-high { background-color: #0A3D22 !important; }
+    html[data-tema="oscuro"] .text-on-surface,
+    html[data-tema="oscuro"] .text-primary { color: #E8F7EE !important; }
+    html[data-tema="oscuro"] #loto-grid button { color: #E8F7EE !important; background: #0A3D22 !important; }
+    html[data-tema="oscuro"] #loto-grid button.on { background: #18E667 !important; color: #032612 !important; }
+    html[data-tema="oscuro"] .text-on-surface-variant { color: #9fd2ad !important; }
+    html[data-tema="oscuro"] .bg-primary-container { background-color: #18E667 !important; }
+    html[data-tema="oscuro"] .bg-primary-container .text-on-surface { color: #032612 !important; }
+    html[data-tema="oscuro"] #actividad { color: #18E667 !important; }
+  </style>
+
+</head>
+<body class="bg-background text-on-surface antialiased h-screen overflow-hidden font-body-md text-body-md">
+<div class="w-full h-screen overflow-hidden flex flex-col bg-background">
+<header class="h-10 px-3 bg-surface-container-lowest border-b border-on-surface/10 flex items-center justify-between shrink-0">
+<div class="flex items-center gap-1.5">
+<span class="font-bold tracking-tight text-on-surface">Loto</span>
+<span class="px-1.5 py-0.5 rounded-full bg-primary-container text-[#032612] text-[10px] font-bold">3.13</span>
+</div>
+<div class="flex items-center gap-2">
+<button type="button" id="ayuda" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Ayuda</button>
+<button type="button" id="tema" class="tema" role="switch" aria-label="Tema">
+<svg class="sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+<svg class="luna" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"/></svg>
+<span class="punto"></span>
+</button>
+</div>
+</header>
+<section class="px-2 py-1 flex flex-wrap items-center gap-1 shrink-0 border-b border-on-surface/10 bg-surface-container-low">
+<button id="calcular" type="button" class="bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Calcular</button>
+<button id="parar" type="button" disabled class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Parar</button>
+<div id="revisar-botones" class="flex flex-wrap items-center gap-1">
+<button type="button" data-accion="escrutar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Escrutar</button>
+<input id="premio" placeholder="Combinación ganadora" title="Combinación que se escruta" class="bg-surface-container-lowest border border-on-surface/20 rounded text-on-surface">
+<button type="button" id="azar-premio" title="Escribe una combinación al azar de k números" class="bg-primary-container text-[#032612] px-2 py-1 rounded text-[11px] font-bold">Generar</button>
+<button type="button" data-accion="garantias" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Garantías</button>
+<button type="button" data-accion="analizar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Análisis</button>
+<button type="button" data-accion="validar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Validar</button>
+<button type="button" data-accion="estadisticas" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Estadísticas</button>
+<button type="button" data-accion="cargar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Cargar</button>
+<button type="button" data-accion="guardar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Guardar</button>
+<button type="button" data-accion="usar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Usar récord</button>
+<button type="button" data-accion="mejorar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Mejorar récord</button>
+</div>
+</section>
+<section class="px-2 py-1 flex flex-wrap items-center gap-2 shrink-0 border-b border-on-surface/10 text-[11px]">
+<label class="flex items-center gap-1 font-semibold text-on-surface-variant" for="base">Base</label>
+<input id="base" value="8" inputmode="numeric" class="caja font-bold bg-surface-container border border-on-surface/20 rounded text-on-surface">
+<label class="flex items-center gap-1 font-semibold text-on-surface-variant" for="k">k</label>
+<input id="k" value="6" inputmode="numeric" class="caja font-bold bg-surface-container border border-on-surface/20 rounded text-on-surface">
+<button id="azar" type="button" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Al azar</button>
+<button id="vaciar" type="button" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Vaciar</button>
+<label class="sr-only" for="tipo">Garantía</label>
+<select id="tipo" class="bg-surface-container text-on-surface font-bold rounded px-1 py-1 border border-on-surface/20 text-[11px]">
+<option selected>5 si 6</option><option>4 si 6</option><option>3 si 6</option>
+<option>5 si 5</option><option>4 si 5</option><option>3 si 5</option>
+<option>4 si 4</option><option>3 si 4</option><option>3 si 3</option>
+<option>Al 5 (n-1)</option>
+</select>
+<span id="ciclos-leyenda" class="text-on-surface-variant">Ciclos</span>
+<button id="ciclos" type="button" role="switch" aria-checked="true" aria-labelledby="ciclos-leyenda" class="w-8 h-4 bg-primary-container rounded-full relative"><span class="pulgar"></span></button>
+<label class="modo modo-on flex items-center gap-1 rounded px-1 cursor-pointer">
+<input type="radio" name="modo" value="n" checked class="sr-only">
+<span class="text-on-surface-variant">Apuestas</span>
+<input id="cantidad" value="20" inputmode="numeric" aria-label="Número de apuestas" class="caja font-bold bg-transparent text-on-surface">
+</label>
+<label class="modo flex items-center gap-1 rounded px-1 cursor-pointer">
+<input type="radio" name="modo" value="p" class="sr-only">
+<span class="text-on-surface-variant">%</span>
+<input id="porc" value="100" inputmode="decimal" aria-label="Porcentaje de cobertura" class="caja font-bold bg-transparent text-on-surface">
+</label>
+</section>
+<section class="kpis px-2 py-1 shrink-0">
+<div class="bg-primary-container text-[#032612] rounded px-2 py-1 flex items-center">
+<strong id="kpi-apuestas">0</strong><span class="text-[11px] font-semibold">apuestas</span>
+</div>
+<div class="bg-surface-container-lowest rounded px-2 py-1 border border-on-surface/10 flex items-center">
+<strong id="kpi-base" class="text-primary">0</strong><span class="text-[11px]">en la base</span>
+</div>
+<div class="bg-surface-container-lowest rounded px-2 py-1 border border-on-surface/10 flex items-center">
+<strong id="kpi-cob">—</strong><span class="text-[11px]">cobertura</span>
+</div>
+</section>
+<div id="zona" class="flex-1 min-h-0 grid grid-cols-[auto_minmax(0,1fr)] gap-2 px-2 pb-2">
+<section class="min-h-0 overflow-y-auto">
+<div class="flex items-center justify-between mb-1">
+<span id="rotulo-numeros">Números</span>
+<span id="counter-badge" class="text-[10px] bg-surface-container-high px-1 rounded font-bold">0</span>
+</div>
+<div id="loto-grid" class="grid"></div>
+<p id="rotulo-filtros" class="mt-1 mb-0">Filtros</p>
+<div id="content-filtros" class="text-[11px] space-y-0.5 mt-1">
+<label class="flex items-center gap-1"><input type="checkbox" id="f-suma"> Sumas <input id="suma0" placeholder="mín" aria-label="Suma mínima" class="caja bg-surface-container rounded"> <input id="suma1" placeholder="máx" aria-label="Suma máxima" class="caja bg-surface-container rounded"></label>
+<label class="flex items-center gap-1"><input type="checkbox" id="f-pares"> Pares <input id="pares0" placeholder="mín" aria-label="Pares mínimo" class="caja bg-surface-container rounded"> <input id="pares1" placeholder="máx" aria-label="Pares máximo" class="caja bg-surface-container rounded"></label>
+<label class="flex items-center gap-1"><input type="checkbox" id="f-bajos"> Bajos <input id="bajos0" placeholder="mín" aria-label="Bajos mínimo" class="caja bg-surface-container rounded"> <input id="bajos1" placeholder="máx" aria-label="Bajos máximo" class="caja bg-surface-container rounded"></label>
+<label class="flex items-center gap-1"><input type="checkbox" id="f-dist"> Distancias <input id="dist0" placeholder="mín" aria-label="Distancia mínima" class="caja bg-surface-container rounded"> <input id="dist1" placeholder="máx" aria-label="Distancia máxima" class="caja bg-surface-container rounded"></label>
+<label class="flex items-center gap-1"><input type="checkbox" id="f-seguidos"> Seguidos <input id="seguidos0" placeholder="máx" aria-label="Seguidos máximo" class="caja bg-surface-container rounded"></label>
+<label class="flex items-center gap-1"><input type="checkbox" id="f-decenas"> Decenas <input id="decenas0" placeholder="máx" aria-label="Decenas máximo" class="caja bg-surface-container rounded"></label>
+<label class="flex items-center gap-1"><input type="checkbox" id="f-term"> Terminaciones <input id="term0" placeholder="máx" aria-label="Terminaciones máximo" class="caja bg-surface-container rounded"></label>
+<input id="grupos" placeholder="Grupos: números ; mínimo ; máximo" class="bg-surface-container rounded">
+<input id="incluir" placeholder="Apuestas condicionadas" class="bg-surface-container rounded">
+</div>
+</section>
+<section class="min-h-0 bg-primary-container text-[#032612] rounded-xl p-2 flex flex-col overflow-hidden">
+<div class="flex flex-wrap items-baseline gap-x-2 shrink-0">
+<span class="text-[10px] font-bold tracking-wide">AHORA</span>
+<span id="ahora" class="text-xl font-extrabold leading-none">Listo</span>
+<button type="button" id="limpiar" class="ml-auto bg-[#032612] text-[#18E667] px-2 py-0.5 rounded text-[11px] font-bold">Limpiar</button>
+<span id="pulso" class="w-2 h-2 rounded-full bg-[#032612] self-center"></span>
+<span id="linea" class="text-[12px] font-medium leading-snug">Esperando.</span>
+</div>
+<pre id="actividad" class="flex-1 min-h-0 mt-1 mb-0 overflow-auto bg-[#032612] text-[#18E667] rounded-lg p-2 whitespace-pre-wrap"></pre>
+</section>
+</div>
+</div>
+<dialog id="ayuda-dlg" aria-labelledby="ayuda-titulo">
+<h2 id="ayuda-titulo" tabindex="-1">Cómo funciona</h2>
+<h3>Números</h3>
+<p>Toca un número para marcarlo o quitarlo. El contador dice cuántos hay. Eso no cambia Base.</p>
+<h3>Base, k y Al azar</h3>
+<p>Base es cuántos números tiene el sistema. Al azar marca exactamente esos, distintos, del 1 al 49, y sustituye la marca anterior. Vaciar los quita todos. k es cuántos números lleva cada apuesta: no puede ser mayor que la base, ni que los números marcados si los hay.</p>
+<h3>Garantía, ciclos y tamaño</h3>
+<p>El desplegable (5 si 6, 4 si 6…) es el premio que quieres asegurar. Ciclos, encendido, repite el recocido. Apuestas pide un número de columnas. % pide un porcentaje de cobertura. Solo cuenta el que esté marcado.</p>
+<h3>Calcular y Parar</h3>
+<p>Calcular genera la reducida. Parar corta y se queda con el mejor récord de esa pasada.</p>
+<h3>Escrutar y Generar</h3>
+<p>El recuadro largo es la combinación ganadora. Generar escribe ahí una apuesta al azar de k números: si hay números marcados, salen de esos; si no, del 1 al 49. Escrutar compara la reducida con esa combinación.</p>
+<h3>El resto de acciones</h3>
+<p>Garantías dice qué premios cubre la lista. Análisis la reparte. Validar comprueba que cumple la garantía. Estadísticas resume sumas, pares y el resto. Cargar abre un archivo de apuestas. Guardar escribe el sistema propio. Usar récord carga la reducida conocida (la de Lotoideas, si existe para esa base). Mejorar récord intenta superarla.</p>
+<h3>Filtros</h3>
+<p>Están siempre a la vista y no se cierran. La casilla activa el filtro. Mín y máx son los límites: sumas de la apuesta, cantidad de pares, de bajos (la mitad baja del bombo), de distancias, de seguidos, de decenas distintas y de terminaciones. Si el mínimo o el máximo se dejan vacíos, ese lado no limita. Grupos va en su recuadro, una línea por grupo: números, un mínimo y un máximo de aciertos, separados por punto y coma. Debajo, Apuestas condicionadas: números que tienen que salir en cada apuesta.</p>
+<h3>Registro</h3>
+<p>El recuadro verde es lo que va haciendo el programa. Cada clic empieza con una raya y el nombre de la acción, y el resultado se queda en el registro. La línea de arriba, mientras optimiza, es el ciclo en vivo: la cobertura récord y la temperatura. La temperatura nace en 1 y baja en cada ciclo; al pasar de 0,0001 ya no cambia qué mutaciones se aceptan, y con cuatro decimales se lee 0,0000. Limpiar vacía ese registro. La página no se desplaza: si el texto no cabe, se mueve solo dentro del registro.</p>
+<form method="dialog"><button type="submit" class="mt-2 bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Cerrar</button></form>
+</dialog>
+<script>
+    (function () {
+      var OFF = "rounded-full flex items-center justify-center font-bold bg-surface-container-lowest text-on-surface border border-on-surface/30";
+      var rejilla = document.getElementById("loto-grid");
+      for (var n = 1; n <= 49; n++) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = OFF;
+        b.dataset.n = String(n);
+        b.textContent = (n < 10 ? "0" : "") + n;
+        b.setAttribute("aria-pressed", "false");
+        rejilla.appendChild(b);
+      }
+      var nums = Array.prototype.slice.call(rejilla.querySelectorAll("button"));
+      function marcados() {
+        return nums.filter(function (b) { return b.getAttribute("aria-pressed") === "true"; }).map(function (b) { return +b.dataset.n; });
+      }
+      function pintar(b, on) {
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+        b.classList.toggle("on", !!on);
+      }
+      function baseKpi() {
+        var n = marcados().length;
+        document.getElementById("kpi-base").textContent = String(n);
+        document.getElementById("counter-badge").textContent = String(n);
+      }
+      nums.forEach(function (b) {
+        b.addEventListener("click", function () {
+          pintar(b, b.getAttribute("aria-pressed") !== "true");
+          baseKpi();
+        });
+      });
+      function aviso(titulo, texto) {
+        document.getElementById("ahora").textContent = titulo;
+        document.getElementById("linea").textContent = texto;
+      }
+      document.getElementById("azar").addEventListener("click", function () {
+        var n = parseInt(String(document.getElementById("base").value).trim(), 10);
+        if (!(n >= 1 && n <= 49)) { aviso("Error", "La base va de 1 a 49."); return; }
+        var elegidos = {};
+        while (Object.keys(elegidos).length < n) elegidos[1 + Math.floor(Math.random() * 49)] = 1;
+        nums.forEach(function (b) { pintar(b, !!elegidos[+b.dataset.n]); });
+        baseKpi();
+        aviso("Listo", n + " números.");
+      });
+      document.getElementById("vaciar").addEventListener("click", function () {
+        nums.forEach(function (b) { pintar(b, false); });
+        baseKpi();
+        aviso("Listo", "Ningún número.");
+      });
+      document.getElementById("azar-premio").addEventListener("click", function () {
+        var k = parseInt(document.getElementById("k").value, 10);
+        var origen = marcados();
+        if (!origen.length) { origen = []; for (var i = 1; i <= 49; i++) origen.push(i); }
+        if (!(k >= 1) || k > origen.length) { aviso("Error", "k es mayor que los números disponibles."); return; }
+        var copia = origen.slice();
+        for (var j = copia.length - 1; j > 0; j--) {
+          var s = Math.floor(Math.random() * (j + 1));
+          var tmp = copia[j]; copia[j] = copia[s]; copia[s] = tmp;
+        }
+        document.getElementById("premio").value = copia.slice(0, k).sort(function (a, c) { return a - c; }).map(function (x) { return (x < 10 ? "0" : "") + x; }).join(" ");
+      });
+      var ciclos = document.getElementById("ciclos");
+      ciclos.addEventListener("click", function () {
+        var on = ciclos.getAttribute("aria-checked") !== "true";
+        ciclos.setAttribute("aria-checked", on ? "true" : "false");
+        ciclos.classList.toggle("justify-end", on);
+      });
+      function pintarModo() {
+        document.querySelectorAll(".modo").forEach(function (el) {
+          el.classList.toggle("modo-on", el.querySelector("input[type=radio]").checked);
+        });
+      }
+      document.querySelectorAll(".modo").forEach(function (el) {
+        el.addEventListener("click", function () {
+          el.querySelector("input[type=radio]").checked = true;
+          pintarModo();
+        });
+      });
+      var tema = document.getElementById("tema");
+      function aplicarTema(nombre) {
+        var oscuro = nombre === "oscuro";
+        document.documentElement.dataset.tema = nombre;
+        document.documentElement.classList.toggle("dark", oscuro);
+        document.documentElement.classList.toggle("light", !oscuro);
+        tema.setAttribute("aria-checked", oscuro ? "true" : "false");
+      }
+      aplicarTema(document.documentElement.dataset.tema || "claro");
+      tema.addEventListener("click", function () {
+        var siguiente = document.documentElement.dataset.tema === "oscuro" ? "claro" : "oscuro";
+        try { localStorage.setItem("loto-tema", siguiente); } catch (e) {}
+        aplicarTema(siguiente);
+      });
+      document.getElementById("ayuda").addEventListener("click", function () {
+        var dlg = document.getElementById("ayuda-dlg");
+        dlg.showModal();
+        document.getElementById("ayuda-titulo").focus();
+        dlg.scrollTop = 0;
+      });
+      document.getElementById("limpiar").addEventListener("click", async function () {
+        document.getElementById("actividad").textContent = "";
+        if (!window.pywebview || !window.pywebview.api) return;
+        try { await window.pywebview.api.limpiar(leer()); } catch (e) {}
+      });
+      function val(id) { return document.getElementById(id).value; }
+      function leer() {
+        var filtros = {};
+        ["suma", "pares", "bajos", "dist", "seguidos", "decenas", "term"].forEach(function (c) {
+          filtros[c] = document.getElementById("f-" + c).checked;
+        });
+        ["suma0", "suma1", "pares0", "pares1", "bajos0", "bajos1", "dist0", "dist1", "seguidos0", "decenas0", "term0"].forEach(function (c) {
+          filtros[c] = val(c);
+        });
+        var modo = "n";
+        document.querySelectorAll("input[name=modo]").forEach(function (r) { if (r.checked) modo = r.value; });
+        return {
+          base: val("base"), k: val("k"), tipo: val("tipo"),
+          ciclos: ciclos.getAttribute("aria-checked") === "true",
+          modo: modo, cantidad: val("cantidad"), porc: val("porc"),
+          marcados: marcados(), grupos: val("grupos"), incluir: val("incluir"),
+          filtros: filtros, premio: val("premio")
+        };
+      }
+      function ocupado(si) {
+        document.getElementById("parar").disabled = !si;
+        document.getElementById("pulso").classList.toggle("animate-pulse", si);
+      }
+      function pintarEstado(e) {
+        if (!e) return;
+        document.getElementById("ahora").textContent = e.ahora || "Listo";
+        document.getElementById("linea").textContent = e.linea || "";
+        document.getElementById("actividad").textContent = (e.log || []).join("\n");
+        document.getElementById("kpi-apuestas").textContent = String(e.apuestas != null ? e.apuestas : 0);
+        if (e.cobertura) document.getElementById("kpi-cob").textContent = e.cobertura;
+        ocupado(!!e.ocupado);
+        var caja = document.getElementById("actividad");
+        caja.scrollTop = caja.scrollHeight;
+      }
+      function sinPrograma() {
+        aviso("Programa", "El cálculo corre al abrir LottoOptimizerV3_13.");
+      }
+      async function llamar(nombre) {
+        if (!nombre) return;
+        if (!window.pywebview || !window.pywebview.api) { sinPrograma(); return; }
+        try {
+          var r = await window.pywebview.api[nombre](leer());
+          if (r && r.ok === false && r.error) aviso("Error", r.error);
+        } catch (e) {
+          aviso("Error", "No llega la respuesta del programa.");
+        }
+      }
+      document.getElementById("calcular").addEventListener("click", function () { llamar("calcular"); });
+      document.getElementById("parar").addEventListener("click", function () { llamar("parar"); });
+      document.getElementById("revisar-botones").addEventListener("click", function (ev) {
+        var btn = ev.target.closest("button");
+        if (!btn || !btn.getAttribute("data-accion")) return;
+        llamar(btn.getAttribute("data-accion"));
+      });
+      window.addEventListener("pywebviewready", function () {
+        setInterval(async function () {
+          try { pintarEstado(await window.pywebview.api.estado()); } catch (e) {}
+        }, 200);
+      });
+    })();
+  </script>
+</body></html>
