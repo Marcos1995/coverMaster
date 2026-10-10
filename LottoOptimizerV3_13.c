@@ -66,7 +66,6 @@ static char g_linea[240] = "Esperando. Calcular genera las apuestas.";
 static char g_cob[32] = "";
 static char g_log[LOGN][240];
 static int g_nlog, g_apuestas, g_v, g_k, g_t;
-static ULONGLONG g_fijo;
 static uint64_t *g_bets;
 static int g_nbets;
 static unsigned long long g_tope;
@@ -120,7 +119,6 @@ static void anotar(const char *texto) {
             snprintf(g_log[g_nlog], 240, "%s", p);
             snprintf(g_linea, sizeof g_linea, "%s", p);
             poner_ahora(p);
-            g_fijo = GetTickCount64();
             g_nlog++;
         }
         if (!nl) break;
@@ -168,10 +166,8 @@ static void limpiar_log(void) {
 
 static void progreso(const char *linea, double cob) {
     EnterCriticalSection(&g_cs);
-    if (GetTickCount64() - g_fijo >= 4000) {
-        snprintf(g_linea, sizeof g_linea, "%s", linea);
-        poner_ahora(linea);
-    }
+    snprintf(g_linea, sizeof g_linea, "%s", linea);
+    poner_ahora(linea);
     if (cob >= 0) snprintf(g_cob, sizeof g_cob, "%.4f%%", cob);
     LeaveCriticalSection(&g_cs);
 }
