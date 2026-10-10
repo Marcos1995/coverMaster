@@ -909,6 +909,22 @@ static void generar(Opt *o, const Job *job, int cantidad) {
     }
 }
 
+static int reponer(Opt *o, int meta) {
+    int i, intentos = 0, maxi = meta * 4000;
+    for (i = o->nap - 1; i >= 0; i--) aplicar(o, o->ap[i], -1);
+    o->nap = 0;
+    o->temp = 1;
+    while (o->nap < meta && intentos < maxi && !g_parar) {
+        uint64_t bits = muestra(o->v, o->k);
+        int metio;
+        intentos++;
+        if (!valida(o, bits)) continue;
+        metio = agregar(o, bits);
+        if (metio == 0) return 0;
+    }
+    return o->nap == meta;
+}
+
 static void optimizar(Opt *o, const Job *job, double objetivo) {
     char buf[200];
     if (!o->nap) return;
@@ -919,9 +935,13 @@ static void optimizar(Opt *o, const Job *job, double objetivo) {
     anotar("Optimizando. Pulsa Parar para guardar el mejor récord.");
     {
         unsigned long long ultima = 0;
+        int quieto = 0, intento = 1, meta = o->nap;
         while (!g_parar) {
+            double antes = o->mejor_cob;
             double marca;
             paso(o);
+            if (o->temp <= 0.0001 && o->mejor_cob <= antes) quieto++;
+            else quieto = 0;
             if (!o->exacto && (GetTickCount64() - ultima) >= 2000) {
                 double real = cubrir_lista(o->mejor_n ? o->mejor : o->ap, o->mejor_n ? o->mejor_n : o->nap, o->v, o->m, o->t, o->total_sorteos);
                 ultima = GetTickCount64();
@@ -929,8 +949,9 @@ static void optimizar(Opt *o, const Job *job, double objetivo) {
             }
             marca = o->exacto ? o->mejor_cob : o->cob_vista;
             if (g_tope && o->ciclos >= g_tope) break;
-            if (objetivo >= 0 && marca >= objetivo) {
-                snprintf(buf, sizeof buf, "Cobertura %.4f%% alcanza el objetivo %.4f%%.", marca, objetivo);
+            if (marca >= 99.9995 || (objetivo >= 0 && marca >= objetivo)) {
+                if (marca >= 99.9995) snprintf(buf, sizeof buf, "Cobertura %.4f%%. Cubre todos los sorteos.", marca);
+                else snprintf(buf, sizeof buf, "Cobertura %.4f%% alcanza el objetivo %.4f%%.", marca, objetivo);
                 anotar(buf);
                 progreso(buf, marca);
                 volcar(o, job, marca);
@@ -943,6 +964,13 @@ static void optimizar(Opt *o, const Job *job, double objetivo) {
                 else snprintf(buf, sizeof buf, "Ciclo: %llu | Contando los %llu sorteos | Temp: %.4f", o->ciclos, (unsigned long long)o->total_sorteos, o->temp);
                 progreso(buf, real ? cob : -1);
                 volcar(o, job, real ? cob : -1);
+            }
+            if (quieto >= 5000 && o->temp <= 0.0001 && marca < 99.9995 && (objetivo < 0 || marca < objetivo)) {
+                intento++;
+                snprintf(buf, sizeof buf, "Intento %d. El anterior se quedó en %.4f%%.", intento, o->mejor_cob);
+                anotar(buf);
+                if (!reponer(o, meta)) break;
+                quieto = 0;
             }
         }
     }
@@ -2003,6 +2031,23 @@ static int bench(void) {
     t1 = (double)c1.QuadPart / (double)f.QuadPart;
     printf("pasos=25000 ms=%.1f cob=%.4f\n", (t1 - t0) * 1000.0, o->mejor_cob > 0 ? o->mejor_cob : cob_de(o));
     opt_free(o);
+    g_parar = 0;
+    g_tope = 2000000;
+    memset(&job, 0, sizeof job);
+    filtros_init(&job.filtros);
+    job.v = 12; job.k = 6; job.t = 4; job.m = 6;
+    o = opt_nuevo(&job);
+    if (!o || o->universo_n != 924) return 1;
+    for (i = 0; i < 6; i++) {
+        int guard = 0;
+        while (guard < 100 && agregar(o, muestra(12, 6)) < 0) guard++;
+    }
+    if (o->nap != 6) { opt_free(o); return 1; }
+    optimizar(o, &job, 100.0);
+    printf("busca12=%.4f ciclos=%llu\n", o->mejor_cob, o->ciclos);
+    if (o->mejor_cob < 99.9995) ok = 0;
+    opt_free(o);
+    g_tope = 0;
     (void)t0;
     return ok ? 0 : 1;
 }

@@ -1,17 +1,17 @@
-# Graph Report - coverMaster  (2026-10-10)
+# Graph Report - coverMaster  (2026-10-11)
 
 ## Corpus Check
-- 23 files · ~71,962 words
+- 23 files · ~72,268 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 9 file(s) not represented in the graph (top: .exe 3, .mdc 2, .spec 2)
 
 ## Summary
-- 486 nodes · 1130 edges · 30 communities (19 shown, 11 thin omitted)
+- 487 nodes · 1138 edges · 30 communities (19 shown, 11 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4f2f9329`
+- Built from commit: `89f70f44`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -134,8 +134,8 @@ Cohesion: 0.21
 Nodes (3): limpiar_pantalla(), LottoOptimizerV3, Guarda exclusivamente un único archivo con el mejor récord absoluto de la sesión
 
 ### Community 20 - "LottoOptimizerV3_14.c"
-Cohesion: 0.06
-Nodes (89): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), atender() (+81 more)
+Cohesion: 0.07
+Nodes (90): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), atender() (+82 more)
 
 ### Community 21 - "LottoOptimizerV3_12.c"
 Cohesion: 0.06
