@@ -7,17 +7,24 @@
 - Vista local: `index.html`
 
 ## Estado
-- El programa es un solo fichero: `LottoOptimizerV3_9.py`. No separarlo.
+- `LottoOptimizerV3_10.py` no se toca: consola y ventana simple, un solo fichero.
+- `LottoOptimizerV3_11.py` es la copia con rejilla 1–49, filtros, escrutinio, garantías, análisis, validar, estadísticas, sistemas propios y el mismo recocido. También un solo fichero.
+- Lectura del algoritmo: `docs/LottoOptimizerV3_10.md`. El 11 usa esa lógica.
+- Si `(v, k, t, m)` tiene zip público en Lotoideas, se ofrece esa lista o intentar mejorarla. Si no sube la cobertura, se guarda la de Lotoideas.
 - Kit de agentes en `.cursor/` (skills, rules, agents) más `AGENTS.md`.
 
 ## Stack
-- Python 3, un fichero, consola.
+- Python 3. El 10 es consola; el 11 abre ventana tkinter. El exe es PyInstaller, misma velocidad.
 
 ## Comandos utiles
 - Instalar:
 - Test:
-- Dev: `python LottoOptimizerV3_9.py`
+- Consola: `python LottoOptimizerV3_10.py`
+- Ventana: `python LottoOptimizerV3_11.py`
+- Consola del 11: `python LottoOptimizerV3_11.py --consola`
+- Exe: `dist\LottoOptimizerV3_11.exe`
+- Grafo: `graphify update .` (paquete `graphifyy`; ejecutable en `%USERPROFILE%\.local\bin`)
 
 ## Notas para el agente
-- `LottoOptimizerV3_9.py` se queda siempre en un fichero; no partirlo en módulos.
+- Ni el 10 ni el 11 se parten en módulos. El 10 no se edita.
 - Lean kit (ver AGENTS.md)
