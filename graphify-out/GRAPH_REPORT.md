@@ -1,17 +1,17 @@
 # Graph Report - coverMaster  (2026-10-10)
 
 ## Corpus Check
-- 23 files · ~71,016 words
+- 23 files · ~71,962 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 9 file(s) not represented in the graph (top: .exe 3, .mdc 2, .spec 2)
 
 ## Summary
-- 486 nodes · 1127 edges · 30 communities (19 shown, 11 thin omitted)
+- 486 nodes · 1130 edges · 30 communities (19 shown, 11 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `83f708f7`
+- Built from commit: `4f2f9329`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -51,8 +51,8 @@
 4. `api_dispatch()` - 21 edges
 5. `LottoOptimizerV3` - 18 edges
 6. `LottoOptimizerV3` - 18 edges
-7. `Lotto Optimizer V3.10` - 16 edges
-8. `parse_datos()` - 15 edges
+7. `hilo()` - 18 edges
+8. `Lotto Optimizer V3.10` - 16 edges
 9. `parse_datos()` - 15 edges
 10. `parse_datos()` - 15 edges
 

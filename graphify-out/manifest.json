@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "PROJECT.md": {
-    "mtime": 1791663991.7935452,
-    "seen": 1791664147.104292,
-    "ast_hash": "9e60348a79d2b5e3963713abceec2422",
+    "mtime": 1791669346.2461112,
+    "seen": 1791669406.944397,
+    "ast_hash": "32c6aa3a3be1f03b1464276405a18392",
     "semantic_hash": ""
   },
   "README.md": {
@@ -192,21 +192,21 @@
     "semantic_hash": ""
   },
   "LottoOptimizerV3_14.c": {
-    "mtime": 1791663603.304097,
-    "seen": 1791663711.6109736,
-    "ast_hash": "b2a6acfc8c1850e05a4de1e07d50a0d9",
+    "mtime": 1791669343.8117602,
+    "seen": 1791669406.944397,
+    "ast_hash": "302e90971d0b19a04c884000c44b3e2e",
     "semantic_hash": ""
   },
   "v14_html.inc": {
-    "mtime": 1791664132.855597,
-    "seen": 1791664147.104292,
-    "ast_hash": "6eb8875db8d4f6ac7ffe1bfcf73f3a0f",
+    "mtime": 1791669352.8822076,
+    "seen": 1791669406.944397,
+    "ast_hash": "a392e540367aa773ad83a00a8a0a4d8f",
     "semantic_hash": ""
   },
   "v14.html": {
-    "mtime": 1791664088.6463833,
-    "seen": 1791664147.104292,
-    "ast_hash": "baab77b8d829cc1a3dd05af36b701b22",
+    "mtime": 1791669344.7800353,
+    "seen": 1791669406.944397,
+    "ast_hash": "0c4bacb1c5b00cddb2ce3a07535f7236",
     "semantic_hash": ""
   },
   "LOTTO_v8_k6_t5_100.0000pct_20261010_222446.txt": {
@@ -219,6 +219,24 @@
     "mtime": 1791663998.2480912,
     "seen": 1791664147.104292,
     "ast_hash": "78550a5bd93c5af8564b166dd01f9323",
+    "semantic_hash": ""
+  },
+  "LOTTO_v28_k6_t5_0.7061pct_20261010_223433.txt": {
+    "mtime": 1791664473.737209,
+    "seen": 1791669406.944397,
+    "ast_hash": "3826cd562796ec525ca9f62de49d2928",
+    "semantic_hash": ""
+  },
+  "LOTTO_v28_k6_t5_0.7061pct_20261010_223451.txt": {
+    "mtime": 1791664491.4874554,
+    "seen": 1791669406.944397,
+    "ast_hash": "5ea07ea66668c6bef7664e1ba50b1a21",
+    "semantic_hash": ""
+  },
+  "LOTTO_v8_k6_t5_100.0000pct_20261010_223355.txt": {
+    "mtime": 1791664435.5599885,
+    "seen": 1791669406.944397,
+    "ast_hash": "98438509e7b39e52857c0c5b4d74294b",
     "semantic_hash": ""
   }
 }
