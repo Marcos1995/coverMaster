@@ -925,6 +925,126 @@ static int reponer(Opt *o, int meta) {
     return o->nap == meta;
 }
 
+static void guardar_mejor(Opt *o) {
+    double cob = cob_de(o);
+    if (cob > o->mejor_cob && o->cap >= o->nap) {
+        o->mejor_cob = cob;
+        memcpy(o->mejor, o->ap, (size_t)o->nap * sizeof(uint64_t));
+        o->mejor_n = o->nap;
+    }
+}
+
+/* Cambia dos números. Se queda con el primer cambio que cubre más sorteos. */
+static int escalar(Opt *o) {
+    int b, i, j, x, y, nd, nf;
+    int dentro[MAXN], fuera[MAXN];
+    if (o->k < 2 || o->v - o->k < 2) return 0;
+    for (b = 0; b < o->nap && !g_parar; b++) {
+        int n, t;
+        nd = listar(o->ap[b], o->v, dentro);
+        nf = 0;
+        for (n = 1; n <= o->v; n++) {
+            int esta = 0;
+            for (t = 0; t < nd; t++) if (dentro[t] == n) esta = 1;
+            if (!esta) fuera[nf++] = n;
+        }
+        for (i = 0; i < nd; i++) for (j = i + 1; j < nd; j++)
+        for (x = 0; x < nf; x++) for (y = x + 1; y < nf; y++) {
+            uint64_t nueva = o->ap[b];
+            nueva &= ~(1ull << (dentro[i] - 1));
+            nueva &= ~(1ull << (dentro[j] - 1));
+            nueva |= 1ull << (fuera[x] - 1);
+            nueva |= 1ull << (fuera[y] - 1);
+            if (!valida(o, nueva) || repetida(o, nueva, b)) continue;
+            if (ganancia(o, b, nueva) > 0) {
+                aplicar(o, o->ap[b], -1);
+                aplicar(o, nueva, 1);
+                o->ap[b] = nueva;
+                guardar_mejor(o);
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
+/* Un sorteo sin cubrir presta sus t primeros números a un boleto al azar. */
+static int golpe(Opt *o) {
+    int i, b, nn, toma, n, intentos;
+    int nums[MAXN];
+    uint64_t nuevo, sorteo;
+    for (i = 0; i < o->universo_n; i++) if (!o->conteos[i]) break;
+    if (i >= o->universo_n || o->k < 1 || o->nap < 1) return 0;
+    sorteo = o->universo[i];
+    nn = listar(sorteo, o->v, nums);
+    if (nn <= 0) return 0;
+    toma = o->t < o->k ? o->t : o->k;
+    if (toma > nn) toma = nn;
+    for (intentos = 0; intentos < 20; intentos++) {
+        nuevo = 0;
+        for (n = 0; n < toma; n++) nuevo |= 1ull << (nums[n] - 1);
+        n = 0;
+        while (__builtin_popcountll(nuevo) < o->k && n < 10000) {
+            nuevo |= 1ull << (int)(rnd64() % (uint64_t)o->v);
+            n++;
+        }
+        if (__builtin_popcountll(nuevo) != o->k || !valida(o, nuevo)) continue;
+        b = (int)(rnd64() % (uint64_t)o->nap);
+        if (o->ap[b] == nuevo || repetida(o, nuevo, b)) continue;
+        aplicar(o, o->ap[b], -1);
+        aplicar(o, nuevo, 1);
+        o->ap[b] = nuevo;
+        guardar_mejor(o);
+        return 1;
+    }
+    return 0;
+}
+
+static void restaurar(Opt *o) {
+    int i;
+    if (o->mejor_n <= 0) return;
+    for (i = o->nap - 1; i >= 0; i--) aplicar(o, o->ap[i], -1);
+    o->nap = 0;
+    o->temp = 1;
+    for (i = 0; i < o->mejor_n; i++) if (!agregar(o, o->mejor[i])) break;
+}
+
+/* En bases pequeñas la escalada llega al 100% con las apuestas pedidas.
+   Pegar dos reducidas de mitades no vale: un sorteo 3+3 no cae en ninguna. */
+static int cubrir_objetivo(const Opt *o, double objetivo) {
+    double cob = cob_de(o);
+    return cob >= 99.9995 || (objetivo >= 0 && cob >= objetivo);
+}
+
+static int buscar_local(Opt *o, double objetivo) {
+    int ronda, tope, prueba, meta;
+    char buf[180];
+    if (!o->exacto || o->universo_n > 20000 || o->nap > 48 || o->k < 2) return 0;
+    if (cubrir_objetivo(o, objetivo)) return 1;
+    meta = o->nap;
+    tope = o->universo_n <= 2000 ? 70 : 8;
+    anotar("Optimizando. Cambio dos números de una apuesta.");
+    for (prueba = 0; prueba < 4 && !g_parar; prueba++) {
+        if (prueba) {
+            snprintf(buf, sizeof buf, "Intento %d. El anterior se quedó en %.4f%%.", prueba + 1, o->mejor_cob);
+            anotar(buf);
+            if (!reponer(o, meta)) break;
+        }
+        for (ronda = 0; ronda < tope && !g_parar; ronda++) {
+            while (escalar(o) && !g_parar) {
+                if (cubrir_objetivo(o, objetivo)) return 1;
+            }
+            snprintf(buf, sizeof buf, "Ronda %d | Cobertura: %.4f%%", ronda + 1, cob_de(o));
+            progreso(buf, cob_de(o));
+            if (cubrir_objetivo(o, objetivo)) return 1;
+            if (!golpe(o)) break;
+            if (cubrir_objetivo(o, objetivo)) return 1;
+        }
+    }
+    restaurar(o);
+    return cubrir_objetivo(o, objetivo);
+}
+
 static void optimizar(Opt *o, const Job *job, double objetivo) {
     char buf[200];
     if (!o->nap) return;
@@ -932,16 +1052,28 @@ static void optimizar(Opt *o, const Job *job, double objetivo) {
     if (o->cap < o->nap) return;
     memcpy(o->mejor, o->ap, (size_t)o->nap * sizeof(uint64_t));
     o->mejor_n = o->nap;
+    if (buscar_local(o, objetivo)) {
+        double marca = o->mejor_cob;
+        if (marca >= 99.9995) snprintf(buf, sizeof buf, "Cobertura %.4f%%. Cubre todos los sorteos.", marca);
+        else snprintf(buf, sizeof buf, "Cobertura %.4f%% alcanza el objetivo %.4f%%.", marca, objetivo);
+        anotar(buf);
+        progreso(buf, marca);
+        volcar(o, job, marca);
+        return;
+    }
     anotar("Optimizando. Pulsa Parar para guardar el mejor récord.");
     {
         unsigned long long ultima = 0;
-        int quieto = 0, intento = 1, meta = o->nap;
+        int quieto = 0, intento = 1, meta = o->nap, patadas = 0;
         while (!g_parar) {
             double antes = o->mejor_cob;
             double marca;
             paso(o);
             if (o->temp <= 0.0001 && o->mejor_cob <= antes) quieto++;
-            else quieto = 0;
+            else {
+                if (o->mejor_cob > antes) patadas = 0;
+                quieto = 0;
+            }
             if (!o->exacto && (GetTickCount64() - ultima) >= 2000) {
                 double real = cubrir_lista(o->mejor_n ? o->mejor : o->ap, o->mejor_n ? o->mejor_n : o->nap, o->v, o->m, o->t, o->total_sorteos);
                 ultima = GetTickCount64();
@@ -965,12 +1097,20 @@ static void optimizar(Opt *o, const Job *job, double objetivo) {
                 progreso(buf, real ? cob : -1);
                 volcar(o, job, real ? cob : -1);
             }
-            if (quieto >= 5000 && o->temp <= 0.0001 && marca < 99.9995 && (objetivo < 0 || marca < objetivo)) {
-                intento++;
-                snprintf(buf, sizeof buf, "Intento %d. El anterior se quedó en %.4f%%.", intento, o->mejor_cob);
-                anotar(buf);
-                if (!reponer(o, meta)) break;
-                quieto = 0;
+            if (quieto >= 1500 && o->temp <= 0.0001 && marca < 99.9995 && (objetivo < 0 || marca < objetivo)) {
+                if (patadas < 8 && golpe(o)) {
+                    patadas++;
+                    o->temp = 1;
+                    quieto = 0;
+                    anotar("Reescribo una apuesta hacia un sorteo que aún no está cubierto.");
+                } else {
+                    intento++;
+                    patadas = 0;
+                    snprintf(buf, sizeof buf, "Intento %d. El anterior se quedó en %.4f%%.", intento, o->mejor_cob);
+                    anotar(buf);
+                    if (!reponer(o, meta)) break;
+                    quieto = 0;
+                }
             }
         }
     }
