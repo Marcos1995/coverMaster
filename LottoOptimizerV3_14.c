@@ -33,7 +33,7 @@ typedef struct {
 typedef struct {
     int v, k, t, m, universo, cantidad, ciclos, nbase, ngrupos;
     double porc;
-    int modo_p;
+    int modo_p, usar_record;
     int base[MAXN];
     Grupo grupos[32];
     Filtros filtros;
@@ -485,6 +485,7 @@ static int parse_datos(const char *json, Job *job, char *err) {
     if (!leer_int(pay, fin, "cantidad", &job->cantidad, 0)) { snprintf(err, 180, "Dato numérico no válido."); return 0; }
     job->porc = leer_porc(pay, fin);
     job->ciclos = json_bool(pay, fin, "ciclos");
+    job->usar_record = json_bool(pay, fin, "usar_record");
     if (!json_str(pay, fin, "modo", modo, sizeof modo)) strcpy(modo, "n");
     job->modo_p = modo[0] == 'p';
     return 1;
@@ -1219,6 +1220,19 @@ static void guardar_opt(Opt *o, Job *job, const char *marca) {
     anotar(msg);
 }
 
+static int apuestas_de_url(const char *url) {
+    const char *p;
+    int n = 0;
+    if (!url) return 0;
+    p = strstr(url, "por-");
+    if (!p) return 0;
+    for (p += 4; (*p >= '0' && *p <= '9') || *p == '.'; p++) if (*p != '.') {
+        if (n > 100000000) return 0;
+        n = n * 10 + (*p - '0');
+    }
+    return n;
+}
+
 static const char *buscar_url(int v, int k, int t, int m) {
     int i;
     for (i = 0; i < NRED; i++)
@@ -1683,7 +1697,7 @@ static DWORD WINAPI hilo(LPVOID p) {
             } else {
                 int cantidad = job->cantidad >= 1 ? job->cantidad : 20;
                 int semilla = 0;
-                if (job->url[0] && !job->filtros.activo) {
+                if (job->usar_record && job->modo_p && job->porc >= 99.9995 && job->url[0] && !job->filtros.activo) {
                     uint64_t *absb = NULL;
                     int n = 0, i;
                     char m[240];
@@ -1870,6 +1884,18 @@ static void servir_html(SOCKET s) {
 static void api_dispatch(SOCKET s, const char *body) {
     char nombre[32], err[200] = "", premio[512];
     if (!json_str(body, NULL, "nombre", nombre, sizeof nombre)) nombre[0] = 0;
+    if (strcmp(nombre, "recurso") == 0) {
+        Job job;
+        char js[80];
+        const char *url = NULL;
+        int n = 0;
+        if (!parse_datos(body, &job, err)) { responder_error(s, err); return; }
+        if (!job.ngrupos && !job.filtros.activo) url = buscar_url(job.v, job.k, job.t, job.m);
+        if (url) n = apuestas_de_url(url);
+        snprintf(js, sizeof js, "{\"ok\":true,\"recurso\":%d}", n);
+        responder(s, "200 OK", "application/json; charset=utf-8", js, (int)strlen(js));
+        return;
+    }
     if (strcmp(nombre, "estado") == 0) {
         char *js = (char *)malloc(600000);
         if (!js) { responder_ok(s, 0, "sin memoria"); return; }

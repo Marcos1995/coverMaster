@@ -163,7 +163,7 @@
     .kpis { display: flex; flex-wrap: wrap; gap: .35rem; }
     .kpis > div { flex: 0 0 auto; width: auto; justify-content: flex-start; gap: .6rem; }
     .kpis strong { font-size: 14px; font-weight: 700; }
-    #ayuda-dlg {
+    #ayuda-dlg, #recurso-dlg {
       width: min(36rem, calc(100vw - 1.5rem));
       max-height: min(78vh, 36rem);
       overflow: auto;
@@ -173,11 +173,14 @@
       background: #eaffeb;
       color: #032612;
     }
-    #ayuda-dlg::backdrop { background: rgba(3, 38, 18, .5); }
-    #ayuda-dlg h2 { margin: 0 0 .6rem; font-size: 1.25rem; }
+    #ayuda-dlg::backdrop, #recurso-dlg::backdrop { background: rgba(3, 38, 18, .5); }
+    #ayuda-dlg h2, #recurso-dlg h2 { margin: 0 0 .6rem; font-size: 1.25rem; }
     #ayuda-dlg h3 { margin: .7rem 0 .15rem; font-size: .8rem; letter-spacing: .02em; }
-    #ayuda-dlg p { margin: 0 0 .25rem; font-size: 13px; line-height: 1.4; }
-    html[data-tema="oscuro"] #ayuda-dlg { background: #06331c; color: #E8F7EE; }
+    #ayuda-dlg p, #recurso-dlg p { margin: 0 0 .25rem; font-size: 13px; line-height: 1.4; }
+    #recurso-dlg .fila { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem; }
+    #recurso-dlg button:focus-visible { outline: 2px solid #032612; outline-offset: 2px; }
+    html[data-tema="oscuro"] #ayuda-dlg, html[data-tema="oscuro"] #recurso-dlg { background: #06331c; color: #E8F7EE; }
+    html[data-tema="oscuro"] #recurso-dlg button:focus-visible { outline-color: #18E667; }
     #actividad { font-size: 13px; line-height: 1.35; }
     #paneles { flex: 1 1 0; min-height: 0; display: flex; flex-direction: row; align-items: stretch; gap: .35rem; margin-top: .35rem; }
     #caja-apuestas { flex: 0 0 16rem; width: 16rem; min-width: 0; min-height: 0; overflow: auto; margin: 0; }
@@ -339,7 +342,7 @@
 <h3>Garantía, ciclos y tamaño</h3>
 <p>El desplegable (5 si 6, 4 si 6…) es el premio que quieres asegurar. Ciclos, encendido, repite el recocido. Apuestas pide un número de columnas. % pide un porcentaje de cobertura. Solo cuenta el que esté marcado.</p>
 <h3>Calcular y Parar</h3>
-<p>Calcular genera la reducida. Si Lotoideas publica un récord para esa base y esa garantía, y no hay filtros ni grupos, usa esa lista: el número de apuestas es el del récord. Con 24 números, de 6 en 6 y 4 si 6, son 143 apuestas al 100 %. Si no hay récord, busca sola: cambia dos números de una apuesta cuando eso cubre más sorteos y, si se estanca, reescribe una apuesta para tapar un sorteo que faltaba. Parar corta y se queda con el mejor récord.</p>
+<p>Calcular genera la reducida. Al 90 % o al 80 % no mira el récord: calcula lo que has pedido. Al 100 %, si Lotoideas publica un récord y no hay filtros ni grupos, pregunta cada vez: el récord son esas apuestas, ¿las usas o mantienes las tuyas? Con 24 números, de 6 en 6 y 4 si 6, el récord son 143. Si eliges las tuyas, o si marcas Apuestas en vez del %, calcula ese número. Parar corta y se queda con el mejor récord.</p>
 <h3>Escrutar y Generar</h3>
 <p>El recuadro largo es la combinación ganadora. Generar escribe ahí una apuesta al azar de k números: si hay números marcados, salen de esos; si no, del 1 al 49. Escrutar compara la reducida con esa combinación.</p>
 <h3>El resto de acciones</h3>
@@ -349,6 +352,14 @@
 <h3>Registro</h3>
 <p>El recuadro verde es lo que va haciendo el programa. Cada clic empieza con una raya y el nombre de la acción, y el resultado se queda en el registro. A la izquierda van las apuestas y a la derecha el registro. La línea de arriba, mientras optimiza, es el ciclo en vivo: la cobertura récord y la temperatura. La cobertura es el porcentaje de sorteos de m números sacados de la base en los que alguna apuesta acierta al menos t. Se cuentan todos esos sorteos, no una muestra de 50.000. La temperatura nace en 1 y baja en cada ciclo; al pasar de 0,0001 ya no cambia qué mutaciones se aceptan, y con cuatro decimales se lee 0,0000. Una apuesta repetida no entra. Limpiar vacía ese registro. La página no se desplaza: si el texto no cabe, se mueve solo dentro del registro o de la tabla.</p>
 <form method="dialog"><button type="submit" class="mt-2 bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Cerrar</button></form>
+</dialog>
+<dialog id="recurso-dlg" aria-labelledby="recurso-titulo">
+<h2 id="recurso-titulo" tabindex="-1">Récord de Lotoideas</h2>
+<p id="recurso-texto"></p>
+<div class="fila">
+<button type="button" id="recurso-si" class="bg-[#18E667] text-[#032612] px-3 py-1 rounded text-[12px] font-bold">Récord</button>
+<button type="button" id="recurso-no" class="bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Las mías</button>
+</div>
 </dialog>
 <script>
     (function () {
@@ -543,17 +554,55 @@
       function sinPrograma() {
         aviso("Programa", "El cálculo corre al abrir LottoOptimizerV3_14.");
       }
-      async function llamar(nombre) {
+      function preguntarRecord(n, tuyas) {
+        return new Promise(function (resolver) {
+          var dlg = document.getElementById("recurso-dlg");
+          var listo = false;
+          function cerrar(valor) {
+            if (listo) return;
+            listo = true;
+            dlg.close();
+            resolver(valor);
+          }
+          document.getElementById("recurso-texto").textContent = "El récord al 100 % son " + n + " apuestas. Tú has puesto " + tuyas + ". ¿Qué usas?";
+          document.getElementById("recurso-si").textContent = "Récord, " + n;
+          document.getElementById("recurso-no").textContent = "Las mías, " + tuyas;
+          document.getElementById("recurso-si").onclick = function () { cerrar(1); };
+          document.getElementById("recurso-no").onclick = function () { cerrar(0); };
+          dlg.oncancel = function () { cerrar(null); };
+          dlg.showModal();
+          document.getElementById("recurso-si").focus();
+        });
+      }
+      async function llamar(nombre, datos) {
         if (!nombre) return;
         if (!window.pywebview || !window.pywebview.api) { sinPrograma(); return; }
         try {
-          var r = await window.pywebview.api[nombre](leer());
+          var r = await window.pywebview.api[nombre](datos || leer());
           if (r && r.ok === false && r.error) aviso("Error", r.error);
         } catch (e) {
           aviso("Error", "No llega la respuesta del programa.");
         }
       }
-      document.getElementById("calcular").addEventListener("click", function () { llamar("calcular"); });
+      document.getElementById("calcular").addEventListener("click", async function () {
+        var datos = leer();
+        var porc = parseFloat(String(datos.porc).replace(",", "."));
+        datos.usar_record = false;
+        if (datos.modo === "p" && porc >= 99.9995 && window.pywebview && window.pywebview.api) {
+          try {
+            var info = await window.pywebview.api.recurso(datos);
+            var n = info && info.recurso;
+            var tuyas = parseInt(datos.cantidad, 10);
+            if (!(tuyas >= 1)) tuyas = 20;
+            if (n > 0) {
+              var eleccion = await preguntarRecord(n, tuyas);
+              if (eleccion === null) return;
+              datos.usar_record = eleccion === 1;
+            }
+          } catch (e) {}
+        }
+        llamar("calcular", datos);
+      });
       document.getElementById("parar").addEventListener("click", function () { llamar("parar"); });
       document.getElementById("revisar-botones").addEventListener("click", function (ev) {
         var btn = ev.target.closest("button");
