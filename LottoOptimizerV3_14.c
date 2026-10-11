@@ -1375,10 +1375,39 @@ static int primer_txt(const char *dir, char *out, int cap) {
     return 0;
 }
 
+static void borrar_arbol(const char *dir) {
+    char pat[MAX_PATH], full[MAX_PATH];
+    WIN32_FIND_DATAA fd;
+    HANDLE h;
+    snprintf(pat, sizeof pat, "%s\\*", dir);
+    h = FindFirstFileA(pat, &fd);
+    if (h == INVALID_HANDLE_VALUE) { RemoveDirectoryA(dir); return; }
+    do {
+        if (!strcmp(fd.cFileName, ".") || !strcmp(fd.cFileName, "..")) continue;
+        snprintf(full, sizeof full, "%s\\%s", dir, fd.cFileName);
+        if (fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) borrar_arbol(full);
+        else DeleteFileA(full);
+    } while (FindNextFileA(h, &fd));
+    FindClose(h);
+    RemoveDirectoryA(dir);
+}
+
+static int dir_descarga(char *dir, int cap) {
+    char tmp[MAX_PATH];
+    int i;
+    static volatile LONG seq;
+    GetTempPathA(MAX_PATH, tmp);
+    for (i = 0; i < 100; i++) {
+        snprintf(dir, cap, "%sloto14_%lu_%ld", tmp, GetCurrentProcessId(), InterlockedIncrement(&seq));
+        if (CreateDirectoryA(dir, NULL)) return 1;
+    }
+    return 0;
+}
+
 static int descargar_reducida(const char *url, int v, int k, uint64_t **out, int *nout, char *err) {
     unsigned char *zipb = NULL;
     int zn = 0, n = 0, cap = 0;
-    char tmp[MAX_PATH], dir[MAX_PATH], zip[MAX_PATH], txt[MAX_PATH], cmd[1200];
+    char dir[MAX_PATH], zip[MAX_PATH], txt[MAX_PATH], cmd[1200];
     FILE *f;
     uint64_t *bets = NULL;
     STARTUPINFOA si;
@@ -1387,12 +1416,14 @@ static int descargar_reducida(const char *url, int v, int k, uint64_t **out, int
     *out = NULL; *nout = 0;
     anotar("Descargando la reducida récord de Lotoideas...");
     if (!http_bajar(url, &zipb, &zn, err)) return 0;
-    GetTempPathA(MAX_PATH, tmp);
-    snprintf(dir, sizeof dir, "%sloto12_%lu", tmp, GetCurrentProcessId());
-    CreateDirectoryA(dir, NULL);
+    if (!dir_descarga(dir, sizeof dir)) {
+        free(zipb);
+        snprintf(err, 180, "No se ha podido guardar el zip.");
+        return 0;
+    }
     snprintf(zip, sizeof zip, "%s\\r.zip", dir);
     f = fopen(zip, "wb");
-    if (!f) { free(zipb); snprintf(err, 180, "No se ha podido guardar el zip."); return 0; }
+    if (!f) { free(zipb); borrar_arbol(dir); snprintf(err, 180, "No se ha podido guardar el zip."); return 0; }
     fwrite(zipb, 1, (size_t)zn, f);
     fclose(f);
     free(zipb);
@@ -1402,6 +1433,7 @@ static int descargar_reducida(const char *url, int v, int k, uint64_t **out, int
     si.dwFlags = STARTF_USESHOWWINDOW;
     si.wShowWindow = SW_HIDE;
     if (!CreateProcessA(NULL, cmd, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi)) {
+        borrar_arbol(dir);
         snprintf(err, 180, "el zip no trae un txt");
         return 0;
     }
@@ -1409,9 +1441,9 @@ static int descargar_reducida(const char *url, int v, int k, uint64_t **out, int
     GetExitCodeProcess(pi.hProcess, &code);
     CloseHandle(pi.hThread);
     CloseHandle(pi.hProcess);
-    if (!primer_txt(dir, txt, MAX_PATH)) { snprintf(err, 180, "el zip no trae un txt"); return 0; }
+    if (!primer_txt(dir, txt, MAX_PATH)) { borrar_arbol(dir); snprintf(err, 180, "el zip no trae un txt"); return 0; }
     f = fopen(txt, "rb");
-    if (!f) { snprintf(err, 180, "el zip no trae un txt"); return 0; }
+    if (!f) { borrar_arbol(dir); snprintf(err, 180, "el zip no trae un txt"); return 0; }
     char linea[512];
     while (fgets(linea, sizeof linea, f)) {
         int nums[MAXN], cn, i, vistos = 0;
@@ -1428,20 +1460,21 @@ static int descargar_reducida(const char *url, int v, int k, uint64_t **out, int
         }
         if (!cn) continue;
         for (i = 0; i < cn; i++) {
-            if (nums[i] < 1 || nums[i] > v || (b & (1ull << (nums[i] - 1)))) { snprintf(err, 180, "una apuesta del zip no encaja con v y k"); fclose(f); free(bets); return 0; }
+            if (nums[i] < 1 || nums[i] > v || (b & (1ull << (nums[i] - 1)))) { snprintf(err, 180, "una apuesta del zip no encaja con v y k"); fclose(f); free(bets); borrar_arbol(dir); return 0; }
             b |= 1ull << (nums[i] - 1);
             vistos++;
         }
-        if (vistos != k) { snprintf(err, 180, "una apuesta del zip no encaja con v y k"); fclose(f); free(bets); return 0; }
+        if (vistos != k) { snprintf(err, 180, "una apuesta del zip no encaja con v y k"); fclose(f); free(bets); borrar_arbol(dir); return 0; }
         if (n >= cap) {
             int nc = cap ? cap * 2 : 64;
             uint64_t *nb = (uint64_t *)realloc(bets, (size_t)nc * sizeof(uint64_t));
-            if (!nb) { fclose(f); free(bets); snprintf(err, 180, "sin memoria"); return 0; }
+            if (!nb) { fclose(f); free(bets); borrar_arbol(dir); snprintf(err, 180, "sin memoria"); return 0; }
             bets = nb; cap = nc;
         }
         bets[n++] = b;
     }
     fclose(f);
+    borrar_arbol(dir);
     if (!n) { free(bets); snprintf(err, 180, "el zip no trae apuestas"); return 0; }
     {
         char msg[80];
