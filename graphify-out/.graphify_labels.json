@@ -1,5 +1,5 @@
 {
-  "0": "LottoOptimizerV3_10.py",
+  "0": "LottoOptimizerV3_11.py",
   "1": "LottoOptimizerV3",
   "2": "Lotto Optimizer V3.10",
   "3": "Debug",
@@ -21,12 +21,13 @@
   "19": "LottoOptimizerV3",
   "20": "LottoOptimizerV3_14.c",
   "21": "LottoOptimizerV3_12.c",
-  "22": "LottoOptimizerV3_11.py",
+  "22": "datos_desde_ui",
   "23": "reducidas.inc",
   "24": "estado",
   "25": "DESIGN.md",
-  "26": "main_gui",
+  "26": "LottoOptimizerV3_15.c",
   "27": "BitUtils",
   "28": "BitUtils",
-  "29": "Configuracion"
+  "29": "Configuracion",
+  "30": "apuesta_pasa_filtros"
 }

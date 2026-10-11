@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "PROJECT.md": {
-    "mtime": 1791679886.2987614,
-    "seen": 1791680046.9625266,
-    "ast_hash": "4c50f0d791b825ea83183b372c72bb76",
+    "mtime": 1791712949.6270397,
+    "seen": 1791713025.6437864,
+    "ast_hash": "13dd25899e81f1c4ba4a4c13cd9cd0b5",
     "semantic_hash": ""
   },
   "README.md": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "docs/DECISIONES.md": {
-    "mtime": 1791673192.901079,
-    "seen": 1791673383.1534042,
-    "ast_hash": "d097a6090d23a6c519f4151229068d82",
+    "mtime": 1791712953.2772152,
+    "seen": 1791713025.6437864,
+    "ast_hash": "79be0bdbe9d0913427137dfb27a4a1bf",
     "semantic_hash": ""
   },
   "LottoOptimizerV3_11.py": {
@@ -363,6 +363,102 @@
     "mtime": 1791679092.835635,
     "seen": 1791680046.9625266,
     "ast_hash": "0febff486afc3576394782518f4b84a3",
+    "semantic_hash": ""
+  },
+  "LottoOptimizerV3_15.c": {
+    "mtime": 1791712901.6551714,
+    "seen": 1791713025.6437864,
+    "ast_hash": "95d06986c1099afb3a0d65ec54ea39a4",
+    "semantic_hash": ""
+  },
+  "v15_html.inc": {
+    "mtime": 1791712917.4366326,
+    "seen": 1791713025.6437864,
+    "ast_hash": "b6522543b31e4447e983c3e1e0a56468",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t3_lotoideas_20261011_025536.txt": {
+    "mtime": 1791680136.0590084,
+    "seen": 1791713025.6437864,
+    "ast_hash": "1c7cdd098a3186f74e9602b335ce2ed0",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t4_100.0000pct_20261011_114737.txt": {
+    "mtime": 1791712057.5207744,
+    "seen": 1791713025.6437864,
+    "ast_hash": "a0a9e0354c4587934a4a37bb9e291839",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t4_100.0000pct_20261011_120250.txt": {
+    "mtime": 1791712970.7528832,
+    "seen": 1791713025.6437864,
+    "ast_hash": "e2ad84ca933df8cc3bf840fd760ad60b",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t4_90.4762pct_20261011_114709.txt": {
+    "mtime": 1791712029.793221,
+    "seen": 1791713025.6437864,
+    "ast_hash": "aec5c97f34bb7f9ab21dbf40086df8e0",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t4_95.0216pct_20261011_114735.txt": {
+    "mtime": 1791712055.8692026,
+    "seen": 1791713025.6437864,
+    "ast_hash": "8a40e6708cd2f907bcfa47155db9a5d8",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t4_lotoideas_20261011_025522.txt": {
+    "mtime": 1791680122.5049975,
+    "seen": 1791713025.6437864,
+    "ast_hash": "8e13f8ab59e34147040d0acc224163b0",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t5_100.0000pct_20261011_114829.txt": {
+    "mtime": 1791712109.10079,
+    "seen": 1791713025.6437864,
+    "ast_hash": "e1c110b520d3f64fcb2db9442799c1d6",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t5_80.0866pct_20261011_114802.txt": {
+    "mtime": 1791712082.7203722,
+    "seen": 1791713025.6437864,
+    "ast_hash": "55095de672345aeea8157f8fa228318c",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t5_96.9697pct_20261011_115339.txt": {
+    "mtime": 1791712419.6091905,
+    "seen": 1791713025.6437864,
+    "ast_hash": "7c608f3e2fd326d6712460978346b11a",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t5_98.0519pct_20261011_115304.txt": {
+    "mtime": 1791712384.2983115,
+    "seen": 1791713025.6437864,
+    "ast_hash": "38914144102126eec181e7291fe74768",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t5_99.3506pct_20261011_115223.txt": {
+    "mtime": 1791712343.9601376,
+    "seen": 1791713025.6437864,
+    "ast_hash": "9b0b920b7c26f34000f05889f8c32638",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t5_99.5671pct_20261011_115133.txt": {
+    "mtime": 1791712293.8112507,
+    "seen": 1791713025.6437864,
+    "ast_hash": "eeeb38b71d08e765ce79a66fdcdc9ffa",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t5_lotoideas_20261011_025509.txt": {
+    "mtime": 1791680109.383392,
+    "seen": 1791713025.6437864,
+    "ast_hash": "af273085369714d2fea94a066d8c31c4",
+    "semantic_hash": ""
+  },
+  "v15.html": {
+    "mtime": 1791712883.109027,
+    "seen": 1791713025.6437864,
+    "ast_hash": "12ff9578ec6e49cda9e607d4287855d1",
     "semantic_hash": ""
   }
 }

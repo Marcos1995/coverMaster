@@ -12,6 +12,7 @@
 - `LottoOptimizerV3_12.c` es el mismo programa en C (código máquina). La ventana es el mismo `index.html`. El recocido, los filtros, el escrutinio y las reducidas de Lotoideas hacen lo mismo; la muestra sigue siendo de 50 000 sorteos.
 - `LottoOptimizerV3_13.c` es el mismo programa que el 12. La ventana es `v13.html`, buscada junto al exe aunque la carpeta no sea ASCII. Si falta, la ventana lo dice en vez de un error de Chrome. La temperatura es la del 10. El 12 no cambia.
 - `LottoOptimizerV3_14.c` es el 13 con la misma pantalla guardada dentro del exe. La ventana se llama Loto 3.14. La cobertura cuenta todos los sorteos de la base. En el recuadro verde, las apuestas van a la izquierda y el registro a la derecha. El registro solo salta al final si ya estabas abajo. Si eliges el récord, Calcular solo descarga esa lista, la pasa a los números marcados y la guarda, sin ciclos. Cada descarga va a su carpeta: la segunda no relee el fichero de la primera, y el recuadro verde muestra esas apuestas. Al 90 % o al 80 % calcula lo pedido. Mejorar récord sí busca. 24 números al 4 si 6 son 143. Si no hay récord, en bases pequeñas sube la cobertura cambiando dos números. Basta `LottoOptimizerV3_14.exe`. El 13 no cambia.
+- `LottoOptimizerV3_15.c` es el 14. Al guardar, si la lista cuenta todos los sorteos, quita la apuesta que no baja esa cuenta. En 12 números al 4 si 6, 20 apuestas al 100 % quedan en menos. El 14 no cambia. La ventana se llama Loto 3.15. Basta `LottoOptimizerV3_15.exe`.
 - Lectura del algoritmo: `docs/LottoOptimizerV3_10.md`. El 11 usa esa lógica.
 - Si `(v, k, t, m)` tiene zip público en Lotoideas, se ofrece esa lista o intentar mejorarla. Si no sube la cobertura, se guarda la de Lotoideas.
 - Kit de agentes en `.cursor/` (skills, rules, agents) más `AGENTS.md`.
@@ -21,6 +22,7 @@
 - El 12 es C. `LottoOptimizerV3_12.exe` abre el mismo `index.html` en una ventana de Edge. El cálculo va en código máquina.
 - El 13 es el mismo C. `LottoOptimizerV3_13.exe` abre `v13.html`. Vista: https://marcos1995.github.io/coverMaster/v13.html
 - El 14 es el mismo C. La pantalla va dentro de `LottoOptimizerV3_14.exe`. Vista: https://marcos1995.github.io/coverMaster/v14.html
+- El 15 es el mismo C. La pantalla va dentro de `LottoOptimizerV3_15.exe`. Vista: https://marcos1995.github.io/coverMaster/v15.html
 
 ## Comandos utiles
 - Instalar:
@@ -32,11 +34,13 @@
 - Exe del 12 (código máquina): `LottoOptimizerV3_12.exe`
 - Exe del 13 (misma lógica, pantalla nueva): `LottoOptimizerV3_13.exe`
 - Exe del 14 (un solo fichero, la pantalla va dentro): `LottoOptimizerV3_14.exe`
+- Exe del 15 (igual, y al guardar quita apuestas que sobran): `LottoOptimizerV3_15.exe`
 - Recompilar el 12: `zig cc -O2 -std=c11 -o LottoOptimizerV3_12.exe LottoOptimizerV3_12.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
 - Recompilar el 13: `zig cc -O2 -std=c11 -o LottoOptimizerV3_13.exe LottoOptimizerV3_13.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
 - Recompilar el 14: `zig cc -O2 -std=c11 -o LottoOptimizerV3_14.exe LottoOptimizerV3_14.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
+- Recompilar el 15: `zig cc -O2 -std=c11 -o LottoOptimizerV3_15.exe LottoOptimizerV3_15.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
 - Grafo: `graphify update .` (paquete `graphifyy`; ejecutable en `%USERPROFILE%\.local\bin`)
 
 ## Notas para el agente
-- Ni el 10 ni el 11 se parten en módulos. El 10 no se edita. El 12, el 13 y el 14 son otros ficheros, en C.
+- Ni el 10 ni el 11 se parten en módulos. El 10 no se edita. El 12, el 13, el 14 y el 15 son otros ficheros, en C.
 - Lean kit (ver AGENTS.md)
