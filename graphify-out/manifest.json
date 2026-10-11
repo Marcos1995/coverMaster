@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "PROJECT.md": {
-    "mtime": 1791721262.8255396,
-    "seen": 1791721332.14833,
-    "ast_hash": "f2fab4bc9deecd128b4fe3eeba1f540f",
+    "mtime": 1791727632.2516246,
+    "seen": 1791727777.3974962,
+    "ast_hash": "e898a4d404d531d660c01d6ad4855912",
     "semantic_hash": ""
   },
   "README.md": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "docs/DECISIONES.md": {
-    "mtime": 1791712953.2772152,
-    "seen": 1791713025.6437864,
-    "ast_hash": "79be0bdbe9d0913427137dfb27a4a1bf",
+    "mtime": 1791727624.3905735,
+    "seen": 1791727777.3974962,
+    "ast_hash": "7f172dc7b5ae4abad4b5b43b25160eea",
     "semantic_hash": ""
   },
   "LottoOptimizerV3_11.py": {
@@ -519,6 +519,66 @@
     "mtime": 1791721194.03989,
     "seen": 1791721332.14833,
     "ast_hash": "79820d38094d9dc90350929cf440f1cc",
+    "semantic_hash": ""
+  },
+  "LottoOptimizerV3_18.c": {
+    "mtime": 1791727574.5915837,
+    "seen": 1791727777.3974962,
+    "ast_hash": "f87a605f3df6810752e47ba6330a5bb4",
+    "semantic_hash": ""
+  },
+  "v18_html.inc": {
+    "mtime": 1791727644.9486878,
+    "seen": 1791727777.3974962,
+    "ast_hash": "e61bd058d6436160b3ae2a1b90f90cb6",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t3_100.0000pct_20261011_160812.txt": {
+    "mtime": 1791727692.5678732,
+    "seen": 1791727777.3974962,
+    "ast_hash": "a489cc521e6d8b280858befcc8a3b9c4",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t4_100.0000pct_20261011_160812.txt": {
+    "mtime": 1791727692.5367868,
+    "seen": 1791727777.3974962,
+    "ast_hash": "bdf5202fcace39d4137e12085412f090",
+    "semantic_hash": ""
+  },
+  "LOTTO_v12_k6_t4_70.8874pct_20261011_160832.txt": {
+    "mtime": 1791727712.0093536,
+    "seen": 1791727777.3974962,
+    "ast_hash": "f54597e5f8677b1593246ceb96890814",
+    "semantic_hash": ""
+  },
+  "LOTTO_v15_k6_t4_100.0000pct_20261011_160812.txt": {
+    "mtime": 1791727692.615141,
+    "seen": 1791727777.3974962,
+    "ast_hash": "62ca805139f0cb309ec08fcd46be810a",
+    "semantic_hash": ""
+  },
+  "LOTTO_v24_k6_t4_100.0000pct_20261011_160901.txt": {
+    "mtime": 1791727741.0742373,
+    "seen": 1791727777.3974962,
+    "ast_hash": "ecb015154acfa01078106055f8d56e62",
+    "semantic_hash": ""
+  },
+  "LOTTO_v24_k6_t4_99.3975pct_20261011_143237.txt": {
+    "mtime": 1791721957.3402643,
+    "seen": 1791727777.3974962,
+    "ast_hash": "fe3d8b488fa995d653b52b7b9e352137",
+    "semantic_hash": ""
+  },
+  "LOTTO_v8_k6_t5_100.0000pct_20261011_160812.txt": {
+    "mtime": 1791727692.583505,
+    "seen": 1791727777.3974962,
+    "ast_hash": "505c603560cba623f960ae27c4d51d5b",
+    "semantic_hash": ""
+  },
+  "v18.html": {
+    "mtime": 1791727610.5859458,
+    "seen": 1791727777.3974962,
+    "ast_hash": "68d64acb9bcc2601a0ed6b470080d206",
     "semantic_hash": ""
   }
 }
