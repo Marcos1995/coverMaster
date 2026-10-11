@@ -522,15 +522,23 @@
         if (!e) return;
         document.getElementById("ahora").textContent = e.ahora || "Listo";
         document.getElementById("linea").textContent = e.linea || "";
-        document.getElementById("actividad").textContent = (e.log || []).join("\n");
+        pintarRegistro(e.log || []);
         document.getElementById("kpi-apuestas").textContent = String(e.apuestas != null ? e.apuestas : 0);
         if (e.cobertura) document.getElementById("kpi-cob").textContent = e.cobertura;
         var sobre = document.getElementById("kpi-sobre");
         if (sobre) sobre.textContent = e.sobre ? " " + e.sobre : "";
         pintarLista(e.lista || []);
         ocupado(!!e.ocupado);
+      }
+      function pintarRegistro(lineas) {
         var caja = document.getElementById("actividad");
-        caja.scrollTop = caja.scrollHeight;
+        var texto = lineas.join("\n");
+        var alFinal, sitio;
+        if (caja.textContent === texto) return;
+        alFinal = caja.scrollHeight - caja.scrollTop - caja.clientHeight <= 4;
+        sitio = caja.scrollTop;
+        caja.textContent = texto;
+        caja.scrollTop = alFinal ? caja.scrollHeight : sitio;
       }
       function sinPrograma() {
         aviso("Programa", "El cálculo corre al abrir LottoOptimizerV3_14.");
