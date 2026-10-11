@@ -1715,7 +1715,7 @@ static DWORD WINAPI hilo(LPVOID p) {
                 }
                 if (!semilla && !job->modo_p && o->nap < cantidad) generar(o, job, cantidad - o->nap);
                 else if (!semilla && job->modo_p) generar(o, job, cantidad);
-                if (o->nap && !g_parar && cob_de(o) < 99.9995 && !(job->modo_p && cob_de(o) >= job->porc) && job->ciclos)
+                if (!semilla && o->nap && !g_parar && cob_de(o) < 99.9995 && !(job->modo_p && cob_de(o) >= job->porc) && job->ciclos)
                     optimizar(o, job, job->modo_p ? job->porc : -1);
                 else if (o->nap) {
                     char m[180];

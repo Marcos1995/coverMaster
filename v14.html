@@ -342,7 +342,7 @@
 <h3>Garantía, ciclos y tamaño</h3>
 <p>El desplegable (5 si 6, 4 si 6…) es el premio que quieres asegurar. Ciclos, encendido, repite el recocido. Apuestas pide un número de columnas. % pide un porcentaje de cobertura. Solo cuenta el que esté marcado.</p>
 <h3>Calcular y Parar</h3>
-<p>Calcular es el botón. Si hay un récord de Lotoideas y no has pedido un 90 % o un 80 %, sale una pregunta: el récord son tantas apuestas, ¿las usas o sigues con las tuyas? Con 24 números, de 6 en 6 y 4 si 6, el récord son 143. Si eliges las tuyas, calcula el número que has escrito. Al 90 % o al 80 % no pregunta y calcula ese porcentaje. Mejorar récord intenta superar la lista ya elegida. Parar corta y se queda con el mejor.</p>
+<p>Calcular es el botón. Si hay un récord de Lotoideas y no has pedido un 90 % o un 80 %, sale una pregunta: el récord son tantas apuestas, ¿las usas o sigues con las tuyas? Si eliges el récord, no calcula nada: descarga esa lista, cambia el 1, el 2, el 3… por los números que tienes marcados, en orden, la muestra y la guarda. Con 24 números, de 6 en 6 y 4 si 6, el récord son 143. Si eliges las tuyas, calcula el número que has escrito. Al 90 % o al 80 % no pregunta. Mejorar récord sí busca, e intenta superar la lista. Parar corta y se queda con el mejor.</p>
 <h3>Escrutar y Generar</h3>
 <p>El recuadro largo es la combinación ganadora. Generar escribe ahí una apuesta al azar de k números: si hay números marcados, salen de esos; si no, del 1 al 49. Escrutar compara la reducida con esa combinación.</p>
 <h3>El resto de acciones</h3>
@@ -597,7 +597,7 @@
             if (n > 0) {
               var eleccion = await preguntarRecord(n, tuyas);
               if (eleccion === null) return;
-              datos.usar_record = eleccion === 1;
+              if (eleccion === 1) { llamar("usar", datos); return; }
             }
           } catch (e) {}
         }
