@@ -16,6 +16,7 @@
 - `LottoOptimizerV3_16.c` es el 15, con una sola vía: o apuestas (fijas el número y sale la cobertura) o cobertura (fijas el porcentaje y salen las apuestas mínimas). El récord automático solo se ofrece en cobertura al 100 %. Análisis y Estadísticas dicen el porcentaje al 6, al 5, al 4, al 3, al 2 y al 1. El 15 no cambia. La ventana se llama Loto 3.16. Basta `LottoOptimizerV3_16.exe`.
 - `LottoOptimizerV3_17.c` es el 16. En apuestas partes de ese número: si llegas al 100 %, los ciclos prueban con menos y se quedan en el mínimo que sigue al 100 %. Si no llegas, te quedas con las que pusiste. El 16 no cambia. La ventana se llama Loto 3.17. Basta `LottoOptimizerV3_17.exe`.
 - `LottoOptimizerV3_18.c` es el 17, con tres vías: fuerza bruta, estrategia o ambas. La estrategia junta grupos de números cuando esa cuenta ya cubre; si no, cada sorteo descubierto entra como apuesta. El 17 no cambia. La ventana se llama Loto 3.18. Basta `LottoOptimizerV3_18.exe`.
+- `LottoOptimizerV3_19.c` es el 18. Apuestas y cobertura no van a la vez: la que no usas queda en blanco. Al 100 % de cobertura se mira el récord; con un número de apuestas, no. Al cambiar la base se marcan los números del 1 a ese. Fuerza bruta, estrategia y ambas van al principio de la fila. El 18 no cambia. La ventana se llama Loto 3.19. Basta `LottoOptimizerV3_19.exe`.
 - Lectura del algoritmo: `docs/LottoOptimizerV3_10.md`. El 11 usa esa lógica.
 - Si `(v, k, t, m)` tiene zip público en Lotoideas, se ofrece esa lista o intentar mejorarla. Si no sube la cobertura, se guarda la de Lotoideas.
 - Kit de agentes en `.cursor/` (skills, rules, agents) más `AGENTS.md`.
@@ -29,6 +30,7 @@
 - El 16 es el mismo C. La pantalla va dentro de `LottoOptimizerV3_16.exe`. Vista: https://marcos1995.github.io/coverMaster/v16.html
 - El 17 es el mismo C. La pantalla va dentro de `LottoOptimizerV3_17.exe`. Vista: https://marcos1995.github.io/coverMaster/v17.html
 - El 18 es el mismo C. La pantalla va dentro de `LottoOptimizerV3_18.exe`. Vista: https://marcos1995.github.io/coverMaster/v18.html
+- El 19 es el mismo C. La pantalla va dentro de `LottoOptimizerV3_19.exe`. Vista: https://marcos1995.github.io/coverMaster/v19.html
 
 ## Comandos utiles
 - Instalar:
@@ -44,6 +46,7 @@
 - Exe del 16 (o apuestas o cobertura): `LottoOptimizerV3_16.exe`
 - Exe del 17 (en apuestas, al 100 % baja el número): `LottoOptimizerV3_17.exe`
 - Exe del 18 (fuerza bruta, estrategia o ambas): `LottoOptimizerV3_18.exe`
+- Exe del 19 (cobertura o apuestas, la otra en blanco): `LottoOptimizerV3_19.exe`
 - Recompilar el 12: `zig cc -O2 -std=c11 -o LottoOptimizerV3_12.exe LottoOptimizerV3_12.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
 - Recompilar el 13: `zig cc -O2 -std=c11 -o LottoOptimizerV3_13.exe LottoOptimizerV3_13.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
 - Recompilar el 14: `zig cc -O2 -std=c11 -o LottoOptimizerV3_14.exe LottoOptimizerV3_14.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
@@ -51,8 +54,9 @@
 - Recompilar el 16: `zig cc -O2 -std=c11 -o LottoOptimizerV3_16.exe LottoOptimizerV3_16.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
 - Recompilar el 17: `zig cc -O2 -std=c11 -o LottoOptimizerV3_17.exe LottoOptimizerV3_17.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
 - Recompilar el 18: `zig cc -O2 -std=c11 -o LottoOptimizerV3_18.exe LottoOptimizerV3_18.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
+- Recompilar el 19: `zig cc -O2 -std=c11 -o LottoOptimizerV3_19.exe LottoOptimizerV3_19.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
 - Grafo: `graphify update .` (paquete `graphifyy`; ejecutable en `%USERPROFILE%\.local\bin`)
 
 ## Notas para el agente
-- Ni el 10 ni el 11 se parten en módulos. El 10 no se edita. El 12, el 13, el 14, el 15, el 16, el 17 y el 18 son otros ficheros, en C.
+- Ni el 10 ni el 11 se parten en módulos. El 10 no se edita. El 12, el 13, el 14, el 15, el 16, el 17, el 18 y el 19 son otros ficheros, en C.
 - Lean kit (ver AGENTS.md)
