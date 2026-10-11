@@ -342,7 +342,7 @@
 <h3>Garantía, ciclos y tamaño</h3>
 <p>El desplegable (5 si 6, 4 si 6…) es el premio que quieres asegurar. Ciclos, encendido, repite el recocido. Apuestas pide un número de columnas. % pide un porcentaje de cobertura. Solo cuenta el que esté marcado.</p>
 <h3>Calcular y Parar</h3>
-<p>Calcular genera la reducida. Al 90 % o al 80 % no mira el récord: calcula lo que has pedido. Al 100 %, si Lotoideas publica un récord y no hay filtros ni grupos, pregunta cada vez: el récord son esas apuestas, ¿las usas o mantienes las tuyas? Con 24 números, de 6 en 6 y 4 si 6, el récord son 143. Si eliges las tuyas, o si marcas Apuestas en vez del %, calcula ese número. Parar corta y se queda con el mejor récord.</p>
+<p>Calcular es el botón. Si hay un récord de Lotoideas y no has pedido un 90 % o un 80 %, sale una pregunta: el récord son tantas apuestas, ¿las usas o sigues con las tuyas? Con 24 números, de 6 en 6 y 4 si 6, el récord son 143. Si eliges las tuyas, calcula el número que has escrito. Al 90 % o al 80 % no pregunta y calcula ese porcentaje. Mejorar récord intenta superar la lista ya elegida. Parar corta y se queda con el mejor.</p>
 <h3>Escrutar y Generar</h3>
 <p>El recuadro largo es la combinación ganadora. Generar escribe ahí una apuesta al azar de k números: si hay números marcados, salen de esos; si no, del 1 al 49. Escrutar compara la reducida con esa combinación.</p>
 <h3>El resto de acciones</h3>
@@ -564,9 +564,9 @@
             dlg.close();
             resolver(valor);
           }
-          document.getElementById("recurso-texto").textContent = "El récord al 100 % son " + n + " apuestas. Tú has puesto " + tuyas + ". ¿Qué usas?";
-          document.getElementById("recurso-si").textContent = "Récord, " + n;
-          document.getElementById("recurso-no").textContent = "Las mías, " + tuyas;
+          document.getElementById("recurso-texto").textContent = "El récord son " + n + " apuestas al 100 %. Tú has puesto " + tuyas + ". ¿Usas el récord o sigues con las tuyas?";
+          document.getElementById("recurso-si").textContent = "Usar récord, " + n;
+          document.getElementById("recurso-no").textContent = "Seguir con las mías, " + tuyas;
           document.getElementById("recurso-si").onclick = function () { cerrar(1); };
           document.getElementById("recurso-no").onclick = function () { cerrar(0); };
           dlg.oncancel = function () { cerrar(null); };
@@ -588,7 +588,7 @@
         var datos = leer();
         var porc = parseFloat(String(datos.porc).replace(",", "."));
         datos.usar_record = false;
-        if (datos.modo === "p" && porc >= 99.9995 && window.pywebview && window.pywebview.api) {
+        if (!(datos.modo === "p" && porc < 99.9995) && window.pywebview && window.pywebview.api) {
           try {
             var info = await window.pywebview.api.recurso(datos);
             var n = info && info.recurso;

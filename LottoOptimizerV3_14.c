@@ -1697,7 +1697,7 @@ static DWORD WINAPI hilo(LPVOID p) {
             } else {
                 int cantidad = job->cantidad >= 1 ? job->cantidad : 20;
                 int semilla = 0;
-                if (job->usar_record && job->modo_p && job->porc >= 99.9995 && job->url[0] && !job->filtros.activo) {
+                if (job->usar_record && !(job->modo_p && job->porc < 99.9995) && job->url[0] && !job->filtros.activo) {
                     uint64_t *absb = NULL;
                     int n = 0, i;
                     char m[240];
