@@ -1,12 +1,11 @@
 ---
-description: Un solo Punto X descargable; la respuesta deja el enlace
+description: El oficial es LottoMaster.exe y va adjunto en Telegram
 alwaysApply: true
 ---
 
-# Punto X
+# Lotto Master
 
-- El programa oficial de este repo es uno: `PuntoX.c`, `puntox.html` y `PuntoX.exe`. No tiene número. No crees `LottoOptimizerV3_21` ni otro número. Los `LottoOptimizerV3_10` … `_20` son historia y no se editan.
-- Un cambio del programa va en `PuntoX.c`. Si cambia la pantalla, va en `puntox.html` y se regenera `PuntoX_html.inc` (bytes del html, símbolos `PUNTOX_HTML` y `PUNTOX_HTML_LEN`). Luego se recompila `PuntoX.exe`.
-- Al terminar cualquier cambio de este repo, la respuesta incluye esta línea para que en Telegram se pueda descargar el exe:
-  `Punto X: https://github.com/Marcos1995/coverMaster/raw/main/PuntoX.exe`
+- El programa oficial de este repo es uno: `PuntoX.c`, `puntox.html` y `LottoMaster.exe`. No tiene número. No crees `LottoOptimizerV3_21` ni otro número. Los `LottoOptimizerV3_10` … `_20` son historia y no se editan.
+- Un cambio del programa va en `PuntoX.c`. Si cambia la pantalla, va en `puntox.html` y se regenera `PuntoX_html.inc` (bytes del html, símbolos `PUNTOX_HTML` y `PUNTOX_HTML_LEN`). Luego se recompila `LottoMaster.exe`.
+- Al terminar, la respuesta dice que `LottoMaster.exe` va adjunto en el chat. No hace falta enlace de GitHub: el bot adjunta ese exe solo en este repo.
 - Solo este repositorio.
