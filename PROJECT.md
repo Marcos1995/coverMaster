@@ -19,7 +19,7 @@
 - `LottoOptimizerV3_19.c` es el 18. Apuestas y cobertura no van a la vez: la que no usas queda en blanco. Al 100 % de cobertura se mira el récord; con un número de apuestas, no. Al cambiar la base se marcan los números del 1 a ese. Fuerza bruta, estrategia y ambas van al principio de la fila. El 18 no cambia. La ventana se llama Loto 3.19. Basta `LottoOptimizerV3_19.exe`.
 - `LottoOptimizerV3_20.c` es el 19. Por apuestas o por cobertura se ve en dos botones con una o en medio. El 19 no cambia. La ventana se llama Loto 3.20. Basta `LottoOptimizerV3_20.exe`.
 - `cuatro_grupos.py` prueba el reparto en cuatro grupos. En 24 al 4 si 6 cubre el 100 % con 277 y no baja de 143: cada pareja pide 25 y las seis no se mezclan.
-- `records.py` arma los récords por corte, no por recocido. 49 al 3 si 6 es 77+86=163 y cubre siempre. 24 al 4 si 6 son 143 y cubren los 134596 sorteos. En la tabla de la Primitiva (boletos de 6, también al 5) la misma vía iguala 38 récords; el 5 si 6 no admite corte. La ventana sigue con tres modos: fuerza bruta (recocido), estrategia (grupos) y ambas.
+- `records.py` guarda las estrategias (grupos, corte, Steiner, patrón 27, patrón 24, avaro) y las pasa de menos sorteos a más. 12 al 4 si 6 son 6 apuestas de grupos, 0 fallos en 924. 49 al 3 si 6 es 77+86=163. 24 al 4 si 6 son 143. Detalle en `docs/ESTRATEGIAS.md`.
 - Lectura del algoritmo: `docs/LottoOptimizerV3_10.md`. El 11 usa esa lógica.
 - Si `(v, k, t, m)` tiene zip público en Lotoideas, se ofrece esa lista o intentar mejorarla. Si no sube la cobertura, se guarda la de Lotoideas.
 - Kit de agentes en `.cursor/` (skills, rules, agents) más `AGENTS.md`.
@@ -53,7 +53,7 @@
 - Exe del 19 (cobertura o apuestas, la otra en blanco): `LottoOptimizerV3_19.exe`
 - Exe del 20 (se ve por apuestas o por cobertura): `LottoOptimizerV3_20.exe`
 - Cuatro grupos: `python cuatro_grupos.py`
-- Los récords 163 y 143: `python records.py`
+- Los récords, de menos sorteos a más: `python records.py`
 - Recompilar el 12: `zig cc -O2 -std=c11 -o LottoOptimizerV3_12.exe LottoOptimizerV3_12.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
 - Recompilar el 13: `zig cc -O2 -std=c11 -o LottoOptimizerV3_13.exe LottoOptimizerV3_13.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
 - Recompilar el 14: `zig cc -O2 -std=c11 -o LottoOptimizerV3_14.exe LottoOptimizerV3_14.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`

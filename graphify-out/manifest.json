@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "PROJECT.md": {
-    "mtime": 1791769674.6863077,
-    "seen": 1791769693.152711,
-    "ast_hash": "534fcb061192fb54c1e3f480e8882755",
+    "mtime": 1791770113.6389182,
+    "seen": 1791770159.375024,
+    "ast_hash": "9621bdb02db1add0782a6e4daa66c1f0",
     "semantic_hash": ""
   },
   "README.md": {
@@ -768,9 +768,15 @@
     "semantic_hash": ""
   },
   "records.py": {
-    "mtime": 1791769672.6848898,
-    "seen": 1791769693.152711,
-    "ast_hash": "cd831ddbe6b418628034aa464932a810",
+    "mtime": 1791770090.4671829,
+    "seen": 1791770159.375024,
+    "ast_hash": "ca73a24ac8098ab882e3f5e8f5816dc6",
+    "semantic_hash": ""
+  },
+  "docs/ESTRATEGIAS.md": {
+    "mtime": 1791770111.862767,
+    "seen": 1791770159.375024,
+    "ast_hash": "749fdc2bfc722654ea29b84aa0f65fa1",
     "semantic_hash": ""
   }
 }

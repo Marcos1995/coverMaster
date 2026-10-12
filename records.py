@@ -141,6 +141,7 @@ _FILAS = {
 
 _MEMO = {}
 _OK = {}
+_VIA = {}
 _K = 6
 
 
@@ -240,24 +241,16 @@ def construir(v, t, m):
     if t > m or t > _K or v < _K or m > v:
         _MEMO[clave] = None
         _OK[clave] = False
+        _VIA[clave] = ""
         return None
     if (v, t, m) == (22, 3, 3):
-        hecho = [_bits(b) for b in steiner_22()]
-        _MEMO[clave] = hecho
-        _OK[clave] = True
-        return hecho
+        return _guarda(clave, [_bits(b) for b in steiner_22()], True, "steiner")
     if (v, t, m) == (27, 3, 4):
-        hecho = [_bits(b) for b in BLOQUES_27]
-        _MEMO[clave] = hecho
-        _OK[clave] = True
-        return hecho
+        return _guarda(clave, [_bits(b) for b in BLOQUES_27], True, "patron27")
     if (v, t, m) == (24, 4, 6):
-        hecho = [_bits(b) for b in APUESTAS_24]
-        _MEMO[clave] = hecho
-        _OK[clave] = True
-        return hecho
+        return _guarda(clave, [_bits(b) for b in APUESTAS_24], True, "patron24")
     mejor = _por_grupos(v, t, m)
-    mejor_ok = mejor is not None
+    via = "grupos" if mejor else ""
     for a in range(_K, v - _K + 1):
         b = v - a
         for j in range(t, m - t + 2):
@@ -271,57 +264,74 @@ def construir(v, t, m):
             tickets = list(wa) + [blk << a for blk in wb]
             if mejor is None or len(tickets) < len(mejor):
                 mejor = tickets
-                mejor_ok = True
+                via = "corte"
     av = _avaro(v, t, m)
     if av and (mejor is None or len(av) < len(mejor)):
         mejor = av
-        mejor_ok = True
-    _MEMO[clave] = mejor
-    _OK[clave] = bool(mejor) and mejor_ok
-    return mejor
+        via = "avaro"
+    return _guarda(clave, mejor, bool(mejor), via)
 
 
-def _cubre_todo(v, t, m, tickets):
+def _guarda(clave, tickets, ok, via):
+    _MEMO[clave] = tickets
+    _OK[clave] = ok
+    _VIA[clave] = via if ok else ""
+    return tickets
+
+
+def _numeros(bits):
+    return tuple(i + 1 for i in range(64) if (bits >> i) & 1)
+
+
+def _fallos(v, t, m, tickets, tope=2000000):
     n = _comb(v, m)
-    if n > 8000 or n * len(tickets) > 1500000:
+    if n * max(len(tickets), 1) > tope:
         return None
+    mal = 0
     for comb in combinations(range(v), m):
         d = 0
         for x in comb:
             d |= 1 << x
         if not any((d & tck).bit_count() >= t for tck in tickets):
-            return False
-    return True
+            mal += 1
+    return mal
 
 
 def probar_tabla():
-    print("La ventana: fuerza bruta es el recocido; estrategia son los grupos y, si no cubren, el sorteo suelto; ambas hace las dos.", flush=True)
-    print("Esta estrategia es el corte: dos bloques, y en cada uno una reducida más chica. Si no hay corte, grupos.", flush=True)
-    print("El 163 y el 143 cubren siempre. El 5 si 6 no admite corte: un 3+3 deja los dos lados por debajo de 5.", flush=True)
-    iguales = 0
-    cubre = 0
-    no = 0
-    for v in range(8, 50):
-        fila = _FILAS[v]
+    print("Estrategias: grupos, corte, steiner, patron27, patron24, avaro.", flush=True)
+    print("Se miran de menos sorteos a más. Donde caben, se cuentan todos.", flush=True)
+    casos = []
+    for v, fila in _FILAS.items():
         for col, (t, m) in enumerate(_COLUMNAS):
             rec = fila[col]
             if rec is None:
                 continue
-            tickets = construir(v, t, m)
-            if not tickets or not _OK.get((v, t, m)):
-                no += 1
-                continue
-            if v <= 12:
-                ok = _cubre_todo(v, t, m, tickets)
-                if ok is False:
-                    print(f"FALLO {v} al {t} si {m}: {len(tickets)} apuestas no cubren.", flush=True)
-                    raise SystemExit(1)
-            cubre += 1
-            if len(tickets) <= rec:
-                iguales += 1
-                if len(tickets) == rec:
-                    print(f"{v} al {t} si {m}: {len(tickets)} apuestas, igual que el récord.", flush=True)
-    print(f"Tabla Primitiva (boletos de 6, también al 5): {cubre} casos cubiertos por la estrategia, {iguales} al récord, {no} sin esta vía.", flush=True)
+            casos.append((_comb(v, m), rec, v, t, m))
+    casos.sort()
+    iguales = cubre = no = vistos = 0
+    for n, rec, v, t, m in casos:
+        tickets = construir(v, t, m)
+        if not tickets or not _OK.get((v, t, m)):
+            no += 1
+            continue
+        cubre += 1
+        mal = _fallos(v, t, m, tickets)
+        if (v, t, m) == (12, 4, 6):
+            mal = _fallos(v, t, m, tickets, tope=10**9)
+        if mal is False or (mal is not None and mal > 0):
+            print(f"FALLO {v} al {t} si {m}.", flush=True)
+            raise SystemExit(1)
+        if mal is not None:
+            vistos += 1
+        if len(tickets) == rec:
+            iguales += 1
+            via = _VIA.get((v, t, m), "")
+            extra = f", 0 fallos en {n}" if mal is not None else ", por la vía"
+            print(f"{v} al {t} si {m}: {len(tickets)} ({via}){extra}.", flush=True)
+            if (v, t, m) == (12, 4, 6):
+                for bits in tickets:
+                    print(" ", " ".join(f"{x:02d}" for x in _numeros(bits)), flush=True)
+    print(f"Validados sorteo a sorteo: {vistos}. Al récord: {iguales}. Cubiertos: {cubre}. Sin vía: {no}.", flush=True)
 
 
 def main():
