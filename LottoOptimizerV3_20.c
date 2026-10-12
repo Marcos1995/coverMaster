@@ -1574,28 +1574,6 @@ static void texto_escrutinio(uint64_t *bets, int n, const char *premio) {
     anotar(buf);
 }
 
-static void meter_top(int *top, int *nf, int num, const int *freq, int mayor) {
-    int ult, peor, j, puesto;
-    if (*nf == 10) {
-        ult = top[9];
-        peor = mayor ? (freq[num] < freq[ult] || (freq[num] == freq[ult] && num > ult))
-                     : (freq[num] > freq[ult] || (freq[num] == freq[ult] && num > ult));
-        if (peor) return;
-        puesto = 9;
-    } else puesto = (*nf)++;
-    top[puesto] = num;
-    j = puesto;
-    while (j > 0) {
-        int a = top[j], b = top[j - 1];
-        int sube = mayor ? (freq[a] > freq[b] || (freq[a] == freq[b] && a < b))
-                         : (freq[a] < freq[b] || (freq[a] == freq[b] && a < b));
-        if (!sube) break;
-        top[j - 1] = a;
-        top[j] = b;
-        j--;
-    }
-}
-
 static uint64_t bits_sorteo(const Job *job, const int *c, int m) {
     uint64_t bits = 0;
     int i;
@@ -1607,59 +1585,51 @@ static uint64_t bits_sorteo(const Job *job, const int *c, int m) {
     return bits;
 }
 
-static void anotar_niveles(const uint64_t *bets, int nb, const Job *job) {
-    int c[MAXN], i, j, h, v, m;
-    uint64_t total, visto = 0, acum[7];
-    char buf[700];
-    int pos;
+/* Tabla fija: aciertos 0..6, % de cada uno, total de sorteos y cobertura al t. */
+static void estadisticas_json(char *dst, int cap, const uint64_t *bets, int n, const Job *job, char *linea, int lcap) {
+    int c[MAXN], i, j, h, v, m, t, num, pmin = 99, pmax = 0, pos, primero;
+    int freq[MAXN + 1];
+    long long suma_min = 0, suma_max = 0, suma = 0;
+    int pares = 0, impares = 0, puede = 1;
+    uint64_t total, visto = 0, exact[7];
+    double cob_t = 0;
     v = job->v;
     m = job->m;
+    t = job->t;
     if (m < 1) m = 1;
     if (m > v) m = v;
     if (v > MAXN) v = MAXN;
+    if (t < 0) t = 0;
+    if (t > 6) t = 6;
     total = combinaciones(v, m);
-    if (!total || total > 20000000ull) {
-        anotar("Hay demasiados sorteos para el porcentaje al 6, al 5, al 4, al 3, al 2 y al 1.");
-        return;
-    }
-    memset(acum, 0, sizeof acum);
-    for (i = 0; i < m; i++) c[i] = i;
-    for (;;) {
-        uint64_t bits = bits_sorteo(job, c, m);
-        int best = 0;
-        for (j = 0; j < nb && best < 6; j++) {
-            int ac = __builtin_popcountll(bets[j] & bits);
-            if (ac > best) best = ac;
-        }
-        if (best > 6) best = 6;
-        for (h = 1; h <= best; h++) acum[h]++;
-        visto++;
-        for (i = m - 1; i >= 0 && c[i] == v - m + i; i--) ;
-        if (i < 0) break;
-        c[i]++;
-        for (j = i + 1; j < m; j++) c[j] = c[j - 1] + 1;
-    }
-    if (!visto) return;
-    pos = snprintf(buf, sizeof buf, "Cobertura sobre %llu sorteos:", (unsigned long long)visto);
-    for (h = 6; h >= 1 && pos < (int)sizeof buf - 40; h--) {
-        double p = 100.0 * (double)acum[h] / (double)visto;
-        pos += snprintf(buf + pos, sizeof buf - pos, "\nAl %d: %.4f%%", h, p);
-    }
-    anotar(buf);
-    (void)total;
-}
-
-static void texto_analisis(uint64_t *bets, int n) {
-    int freq[MAXN + 1], i, num, pmin = 99, pmax = 0, nmas = 0, nmenos = 0, pos = 0;
-    int mas[10], menos[10];
-    long long suma_min = 0, suma_max = 0, suma = 0;
-    char buf[2048];
-    if (!n) { anotar("No hay apuestas."); return; }
+    memset(exact, 0, sizeof exact);
     memset(freq, 0, sizeof freq);
+    if (!total || total > 20000000ull) puede = 0;
+    else {
+        for (i = 0; i < m; i++) c[i] = i;
+        for (;;) {
+            uint64_t bits = bits_sorteo(job, c, m);
+            int best = 0;
+            for (j = 0; j < n && best < 6; j++) {
+                int ac = __builtin_popcountll(bets[j] & bits);
+                if (ac > best) best = ac;
+            }
+            if (best > 6) best = 6;
+            exact[best]++;
+            visto++;
+            for (i = m - 1; i >= 0 && c[i] == v - m + i; i--) ;
+            if (i < 0) break;
+            c[i]++;
+            for (j = i + 1; j < m; j++) c[j] = c[j - 1] + 1;
+        }
+    }
     for (i = 0; i < n; i++) {
         int s = 0, p = 0;
         for (num = 1; num <= MAXN; num++) if (bets[i] & (1ull << (num - 1))) {
-            freq[num]++; s += num; if (num % 2 == 0) p++;
+            freq[num]++;
+            s += num;
+            if (num % 2 == 0) { p++; pares++; }
+            else impares++;
         }
         if (i == 0 || s < suma_min) suma_min = s;
         if (i == 0 || s > suma_max) suma_max = s;
@@ -1667,50 +1637,47 @@ static void texto_analisis(uint64_t *bets, int n) {
         if (p < pmin) pmin = p;
         if (p > pmax) pmax = p;
     }
-    for (num = 1; num <= MAXN; num++) if (freq[num]) {
-        meter_top(mas, &nmas, num, freq, 1);
-        meter_top(menos, &nmenos, num, freq, 0);
-    }
-    pos = snprintf(buf, sizeof buf, "Apuestas: %d\nSuma mínima %lld, máxima %lld, media %.2f\nPares por apuesta: mínimo %d, máximo %d\nNúmeros más repetidos: ",
-        n, suma_min, suma_max, (double)suma / n, pmin, pmax);
-    for (i = 0; i < nmas && pos < (int)sizeof buf - 24; i++)
-        pos += snprintf(buf + pos, sizeof buf - pos, "%s%d (%d)", i ? ", " : "", mas[i], freq[mas[i]]);
-    pos += snprintf(buf + pos, sizeof buf - pos, "\nNúmeros menos repetidos: ");
-    for (i = 0; i < nmenos && pos < (int)sizeof buf - 16; i++)
-        pos += snprintf(buf + pos, sizeof buf - pos, "%s%d (%d)", i ? ", " : "", menos[i], freq[menos[i]]);
-    anotar(buf);
-}
-
-static void texto_estadisticas(uint64_t *bets, int n) {
-    int freq[MAXN + 1], dec[8], fin[10], pares = 0, impares = 0, i, num;
-    char buf[4096];
-    int pos = 0;
-    if (!n) { anotar("No hay apuestas."); return; }
-    memset(freq, 0, sizeof freq); memset(dec, 0, sizeof dec); memset(fin, 0, sizeof fin);
-    for (i = 0; i < n; i++) for (num = 1; num <= MAXN; num++) if (bets[i] & (1ull << (num - 1))) {
-        freq[num]++;
-        if ((num - 1) / 10 < 8) dec[(num - 1) / 10]++;
-        fin[num % 10]++;
-        if (num % 2 == 0) pares++; else impares++;
-    }
-    pos += snprintf(buf + pos, sizeof buf - pos, "Pares %d, impares %d\nPor decena: ", pares, impares);
-    {
-        int primero = 1;
-        for (i = 0; i < 8; i++) if (dec[i] && pos < (int)sizeof buf - 24) {
-            pos += snprintf(buf + pos, sizeof buf - pos, "%s%d-%d:%d", primero ? "" : ", ", i * 10 + 1, i * 10 + 10, dec[i]);
-            primero = 0;
-        }
-        primero = 1;
-        pos += snprintf(buf + pos, sizeof buf - pos, "\nPor terminación: ");
-        for (i = 0; i < 10; i++) if (fin[i] && pos < (int)sizeof buf - 16) {
-            pos += snprintf(buf + pos, sizeof buf - pos, "%s%d:%d", primero ? "" : ", ", i, fin[i]);
-            primero = 0;
+    if (puede && visto) {
+        uint64_t desde = 0;
+        for (h = t; h <= 6; h++) desde += exact[h];
+        cob_t = 100.0 * (double)desde / (double)visto;
+        snprintf(linea, lcap, "Estadísticas. Cobertura al %d: %.4f%% de %llu sorteos.", t, cob_t, (unsigned long long)visto);
+    } else snprintf(linea, lcap, "Estadísticas. Hay demasiados sorteos para la cobertura. Los números de las apuestas sí están.");
+    pos = snprintf(dst, cap,
+        "{\"ok\":true,\"tabla\":{\"total\":%llu,\"t\":%d,\"m\":%d,\"puede\":%s,\"cobertura\":%.4f,"
+        "\"apuestas\":%d,\"suma_min\":%lld,\"suma_max\":%lld,\"suma_media\":%.2f,\"pares\":%d,\"impares\":%d,\"pmin\":%d,\"pmax\":%d,\"aciertos\":[",
+        (unsigned long long)(puede ? visto : 0), t, m, puede ? "true" : "false", cob_t,
+        n, suma_min, suma_max, n ? (double)suma / n : 0.0, pares, impares, pmin == 99 ? 0 : pmin, pmax);
+    if (puede) {
+        for (h = 6; h >= 0 && pos < cap - 96; h--) {
+            uint64_t desde = 0;
+            int k;
+            double pct = visto ? 100.0 * (double)exact[h] / (double)visto : 0;
+            double cob;
+            for (k = h; k <= 6; k++) desde += exact[k];
+            cob = visto ? 100.0 * (double)desde / (double)visto : 0;
+            pos += snprintf(dst + pos, cap - pos, "%s{\"h\":%d,\"sorteos\":%llu,\"pct\":%.4f,\"cob\":%.4f}",
+                h == 6 ? "" : ",", h, (unsigned long long)exact[h], pct, cob);
         }
     }
-    pos += snprintf(buf + pos, sizeof buf - pos, "\nFrecuencia:");
-    for (num = 1; num <= MAXN && pos < (int)sizeof buf - 16; num++) if (freq[num])
-        pos += snprintf(buf + pos, sizeof buf - pos, "\n  %02d  %d", num, freq[num]);
-    anotar(buf);
+    pos += snprintf(dst + pos, cap - pos, "],\"numeros\":[");
+    primero = 1;
+    if (job->nbase > 0) {
+        for (i = 0; i < job->nbase && pos < cap - 64; i++) {
+            num = job->base[i];
+            if (num < 1 || num > MAXN) continue;
+            pos += snprintf(dst + pos, cap - pos, "%s{\"n\":%d,\"veces\":%d,\"pct\":%.4f}",
+                primero ? "" : ",", num, freq[num], n ? 100.0 * freq[num] / n : 0);
+            primero = 0;
+        }
+    } else {
+        for (num = 1; num <= MAXN && pos < cap - 64; num++) if (freq[num]) {
+            pos += snprintf(dst + pos, cap - pos, "%s{\"n\":%d,\"veces\":%d,\"pct\":%.4f}",
+                primero ? "" : ",", num, freq[num], n ? 100.0 * freq[num] / n : 0);
+            primero = 0;
+        }
+    }
+    snprintf(dst + pos, cap - pos, "]}}");
 }
 
 static void texto_validacion(uint64_t *bets, int n, Job *job) {
@@ -2461,19 +2428,32 @@ static void api_dispatch(SOCKET s, const char *body) {
         int n = copiar_bets(&b);
         const char *pay, *fin = NULL;
         if (!n) { free(b); responder_error(s, "Primero calcula, carga o usa una reducida."); return; }
-        if (strcmp(nombre, "analizar") == 0) texto_analisis(b, n);
-        else if (strcmp(nombre, "estadisticas") == 0) texto_estadisticas(b, n);
         if (strcmp(nombre, "analizar") == 0 || strcmp(nombre, "estadisticas") == 0) {
             Job job;
-            char errg[200] = "";
+            char *js = (char *)malloc(48000);
+            char errg[200] = "", linea[180];
             memset(&job, 0, sizeof job);
             parse_datos(body, &job, err);
             rellenar_desde_bets(&job, b, n);
-            if (!garantia_del_cuerpo(body, job.k, &job.t, &job.m, errg))
-                anotar(errg[0] ? errg : "Elige una garantía.");
-            else if (job.v < 1 || job.m > job.v || job.t < 1 || job.t > job.k || job.t > job.m)
-                anotar("La garantía no cabe en los números del fichero.");
-            else anotar_niveles(b, n, &job);
+            if (!js) { free(b); responder_error(s, "sin memoria"); return; }
+            if (!garantia_del_cuerpo(body, job.k, &job.t, &job.m, errg)) {
+                free(js);
+                free(b);
+                responder_error(s, errg[0] ? errg : "Elige una garantía.");
+                return;
+            }
+            if (job.v < 1 || job.m > job.v || job.t < 1 || job.t > job.k || job.t > job.m) {
+                free(js);
+                free(b);
+                responder_error(s, "La garantía no cabe en los números del fichero.");
+                return;
+            }
+            estadisticas_json(js, 48000, b, n, &job, linea, (int)sizeof linea);
+            anotar(linea);
+            responder(s, "200 OK", "application/json; charset=utf-8", js, (int)strlen(js));
+            free(js);
+            free(b);
+            return;
         } else if (strcmp(nombre, "escrutar") == 0) {
             pay = json_valor(body, NULL, "payload");
             if (pay && *pay == '{') objeto_fin(pay, &fin); else pay = body, fin = NULL;

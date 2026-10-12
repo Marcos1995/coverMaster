@@ -184,7 +184,14 @@
     #actividad { font-size: 13px; line-height: 1.35; }
     #paneles { flex: 1 1 0; min-height: 0; display: flex; flex-direction: row; align-items: stretch; gap: .35rem; margin-top: .35rem; }
     #caja-apuestas { flex: 0 0 16rem; width: 16rem; min-width: 0; min-height: 0; overflow: auto; margin: 0; }
-    #paneles #actividad { flex: 1 1 0; min-width: 0; min-height: 0; margin: 0; }
+    #caja-registro { flex: 1 1 0; min-width: 0; min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: .25rem; }
+    #paneles #actividad { flex: 1 1 auto; min-width: 0; min-height: 8rem; margin: 0; }
+    #est-titulo { margin: 0; font-size: 1.05rem; font-weight: 800; line-height: 1.2; color: #032612; background: #18E667; padding: .15rem .35rem; }
+    .tabla-fija { width: 100%; border-collapse: collapse; font-size: 13px; color: #032612; margin: 0 0 .35rem; }
+    .tabla-fija th, .tabla-fija td { text-align: left; padding: 0 .35rem; white-space: nowrap; background: #18E667; }
+    .tabla-fija th button { cursor: pointer; border: 0; background: transparent; color: inherit; font: inherit; font-weight: 700; padding: 0; }
+    .tabla-fija th button:focus-visible { outline: 2px solid #032612; outline-offset: 1px; }
+    .tabla-fija caption { caption-side: top; text-align: left; font-size: 11px; font-weight: 800; color: #032612; background: #18E667; padding: .1rem .35rem; }
     @media (max-width: 720px) {
       #caja-apuestas { flex-basis: 46%; width: auto; }
     }
@@ -252,7 +259,6 @@
 <input id="premio" placeholder="Combinación ganadora" title="Combinación que se escruta" class="bg-surface-container-lowest border border-on-surface/20 rounded text-on-surface">
 <button type="button" id="azar-premio" title="Escribe una combinación al azar de k números" class="bg-primary-container text-[#032612] px-2 py-1 rounded text-[11px] font-bold">Generar</button>
 <button type="button" data-accion="garantias" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Garantías</button>
-<button type="button" data-accion="analizar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Análisis</button>
 <button type="button" data-accion="validar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Validar</button>
 <button type="button" data-accion="estadisticas" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Estadísticas</button>
 <button type="button" data-accion="cargar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Cargar</button>
@@ -349,7 +355,39 @@
 </table>
 <p id="nota-cobertura">La cobertura cuenta todos los sorteos de la base, no una muestra.</p>
 </div>
+<div id="caja-registro">
+<div id="caja-estadisticas" hidden>
+<p id="est-titulo"></p>
+<table class="tabla-fija" id="tabla-aciertos">
+<caption>Aciertos en cada sorteo. Cobertura es el porcentaje con al menos esos aciertos.</caption>
+<thead><tr>
+<th><button type="button" data-col="0">Aciertos</button></th>
+<th><button type="button" data-col="1">Sorteos</button></th>
+<th><button type="button" data-col="2">%</button></th>
+<th><button type="button" data-col="3">Cobertura</button></th>
+</tr></thead>
+<tbody></tbody>
+</table>
+<table class="tabla-fija" id="tabla-resumen">
+<caption>De las apuestas</caption>
+<thead><tr>
+<th><button type="button" data-col="0">Dato</button></th>
+<th><button type="button" data-col="1">Valor</button></th>
+</tr></thead>
+<tbody></tbody>
+</table>
+<table class="tabla-fija" id="tabla-numeros">
+<caption>Cada número de la base</caption>
+<thead><tr>
+<th><button type="button" data-col="0">Número</button></th>
+<th><button type="button" data-col="1">Veces</button></th>
+<th><button type="button" data-col="2">% de las apuestas</button></th>
+</tr></thead>
+<tbody></tbody>
+</table>
+</div>
 <pre id="actividad" class="min-h-0 overflow-auto bg-[#032612] text-[#18E667] rounded-lg p-2 whitespace-pre-wrap"></pre>
+</div>
 </div>
 </section>
 </div>
@@ -367,7 +405,7 @@
 <h3>Escrutar y Generar</h3>
 <p>El recuadro largo es la combinación ganadora. Generar escribe ahí una apuesta al azar de k números: si hay números marcados, salen de esos; si no, del 1 al 49. Escrutar compara la reducida con esa combinación.</p>
 <h3>El resto de acciones</h3>
-<p>Garantías dice qué premios cubre la lista. Análisis y Estadísticas dicen, además, el porcentaje de sorteos cubiertos al 6, al 5, al 4, al 3, al 2 y al 1. Validar comprueba que cumple la garantía. Cargar abre un archivo de apuestas y marca los números que trae, la base y cuántos van en cada fila. La garantía (4 si 6, 5 si 6…) la eliges tú. Análisis, estadísticas y escrutar usan esa lista, también si cargas otro archivo después. Guardar escribe el sistema propio. Usar récord carga la reducida conocida (la de Lotoideas, si existe para esa base). Mejorar récord intenta superarla.</p>
+<p>Garantías dice qué premios cubre la lista. Estadísticas junta el análisis en una tabla fija del panel derecho: aciertos del 6 al 0, cuántos sorteos caen en cada uno, el porcentaje, la cobertura (al menos esos aciertos) y el total de sorteos. Debajo, las apuestas y cada número de la base. Validar comprueba que cumple la garantía. Cargar abre un archivo de apuestas y marca los números que trae, la base y cuántos van en cada fila. La garantía (4 si 6, 5 si 6…) la eliges tú. Estadísticas y escrutar usan esa lista, también si cargas otro archivo después. Guardar escribe el sistema propio. Usar récord carga la reducida conocida (la de Lotoideas, si existe para esa base). Mejorar récord intenta superarla.</p>
 <h3>Filtros</h3>
 <p>Están siempre a la vista y no se cierran. La casilla activa el filtro. Mín y máx son los límites: sumas de la apuesta, cantidad de pares, de bajos (la mitad baja del bombo), de distancias, de seguidos, de decenas distintas y de terminaciones. Si el mínimo o el máximo se dejan vacíos, ese lado no limita. Grupos va en su recuadro, una línea por grupo: números, un mínimo y un máximo de aciertos, separados por punto y coma. Debajo, Apuestas condicionadas: números que tienen que salir en cada apuesta.</p>
 <h3>Registro</h3>
@@ -537,6 +575,7 @@
       });
       document.getElementById("limpiar").addEventListener("click", async function () {
         document.getElementById("actividad").textContent = "";
+        document.getElementById("caja-estadisticas").hidden = true;
         if (!window.pywebview || !window.pywebview.api) return;
         try { await window.pywebview.api.limpiar(leer()); } catch (e) {}
       });
@@ -620,6 +659,69 @@
       document.querySelectorAll("#tabla-apuestas th button").forEach(function (b) {
         b.addEventListener("click", function () { ordenarLista(+b.getAttribute("data-col")); });
       });
+      var ordenTablas = {};
+      function celda(valor, texto) {
+        return "<td data-n=\"" + valor + "\">" + texto + "</td>";
+      }
+      function ordenarTabla(id, col) {
+        var tb = document.querySelector("#" + id + " tbody");
+        var filas = Array.prototype.slice.call(tb.querySelectorAll("tr"));
+        var prev = ordenTablas[id] || { col: -1, dir: 1 };
+        var dir = prev.col === col ? -prev.dir : -1;
+        ordenTablas[id] = { col: col, dir: dir };
+        filas.sort(function (a, b) {
+          var da = a.children[col].getAttribute("data-n") || "";
+          var db = b.children[col].getAttribute("data-n") || "";
+          var na = Number(da), nb = Number(db);
+          var c = (da !== "" && !isNaN(na) && !isNaN(nb)) ? na - nb : da.localeCompare(db, "es");
+          return dir < 0 ? -c : c;
+        });
+        filas.forEach(function (tr) { tb.appendChild(tr); });
+        tb.parentNode.querySelectorAll("th button").forEach(function (b, i) {
+          b.setAttribute("aria-sort", i === col ? (dir < 0 ? "descending" : "ascending") : "none");
+        });
+      }
+      document.querySelectorAll(".tabla-fija th button").forEach(function (b) {
+        b.addEventListener("click", function () { ordenarTabla(b.closest("table").id, +b.getAttribute("data-col")); });
+      });
+      function pct(n) { return Number(n).toFixed(4) + "%"; }
+      function pintarEstadisticas(t) {
+        var caja = document.getElementById("caja-estadisticas");
+        var ac = document.querySelector("#tabla-aciertos tbody");
+        var re = document.querySelector("#tabla-resumen tbody");
+        var nu = document.querySelector("#tabla-numeros tbody");
+        var html = "", i, fila;
+        if (!t) return;
+        document.getElementById("est-titulo").textContent = t.puede
+          ? "Total de sorteos: " + t.total + ". Cobertura al " + t.t + ": " + pct(t.cobertura) + "."
+          : "Hay demasiados sorteos para la cobertura. Los números de las apuestas sí están.";
+        (t.aciertos || []).forEach(function (f) {
+          html += "<tr>" + celda(f.h, String(f.h)) + celda(f.sorteos, String(f.sorteos)) + celda(f.pct, pct(f.pct)) + celda(f.cob, pct(f.cob)) + "</tr>";
+        });
+        ac.innerHTML = html;
+        fila = [
+          ["Apuestas", t.apuestas, String(t.apuestas)],
+          ["Suma mínima", t.suma_min, String(t.suma_min)],
+          ["Suma máxima", t.suma_max, String(t.suma_max)],
+          ["Suma media", t.suma_media, Number(t.suma_media).toFixed(2)],
+          ["Pares", t.pares, String(t.pares)],
+          ["Impares", t.impares, String(t.impares)],
+          ["Pares por apuesta, mínimo", t.pmin, String(t.pmin)],
+          ["Pares por apuesta, máximo", t.pmax, String(t.pmax)]
+        ];
+        html = "";
+        for (i = 0; i < fila.length; i++) html += "<tr>" + celda(fila[i][0], fila[i][0]) + celda(fila[i][1], fila[i][2]) + "</tr>";
+        re.innerHTML = html;
+        html = "";
+        (t.numeros || []).forEach(function (f) {
+          var nombre = f.n < 10 ? "0" + f.n : String(f.n);
+          html += "<tr>" + celda(f.n, nombre) + celda(f.veces, String(f.veces)) + celda(f.pct, pct(f.pct)) + "</tr>";
+        });
+        nu.innerHTML = html;
+        ordenTablas = {};
+        document.querySelectorAll(".tabla-fija th button").forEach(function (b) { b.setAttribute("aria-sort", "none"); });
+        caja.hidden = false;
+      }
       function pintarEstado(e) {
         if (!e) return;
         document.getElementById("ahora").textContent = e.ahora || "Listo";
@@ -671,6 +773,7 @@
         if (!window.pywebview || !window.pywebview.api) { sinPrograma(); return; }
         try {
           var r = await window.pywebview.api[nombre](datos || leer());
+          if (r && r.tabla) pintarEstadisticas(r.tabla);
           if (r && r.ok === false && r.error) aviso("Error", r.error);
         } catch (e) {
           aviso("Error", "No llega la respuesta del programa.");

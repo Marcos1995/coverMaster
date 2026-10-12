@@ -1,17 +1,17 @@
 # Graph Report - coverMaster  (2026-10-12)
 
 ## Corpus Check
-- 38 files · ~229,910 words
+- 38 files · ~230,612 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 21 file(s) not represented in the graph (top: .exe 9, .pdb 8, .mdc 2)
 
 ## Summary
-- 1237 nodes · 3810 edges · 39 communities (27 shown, 12 thin omitted)
+- 1234 nodes · 3801 edges · 39 communities (27 shown, 12 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `50cdd334`
+- Built from commit: `275728df`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -54,7 +54,7 @@
 - Estrategias
 
 ## God Nodes (most connected - your core abstractions)
-1. `api_dispatch()` - 31 edges
+1. `api_dispatch()` - 29 edges
 2. `api_dispatch()` - 27 edges
 3. `api_dispatch()` - 27 edges
 4. `api_dispatch()` - 27 edges
@@ -135,16 +135,16 @@ Cohesion: 0.50
 Nodes (3): Docs, Project, Setup
 
 ### Community 17 - "LottoOptimizerV3_13.c"
-Cohesion: 0.06
-Nodes (89): commdlg, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar() (+81 more)
+Cohesion: 0.07
+Nodes (82): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), atender() (+74 more)
 
 ### Community 20 - "LottoOptimizerV3_14.c"
 Cohesion: 0.06
-Nodes (102): ctype, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar() (+94 more)
+Nodes (99): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), apuestas_de_url() (+91 more)
 
 ### Community 21 - "LottoOptimizerV3_12.c"
-Cohesion: 0.07
-Nodes (78): limits, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar() (+70 more)
+Cohesion: 0.06
+Nodes (88): commdlg, ctype, limits, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar() (+80 more)
 
 ### Community 22 - "main"
 Cohesion: 0.16
@@ -180,7 +180,7 @@ Nodes (115): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar
 
 ### Community 36 - "LottoOptimizerV3_20.c"
 Cohesion: 0.06
-Nodes (119): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), anotar_niveles(), api_dispatch(), aplicar() (+111 more)
+Nodes (116): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), apuestas_de_url() (+108 more)
 
 ### Community 37 - "records.py"
 Cohesion: 0.08
@@ -201,7 +201,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `LottoOptimizerV3` connect `LottoOptimizerV3` to `LottoOptimizerV3_11.py`, `Configuracion`, `main_gui`?**
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Why does `main_gui()` connect `main_gui` to `LottoOptimizerV3_11.py`, `main`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **Why does `LottoOptimizerV3` connect `LottoOptimizerV3` to `LottoOptimizerV3_11.py`, `main_gui`, `Configuracion`, `main`?**
   _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **What connects `1. Root cause`, `2. Compare`, `3. Hypothesis` to the rest of the system?**
