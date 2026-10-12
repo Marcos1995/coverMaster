@@ -11679,6 +11679,54 @@
       "source_location": "L126"
     },
     {
+      "id": "records_avaro",
+      "label": "_avaro()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "_avaro()",
+      "source_file": "records.py",
+      "source_location": "L202"
+    },
+    {
+      "id": "records_bits",
+      "label": "_bits()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "_bits()",
+      "source_file": "records.py",
+      "source_location": "L147"
+    },
+    {
+      "id": "records_comb",
+      "label": "_comb()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "_comb()",
+      "source_file": "records.py",
+      "source_location": "L154"
+    },
+    {
+      "id": "records_construir",
+      "label": "construir()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "construir()",
+      "source_file": "records.py",
+      "source_location": "L235"
+    },
+    {
       "id": "records_cuartetos_cubiertos",
       "label": "_cuartetos_cubiertos()",
       "_callable": true,
@@ -11689,6 +11737,18 @@
       "norm_label": "_cuartetos_cubiertos()",
       "source_file": "records.py",
       "source_location": "L56"
+    },
+    {
+      "id": "records_cubre_todo",
+      "label": "_cubre_todo()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "_cubre_todo()",
+      "source_file": "records.py",
+      "source_location": "L284"
     },
     {
       "id": "records_fallos_24",
@@ -11703,6 +11763,18 @@
       "source_location": "L77"
     },
     {
+      "id": "records_floja",
+      "label": "_floja()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "_floja()",
+      "source_file": "records.py",
+      "source_location": "L163"
+    },
+    {
       "id": "records_main",
       "label": "main()",
       "_callable": true,
@@ -11712,7 +11784,31 @@
       "file_type": "code",
       "norm_label": "main()",
       "source_file": "records.py",
-      "source_location": "L94"
+      "source_location": "L327"
+    },
+    {
+      "id": "records_por_grupos",
+      "label": "_por_grupos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "_por_grupos()",
+      "source_file": "records.py",
+      "source_location": "L176"
+    },
+    {
+      "id": "records_probar_tabla",
+      "label": "probar_tabla()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "probar_tabla()",
+      "source_file": "records.py",
+      "source_location": "L297"
     },
     {
       "id": "records_record_49",
@@ -13829,6 +13925,28 @@
       "source_location": "L96"
     },
     {
+      "id": "records_rationale_177",
+      "label": "La estrategia vieja: grupos enteros, si el reparto ya garantiza.",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "rationale",
+      "norm_label": "la estrategia vieja: grupos enteros, si el reparto ya garantiza.",
+      "source_file": "records.py",
+      "source_location": "L177"
+    },
+    {
+      "id": "records_rationale_236",
+      "label": "Apuestas de 6 que garantizan t si salen m. None si esta v\u00eda no llega.",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "rationale",
+      "norm_label": "apuestas de 6 que garantizan t si salen m. none si esta via no llega.",
+      "source_file": "records.py",
+      "source_location": "L236"
+    },
+    {
       "id": "records_rationale_26",
       "label": "77 bloques de 6 sobre {1..22}. Cada tr\u00edo est\u00e1 en uno solo.",
       "_origin": "ast",
@@ -14374,6 +14492,18 @@
       "type": "external"
     },
     {
+      "id": "stdint",
+      "label": "stdint",
+      "_origin": "semantic",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "stdint",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "stdio",
       "label": "stdio",
       "_origin": "semantic",
@@ -14382,6 +14512,18 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "stdio",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "stdlib",
+      "label": "stdlib",
+      "_origin": "semantic",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "stdlib",
       "source_file": "",
       "type": "external"
     },
@@ -14454,30 +14596,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ws2tcpip",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "stdint",
-      "label": "stdint",
-      "_origin": "semantic",
-      "community": 26,
-      "community_name": "LottoOptimizerV3_15.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "stdint",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "stdlib",
-      "label": "stdlib",
-      "_origin": "semantic",
-      "community": 26,
-      "community_name": "LottoOptimizerV3_15.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "stdlib",
       "source_file": "",
       "type": "external"
     },
@@ -39024,6 +39142,114 @@
       "weight": 1.0
     },
     {
+      "source": "records_avaro",
+      "target": "records_comb",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L203",
+      "weight": 1.0
+    },
+    {
+      "source": "records_avaro",
+      "target": "records_bits",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L206",
+      "weight": 1.0
+    },
+    {
+      "source": "records_construir",
+      "target": "records_bits",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L245",
+      "weight": 1.0
+    },
+    {
+      "source": "records_construir",
+      "target": "records_steiner_22",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L245",
+      "weight": 1.0
+    },
+    {
+      "source": "records_construir",
+      "target": "records_por_grupos",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L259",
+      "weight": 1.0
+    },
+    {
+      "source": "records_construir",
+      "target": "records_construir",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L267",
+      "weight": 1.0
+    },
+    {
+      "source": "records_construir",
+      "target": "records_avaro",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L275",
+      "weight": 1.0
+    },
+    {
+      "source": "records_cubre_todo",
+      "target": "records_comb",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L285",
+      "weight": 1.0
+    },
+    {
+      "source": "records_floja",
+      "target": "records_floja",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
       "source": "records_main",
       "target": "records_steiner_22",
       "relation": "calls",
@@ -39032,7 +39258,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "records.py",
-      "source_location": "L95",
+      "source_location": "L328",
       "weight": 1.0
     },
     {
@@ -39044,7 +39270,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "records.py",
-      "source_location": "L96",
+      "source_location": "L329",
       "weight": 1.0
     },
     {
@@ -39056,7 +39282,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "records.py",
-      "source_location": "L97",
+      "source_location": "L330",
       "weight": 1.0
     },
     {
@@ -39068,7 +39294,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "records.py",
-      "source_location": "L98",
+      "source_location": "L331",
       "weight": 1.0
     },
     {
@@ -39080,7 +39306,67 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "records.py",
-      "source_location": "L99",
+      "source_location": "L332",
+      "weight": 1.0
+    },
+    {
+      "source": "records_main",
+      "target": "records_probar_tabla",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L343",
+      "weight": 1.0
+    },
+    {
+      "source": "records_por_grupos",
+      "target": "records_comb",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L186",
+      "weight": 1.0
+    },
+    {
+      "source": "records_por_grupos",
+      "target": "records_floja",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L189",
+      "weight": 1.0
+    },
+    {
+      "source": "records_probar_tabla",
+      "target": "records_construir",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L310",
+      "weight": 1.0
+    },
+    {
+      "source": "records_probar_tabla",
+      "target": "records_cubre_todo",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L315",
       "weight": 1.0
     },
     {
@@ -57827,6 +58113,72 @@
     },
     {
       "source": "records",
+      "target": "records_bits",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L147",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_comb",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L154",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_floja",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_por_grupos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_avaro",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_construir",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L235",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
       "target": "records_steiner_22",
       "relation": "contains",
       "_origin": "ast",
@@ -57834,6 +58186,39 @@
       "confidence_score": 1.0,
       "source_file": "records.py",
       "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_cubre_todo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L284",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_probar_tabla",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L297",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_main",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L327",
       "weight": 1.0
     },
     {
@@ -57878,17 +58263,6 @@
       "confidence_score": 1.0,
       "source_file": "records.py",
       "source_location": "L77",
-      "weight": 1.0
-    },
-    {
-      "source": "records",
-      "target": "records_main",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "records.py",
-      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -58464,6 +58838,28 @@
       "weight": 1.0
     },
     {
+      "source": "records_rationale_177",
+      "target": "records_por_grupos",
+      "relation": "rationale_for",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "records_rationale_236",
+      "target": "records_construir",
+      "relation": "rationale_for",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L236",
+      "weight": 1.0
+    },
+    {
       "source": "records_rationale_26",
       "target": "records_steiner_22",
       "relation": "rationale_for",
@@ -58535,5 +58931,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6152ef38296448732a200785072a0d075a8a404e"
+  "built_at_commit": "17a8de89855898c5cf6296dd75531b7494216823"
 }

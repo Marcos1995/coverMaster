@@ -91,6 +91,239 @@ def _fallos_24(bloques):
     return mal
 
 
+# Tabla de Lotoideas (Primitiva, Bonoloto, Lototurf, Eurodreams), boletos de 6.
+# Columnas: 5 si 6, 4 si 6, 3 si 6, 5 si 5, 4 si 5, 3 si 5, 4 si 4, 3 si 4, 3 si 3.
+_COLUMNAS = ((5, 6), (4, 6), (3, 6), (5, 5), (4, 5), (3, 5), (4, 4), (3, 4), (3, 3))
+_FILAS = {
+    8: (4, None, None, 12, 3, None, 7, 3, 4),
+    9: (7, None, None, 30, 3, 2, 12, 3, 7),
+    10: (14, 3, 2, 50, 7, 2, 20, 4, 10),
+    11: (22, 5, 2, 100, 10, 2, 32, 5, 11),
+    12: (38, 6, 2, 132, 14, 2, 41, 6, 15),
+    13: (61, 10, 2, 245, 21, 5, 66, 9, 21),
+    14: (98, 14, 4, 371, 29, 5, 80, 11, 25),
+    15: (142, 19, 4, 578, 40, 7, 117, 14, 31),
+    16: (223, 25, 5, 808, 52, 8, 152, 16, 38),
+    17: (332, 33, 6, 1546, 66, 11, 188, 20, 44),
+    18: (471, 42, 7, 1716, 81, 12, 236, 24, 48),
+    19: (646, 54, 9, 2175, 111, 15, 325, 30, 60),
+    20: (844, 66, 10, 2850, 139, 18, 382, 35, 71),
+    21: (1123, 80, 13, 3908, 169, 21, 484, 40, 77),
+    22: (1452, 101, 15, 4676, 189, 22, 580, 46, 77),
+    23: (1902, 121, 17, 6161, 229, 26, 716, 54, 104),
+    24: (2437, 143, 20, 7084, 267, 30, 784, 61, 116),
+    25: (3134, 166, 22, 9321, 334, 34, 992, 68, 130),
+    26: (4009, 202, 25, 11544, 390, 39, 1152, 76, 130),
+    27: (5076, 222, 27, 14673, 484, 45, 1170, 86, 167),
+    28: (6354, 278, 31, 16744, 585, 49, 1489, 97, 185),
+    29: (7811, 328, 35, 21046, 714, 55, 1802, 109, 217),
+    30: (9468, 391, 39, 24911, 866, 61, 2171, 123, 225),
+    31: (11445, 436, 45, 30629, 1037, 68, 2554, 139, 273),
+    32: (13744, 519, 49, 35216, 1204, 73, 2791, 153, 300),
+    33: (16403, 614, 55, 42785, 1327, 79, 3310, 170, 333),
+    34: (19526, 707, 59, 48547, 1560, 86, 3852, 187, 364),
+    35: (23033, 816, 65, 57844, 1716, 92, 4418, 198, 405),
+    36: (27038, 918, 70, 62832, 1879, 96, 4632, 219, 420),
+    37: (31536, 1013, 76, 74993, 2025, 108, 5451, 236, 471),
+    38: (36680, 1105, 83, 87135, 2338, 115, 6078, 251, 510),
+    39: (42128, 1185, 88, 102651, 2645, 121, 6779, 264, 532),
+    40: (48210, 1374, 94, 113900, 2715, 125, 7468, 298, 563),
+    41: (54988, 1602, 102, 133259, 3135, 137, 7939, 317, 574),
+    42: (62421, 1810, 109, 146031, 3512, 148, 8824, 331, 574),
+    43: (70974, 2044, 116, None, 3966, 154, 10101, 357, 667),
+    44: (80162, 2329, 123, None, 4435, 154, 11373, 393, 721),
+    45: (90437, 2667, 131, None, 4650, 181, 12634, 403, 813),
+    46: (101636, 2974, 138, None, 5233, 193, 13691, 436, 869),
+    47: (114030, 3259, 145, None, 5650, 207, 15049, 469, 944),
+    48: (127522, 3528, 153, None, 6367, 207, 15826, 480, 987),
+    49: (142361, 3771, 163, None, 6825, 234, 17615, 530, 1035),
+}
+
+_MEMO = {}
+_OK = {}
+_K = 6
+
+
+def _bits(nums):
+    m = 0
+    for n in nums:
+        m |= 1 << (n - 1)
+    return m
+
+
+def _comb(n, r):
+    if r < 0 or r > n:
+        return 0
+    c = 1
+    for i in range(r):
+        c = c * (n - i) // (i + 1)
+    return c
+
+
+def _floja(queda, huecos, tope, g, s, r, t, bins):
+    if huecos == 0:
+        if queda:
+            return False
+        return sum(bins[:r]) < t
+    c = min(tope, queda, s)
+    for v in range(c, -1, -1):
+        bins[g - huecos] = v
+        if _floja(queda - v, huecos - 1, v, g, s, r, t, bins):
+            return True
+    return False
+
+
+def _por_grupos(v, t, m):
+    """La estrategia vieja: grupos enteros, si el reparto ya garantiza."""
+    mejor = None
+    for s in range(2, _K + 1):
+        if _K % s or v % s:
+            continue
+        r = _K // s
+        g = v // s
+        if g < r:
+            continue
+        ncomb = _comb(g, r)
+        if ncomb < 1 or ncomb > 8000:
+            continue
+        if _floja(m, g, s, g, s, r, t, [0] * g):
+            continue
+        tickets = []
+        for elegidos in combinations(range(g), r):
+            bits = 0
+            for e in elegidos:
+                bits |= ((1 << s) - 1) << (e * s)
+            tickets.append(bits)
+        if mejor is None or len(tickets) < len(mejor):
+            mejor = tickets
+    return mejor
+
+
+def _avaro(v, t, m):
+    nd, nc = _comb(v, m), _comb(v, _K)
+    if nd * nc > 600000:
+        return None
+    draws = [_bits(c) for c in combinations(range(1, v + 1), m)]
+    cands = [_bits(c) for c in combinations(range(1, v + 1), _K)]
+    cov = [[] for _ in cands]
+    quien = [[] for _ in draws]
+    for di, d in enumerate(draws):
+        for ci, c in enumerate(cands):
+            if (d & c).bit_count() >= t:
+                cov[ci].append(di)
+                quien[di].append(ci)
+    score = [len(x) for x in cov]
+    vivo = [True] * nd
+    quedan = nd
+    elegidos = []
+    while quedan:
+        ci = max(range(nc), key=score.__getitem__)
+        if score[ci] <= 0:
+            return None
+        elegidos.append(cands[ci])
+        for di in cov[ci]:
+            if not vivo[di]:
+                continue
+            vivo[di] = False
+            quedan -= 1
+            for cj in quien[di]:
+                score[cj] -= 1
+        score[ci] = 0
+    return elegidos
+
+
+def construir(v, t, m):
+    """Apuestas de 6 que garantizan t si salen m. None si esta vía no llega."""
+    clave = (v, t, m)
+    if clave in _MEMO:
+        return _MEMO[clave]
+    if t > m or t > _K or v < _K or m > v:
+        _MEMO[clave] = None
+        _OK[clave] = False
+        return None
+    if (v, t, m) == (22, 3, 3):
+        hecho = [_bits(b) for b in steiner_22()]
+        _MEMO[clave] = hecho
+        _OK[clave] = True
+        return hecho
+    if (v, t, m) == (27, 3, 4):
+        hecho = [_bits(b) for b in BLOQUES_27]
+        _MEMO[clave] = hecho
+        _OK[clave] = True
+        return hecho
+    if (v, t, m) == (24, 4, 6):
+        hecho = [_bits(b) for b in APUESTAS_24]
+        _MEMO[clave] = hecho
+        _OK[clave] = True
+        return hecho
+    mejor = _por_grupos(v, t, m)
+    mejor_ok = mejor is not None
+    for a in range(_K, v - _K + 1):
+        b = v - a
+        for j in range(t, m - t + 2):
+            mb = m - j + 1
+            if mb > b or j > a:
+                continue
+            wa = construir(a, t, j)
+            wb = construir(b, t, mb)
+            if not wa or not wb or not _OK.get((a, t, j)) or not _OK.get((b, t, mb)):
+                continue
+            tickets = list(wa) + [blk << a for blk in wb]
+            if mejor is None or len(tickets) < len(mejor):
+                mejor = tickets
+                mejor_ok = True
+    av = _avaro(v, t, m)
+    if av and (mejor is None or len(av) < len(mejor)):
+        mejor = av
+        mejor_ok = True
+    _MEMO[clave] = mejor
+    _OK[clave] = bool(mejor) and mejor_ok
+    return mejor
+
+
+def _cubre_todo(v, t, m, tickets):
+    n = _comb(v, m)
+    if n > 8000 or n * len(tickets) > 1500000:
+        return None
+    for comb in combinations(range(v), m):
+        d = 0
+        for x in comb:
+            d |= 1 << x
+        if not any((d & tck).bit_count() >= t for tck in tickets):
+            return False
+    return True
+
+
+def probar_tabla():
+    print("La ventana: fuerza bruta es el recocido; estrategia son los grupos y, si no cubren, el sorteo suelto; ambas hace las dos.", flush=True)
+    print("Esta estrategia es el corte: dos bloques, y en cada uno una reducida más chica. Si no hay corte, grupos.", flush=True)
+    print("El 163 y el 143 cubren siempre. El 5 si 6 no admite corte: un 3+3 deja los dos lados por debajo de 5.", flush=True)
+    iguales = 0
+    cubre = 0
+    no = 0
+    for v in range(8, 50):
+        fila = _FILAS[v]
+        for col, (t, m) in enumerate(_COLUMNAS):
+            rec = fila[col]
+            if rec is None:
+                continue
+            tickets = construir(v, t, m)
+            if not tickets or not _OK.get((v, t, m)):
+                no += 1
+                continue
+            if v <= 12:
+                ok = _cubre_todo(v, t, m, tickets)
+                if ok is False:
+                    print(f"FALLO {v} al {t} si {m}: {len(tickets)} apuestas no cubren.", flush=True)
+                    raise SystemExit(1)
+            cubre += 1
+            if len(tickets) <= rec:
+                iguales += 1
+                if len(tickets) == rec:
+                    print(f"{v} al {t} si {m}: {len(tickets)} apuestas, igual que el récord.", flush=True)
+    print(f"Tabla Primitiva (boletos de 6, también al 5): {cubre} casos cubiertos por la estrategia, {iguales} al récord, {no} sin esta vía.", flush=True)
+
+
 def main():
     steiner = steiner_22()
     trios = _trios_cubiertos(steiner)
@@ -107,6 +340,7 @@ def main():
         raise SystemExit(1)
     if len(r49) != 163 or mal24:
         raise SystemExit(1)
+    probar_tabla()
 
 
 # Patrón 3 si 4 en 27 puntos: cada cuarteto corta un bloque en 3 o más.

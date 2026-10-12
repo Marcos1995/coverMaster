@@ -19,7 +19,7 @@
 - `LottoOptimizerV3_19.c` es el 18. Apuestas y cobertura no van a la vez: la que no usas queda en blanco. Al 100 % de cobertura se mira el récord; con un número de apuestas, no. Al cambiar la base se marcan los números del 1 a ese. Fuerza bruta, estrategia y ambas van al principio de la fila. El 18 no cambia. La ventana se llama Loto 3.19. Basta `LottoOptimizerV3_19.exe`.
 - `LottoOptimizerV3_20.c` es el 19. Por apuestas o por cobertura se ve en dos botones con una o en medio. El 19 no cambia. La ventana se llama Loto 3.20. Basta `LottoOptimizerV3_20.exe`.
 - `cuatro_grupos.py` prueba el reparto en cuatro grupos. En 24 al 4 si 6 cubre el 100 % con 277 y no baja de 143: cada pareja pide 25 y las seis no se mezclan.
-- `records.py` arma los dos récords. 49 al 3 si 6: Steiner de 77 en 22 números (cada trío, desde el código de Golay) más 86 en los otros 27 (cada cuarteto corta en 3). 77+86=163. 24 al 4 si 6: 143 apuestas y 0 fallos en los 134596 sorteos.
+- `records.py` arma los récords por corte, no por recocido. 49 al 3 si 6 es 77+86=163 y cubre siempre. 24 al 4 si 6 son 143 y cubren los 134596 sorteos. En la tabla de la Primitiva (boletos de 6, también al 5) la misma vía iguala 38 récords; el 5 si 6 no admite corte. La ventana sigue con tres modos: fuerza bruta (recocido), estrategia (grupos) y ambas.
 - Lectura del algoritmo: `docs/LottoOptimizerV3_10.md`. El 11 usa esa lógica.
 - Si `(v, k, t, m)` tiene zip público en Lotoideas, se ofrece esa lista o intentar mejorarla. Si no sube la cobertura, se guarda la de Lotoideas.
 - Kit de agentes en `.cursor/` (skills, rules, agents) más `AGENTS.md`.
