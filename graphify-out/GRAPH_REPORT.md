@@ -1,17 +1,17 @@
 # Graph Report - coverMaster  (2026-10-12)
 
 ## Corpus Check
-- 36 files · ~225,385 words
+- 37 files · ~227,410 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 21 file(s) not represented in the graph (top: .exe 9, .pdb 8, .mdc 2)
 
 ## Summary
-- 1203 nodes · 3745 edges · 38 communities (26 shown, 12 thin omitted)
+- 1212 nodes · 3759 edges · 38 communities (26 shown, 12 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a81a3dc7`
+- Built from commit: `6152ef38`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -134,12 +134,12 @@ Cohesion: 0.50
 Nodes (3): Docs, Project, Setup
 
 ### Community 17 - "LottoOptimizerV3_13.c"
-Cohesion: 0.07
-Nodes (81): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), atender() (+73 more)
+Cohesion: 0.06
+Nodes (92): commdlg, ctype, limits, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar() (+84 more)
 
 ### Community 20 - "LottoOptimizerV3_14.c"
-Cohesion: 0.05
-Nodes (112): commdlg, ctype, limits, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar() (+104 more)
+Cohesion: 0.06
+Nodes (99): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), apuestas_de_url() (+91 more)
 
 ### Community 21 - "LottoOptimizerV3_12.c"
 Cohesion: 0.07
@@ -155,7 +155,7 @@ Nodes (107): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar
 
 ### Community 26 - "LottoOptimizerV3_15.c"
 Cohesion: 0.06
-Nodes (100): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), apuestas_de_url() (+92 more)
+Nodes (102): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), apuestas_de_url() (+94 more)
 
 ### Community 30 - "apuesta_pasa_filtros"
 Cohesion: 1.00
@@ -182,12 +182,12 @@ Cohesion: 0.06
 Nodes (115): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), anotar_niveles(), api_dispatch(), aplicar() (+107 more)
 
 ### Community 37 - "cuatro_grupos.py"
-Cohesion: 0.15
-Nodes (22): construir(), cubre(), cubrir_pares(), demostrar_repartos(), diseno_2_y_2(), diseno_3_y_3(), fallos(), main() (+14 more)
+Cohesion: 0.10
+Nodes (30): construir(), cubre(), cubrir_pares(), demostrar_repartos(), diseno_2_y_2(), diseno_3_y_3(), fallos(), main() (+22 more)
 
 ## Knowledge Gaps
 - **48 isolated node(s):** `1. Root cause`, `2. Compare`, `3. Hypothesis`, `4. Fix`, `Red flags → back to step 1` (+43 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 152 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 153 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **12 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -196,7 +196,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `LottoOptimizerV3` connect `LottoOptimizerV3` to `LottoOptimizerV3_11.py`, `Configuracion`, `main_gui`?**
   _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **Why does `main_gui()` connect `main_gui` to `LottoOptimizerV3_11.py`, `main`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **Why does `LottoOptimizerV3` connect `LottoOptimizerV3` to `LottoOptimizerV3_11.py`, `main_gui`, `Configuracion`, `main`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
 - **What connects `1. Root cause`, `2. Compare`, `3. Hypothesis` to the rest of the system?**

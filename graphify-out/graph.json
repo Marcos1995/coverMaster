@@ -11679,6 +11679,78 @@
       "source_location": "L126"
     },
     {
+      "id": "records_cuartetos_cubiertos",
+      "label": "_cuartetos_cubiertos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "_cuartetos_cubiertos()",
+      "source_file": "records.py",
+      "source_location": "L56"
+    },
+    {
+      "id": "records_fallos_24",
+      "label": "_fallos_24()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "_fallos_24()",
+      "source_file": "records.py",
+      "source_location": "L77"
+    },
+    {
+      "id": "records_main",
+      "label": "main()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "main()",
+      "source_file": "records.py",
+      "source_location": "L94"
+    },
+    {
+      "id": "records_record_49",
+      "label": "record_49()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "record_49()",
+      "source_file": "records.py",
+      "source_location": "L49"
+    },
+    {
+      "id": "records_steiner_22",
+      "label": "steiner_22()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "steiner_22()",
+      "source_file": "records.py",
+      "source_location": "L25"
+    },
+    {
+      "id": "records_trios_cubiertos",
+      "label": "_trios_cubiertos()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "_trios_cubiertos()",
+      "source_file": "records.py",
+      "source_location": "L69"
+    },
+    {
       "id": "lottooptimizerv3_11_descargar_reducida_lotoideas",
       "label": "descargar_reducida_lotoideas()",
       "_callable": true,
@@ -13680,6 +13752,17 @@
       "source_location": "L1"
     },
     {
+      "id": "records",
+      "label": "records.py",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "code",
+      "norm_label": "records.py",
+      "source_file": "records.py",
+      "source_location": "L1"
+    },
+    {
       "id": "cuatro_grupos_rationale_109",
       "label": "Cuatro grupos de 6. Cada pareja lleva un 3+3. Cada grupo, su sexteto.",
       "_origin": "ast",
@@ -13746,6 +13829,28 @@
       "source_location": "L96"
     },
     {
+      "id": "records_rationale_26",
+      "label": "77 bloques de 6 sobre {1..22}. Cada tr\u00edo est\u00e1 en uno solo.",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "rationale",
+      "norm_label": "77 bloques de 6 sobre {1..22}. cada trio esta en uno solo.",
+      "source_file": "records.py",
+      "source_location": "L26"
+    },
+    {
+      "id": "records_rationale_50",
+      "label": "77 en el 1..22 y 86 en el 23..49.",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "cuatro_grupos.py",
+      "file_type": "rationale",
+      "norm_label": "77 en el 1..22 y 86 en el 23..49.",
+      "source_file": "records.py",
+      "source_location": "L50"
+    },
+    {
       "id": "lottooptimizerv3_11_rationale_378",
       "label": "Guarda exclusivamente un \u00fanico archivo con el mejor r\u00e9cord absoluto de la sesi\u00f3n",
       "_origin": "ast",
@@ -13778,7 +13883,7 @@
       "node_kind": "heading",
       "norm_label": "comandos utiles",
       "source_file": "PROJECT.md",
-      "source_location": "L38"
+      "source_location": "L39"
     },
     {
       "id": "project_contexto_del_proyecto",
@@ -13814,7 +13919,7 @@
       "node_kind": "heading",
       "norm_label": "notas para el agente",
       "source_file": "PROJECT.md",
-      "source_location": "L66"
+      "source_location": "L68"
     },
     {
       "id": "project_produccion",
@@ -13838,7 +13943,7 @@
       "node_kind": "heading",
       "norm_label": "stack",
       "source_file": "PROJECT.md",
-      "source_location": "L26"
+      "source_location": "L27"
     },
     {
       "id": "cursor_skills_web_design_dashboard",
@@ -14224,8 +14329,8 @@
       "id": "commdlg",
       "label": "commdlg",
       "_origin": "semantic",
-      "community": 20,
-      "community_name": "LottoOptimizerV3_14.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "commdlg",
@@ -14236,8 +14341,8 @@
       "id": "ctype",
       "label": "ctype",
       "_origin": "semantic",
-      "community": 20,
-      "community_name": "LottoOptimizerV3_14.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "ctype",
@@ -14248,8 +14353,8 @@
       "id": "limits",
       "label": "limits",
       "_origin": "semantic",
-      "community": 20,
-      "community_name": "LottoOptimizerV3_14.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "limits",
@@ -14260,8 +14365,8 @@
       "id": "shellapi",
       "label": "shellapi",
       "_origin": "semantic",
-      "community": 20,
-      "community_name": "LottoOptimizerV3_14.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "shellapi",
@@ -14269,23 +14374,11 @@
       "type": "external"
     },
     {
-      "id": "stdint",
-      "label": "stdint",
-      "_origin": "semantic",
-      "community": 20,
-      "community_name": "LottoOptimizerV3_14.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "stdint",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "stdio",
       "label": "stdio",
       "_origin": "semantic",
-      "community": 20,
-      "community_name": "LottoOptimizerV3_14.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "stdio",
@@ -14293,23 +14386,11 @@
       "type": "external"
     },
     {
-      "id": "stdlib",
-      "label": "stdlib",
-      "_origin": "semantic",
-      "community": 20,
-      "community_name": "LottoOptimizerV3_14.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "stdlib",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "string",
       "label": "string",
       "_origin": "semantic",
-      "community": 20,
-      "community_name": "LottoOptimizerV3_14.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "string",
@@ -14320,8 +14401,8 @@
       "id": "wchar",
       "label": "wchar",
       "_origin": "semantic",
-      "community": 20,
-      "community_name": "LottoOptimizerV3_14.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "wchar",
@@ -14332,8 +14413,8 @@
       "id": "windows",
       "label": "windows",
       "_origin": "semantic",
-      "community": 20,
-      "community_name": "LottoOptimizerV3_14.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "windows",
@@ -14344,8 +14425,8 @@
       "id": "winhttp",
       "label": "winhttp",
       "_origin": "semantic",
-      "community": 20,
-      "community_name": "LottoOptimizerV3_14.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "winhttp",
@@ -14356,8 +14437,8 @@
       "id": "winsock2",
       "label": "winsock2",
       "_origin": "semantic",
-      "community": 20,
-      "community_name": "LottoOptimizerV3_14.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "winsock2",
@@ -14368,8 +14449,8 @@
       "id": "ws2tcpip",
       "label": "ws2tcpip",
       "_origin": "semantic",
-      "community": 20,
-      "community_name": "LottoOptimizerV3_14.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "ws2tcpip",
@@ -14377,8 +14458,33 @@
       "type": "external"
     },
     {
+      "id": "stdint",
+      "label": "stdint",
+      "_origin": "semantic",
+      "community": 26,
+      "community_name": "LottoOptimizerV3_15.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "stdint",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "stdlib",
+      "label": "stdlib",
+      "_origin": "semantic",
+      "community": 26,
+      "community_name": "LottoOptimizerV3_15.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "stdlib",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "itertools",
       "label": "itertools",
+      "_origin": "semantic",
       "community": 37,
       "community_name": "cuatro_grupos.py",
       "external": true,
@@ -38918,6 +39024,66 @@
       "weight": 1.0
     },
     {
+      "source": "records_main",
+      "target": "records_steiner_22",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "records_main",
+      "target": "records_trios_cubiertos",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "records_main",
+      "target": "records_cuartetos_cubiertos",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "records_main",
+      "target": "records_record_49",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "records_main",
+      "target": "records_fallos_24",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "records.py",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
       "source": "cuatro_grupos_partes",
       "target": "cuatro_grupos_partes_walk",
       "relation": "contains",
@@ -40859,6 +41025,18 @@
       "context": "import",
       "source_file": "LottoOptimizerV3_11.py",
       "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "itertools",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "records.py",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -57567,7 +57745,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT.md",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -57578,7 +57756,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT.md",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -57600,7 +57778,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT.md",
-      "source_location": "L66",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -57645,6 +57823,72 @@
       "confidence_score": 1.0,
       "source_file": "README.md",
       "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_steiner_22",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_record_49",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_cuartetos_cubiertos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_trios_cubiertos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_fallos_24",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "records",
+      "target": "records_main",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -58220,6 +58464,28 @@
       "weight": 1.0
     },
     {
+      "source": "records_rationale_26",
+      "target": "records_steiner_22",
+      "relation": "rationale_for",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "records_rationale_50",
+      "target": "records_record_49",
+      "relation": "rationale_for",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "records.py",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
       "source": "lottooptimizerv3_10_main_gui",
       "target": "lottooptimizerv3_10_main_gui_parar",
       "relation": "indirect_call",
@@ -58269,5 +58535,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a81a3dc7b652bd3cb5b79808c29ac6b9847d66ab"
+  "built_at_commit": "6152ef38296448732a200785072a0d075a8a404e"
 }
