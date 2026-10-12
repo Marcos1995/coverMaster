@@ -367,7 +367,7 @@
 <h3>Escrutar y Generar</h3>
 <p>El recuadro largo es la combinación ganadora. Generar escribe ahí una apuesta al azar de k números: si hay números marcados, salen de esos; si no, del 1 al 49. Escrutar compara la reducida con esa combinación.</p>
 <h3>El resto de acciones</h3>
-<p>Garantías dice qué premios cubre la lista. Análisis y Estadísticas dicen, además, el porcentaje de sorteos cubiertos al 6, al 5, al 4, al 3, al 2 y al 1. Validar comprueba que cumple la garantía. Cargar abre un archivo de apuestas. Guardar escribe el sistema propio. Usar récord carga la reducida conocida (la de Lotoideas, si existe para esa base). Mejorar récord intenta superarla.</p>
+<p>Garantías dice qué premios cubre la lista. Análisis y Estadísticas dicen, además, el porcentaje de sorteos cubiertos al 6, al 5, al 4, al 3, al 2 y al 1. Validar comprueba que cumple la garantía. Cargar abre un archivo de apuestas y marca los números que trae, la base y cuántos van en cada fila. La garantía (4 si 6, 5 si 6…) la eliges tú. Análisis, estadísticas y escrutar usan esa lista, también si cargas otro archivo después. Guardar escribe el sistema propio. Usar récord carga la reducida conocida (la de Lotoideas, si existe para esa base). Mejorar récord intenta superarla.</p>
 <h3>Filtros</h3>
 <p>Están siempre a la vista y no se cierran. La casilla activa el filtro. Mín y máx son los límites: sumas de la apuesta, cantidad de pares, de bajos (la mitad baja del bombo), de distancias, de seguidos, de decenas distintas y de terminaciones. Si el mínimo o el máximo se dejan vacíos, ese lado no limita. Grupos va en su recuadro, una línea por grupo: números, un mínimo y un máximo de aciertos, separados por punto y coma. Debajo, Apuestas condicionadas: números que tienen que salir en cada apuesta.</p>
 <h3>Registro</h3>
@@ -432,7 +432,9 @@
         baseKpi();
         aviso("Listo", "Ningún número.");
       });
+      var aplicando = false;
       function marcarBase() {
+        if (aplicando) return;
         var n = parseInt(String(document.getElementById("base").value).trim(), 10);
         if (!(n >= 1 && n <= 49)) return;
         nums.forEach(function (b) { pintar(b, +b.dataset.n <= n); });
@@ -564,7 +566,21 @@
         document.getElementById("pulso").classList.toggle("animate-pulse", si);
       }
       var firmaLista = "";
+      var cargaVista = 0;
       var ordenLista = { col: -1, dir: 1 };
+      function aplicarCarga(e) {
+        var set;
+        if (!e || !e.carga || e.carga === cargaVista) return;
+        cargaVista = e.carga;
+        set = {};
+        (e.numeros || []).forEach(function (n) { set[n] = true; });
+        aplicando = true;
+        nums.forEach(function (b) { pintar(b, !!set[+b.dataset.n]); });
+        if (e.base) document.getElementById("base").value = String(e.base);
+        if (e.k) document.getElementById("k").value = String(e.k);
+        aplicando = false;
+        baseKpi();
+      }
       function pintarLista(lista) {
         var sig = lista.join("\n");
         var tb, i, html;
@@ -614,6 +630,7 @@
         var sobre = document.getElementById("kpi-sobre");
         if (sobre) sobre.textContent = e.sobre ? " " + e.sobre : "";
         pintarLista(e.lista || []);
+        aplicarCarga(e);
         ocupado(!!e.ocupado);
       }
       function pintarRegistro(lineas) {

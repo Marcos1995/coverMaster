@@ -10200,7 +10200,7 @@
       "file_type": "code",
       "norm_label": "abrir_ventana()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2548"
+      "source_location": "L2629"
     },
     {
       "id": "lottooptimizerv3_20_acaba_txt",
@@ -10212,7 +10212,7 @@
       "file_type": "code",
       "norm_label": "acaba_txt()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1351"
+      "source_location": "L1399"
     },
     {
       "id": "lottooptimizerv3_20_agregar",
@@ -10224,7 +10224,7 @@
       "file_type": "code",
       "norm_label": "agregar()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L683"
+      "source_location": "L684"
     },
     {
       "id": "lottooptimizerv3_20_analizar_numeros",
@@ -10236,7 +10236,7 @@
       "file_type": "code",
       "norm_label": "analizar_numeros()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L300"
+      "source_location": "L301"
     },
     {
       "id": "lottooptimizerv3_20_anotar",
@@ -10248,7 +10248,7 @@
       "file_type": "code",
       "norm_label": "anotar()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L110"
+      "source_location": "L111"
     },
     {
       "id": "lottooptimizerv3_20_anotar_niveles",
@@ -10260,7 +10260,7 @@
       "file_type": "code",
       "norm_label": "anotar_niveles()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1562"
+      "source_location": "L1610"
     },
     {
       "id": "lottooptimizerv3_20_api_dispatch",
@@ -10272,7 +10272,7 @@
       "file_type": "code",
       "norm_label": "api_dispatch()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2349"
+      "source_location": "L2401"
     },
     {
       "id": "lottooptimizerv3_20_aplicar",
@@ -10284,7 +10284,7 @@
       "file_type": "code",
       "norm_label": "aplicar()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L592"
+      "source_location": "L593"
     },
     {
       "id": "lottooptimizerv3_20_apuestas_de_url",
@@ -10296,7 +10296,7 @@
       "file_type": "code",
       "norm_label": "apuestas_de_url()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1225"
+      "source_location": "L1273"
     },
     {
       "id": "lottooptimizerv3_20_atender",
@@ -10308,7 +10308,7 @@
       "file_type": "code",
       "norm_label": "atender()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2495"
+      "source_location": "L2576"
     },
     {
       "id": "lottooptimizerv3_20_atender_hilo",
@@ -10320,7 +10320,7 @@
       "file_type": "code",
       "norm_label": "atender_hilo()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2488"
+      "source_location": "L2569"
     },
     {
       "id": "lottooptimizerv3_20_bajar_si_ciento",
@@ -10332,7 +10332,7 @@
       "file_type": "code",
       "norm_label": "bajar_si_ciento()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2011"
+      "source_location": "L2059"
     },
     {
       "id": "lottooptimizerv3_20_bench",
@@ -10344,7 +10344,7 @@
       "file_type": "code",
       "norm_label": "bench()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2620"
+      "source_location": "L2701"
     },
     {
       "id": "lottooptimizerv3_20_bits_sorteo",
@@ -10356,7 +10356,7 @@
       "file_type": "code",
       "norm_label": "bits_sorteo()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1551"
+      "source_location": "L1599"
     },
     {
       "id": "lottooptimizerv3_20_borrar_arbol",
@@ -10368,7 +10368,7 @@
       "file_type": "code",
       "norm_label": "borrar_arbol()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1380"
+      "source_location": "L1428"
     },
     {
       "id": "lottooptimizerv3_20_buscar_cobertura",
@@ -10380,7 +10380,7 @@
       "file_type": "code",
       "norm_label": "buscar_cobertura()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1931"
+      "source_location": "L1979"
     },
     {
       "id": "lottooptimizerv3_20_buscar_local",
@@ -10392,7 +10392,7 @@
       "file_type": "code",
       "norm_label": "buscar_local()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1022"
+      "source_location": "L1023"
     },
     {
       "id": "lottooptimizerv3_20_buscar_navegador",
@@ -10404,7 +10404,7 @@
       "file_type": "code",
       "norm_label": "buscar_navegador()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2536"
+      "source_location": "L2617"
     },
     {
       "id": "lottooptimizerv3_20_buscar_url",
@@ -10416,7 +10416,7 @@
       "file_type": "code",
       "norm_label": "buscar_url()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1238"
+      "source_location": "L1286"
     },
     {
       "id": "lottooptimizerv3_20_cargar_ap",
@@ -10428,7 +10428,7 @@
       "file_type": "code",
       "norm_label": "cargar_ap()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1760"
+      "source_location": "L1808"
     },
     {
       "id": "lottooptimizerv3_20_clonar_ap",
@@ -10440,7 +10440,7 @@
       "file_type": "code",
       "norm_label": "clonar_ap()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1750"
+      "source_location": "L1798"
     },
     {
       "id": "lottooptimizerv3_20_cmp_fila",
@@ -10452,7 +10452,7 @@
       "file_type": "code",
       "norm_label": "cmp_fila()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1134"
+      "source_location": "L1135"
     },
     {
       "id": "lottooptimizerv3_20_cmp_int",
@@ -10464,7 +10464,7 @@
       "file_type": "code",
       "norm_label": "cmp_int()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L338"
+      "source_location": "L339"
     },
     {
       "id": "lottooptimizerv3_20_cob_de",
@@ -10476,7 +10476,7 @@
       "file_type": "code",
       "norm_label": "cob_de()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L691"
+      "source_location": "L692"
     },
     {
       "id": "lottooptimizerv3_20_combinaciones",
@@ -10488,7 +10488,7 @@
       "file_type": "code",
       "norm_label": "combinaciones()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L748"
+      "source_location": "L749"
     },
     {
       "id": "lottooptimizerv3_20_copiar_bets",
@@ -10500,7 +10500,7 @@
       "file_type": "code",
       "norm_label": "copiar_bets()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1490"
+      "source_location": "L1538"
     },
     {
       "id": "lottooptimizerv3_20_crecer",
@@ -10512,7 +10512,7 @@
       "file_type": "code",
       "norm_label": "crecer()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L662"
+      "source_location": "L663"
     },
     {
       "id": "lottooptimizerv3_20_cubrir_lista",
@@ -10524,7 +10524,7 @@
       "file_type": "code",
       "norm_label": "cubrir_lista()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L864"
+      "source_location": "L865"
     },
     {
       "id": "lottooptimizerv3_20_cubrir_objetivo",
@@ -10536,7 +10536,7 @@
       "file_type": "code",
       "norm_label": "cubrir_objetivo()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1017"
+      "source_location": "L1018"
     },
     {
       "id": "lottooptimizerv3_20_decir_nivel",
@@ -10548,7 +10548,19 @@
       "file_type": "code",
       "norm_label": "decir_nivel()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1728"
+      "source_location": "L1776"
+    },
+    {
+      "id": "lottooptimizerv3_20_deducir_bets",
+      "label": "deducir_bets()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "LottoOptimizerV3_20.c",
+      "file_type": "code",
+      "norm_label": "deducir_bets()",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1185"
     },
     {
       "id": "lottooptimizerv3_20_descargar_reducida",
@@ -10560,7 +10572,7 @@
       "file_type": "code",
       "norm_label": "descargar_reducida()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1409"
+      "source_location": "L1457"
     },
     {
       "id": "lottooptimizerv3_20_dir_descarga",
@@ -10572,7 +10584,7 @@
       "file_type": "code",
       "norm_label": "dir_descarga()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1397"
+      "source_location": "L1445"
     },
     {
       "id": "lottooptimizerv3_20_distribucion_floja",
@@ -10584,7 +10596,7 @@
       "file_type": "code",
       "norm_label": "distribucion_floja()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1781"
+      "source_location": "L1829"
     },
     {
       "id": "lottooptimizerv3_20_elegir_grupos",
@@ -10596,7 +10608,7 @@
       "file_type": "code",
       "norm_label": "elegir_grupos()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1804"
+      "source_location": "L1852"
     },
     {
       "id": "lottooptimizerv3_20_emitir_grupos",
@@ -10608,7 +10620,7 @@
       "file_type": "code",
       "norm_label": "emitir_grupos()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1825"
+      "source_location": "L1873"
     },
     {
       "id": "lottooptimizerv3_20_escalar",
@@ -10620,7 +10632,7 @@
       "file_type": "code",
       "norm_label": "escalar()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L941"
+      "source_location": "L942"
     },
     {
       "id": "lottooptimizerv3_20_escribir",
@@ -10632,7 +10644,7 @@
       "file_type": "code",
       "norm_label": "escribir()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1141"
+      "source_location": "L1142"
     },
     {
       "id": "lottooptimizerv3_20_estado_json",
@@ -10644,7 +10656,7 @@
       "file_type": "code",
       "norm_label": "estado_json()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2254"
+      "source_location": "L2302"
     },
     {
       "id": "lottooptimizerv3_20_estrategia",
@@ -10656,7 +10668,7 @@
       "file_type": "code",
       "norm_label": "estrategia()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1881"
+      "source_location": "L1929"
     },
     {
       "id": "lottooptimizerv3_20_fijar_mejor",
@@ -10668,7 +10680,7 @@
       "file_type": "code",
       "norm_label": "fijar_mejor()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1773"
+      "source_location": "L1821"
     },
     {
       "id": "lottooptimizerv3_20_fijar_nota",
@@ -10680,7 +10692,7 @@
       "file_type": "code",
       "norm_label": "fijar_nota()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L855"
+      "source_location": "L856"
     },
     {
       "id": "lottooptimizerv3_20_filtros_desde",
@@ -10692,7 +10704,7 @@
       "file_type": "code",
       "norm_label": "filtros_desde()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L414"
+      "source_location": "L415"
     },
     {
       "id": "lottooptimizerv3_20_filtros_init",
@@ -10704,7 +10716,7 @@
       "file_type": "code",
       "norm_label": "filtros_init()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L87"
+      "source_location": "L88"
     },
     {
       "id": "lottooptimizerv3_20_ganancia",
@@ -10716,7 +10728,19 @@
       "file_type": "code",
       "norm_label": "ganancia()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L618"
+      "source_location": "L619"
+    },
+    {
+      "id": "lottooptimizerv3_20_garantia_del_cuerpo",
+      "label": "garantia_del_cuerpo()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "LottoOptimizerV3_20.c",
+      "file_type": "code",
+      "norm_label": "garantia_del_cuerpo()",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1222"
     },
     {
       "id": "lottooptimizerv3_20_gcd_u",
@@ -10728,7 +10752,7 @@
       "file_type": "code",
       "norm_label": "gcd_u()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L739"
+      "source_location": "L740"
     },
     {
       "id": "lottooptimizerv3_20_generar",
@@ -10740,7 +10764,7 @@
       "file_type": "code",
       "norm_label": "generar()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L887"
+      "source_location": "L888"
     },
     {
       "id": "lottooptimizerv3_20_golpe",
@@ -10752,7 +10776,7 @@
       "file_type": "code",
       "norm_label": "golpe()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L975"
+      "source_location": "L976"
     },
     {
       "id": "lottooptimizerv3_20_grupos_aseguran",
@@ -10764,7 +10788,7 @@
       "file_type": "code",
       "norm_label": "grupos_aseguran()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1798"
+      "source_location": "L1846"
     },
     {
       "id": "lottooptimizerv3_20_guardar_mejor",
@@ -10776,7 +10800,7 @@
       "file_type": "code",
       "norm_label": "guardar_mejor()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L931"
+      "source_location": "L932"
     },
     {
       "id": "lottooptimizerv3_20_guardar_opt",
@@ -10788,7 +10812,7 @@
       "file_type": "code",
       "norm_label": "guardar_opt()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1196"
+      "source_location": "L1244"
     },
     {
       "id": "lottooptimizerv3_20_hilo",
@@ -10800,7 +10824,7 @@
       "file_type": "code",
       "norm_label": "hilo()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2067"
+      "source_location": "L2115"
     },
     {
       "id": "lottooptimizerv3_20_http_bajar",
@@ -10812,7 +10836,7 @@
       "file_type": "code",
       "norm_label": "http_bajar()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1254"
+      "source_location": "L1302"
     },
     {
       "id": "lottooptimizerv3_20_ir_al_exe",
@@ -10824,7 +10848,7 @@
       "file_type": "code",
       "norm_label": "ir_al_exe()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2686"
+      "source_location": "L2767"
     },
     {
       "id": "lottooptimizerv3_20_json_bool",
@@ -10836,7 +10860,7 @@
       "file_type": "code",
       "norm_label": "json_bool()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L247"
+      "source_location": "L248"
     },
     {
       "id": "lottooptimizerv3_20_json_escape",
@@ -10848,7 +10872,7 @@
       "file_type": "code",
       "norm_label": "json_escape()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2237"
+      "source_location": "L2285"
     },
     {
       "id": "lottooptimizerv3_20_json_ints",
@@ -10860,7 +10884,7 @@
       "file_type": "code",
       "norm_label": "json_ints()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L252"
+      "source_location": "L253"
     },
     {
       "id": "lottooptimizerv3_20_json_str",
@@ -10872,7 +10896,7 @@
       "file_type": "code",
       "norm_label": "json_str()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L227"
+      "source_location": "L228"
     },
     {
       "id": "lottooptimizerv3_20_json_valor",
@@ -10884,7 +10908,7 @@
       "file_type": "code",
       "norm_label": "json_valor()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L196"
+      "source_location": "L197"
     },
     {
       "id": "lottooptimizerv3_20_lanzar",
@@ -10896,7 +10920,7 @@
       "file_type": "code",
       "norm_label": "lanzar()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2198"
+      "source_location": "L2246"
     },
     {
       "id": "lottooptimizerv3_20_leer_int",
@@ -10908,7 +10932,7 @@
       "file_type": "code",
       "norm_label": "leer_int()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L266"
+      "source_location": "L267"
     },
     {
       "id": "lottooptimizerv3_20_leer_porc",
@@ -10920,7 +10944,7 @@
       "file_type": "code",
       "norm_label": "leer_porc()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L284"
+      "source_location": "L285"
     },
     {
       "id": "lottooptimizerv3_20_limpiar_log",
@@ -10932,7 +10956,7 @@
       "file_type": "code",
       "norm_label": "limpiar_log()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L166"
+      "source_location": "L167"
     },
     {
       "id": "lottooptimizerv3_20_lista_add",
@@ -10944,7 +10968,7 @@
       "file_type": "code",
       "norm_label": "lista_add()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L547"
+      "source_location": "L548"
     },
     {
       "id": "lottooptimizerv3_20_listar",
@@ -10956,7 +10980,7 @@
       "file_type": "code",
       "norm_label": "listar()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L573"
+      "source_location": "L574"
     },
     {
       "id": "lottooptimizerv3_20_llenar_sorteos",
@@ -10968,7 +10992,7 @@
       "file_type": "code",
       "norm_label": "llenar_sorteos()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L769"
+      "source_location": "L770"
     },
     {
       "id": "lottooptimizerv3_20_main",
@@ -10980,7 +11004,7 @@
       "file_type": "code",
       "norm_label": "main()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2697"
+      "source_location": "L2778"
     },
     {
       "id": "lottooptimizerv3_20_mapear",
@@ -10992,7 +11016,7 @@
       "file_type": "code",
       "norm_label": "mapear()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1123"
+      "source_location": "L1124"
     },
     {
       "id": "lottooptimizerv3_20_meter_top",
@@ -11004,7 +11028,7 @@
       "file_type": "code",
       "norm_label": "meter_top()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1529"
+      "source_location": "L1577"
     },
     {
       "id": "lottooptimizerv3_20_muestra",
@@ -11016,7 +11040,7 @@
       "file_type": "code",
       "norm_label": "muestra()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L559"
+      "source_location": "L560"
     },
     {
       "id": "lottooptimizerv3_20_mutar",
@@ -11028,7 +11052,7 @@
       "file_type": "code",
       "norm_label": "mutar()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L648"
+      "source_location": "L649"
     },
     {
       "id": "lottooptimizerv3_20_objeto_fin",
@@ -11040,7 +11064,7 @@
       "file_type": "code",
       "norm_label": "objeto_fin()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L212"
+      "source_location": "L213"
     },
     {
       "id": "lottooptimizerv3_20_opt_free",
@@ -11052,7 +11076,7 @@
       "file_type": "code",
       "norm_label": "opt_free()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L727"
+      "source_location": "L728"
     },
     {
       "id": "lottooptimizerv3_20_opt_nuevo",
@@ -11064,7 +11088,7 @@
       "file_type": "code",
       "norm_label": "opt_nuevo()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L807"
+      "source_location": "L808"
     },
     {
       "id": "lottooptimizerv3_20_optimizar",
@@ -11076,7 +11100,7 @@
       "file_type": "code",
       "norm_label": "optimizar()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1051"
+      "source_location": "L1052"
     },
     {
       "id": "lottooptimizerv3_20_parse_datos",
@@ -11088,7 +11112,7 @@
       "file_type": "code",
       "norm_label": "parse_datos()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L456"
+      "source_location": "L457"
     },
     {
       "id": "lottooptimizerv3_20_parse_grupos",
@@ -11100,7 +11124,7 @@
       "file_type": "code",
       "norm_label": "parse_grupos()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L361"
+      "source_location": "L362"
     },
     {
       "id": "lottooptimizerv3_20_pasa_filtros",
@@ -11112,7 +11136,7 @@
       "file_type": "code",
       "norm_label": "pasa_filtros()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L496"
+      "source_location": "L497"
     },
     {
       "id": "lottooptimizerv3_20_paso",
@@ -11124,7 +11148,7 @@
       "file_type": "code",
       "norm_label": "paso()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L696"
+      "source_location": "L697"
     },
     {
       "id": "lottooptimizerv3_20_poner_ahora",
@@ -11136,7 +11160,7 @@
       "file_type": "code",
       "norm_label": "poner_ahora()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L94"
+      "source_location": "L95"
     },
     {
       "id": "lottooptimizerv3_20_primer_txt",
@@ -11148,7 +11172,7 @@
       "file_type": "code",
       "norm_label": "primer_txt()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1357"
+      "source_location": "L1405"
     },
     {
       "id": "lottooptimizerv3_20_progreso",
@@ -11160,7 +11184,7 @@
       "file_type": "code",
       "norm_label": "progreso()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L172"
+      "source_location": "L173"
     },
     {
       "id": "lottooptimizerv3_20_publicar_bets",
@@ -11172,7 +11196,7 @@
       "file_type": "code",
       "norm_label": "publicar_bets()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1172"
+      "source_location": "L1173"
     },
     {
       "id": "lottooptimizerv3_20_quitar_mientras",
@@ -11184,7 +11208,7 @@
       "file_type": "code",
       "norm_label": "quitar_mientras()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1856"
+      "source_location": "L1904"
     },
     {
       "id": "lottooptimizerv3_20_raya",
@@ -11196,7 +11220,31 @@
       "file_type": "code",
       "norm_label": "raya()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L151"
+      "source_location": "L152"
+    },
+    {
+      "id": "lottooptimizerv3_20_recordar_carga",
+      "label": "recordar_carga()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "LottoOptimizerV3_20.c",
+      "file_type": "code",
+      "norm_label": "recordar_carga()",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1203"
+    },
+    {
+      "id": "lottooptimizerv3_20_rellenar_desde_bets",
+      "label": "rellenar_desde_bets()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "LottoOptimizerV3_20.c",
+      "file_type": "code",
+      "norm_label": "rellenar_desde_bets()",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1212"
     },
     {
       "id": "lottooptimizerv3_20_repetida",
@@ -11208,7 +11256,7 @@
       "file_type": "code",
       "norm_label": "repetida()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L677"
+      "source_location": "L678"
     },
     {
       "id": "lottooptimizerv3_20_reponer",
@@ -11220,7 +11268,7 @@
       "file_type": "code",
       "norm_label": "reponer()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L915"
+      "source_location": "L916"
     },
     {
       "id": "lottooptimizerv3_20_reservar_universo",
@@ -11232,7 +11280,7 @@
       "file_type": "code",
       "norm_label": "reservar_universo()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L787"
+      "source_location": "L788"
     },
     {
       "id": "lottooptimizerv3_20_responder",
@@ -11244,7 +11292,7 @@
       "file_type": "code",
       "norm_label": "responder()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2294"
+      "source_location": "L2346"
     },
     {
       "id": "lottooptimizerv3_20_responder_error",
@@ -11256,7 +11304,7 @@
       "file_type": "code",
       "norm_label": "responder_error()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2305"
+      "source_location": "L2357"
     },
     {
       "id": "lottooptimizerv3_20_responder_ok",
@@ -11268,7 +11316,7 @@
       "file_type": "code",
       "norm_label": "responder_ok()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2312"
+      "source_location": "L2364"
     },
     {
       "id": "lottooptimizerv3_20_restaurar",
@@ -11280,7 +11328,7 @@
       "file_type": "code",
       "norm_label": "restaurar()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1006"
+      "source_location": "L1007"
     },
     {
       "id": "lottooptimizerv3_20_rnd64",
@@ -11292,7 +11340,7 @@
       "file_type": "code",
       "norm_label": "rnd64()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L78"
+      "source_location": "L79"
     },
     {
       "id": "lottooptimizerv3_20_salta_string",
@@ -11304,7 +11352,7 @@
       "file_type": "code",
       "norm_label": "salta_string()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L180"
+      "source_location": "L181"
     },
     {
       "id": "lottooptimizerv3_20_salta_ws",
@@ -11316,7 +11364,7 @@
       "file_type": "code",
       "norm_label": "salta_ws()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L191"
+      "source_location": "L192"
     },
     {
       "id": "lottooptimizerv3_20_send_todo",
@@ -11328,7 +11376,7 @@
       "file_type": "code",
       "norm_label": "send_todo()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2284"
+      "source_location": "L2336"
     },
     {
       "id": "lottooptimizerv3_20_servir",
@@ -11340,7 +11388,7 @@
       "file_type": "code",
       "norm_label": "servir()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2569"
+      "source_location": "L2650"
     },
     {
       "id": "lottooptimizerv3_20_servir_html",
@@ -11352,7 +11400,7 @@
       "file_type": "code",
       "norm_label": "servir_html()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2332"
+      "source_location": "L2384"
     },
     {
       "id": "lottooptimizerv3_20_subir_una",
@@ -11364,7 +11412,7 @@
       "file_type": "code",
       "norm_label": "subir_una()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1737"
+      "source_location": "L1785"
     },
     {
       "id": "lottooptimizerv3_20_texto_analisis",
@@ -11376,7 +11424,7 @@
       "file_type": "code",
       "norm_label": "texto_analisis()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1604"
+      "source_location": "L1652"
     },
     {
       "id": "lottooptimizerv3_20_texto_escrutinio",
@@ -11388,7 +11436,7 @@
       "file_type": "code",
       "norm_label": "texto_escrutinio()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1505"
+      "source_location": "L1553"
     },
     {
       "id": "lottooptimizerv3_20_texto_estadisticas",
@@ -11400,7 +11448,7 @@
       "file_type": "code",
       "norm_label": "texto_estadisticas()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1636"
+      "source_location": "L1684"
     },
     {
       "id": "lottooptimizerv3_20_texto_garantias",
@@ -11412,7 +11460,7 @@
       "file_type": "code",
       "norm_label": "texto_garantias()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1716"
+      "source_location": "L1764"
     },
     {
       "id": "lottooptimizerv3_20_texto_validacion",
@@ -11424,7 +11472,7 @@
       "file_type": "code",
       "norm_label": "texto_validacion()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1668"
+      "source_location": "L1716"
     },
     {
       "id": "lottooptimizerv3_20_ticket_de_sorteo",
@@ -11436,7 +11484,7 @@
       "file_type": "code",
       "norm_label": "ticket_de_sorteo()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1844"
+      "source_location": "L1892"
     },
     {
       "id": "lottooptimizerv3_20_tipo_de",
@@ -11448,7 +11496,7 @@
       "file_type": "code",
       "norm_label": "tipo_de()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L342"
+      "source_location": "L343"
     },
     {
       "id": "lottooptimizerv3_20_titulo_accion",
@@ -11460,7 +11508,7 @@
       "file_type": "code",
       "norm_label": "titulo_accion()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L136"
+      "source_location": "L137"
     },
     {
       "id": "lottooptimizerv3_20_unir_ruta",
@@ -11472,7 +11520,7 @@
       "file_type": "code",
       "norm_label": "unir_ruta()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1246"
+      "source_location": "L1294"
     },
     {
       "id": "lottooptimizerv3_20_valida",
@@ -11484,7 +11532,7 @@
       "file_type": "code",
       "norm_label": "valida()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L579"
+      "source_location": "L580"
     },
     {
       "id": "lottooptimizerv3_20_volcar",
@@ -11496,7 +11544,7 @@
       "file_type": "code",
       "norm_label": "volcar()",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1183"
+      "source_location": "L1231"
     },
     {
       "id": "cuatro_grupos_construir",
@@ -14576,6 +14624,42 @@
       "type": "external"
     },
     {
+      "id": "commdlg",
+      "label": "commdlg",
+      "_origin": "semantic",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "commdlg",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "shellapi",
+      "label": "shellapi",
+      "_origin": "semantic",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "shellapi",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "string",
+      "label": "string",
+      "_origin": "semantic",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "string",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "wchar",
       "label": "wchar",
       "_origin": "semantic",
@@ -14588,14 +14672,50 @@
       "type": "external"
     },
     {
-      "id": "commdlg",
-      "label": "commdlg",
+      "id": "windows",
+      "label": "windows",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
       "external": true,
       "file_type": "concept",
-      "norm_label": "commdlg",
+      "norm_label": "windows",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "winhttp",
+      "label": "winhttp",
+      "_origin": "semantic",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "winhttp",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "winsock2",
+      "label": "winsock2",
+      "_origin": "semantic",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "winsock2",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ws2tcpip",
+      "label": "ws2tcpip",
+      "_origin": "semantic",
+      "community": 17,
+      "community_name": "LottoOptimizerV3_13.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ws2tcpip",
       "source_file": "",
       "type": "external"
     },
@@ -14603,11 +14723,35 @@
       "id": "ctype",
       "label": "ctype",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
+      "community": 20,
+      "community_name": "LottoOptimizerV3_14.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "ctype",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "stdint",
+      "label": "stdint",
+      "_origin": "semantic",
+      "community": 20,
+      "community_name": "LottoOptimizerV3_14.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "stdint",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "stdio",
+      "label": "stdio",
+      "_origin": "semantic",
+      "community": 20,
+      "community_name": "LottoOptimizerV3_14.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "stdio",
       "source_file": "",
       "type": "external"
     },
@@ -14624,42 +14768,6 @@
       "type": "external"
     },
     {
-      "id": "shellapi",
-      "label": "shellapi",
-      "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "shellapi",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "stdint",
-      "label": "stdint",
-      "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "stdint",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "stdio",
-      "label": "stdio",
-      "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "stdio",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "stdlib",
       "label": "stdlib",
       "_origin": "semantic",
@@ -14668,66 +14776,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "stdlib",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "string",
-      "label": "string",
-      "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "string",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "windows",
-      "label": "windows",
-      "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "windows",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "winhttp",
-      "label": "winhttp",
-      "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "winhttp",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "winsock2",
-      "label": "winsock2",
-      "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "winsock2",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ws2tcpip",
-      "label": "ws2tcpip",
-      "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ws2tcpip",
       "source_file": "",
       "type": "external"
     },
@@ -36114,24 +36162,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2560",
+      "source_location": "L2641",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_agregar",
       "target": "lottooptimizerv3_20_repetida",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L684",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_agregar",
-      "target": "lottooptimizerv3_20_crecer",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -36143,6 +36179,18 @@
     },
     {
       "source": "lottooptimizerv3_20_agregar",
+      "target": "lottooptimizerv3_20_crecer",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L686",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_agregar",
       "target": "lottooptimizerv3_20_aplicar",
       "relation": "calls",
       "_origin": "ast",
@@ -36150,7 +36198,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L687",
+      "source_location": "L688",
       "weight": 1.0
     },
     {
@@ -36162,7 +36210,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L126",
+      "source_location": "L127",
       "weight": 1.0
     },
     {
@@ -36174,7 +36222,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1572",
+      "source_location": "L1620",
       "weight": 1.0
     },
     {
@@ -36186,7 +36234,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1574",
+      "source_location": "L1622",
       "weight": 1.0
     },
     {
@@ -36198,192 +36246,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1580",
+      "source_location": "L1628",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_api_dispatch",
       "target": "lottooptimizerv3_20_json_str",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2351",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_parse_datos",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2357",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_responder_error",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2357",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_buscar_url",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2358",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_apuestas_de_url",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2359",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_responder",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2361",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_responder_ok",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2366",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_estado_json",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2367",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_limpiar_log",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2373",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_raya",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2377",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_anotar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2380",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_lanzar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2385",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_texto_garantias",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2392",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_copiar_bets",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2399",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_texto_analisis",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2402",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_texto_estadisticas",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -36395,19 +36263,7 @@
     },
     {
       "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_anotar_niveles",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2406",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_json_valor",
+      "target": "lottooptimizerv3_20_parse_datos",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -36419,7 +36275,19 @@
     },
     {
       "source": "lottooptimizerv3_20_api_dispatch",
-      "target": "lottooptimizerv3_20_objeto_fin",
+      "target": "lottooptimizerv3_20_responder_error",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2409",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_buscar_url",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -36431,6 +36299,210 @@
     },
     {
       "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_apuestas_de_url",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2411",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_responder",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2413",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_responder_ok",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2418",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_estado_json",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2419",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_limpiar_log",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2425",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_raya",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2429",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_anotar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2432",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_lanzar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2437",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_copiar_bets",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2444",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_rellenar_desde_bets",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2448",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_garantia_del_cuerpo",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2450",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_texto_garantias",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2454",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_texto_analisis",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2464",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_texto_estadisticas",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2465",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_anotar_niveles",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2476",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_json_valor",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2478",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_objeto_fin",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2479",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
       "target": "lottooptimizerv3_20_texto_escrutinio",
       "relation": "calls",
       "_origin": "ast",
@@ -36438,7 +36510,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2412",
+      "source_location": "L2481",
       "weight": 1.0
     },
     {
@@ -36450,7 +36522,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2416",
+      "source_location": "L2487",
       "weight": 1.0
     },
     {
@@ -36462,7 +36534,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2423",
+      "source_location": "L2494",
       "weight": 1.0
     },
     {
@@ -36474,7 +36546,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2459",
+      "source_location": "L2535",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_deducir_bets",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2552",
       "weight": 1.0
     },
     {
@@ -36486,7 +36570,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2473",
+      "source_location": "L2553",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_api_dispatch",
+      "target": "lottooptimizerv3_20_recordar_carga",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2554",
       "weight": 1.0
     },
     {
@@ -36498,7 +36594,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2512",
+      "source_location": "L2593",
       "weight": 1.0
     },
     {
@@ -36510,7 +36606,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2526",
+      "source_location": "L2607",
       "weight": 1.0
     },
     {
@@ -36522,7 +36618,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2530",
+      "source_location": "L2611",
       "weight": 1.0
     },
     {
@@ -36534,7 +36630,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2490",
+      "source_location": "L2571",
       "weight": 1.0
     },
     {
@@ -36546,7 +36642,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2015",
+      "source_location": "L2063",
       "weight": 1.0
     },
     {
@@ -36558,7 +36654,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2016",
+      "source_location": "L2064",
       "weight": 1.0
     },
     {
@@ -36570,7 +36666,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2023",
+      "source_location": "L2071",
       "weight": 1.0
     },
     {
@@ -36582,7 +36678,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2026",
+      "source_location": "L2074",
       "weight": 1.0
     },
     {
@@ -36594,7 +36690,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2041",
+      "source_location": "L2089",
       "weight": 1.0
     },
     {
@@ -36606,7 +36702,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2045",
+      "source_location": "L2093",
       "weight": 1.0
     },
     {
@@ -36618,7 +36714,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2048",
+      "source_location": "L2096",
       "weight": 1.0
     },
     {
@@ -36630,7 +36726,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2050",
+      "source_location": "L2098",
       "weight": 1.0
     },
     {
@@ -36642,7 +36738,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2053",
+      "source_location": "L2101",
       "weight": 1.0
     },
     {
@@ -36654,7 +36750,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2063",
+      "source_location": "L2111",
       "weight": 1.0
     },
     {
@@ -36666,7 +36762,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2063",
+      "source_location": "L2111",
       "weight": 1.0
     },
     {
@@ -36678,7 +36774,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2064",
+      "source_location": "L2112",
       "weight": 1.0
     },
     {
@@ -36690,7 +36786,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2627",
+      "source_location": "L2708",
       "weight": 1.0
     },
     {
@@ -36702,7 +36798,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2631",
+      "source_location": "L2712",
       "weight": 1.0
     },
     {
@@ -36714,7 +36810,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2633",
+      "source_location": "L2714",
       "weight": 1.0
     },
     {
@@ -36726,7 +36822,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2635",
+      "source_location": "L2716",
       "weight": 1.0
     },
     {
@@ -36738,7 +36834,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2638",
+      "source_location": "L2719",
       "weight": 1.0
     },
     {
@@ -36750,7 +36846,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2644",
+      "source_location": "L2725",
       "weight": 1.0
     },
     {
@@ -36762,7 +36858,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2659",
+      "source_location": "L2740",
       "weight": 1.0
     },
     {
@@ -36774,7 +36870,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2677",
+      "source_location": "L2758",
       "weight": 1.0
     },
     {
@@ -36786,7 +36882,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1390",
+      "source_location": "L1438",
       "weight": 1.0
     },
     {
@@ -36798,7 +36894,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1936",
+      "source_location": "L1984",
       "weight": 1.0
     },
     {
@@ -36810,7 +36906,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1937",
+      "source_location": "L1985",
       "weight": 1.0
     },
     {
@@ -36822,84 +36918,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1938",
+      "source_location": "L1986",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_buscar_cobertura",
       "target": "lottooptimizerv3_20_decir_nivel",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1940",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_buscar_cobertura",
-      "target": "lottooptimizerv3_20_fijar_mejor",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1943",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_buscar_cobertura",
-      "target": "lottooptimizerv3_20_buscar_local",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1944",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_buscar_cobertura",
-      "target": "lottooptimizerv3_20_optimizar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1953",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_buscar_cobertura",
-      "target": "lottooptimizerv3_20_restaurar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1955",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_buscar_cobertura",
-      "target": "lottooptimizerv3_20_aplicar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1970",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_buscar_cobertura",
-      "target": "lottooptimizerv3_20_clonar_ap",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -36911,19 +36935,43 @@
     },
     {
       "source": "lottooptimizerv3_20_buscar_cobertura",
-      "target": "lottooptimizerv3_20_cargar_ap",
+      "target": "lottooptimizerv3_20_fijar_mejor",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1995",
+      "source_location": "L1991",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_buscar_cobertura",
-      "target": "lottooptimizerv3_20_cob_de",
+      "target": "lottooptimizerv3_20_buscar_local",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1992",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_buscar_cobertura",
+      "target": "lottooptimizerv3_20_optimizar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2001",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_buscar_cobertura",
+      "target": "lottooptimizerv3_20_restaurar",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -36935,6 +36983,54 @@
     },
     {
       "source": "lottooptimizerv3_20_buscar_cobertura",
+      "target": "lottooptimizerv3_20_aplicar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2018",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_buscar_cobertura",
+      "target": "lottooptimizerv3_20_clonar_ap",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2036",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_buscar_cobertura",
+      "target": "lottooptimizerv3_20_cargar_ap",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2043",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_buscar_cobertura",
+      "target": "lottooptimizerv3_20_cob_de",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2051",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_buscar_cobertura",
       "target": "lottooptimizerv3_20_progreso",
       "relation": "calls",
       "_origin": "ast",
@@ -36942,7 +37038,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2005",
+      "source_location": "L2053",
       "weight": 1.0
     },
     {
@@ -36954,7 +37050,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2006",
+      "source_location": "L2054",
       "weight": 1.0
     },
     {
@@ -36966,7 +37062,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1026",
+      "source_location": "L1027",
       "weight": 1.0
     },
     {
@@ -36978,7 +37074,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1029",
+      "source_location": "L1030",
       "weight": 1.0
     },
     {
@@ -36990,7 +37086,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1034",
+      "source_location": "L1035",
       "weight": 1.0
     },
     {
@@ -37002,24 +37098,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1037",
+      "source_location": "L1038",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_buscar_local",
       "target": "lottooptimizerv3_20_cob_de",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1040",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_buscar_local",
-      "target": "lottooptimizerv3_20_progreso",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -37031,6 +37115,18 @@
     },
     {
       "source": "lottooptimizerv3_20_buscar_local",
+      "target": "lottooptimizerv3_20_progreso",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1042",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_buscar_local",
       "target": "lottooptimizerv3_20_golpe",
       "relation": "calls",
       "_origin": "ast",
@@ -37038,7 +37134,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1043",
+      "source_location": "L1044",
       "weight": 1.0
     },
     {
@@ -37050,7 +37146,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1047",
+      "source_location": "L1048",
       "weight": 1.0
     },
     {
@@ -37062,7 +37158,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1762",
+      "source_location": "L1810",
       "weight": 1.0
     },
     {
@@ -37074,7 +37170,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1765",
+      "source_location": "L1813",
       "weight": 1.0
     },
     {
@@ -37086,7 +37182,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1766",
+      "source_location": "L1814",
       "weight": 1.0
     },
     {
@@ -37098,7 +37194,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1767",
+      "source_location": "L1815",
       "weight": 1.0
     },
     {
@@ -37110,7 +37206,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L756",
+      "source_location": "L757",
       "weight": 1.0
     },
     {
@@ -37122,7 +37218,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1018",
+      "source_location": "L1019",
       "weight": 1.0
     },
     {
@@ -37134,7 +37230,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1730",
+      "source_location": "L1778",
       "weight": 1.0
     },
     {
@@ -37146,7 +37242,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1732",
+      "source_location": "L1780",
       "weight": 1.0
     },
     {
@@ -37158,7 +37254,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1733",
+      "source_location": "L1781",
       "weight": 1.0
     },
     {
@@ -37170,7 +37266,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1734",
+      "source_location": "L1782",
       "weight": 1.0
     },
     {
@@ -37182,7 +37278,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1419",
+      "source_location": "L1467",
       "weight": 1.0
     },
     {
@@ -37194,7 +37290,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1420",
+      "source_location": "L1468",
       "weight": 1.0
     },
     {
@@ -37206,7 +37302,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1421",
+      "source_location": "L1469",
       "weight": 1.0
     },
     {
@@ -37218,7 +37314,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1428",
+      "source_location": "L1476",
       "weight": 1.0
     },
     {
@@ -37230,7 +37326,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1446",
+      "source_location": "L1494",
       "weight": 1.0
     },
     {
@@ -37242,7 +37338,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1793",
+      "source_location": "L1841",
       "weight": 1.0
     },
     {
@@ -37254,7 +37350,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1812",
+      "source_location": "L1860",
       "weight": 1.0
     },
     {
@@ -37266,7 +37362,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1814",
+      "source_location": "L1862",
       "weight": 1.0
     },
     {
@@ -37278,7 +37374,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1834",
+      "source_location": "L1882",
       "weight": 1.0
     },
     {
@@ -37290,7 +37386,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1835",
+      "source_location": "L1883",
       "weight": 1.0
     },
     {
@@ -37302,7 +37398,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1839",
+      "source_location": "L1887",
       "weight": 1.0
     },
     {
@@ -37314,36 +37410,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L947",
+      "source_location": "L948",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_escalar",
       "target": "lottooptimizerv3_20_repetida",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L961",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_escalar",
-      "target": "lottooptimizerv3_20_valida",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L961",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_escalar",
-      "target": "lottooptimizerv3_20_ganancia",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -37355,7 +37427,19 @@
     },
     {
       "source": "lottooptimizerv3_20_escalar",
-      "target": "lottooptimizerv3_20_aplicar",
+      "target": "lottooptimizerv3_20_valida",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L962",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_escalar",
+      "target": "lottooptimizerv3_20_ganancia",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -37367,6 +37451,18 @@
     },
     {
       "source": "lottooptimizerv3_20_escalar",
+      "target": "lottooptimizerv3_20_aplicar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L964",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_escalar",
       "target": "lottooptimizerv3_20_guardar_mejor",
       "relation": "calls",
       "_origin": "ast",
@@ -37374,7 +37470,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L966",
+      "source_location": "L967",
       "weight": 1.0
     },
     {
@@ -37386,7 +37482,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2258",
+      "source_location": "L2306",
       "weight": 1.0
     },
     {
@@ -37398,7 +37494,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2275",
+      "source_location": "L2323",
       "weight": 1.0
     },
     {
@@ -37410,7 +37506,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1884",
+      "source_location": "L1932",
       "weight": 1.0
     },
     {
@@ -37422,7 +37518,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1889",
+      "source_location": "L1937",
       "weight": 1.0
     },
     {
@@ -37434,7 +37530,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1890",
+      "source_location": "L1938",
       "weight": 1.0
     },
     {
@@ -37446,7 +37542,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1894",
+      "source_location": "L1942",
       "weight": 1.0
     },
     {
@@ -37458,7 +37554,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1897",
+      "source_location": "L1945",
       "weight": 1.0
     },
     {
@@ -37470,7 +37566,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1907",
+      "source_location": "L1955",
       "weight": 1.0
     },
     {
@@ -37482,7 +37578,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1907",
+      "source_location": "L1955",
       "weight": 1.0
     },
     {
@@ -37494,7 +37590,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1911",
+      "source_location": "L1959",
       "weight": 1.0
     },
     {
@@ -37506,7 +37602,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1922",
+      "source_location": "L1970",
       "weight": 1.0
     },
     {
@@ -37518,7 +37614,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1923",
+      "source_location": "L1971",
       "weight": 1.0
     },
     {
@@ -37530,7 +37626,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1924",
+      "source_location": "L1972",
       "weight": 1.0
     },
     {
@@ -37542,7 +37638,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1926",
+      "source_location": "L1974",
       "weight": 1.0
     },
     {
@@ -37554,7 +37650,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1927",
+      "source_location": "L1975",
       "weight": 1.0
     },
     {
@@ -37566,7 +37662,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1774",
+      "source_location": "L1822",
       "weight": 1.0
     },
     {
@@ -37578,24 +37674,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1775",
+      "source_location": "L1823",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_filtros_desde",
       "target": "lottooptimizerv3_20_json_valor",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L416",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_filtros_desde",
-      "target": "lottooptimizerv3_20_filtros_init",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -37607,7 +37691,7 @@
     },
     {
       "source": "lottooptimizerv3_20_filtros_desde",
-      "target": "lottooptimizerv3_20_objeto_fin",
+      "target": "lottooptimizerv3_20_filtros_init",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -37619,19 +37703,19 @@
     },
     {
       "source": "lottooptimizerv3_20_filtros_desde",
-      "target": "lottooptimizerv3_20_json_bool",
+      "target": "lottooptimizerv3_20_objeto_fin",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L420",
+      "source_location": "L419",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_filtros_desde",
-      "target": "lottooptimizerv3_20_leer_int",
+      "target": "lottooptimizerv3_20_json_bool",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -37643,6 +37727,18 @@
     },
     {
       "source": "lottooptimizerv3_20_filtros_desde",
+      "target": "lottooptimizerv3_20_leer_int",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L422",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_filtros_desde",
       "target": "lottooptimizerv3_20_analizar_numeros",
       "relation": "calls",
       "_origin": "ast",
@@ -37650,7 +37746,55 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L452",
+      "source_location": "L453",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_garantia_del_cuerpo",
+      "target": "lottooptimizerv3_20_json_valor",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1225",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_garantia_del_cuerpo",
+      "target": "lottooptimizerv3_20_objeto_fin",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1226",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_garantia_del_cuerpo",
+      "target": "lottooptimizerv3_20_json_str",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1227",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_garantia_del_cuerpo",
+      "target": "lottooptimizerv3_20_tipo_de",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1228",
       "weight": 1.0
     },
     {
@@ -37662,7 +37806,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L891",
+      "source_location": "L892",
       "weight": 1.0
     },
     {
@@ -37674,7 +37818,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L893",
+      "source_location": "L894",
       "weight": 1.0
     },
     {
@@ -37686,7 +37830,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L895",
+      "source_location": "L896",
       "weight": 1.0
     },
     {
@@ -37698,7 +37842,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L897",
+      "source_location": "L898",
       "weight": 1.0
     },
     {
@@ -37710,7 +37854,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L903",
+      "source_location": "L904",
       "weight": 1.0
     },
     {
@@ -37722,7 +37866,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L905",
+      "source_location": "L906",
       "weight": 1.0
     },
     {
@@ -37734,7 +37878,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L906",
+      "source_location": "L907",
       "weight": 1.0
     },
     {
@@ -37746,7 +37890,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1000",
+      "source_location": "L1001",
       "weight": 1.0
     },
     {
@@ -37758,7 +37902,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L982",
+      "source_location": "L983",
       "weight": 1.0
     },
     {
@@ -37770,7 +37914,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L991",
+      "source_location": "L992",
       "weight": 1.0
     },
     {
@@ -37782,7 +37926,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L994",
+      "source_location": "L995",
       "weight": 1.0
     },
     {
@@ -37794,7 +37938,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L996",
+      "source_location": "L997",
       "weight": 1.0
     },
     {
@@ -37806,7 +37950,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L997",
+      "source_location": "L998",
       "weight": 1.0
     },
     {
@@ -37818,7 +37962,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1801",
+      "source_location": "L1849",
       "weight": 1.0
     },
     {
@@ -37830,7 +37974,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L932",
+      "source_location": "L933",
       "weight": 1.0
     },
     {
@@ -37842,7 +37986,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1203",
+      "source_location": "L1251",
       "weight": 1.0
     },
     {
@@ -37854,7 +37998,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1206",
+      "source_location": "L1254",
       "weight": 1.0
     },
     {
@@ -37866,7 +38010,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1209",
+      "source_location": "L1257",
       "weight": 1.0
     },
     {
@@ -37878,7 +38022,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1212",
+      "source_location": "L1260",
       "weight": 1.0
     },
     {
@@ -37890,7 +38034,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1213",
+      "source_location": "L1261",
       "weight": 1.0
     },
     {
@@ -37902,7 +38046,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1218",
+      "source_location": "L1266",
       "weight": 1.0
     },
     {
@@ -37914,120 +38058,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1219",
+      "source_location": "L1267",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_hilo",
       "target": "lottooptimizerv3_20_anotar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2074",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_hilo",
-      "target": "lottooptimizerv3_20_descargar_reducida",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2075",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_hilo",
-      "target": "lottooptimizerv3_20_mapear",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2083",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_hilo",
-      "target": "lottooptimizerv3_20_escribir",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2084",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_hilo",
-      "target": "lottooptimizerv3_20_publicar_bets",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2086",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_hilo",
-      "target": "lottooptimizerv3_20_opt_nuevo",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2097",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_hilo",
-      "target": "lottooptimizerv3_20_fijar_nota",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2108",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_hilo",
-      "target": "lottooptimizerv3_20_agregar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2119",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_hilo",
-      "target": "lottooptimizerv3_20_optimizar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2121",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_hilo",
-      "target": "lottooptimizerv3_20_guardar_opt",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -38039,43 +38075,55 @@
     },
     {
       "source": "lottooptimizerv3_20_hilo",
-      "target": "lottooptimizerv3_20_cob_de",
+      "target": "lottooptimizerv3_20_descargar_reducida",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2138",
+      "source_location": "L2123",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_hilo",
-      "target": "lottooptimizerv3_20_progreso",
+      "target": "lottooptimizerv3_20_mapear",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2141",
+      "source_location": "L2131",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_hilo",
-      "target": "lottooptimizerv3_20_volcar",
+      "target": "lottooptimizerv3_20_escribir",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2142",
+      "source_location": "L2132",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_hilo",
-      "target": "lottooptimizerv3_20_buscar_cobertura",
+      "target": "lottooptimizerv3_20_publicar_bets",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2134",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_hilo",
+      "target": "lottooptimizerv3_20_opt_nuevo",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -38087,6 +38135,102 @@
     },
     {
       "source": "lottooptimizerv3_20_hilo",
+      "target": "lottooptimizerv3_20_fijar_nota",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2156",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_hilo",
+      "target": "lottooptimizerv3_20_agregar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2167",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_hilo",
+      "target": "lottooptimizerv3_20_optimizar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2169",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_hilo",
+      "target": "lottooptimizerv3_20_guardar_opt",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2170",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_hilo",
+      "target": "lottooptimizerv3_20_cob_de",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2186",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_hilo",
+      "target": "lottooptimizerv3_20_progreso",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2189",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_hilo",
+      "target": "lottooptimizerv3_20_volcar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2190",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_hilo",
+      "target": "lottooptimizerv3_20_buscar_cobertura",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2193",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_hilo",
       "target": "lottooptimizerv3_20_estrategia",
       "relation": "calls",
       "_origin": "ast",
@@ -38094,7 +38238,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2147",
+      "source_location": "L2195",
       "weight": 1.0
     },
     {
@@ -38106,7 +38250,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2155",
+      "source_location": "L2203",
       "weight": 1.0
     },
     {
@@ -38118,7 +38262,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2158",
+      "source_location": "L2206",
       "weight": 1.0
     },
     {
@@ -38130,7 +38274,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2159",
+      "source_location": "L2207",
       "weight": 1.0
     },
     {
@@ -38142,7 +38286,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2163",
+      "source_location": "L2211",
       "weight": 1.0
     },
     {
@@ -38154,7 +38298,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2190",
+      "source_location": "L2238",
       "weight": 1.0
     },
     {
@@ -38166,7 +38310,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1287",
+      "source_location": "L1335",
       "weight": 1.0
     },
     {
@@ -38178,7 +38322,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L248",
+      "source_location": "L249",
       "weight": 1.0
     },
     {
@@ -38190,7 +38334,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L253",
+      "source_location": "L254",
       "weight": 1.0
     },
     {
@@ -38202,7 +38346,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L228",
+      "source_location": "L229",
       "weight": 1.0
     },
     {
@@ -38214,7 +38358,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L204",
+      "source_location": "L205",
       "weight": 1.0
     },
     {
@@ -38226,7 +38370,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L207",
+      "source_location": "L208",
       "weight": 1.0
     },
     {
@@ -38238,7 +38382,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2205",
+      "source_location": "L2253",
       "weight": 1.0
     },
     {
@@ -38250,7 +38394,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2207",
+      "source_location": "L2255",
       "weight": 1.0
     },
     {
@@ -38262,7 +38406,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L267",
+      "source_location": "L268",
       "weight": 1.0
     },
     {
@@ -38274,7 +38418,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L286",
+      "source_location": "L287",
       "weight": 1.0
     },
     {
@@ -38286,7 +38430,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L777",
+      "source_location": "L778",
       "weight": 1.0
     },
     {
@@ -38298,7 +38442,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2702",
+      "source_location": "L2783",
       "weight": 1.0
     },
     {
@@ -38310,7 +38454,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2704",
+      "source_location": "L2785",
       "weight": 1.0
     },
     {
@@ -38322,7 +38466,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2707",
+      "source_location": "L2788",
       "weight": 1.0
     },
     {
@@ -38334,7 +38478,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L564",
+      "source_location": "L565",
       "weight": 1.0
     },
     {
@@ -38346,7 +38490,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L655",
+      "source_location": "L656",
       "weight": 1.0
     },
     {
@@ -38358,7 +38502,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L218",
+      "source_location": "L219",
       "weight": 1.0
     },
     {
@@ -38370,7 +38514,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L820",
+      "source_location": "L821",
       "weight": 1.0
     },
     {
@@ -38382,7 +38526,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L824",
+      "source_location": "L825",
       "weight": 1.0
     },
     {
@@ -38394,7 +38538,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L825",
+      "source_location": "L826",
       "weight": 1.0
     },
     {
@@ -38406,7 +38550,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L843",
+      "source_location": "L844",
       "weight": 1.0
     },
     {
@@ -38418,7 +38562,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L846",
+      "source_location": "L847",
       "weight": 1.0
     },
     {
@@ -38430,7 +38574,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L849",
+      "source_location": "L850",
       "weight": 1.0
     },
     {
@@ -38442,7 +38586,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1054",
+      "source_location": "L1055",
       "weight": 1.0
     },
     {
@@ -38454,24 +38598,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1058",
+      "source_location": "L1059",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_optimizar",
       "target": "lottooptimizerv3_20_anotar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1062",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_optimizar",
-      "target": "lottooptimizerv3_20_progreso",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -38483,7 +38615,7 @@
     },
     {
       "source": "lottooptimizerv3_20_optimizar",
-      "target": "lottooptimizerv3_20_volcar",
+      "target": "lottooptimizerv3_20_progreso",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -38495,6 +38627,18 @@
     },
     {
       "source": "lottooptimizerv3_20_optimizar",
+      "target": "lottooptimizerv3_20_volcar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1065",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_optimizar",
       "target": "lottooptimizerv3_20_paso",
       "relation": "calls",
       "_origin": "ast",
@@ -38502,7 +38646,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1074",
+      "source_location": "L1075",
       "weight": 1.0
     },
     {
@@ -38514,7 +38658,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1081",
+      "source_location": "L1082",
       "weight": 1.0
     },
     {
@@ -38526,7 +38670,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1104",
+      "source_location": "L1105",
       "weight": 1.0
     },
     {
@@ -38538,7 +38682,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1114",
+      "source_location": "L1115",
       "weight": 1.0
     },
     {
@@ -38550,7 +38694,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L461",
+      "source_location": "L462",
       "weight": 1.0
     },
     {
@@ -38562,7 +38706,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L462",
+      "source_location": "L463",
       "weight": 1.0
     },
     {
@@ -38574,7 +38718,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L463",
+      "source_location": "L464",
       "weight": 1.0
     },
     {
@@ -38586,7 +38730,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L464",
+      "source_location": "L465",
       "weight": 1.0
     },
     {
@@ -38598,7 +38742,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L465",
+      "source_location": "L466",
       "weight": 1.0
     },
     {
@@ -38610,7 +38754,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L466",
+      "source_location": "L467",
       "weight": 1.0
     },
     {
@@ -38622,7 +38766,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L467",
+      "source_location": "L468",
       "weight": 1.0
     },
     {
@@ -38634,7 +38778,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L483",
+      "source_location": "L484",
       "weight": 1.0
     },
     {
@@ -38646,7 +38790,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L484",
+      "source_location": "L485",
       "weight": 1.0
     },
     {
@@ -38658,7 +38802,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L486",
+      "source_location": "L487",
       "weight": 1.0
     },
     {
@@ -38670,7 +38814,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L487",
+      "source_location": "L488",
       "weight": 1.0
     },
     {
@@ -38682,7 +38826,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L383",
+      "source_location": "L384",
       "weight": 1.0
     },
     {
@@ -38694,7 +38838,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L701",
+      "source_location": "L702",
       "weight": 1.0
     },
     {
@@ -38706,7 +38850,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L703",
+      "source_location": "L704",
       "weight": 1.0
     },
     {
@@ -38718,24 +38862,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L704",
+      "source_location": "L705",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20_paso",
       "target": "lottooptimizerv3_20_valida",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L704",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20_paso",
-      "target": "lottooptimizerv3_20_ganancia",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -38747,6 +38879,18 @@
     },
     {
       "source": "lottooptimizerv3_20_paso",
+      "target": "lottooptimizerv3_20_ganancia",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L706",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_paso",
       "target": "lottooptimizerv3_20_aplicar",
       "relation": "calls",
       "_origin": "ast",
@@ -38754,7 +38898,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L713",
+      "source_location": "L714",
       "weight": 1.0
     },
     {
@@ -38766,7 +38910,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L716",
+      "source_location": "L717",
       "weight": 1.0
     },
     {
@@ -38778,7 +38922,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1369",
+      "source_location": "L1417",
       "weight": 1.0
     },
     {
@@ -38790,7 +38934,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1370",
+      "source_location": "L1418",
       "weight": 1.0
     },
     {
@@ -38802,7 +38946,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L175",
+      "source_location": "L176",
       "weight": 1.0
     },
     {
@@ -38814,7 +38958,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1858",
+      "source_location": "L1906",
       "weight": 1.0
     },
     {
@@ -38826,7 +38970,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1864",
+      "source_location": "L1912",
       "weight": 1.0
     },
     {
@@ -38838,7 +38982,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1867",
+      "source_location": "L1915",
       "weight": 1.0
     },
     {
@@ -38850,7 +38994,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1868",
+      "source_location": "L1916",
       "weight": 1.0
     },
     {
@@ -38862,7 +39006,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L153",
+      "source_location": "L154",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_rellenar_desde_bets",
+      "target": "lottooptimizerv3_20_deducir_bets",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1214",
       "weight": 1.0
     },
     {
@@ -38874,7 +39030,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L917",
+      "source_location": "L918",
       "weight": 1.0
     },
     {
@@ -38886,7 +39042,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L921",
+      "source_location": "L922",
       "weight": 1.0
     },
     {
@@ -38898,7 +39054,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L924",
+      "source_location": "L925",
       "weight": 1.0
     },
     {
@@ -38910,7 +39066,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L925",
+      "source_location": "L926",
       "weight": 1.0
     },
     {
@@ -38922,7 +39078,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L795",
+      "source_location": "L796",
       "weight": 1.0
     },
     {
@@ -38934,7 +39090,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2299",
+      "source_location": "L2351",
       "weight": 1.0
     },
     {
@@ -38946,7 +39102,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2308",
+      "source_location": "L2360",
       "weight": 1.0
     },
     {
@@ -38958,7 +39114,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2309",
+      "source_location": "L2361",
       "weight": 1.0
     },
     {
@@ -38970,7 +39126,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2314",
+      "source_location": "L2366",
       "weight": 1.0
     },
     {
@@ -38982,7 +39138,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2316",
+      "source_location": "L2368",
       "weight": 1.0
     },
     {
@@ -38994,7 +39150,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1009",
+      "source_location": "L1010",
       "weight": 1.0
     },
     {
@@ -39006,7 +39162,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1012",
+      "source_location": "L1013",
       "weight": 1.0
     },
     {
@@ -39018,7 +39174,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2593",
+      "source_location": "L2674",
       "weight": 1.0
     },
     {
@@ -39030,7 +39186,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2608",
+      "source_location": "L2689",
       "weight": 1.0
     },
     {
@@ -39042,7 +39198,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2337",
+      "source_location": "L2389",
       "weight": 1.0
     },
     {
@@ -39054,7 +39210,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1740",
+      "source_location": "L1788",
       "weight": 1.0
     },
     {
@@ -39066,7 +39222,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1742",
+      "source_location": "L1790",
       "weight": 1.0
     },
     {
@@ -39078,7 +39234,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1743",
+      "source_location": "L1791",
       "weight": 1.0
     },
     {
@@ -39090,7 +39246,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1609",
+      "source_location": "L1657",
       "weight": 1.0
     },
     {
@@ -39102,7 +39258,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1623",
+      "source_location": "L1671",
       "weight": 1.0
     },
     {
@@ -39114,7 +39270,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1510",
+      "source_location": "L1558",
       "weight": 1.0
     },
     {
@@ -39126,7 +39282,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1511",
+      "source_location": "L1559",
       "weight": 1.0
     },
     {
@@ -39138,7 +39294,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1640",
+      "source_location": "L1688",
       "weight": 1.0
     },
     {
@@ -39150,7 +39306,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1717",
+      "source_location": "L1765",
       "weight": 1.0
     },
     {
@@ -39162,7 +39318,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1724",
+      "source_location": "L1772",
       "weight": 1.0
     },
     {
@@ -39174,7 +39330,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1674",
+      "source_location": "L1722",
       "weight": 1.0
     },
     {
@@ -39186,7 +39342,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1679",
+      "source_location": "L1727",
       "weight": 1.0
     },
     {
@@ -39198,7 +39354,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1695",
+      "source_location": "L1743",
       "weight": 1.0
     },
     {
@@ -39210,7 +39366,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1847",
+      "source_location": "L1895",
       "weight": 1.0
     },
     {
@@ -39222,7 +39378,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L582",
+      "source_location": "L583",
       "weight": 1.0
     },
     {
@@ -39234,7 +39390,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L584",
+      "source_location": "L585",
       "weight": 1.0
     },
     {
@@ -39246,7 +39402,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1191",
+      "source_location": "L1239",
       "weight": 1.0
     },
     {
@@ -39258,7 +39414,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1192",
+      "source_location": "L1240",
       "weight": 1.0
     },
     {
@@ -39270,7 +39426,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1193",
+      "source_location": "L1241",
       "weight": 1.0
     },
     {
@@ -41322,7 +41478,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2330",
+      "source_location": "L2382",
       "weight": 1.0
     },
     {
@@ -46122,7 +46278,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L683",
+      "source_location": "L684",
       "weight": 1.0
     },
     {
@@ -46134,7 +46290,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1562",
+      "source_location": "L1610",
       "weight": 1.0
     },
     {
@@ -46146,7 +46302,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2349",
+      "source_location": "L2401",
       "weight": 1.0
     },
     {
@@ -46158,7 +46314,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L592",
+      "source_location": "L593",
       "weight": 1.0
     },
     {
@@ -46170,7 +46326,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2495",
+      "source_location": "L2576",
       "weight": 1.0
     },
     {
@@ -46182,7 +46338,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2488",
+      "source_location": "L2569",
       "weight": 1.0
     },
     {
@@ -46194,7 +46350,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2011",
+      "source_location": "L2059",
       "weight": 1.0
     },
     {
@@ -46206,7 +46362,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2011",
+      "source_location": "L2059",
       "weight": 1.0
     },
     {
@@ -46218,7 +46374,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1551",
+      "source_location": "L1599",
       "weight": 1.0
     },
     {
@@ -46230,7 +46386,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1931",
+      "source_location": "L1979",
       "weight": 1.0
     },
     {
@@ -46242,7 +46398,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1931",
+      "source_location": "L1979",
       "weight": 1.0
     },
     {
@@ -46254,7 +46410,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1022",
+      "source_location": "L1023",
       "weight": 1.0
     },
     {
@@ -46266,7 +46422,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1760",
+      "source_location": "L1808",
       "weight": 1.0
     },
     {
@@ -46278,7 +46434,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1750",
+      "source_location": "L1798",
       "weight": 1.0
     },
     {
@@ -46290,7 +46446,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L691",
+      "source_location": "L692",
       "weight": 1.0
     },
     {
@@ -46302,7 +46458,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L662",
+      "source_location": "L663",
       "weight": 1.0
     },
     {
@@ -46314,7 +46470,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1017",
+      "source_location": "L1018",
       "weight": 1.0
     },
     {
@@ -46326,7 +46482,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1728",
+      "source_location": "L1776",
       "weight": 1.0
     },
     {
@@ -46338,7 +46494,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1728",
+      "source_location": "L1776",
       "weight": 1.0
     },
     {
@@ -46350,7 +46506,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1825",
+      "source_location": "L1873",
       "weight": 1.0
     },
     {
@@ -46362,7 +46518,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L941",
+      "source_location": "L942",
       "weight": 1.0
     },
     {
@@ -46374,7 +46530,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1881",
+      "source_location": "L1929",
       "weight": 1.0
     },
     {
@@ -46386,7 +46542,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1881",
+      "source_location": "L1929",
       "weight": 1.0
     },
     {
@@ -46398,7 +46554,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1773",
+      "source_location": "L1821",
       "weight": 1.0
     },
     {
@@ -46410,7 +46566,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L618",
+      "source_location": "L619",
       "weight": 1.0
     },
     {
@@ -46422,7 +46578,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L887",
+      "source_location": "L888",
       "weight": 1.0
     },
     {
@@ -46434,7 +46590,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L887",
+      "source_location": "L888",
       "weight": 1.0
     },
     {
@@ -46446,7 +46602,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L975",
+      "source_location": "L976",
       "weight": 1.0
     },
     {
@@ -46458,7 +46614,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L931",
+      "source_location": "L932",
       "weight": 1.0
     },
     {
@@ -46470,7 +46626,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1196",
+      "source_location": "L1244",
       "weight": 1.0
     },
     {
@@ -46482,7 +46638,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1196",
+      "source_location": "L1244",
       "weight": 1.0
     },
     {
@@ -46494,7 +46650,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2067",
+      "source_location": "L2115",
       "weight": 1.0
     },
     {
@@ -46506,7 +46662,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L547",
+      "source_location": "L548",
       "weight": 1.0
     },
     {
@@ -46518,7 +46674,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L769",
+      "source_location": "L770",
       "weight": 1.0
     },
     {
@@ -46530,7 +46686,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1123",
+      "source_location": "L1124",
       "weight": 1.0
     },
     {
@@ -46542,7 +46698,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L648",
+      "source_location": "L649",
       "weight": 1.0
     },
     {
@@ -46554,7 +46710,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L727",
+      "source_location": "L728",
       "weight": 1.0
     },
     {
@@ -46566,7 +46722,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L807",
+      "source_location": "L808",
       "weight": 1.0
     },
     {
@@ -46578,7 +46734,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1051",
+      "source_location": "L1052",
       "weight": 1.0
     },
     {
@@ -46590,7 +46746,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1051",
+      "source_location": "L1052",
       "weight": 1.0
     },
     {
@@ -46602,7 +46758,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L456",
+      "source_location": "L457",
       "weight": 1.0
     },
     {
@@ -46614,7 +46770,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L361",
+      "source_location": "L362",
       "weight": 1.0
     },
     {
@@ -46626,7 +46782,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L696",
+      "source_location": "L697",
       "weight": 1.0
     },
     {
@@ -46638,7 +46794,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1856",
+      "source_location": "L1904",
       "weight": 1.0
     },
     {
@@ -46650,7 +46806,19 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1856",
+      "source_location": "L1904",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20_rellenar_desde_bets",
+      "target": "lottooptimizerv3_20_c_job",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1212",
       "weight": 1.0
     },
     {
@@ -46662,7 +46830,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L677",
+      "source_location": "L678",
       "weight": 1.0
     },
     {
@@ -46674,7 +46842,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L915",
+      "source_location": "L916",
       "weight": 1.0
     },
     {
@@ -46686,7 +46854,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L787",
+      "source_location": "L788",
       "weight": 1.0
     },
     {
@@ -46698,7 +46866,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2294",
+      "source_location": "L2346",
       "weight": 1.0
     },
     {
@@ -46710,7 +46878,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2305",
+      "source_location": "L2357",
       "weight": 1.0
     },
     {
@@ -46722,7 +46890,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2312",
+      "source_location": "L2364",
       "weight": 1.0
     },
     {
@@ -46734,7 +46902,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1006",
+      "source_location": "L1007",
       "weight": 1.0
     },
     {
@@ -46746,7 +46914,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2284",
+      "source_location": "L2336",
       "weight": 1.0
     },
     {
@@ -46758,7 +46926,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2332",
+      "source_location": "L2384",
       "weight": 1.0
     },
     {
@@ -46770,7 +46938,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1737",
+      "source_location": "L1785",
       "weight": 1.0
     },
     {
@@ -46782,7 +46950,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1716",
+      "source_location": "L1764",
       "weight": 1.0
     },
     {
@@ -46794,7 +46962,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1668",
+      "source_location": "L1716",
       "weight": 1.0
     },
     {
@@ -46806,7 +46974,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1844",
+      "source_location": "L1892",
       "weight": 1.0
     },
     {
@@ -46818,7 +46986,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1246",
+      "source_location": "L1294",
       "weight": 1.0
     },
     {
@@ -46830,7 +46998,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L579",
+      "source_location": "L580",
       "weight": 1.0
     },
     {
@@ -46842,7 +47010,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1183",
+      "source_location": "L1231",
       "weight": 1.0
     },
     {
@@ -46854,7 +47022,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1183",
+      "source_location": "L1231",
       "weight": 1.0
     },
     {
@@ -47142,7 +47310,7 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2488",
+      "source_location": "L2569",
       "weight": 1.0
     },
     {
@@ -47154,7 +47322,7 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2067",
+      "source_location": "L2115",
       "weight": 1.0
     },
     {
@@ -47166,7 +47334,7 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L807",
+      "source_location": "L808",
       "weight": 1.0
     },
     {
@@ -57077,7 +57245,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1006",
+      "source_location": "L1007",
       "weight": 1.0
     },
     {
@@ -57088,7 +57256,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1017",
+      "source_location": "L1018",
       "weight": 1.0
     },
     {
@@ -57099,7 +57267,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1022",
+      "source_location": "L1023",
       "weight": 1.0
     },
     {
@@ -57110,7 +57278,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1051",
+      "source_location": "L1052",
       "weight": 1.0
     },
     {
@@ -57121,7 +57289,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L110",
+      "source_location": "L111",
       "weight": 1.0
     },
     {
@@ -57132,7 +57300,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1123",
+      "source_location": "L1124",
       "weight": 1.0
     },
     {
@@ -57143,7 +57311,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1134",
+      "source_location": "L1135",
       "weight": 1.0
     },
     {
@@ -57154,7 +57322,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1141",
+      "source_location": "L1142",
       "weight": 1.0
     },
     {
@@ -57165,7 +57333,51 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1172",
+      "source_location": "L1173",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_deducir_bets",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1185",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_recordar_carga",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1203",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_rellenar_desde_bets",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1212",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_garantia_del_cuerpo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1222",
       "weight": 1.0
     },
     {
@@ -57176,7 +57388,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1183",
+      "source_location": "L1231",
       "weight": 1.0
     },
     {
@@ -57187,7 +57399,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1196",
+      "source_location": "L1244",
       "weight": 1.0
     },
     {
@@ -57198,7 +57410,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1225",
+      "source_location": "L1273",
       "weight": 1.0
     },
     {
@@ -57209,7 +57421,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1238",
+      "source_location": "L1286",
       "weight": 1.0
     },
     {
@@ -57220,7 +57432,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1246",
+      "source_location": "L1294",
       "weight": 1.0
     },
     {
@@ -57231,29 +57443,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1254",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_acaba_txt",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1351",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_primer_txt",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1357",
+      "source_location": "L1302",
       "weight": 1.0
     },
     {
@@ -57264,7 +57454,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L136",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_acaba_txt",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1399",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_primer_txt",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1405",
       "weight": 1.0
     },
     {
@@ -57275,7 +57487,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1380",
+      "source_location": "L1428",
       "weight": 1.0
     },
     {
@@ -57286,7 +57498,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1397",
+      "source_location": "L1445",
       "weight": 1.0
     },
     {
@@ -57297,29 +57509,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1409",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_copiar_bets",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1490",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_texto_escrutinio",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1505",
+      "source_location": "L1457",
       "weight": 1.0
     },
     {
@@ -57330,7 +57520,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L151",
+      "source_location": "L152",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_copiar_bets",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1538",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_texto_escrutinio",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1553",
       "weight": 1.0
     },
     {
@@ -57341,7 +57553,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1529",
+      "source_location": "L1577",
       "weight": 1.0
     },
     {
@@ -57352,7 +57564,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1551",
+      "source_location": "L1599",
       "weight": 1.0
     },
     {
@@ -57363,7 +57575,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1562",
+      "source_location": "L1610",
       "weight": 1.0
     },
     {
@@ -57374,18 +57586,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1604",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_texto_estadisticas",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1636",
+      "source_location": "L1652",
       "weight": 1.0
     },
     {
@@ -57396,23 +57597,23 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L166",
+      "source_location": "L167",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_texto_validacion",
+      "target": "lottooptimizerv3_20_texto_estadisticas",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1668",
+      "source_location": "L1684",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_texto_garantias",
+      "target": "lottooptimizerv3_20_texto_validacion",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -57429,7 +57630,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L172",
+      "source_location": "L173",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_texto_garantias",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1764",
       "weight": 1.0
     },
     {
@@ -57440,7 +57652,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1728",
+      "source_location": "L1776",
       "weight": 1.0
     },
     {
@@ -57451,7 +57663,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1737",
+      "source_location": "L1785",
       "weight": 1.0
     },
     {
@@ -57462,7 +57674,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1750",
+      "source_location": "L1798",
       "weight": 1.0
     },
     {
@@ -57473,40 +57685,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1760",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_fijar_mejor",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1773",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_distribucion_floja",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1781",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_grupos_aseguran",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1798",
+      "source_location": "L1808",
       "weight": 1.0
     },
     {
@@ -57517,7 +57696,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L180",
+      "source_location": "L181",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_fijar_mejor",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1821",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_distribucion_floja",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1829",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_grupos_aseguran",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1846",
       "weight": 1.0
     },
     {
@@ -57528,7 +57740,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1804",
+      "source_location": "L1852",
       "weight": 1.0
     },
     {
@@ -57539,7 +57751,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1825",
+      "source_location": "L1873",
       "weight": 1.0
     },
     {
@@ -57550,7 +57762,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1844",
+      "source_location": "L1892",
       "weight": 1.0
     },
     {
@@ -57561,18 +57773,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1856",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_estrategia",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1881",
+      "source_location": "L1904",
       "weight": 1.0
     },
     {
@@ -57583,18 +57784,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L191",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_buscar_cobertura",
+      "target": "lottooptimizerv3_20_estrategia",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L1931",
+      "source_location": "L1929",
       "weight": 1.0
     },
     {
@@ -57605,7 +57806,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L196",
+      "source_location": "L197",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_buscar_cobertura",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L1979",
       "weight": 1.0
     },
     {
@@ -57616,7 +57828,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2011",
+      "source_location": "L2059",
       "weight": 1.0
     },
     {
@@ -57627,7 +57839,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2067",
+      "source_location": "L2115",
       "weight": 1.0
     },
     {
@@ -57638,7 +57850,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L212",
+      "source_location": "L213",
       "weight": 1.0
     },
     {
@@ -57649,29 +57861,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2198",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_json_escape",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2237",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_estado_json",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2254",
+      "source_location": "L2246",
       "weight": 1.0
     },
     {
@@ -57682,7 +57872,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L227",
+      "source_location": "L228",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_json_escape",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2285",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_estado_json",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2302",
       "weight": 1.0
     },
     {
@@ -57693,7 +57905,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2284",
+      "source_location": "L2336",
       "weight": 1.0
     },
     {
@@ -57704,7 +57916,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2294",
+      "source_location": "L2346",
       "weight": 1.0
     },
     {
@@ -57715,7 +57927,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2305",
+      "source_location": "L2357",
       "weight": 1.0
     },
     {
@@ -57726,7 +57938,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2312",
+      "source_location": "L2364",
       "weight": 1.0
     },
     {
@@ -57737,7 +57949,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2332",
+      "source_location": "L2384",
       "weight": 1.0
     },
     {
@@ -57748,7 +57960,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2349",
+      "source_location": "L2401",
       "weight": 1.0
     },
     {
@@ -57759,29 +57971,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L247",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_atender_hilo",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2488",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_atender",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2495",
+      "source_location": "L248",
       "weight": 1.0
     },
     {
@@ -57792,34 +57982,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L252",
+      "source_location": "L253",
       "weight": 1.0
     },
     {
       "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_buscar_navegador",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2536",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_abrir_ventana",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2548",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_servir",
+      "target": "lottooptimizerv3_20_atender_hilo",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -57830,13 +57998,46 @@
     },
     {
       "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_bench",
+      "target": "lottooptimizerv3_20_atender",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2620",
+      "source_location": "L2576",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_buscar_navegador",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2617",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_abrir_ventana",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2629",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_servir",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2650",
       "weight": 1.0
     },
     {
@@ -57847,7 +58048,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L266",
+      "source_location": "L267",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_bench",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L2701",
       "weight": 1.0
     },
     {
@@ -57858,7 +58070,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2686",
+      "source_location": "L2767",
       "weight": 1.0
     },
     {
@@ -57869,7 +58081,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L2697",
+      "source_location": "L2778",
       "weight": 1.0
     },
     {
@@ -57880,7 +58092,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L284",
+      "source_location": "L285",
       "weight": 1.0
     },
     {
@@ -57891,7 +58103,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L300",
+      "source_location": "L301",
       "weight": 1.0
     },
     {
@@ -57902,7 +58114,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L338",
+      "source_location": "L339",
       "weight": 1.0
     },
     {
@@ -57913,7 +58125,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L342",
+      "source_location": "L343",
       "weight": 1.0
     },
     {
@@ -57924,7 +58136,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L361",
+      "source_location": "L362",
       "weight": 1.0
     },
     {
@@ -57935,7 +58147,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L414",
+      "source_location": "L415",
       "weight": 1.0
     },
     {
@@ -57946,7 +58158,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L456",
+      "source_location": "L457",
       "weight": 1.0
     },
     {
@@ -57957,7 +58169,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L496",
+      "source_location": "L497",
       "weight": 1.0
     },
     {
@@ -57968,7 +58180,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L547",
+      "source_location": "L548",
       "weight": 1.0
     },
     {
@@ -57979,7 +58191,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L559",
+      "source_location": "L560",
       "weight": 1.0
     },
     {
@@ -57990,7 +58202,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L573",
+      "source_location": "L574",
       "weight": 1.0
     },
     {
@@ -58001,7 +58213,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L579",
+      "source_location": "L580",
       "weight": 1.0
     },
     {
@@ -58012,7 +58224,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L592",
+      "source_location": "L593",
       "weight": 1.0
     },
     {
@@ -58023,7 +58235,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L618",
+      "source_location": "L619",
       "weight": 1.0
     },
     {
@@ -58034,7 +58246,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L648",
+      "source_location": "L649",
       "weight": 1.0
     },
     {
@@ -58045,7 +58257,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L662",
+      "source_location": "L663",
       "weight": 1.0
     },
     {
@@ -58056,7 +58268,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L677",
+      "source_location": "L678",
       "weight": 1.0
     },
     {
@@ -58067,7 +58279,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L683",
+      "source_location": "L684",
       "weight": 1.0
     },
     {
@@ -58078,7 +58290,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L691",
+      "source_location": "L692",
       "weight": 1.0
     },
     {
@@ -58089,7 +58301,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L696",
+      "source_location": "L697",
       "weight": 1.0
     },
     {
@@ -58100,7 +58312,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L727",
+      "source_location": "L728",
       "weight": 1.0
     },
     {
@@ -58111,7 +58323,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L739",
+      "source_location": "L740",
       "weight": 1.0
     },
     {
@@ -58122,7 +58334,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L748",
+      "source_location": "L749",
       "weight": 1.0
     },
     {
@@ -58133,18 +58345,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L769",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_rnd64",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L78",
+      "source_location": "L770",
       "weight": 1.0
     },
     {
@@ -58155,7 +58356,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L787",
+      "source_location": "L788",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_rnd64",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L79",
       "weight": 1.0
     },
     {
@@ -58166,7 +58378,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L807",
+      "source_location": "L808",
       "weight": 1.0
     },
     {
@@ -58177,7 +58389,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L855",
+      "source_location": "L856",
       "weight": 1.0
     },
     {
@@ -58188,7 +58400,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L864",
+      "source_location": "L865",
       "weight": 1.0
     },
     {
@@ -58199,7 +58411,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L87",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -58210,7 +58422,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L887",
+      "source_location": "L888",
       "weight": 1.0
     },
     {
@@ -58221,7 +58433,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L915",
+      "source_location": "L916",
       "weight": 1.0
     },
     {
@@ -58232,18 +58444,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L931",
-      "weight": 1.0
-    },
-    {
-      "source": "lottooptimizerv3_20",
-      "target": "lottooptimizerv3_20_poner_ahora",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L94",
+      "source_location": "L932",
       "weight": 1.0
     },
     {
@@ -58254,7 +58455,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L941",
+      "source_location": "L942",
+      "weight": 1.0
+    },
+    {
+      "source": "lottooptimizerv3_20",
+      "target": "lottooptimizerv3_20_poner_ahora",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LottoOptimizerV3_20.c",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -58265,7 +58477,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "LottoOptimizerV3_20.c",
-      "source_location": "L975",
+      "source_location": "L976",
       "weight": 1.0
     },
     {
@@ -59209,5 +59421,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "758a306429a194a3ab0548e5d7c5fe2785348687"
+  "built_at_commit": "50cdd33430e9eb2c746c49020fa34e974eddcb70"
 }

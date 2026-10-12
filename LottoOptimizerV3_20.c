@@ -72,7 +72,8 @@ static int g_exacto;
 static char g_log[LOGN][240];
 static int g_nlog, g_apuestas, g_v, g_k, g_t;
 static uint64_t *g_bets;
-static int g_nbets;
+static int g_nbets, g_nusados, g_carga;
+static int g_usados[MAXN];
 static unsigned long long g_tope;
 
 static uint64_t rnd64(void) {
@@ -1180,6 +1181,53 @@ static void publicar_bets(uint64_t *b, int n, int k, double cob) {
     LeaveCriticalSection(&g_cs);
 }
 
+/* Números que salen en la lista, y cuántos lleva cada fila (el k más repetido). */
+static void deducir_bets(const uint64_t *bets, int n, int *nums, int *nn, int *k) {
+    int visto[MAXN + 1], cuenta[MAXN + 1];
+    int i, num, mejor = 0;
+    memset(visto, 0, sizeof visto);
+    memset(cuenta, 0, sizeof cuenta);
+    *nn = 0;
+    *k = 0;
+    if (!bets || n < 1) return;
+    for (i = 0; i < n; i++) {
+        int kb = __builtin_popcountll(bets[i]);
+        if (kb >= 1 && kb <= MAXN) cuenta[kb]++;
+        for (num = 1; num <= MAXN; num++)
+            if (bets[i] & (1ull << (num - 1))) visto[num] = 1;
+    }
+    for (num = 1; num <= MAXN; num++) if (visto[num]) nums[(*nn)++] = num;
+    for (i = 1; i <= MAXN; i++) if (cuenta[i] > mejor) { mejor = cuenta[i]; *k = i; }
+}
+
+static void recordar_carga(const int *nums, int nn, int k) {
+    EnterCriticalSection(&g_cs);
+    if (nn > 0 && nums) memcpy(g_usados, nums, (size_t)nn * sizeof(int));
+    g_nusados = nn;
+    if (k > 0) g_k = k;
+    g_carga++;
+    LeaveCriticalSection(&g_cs);
+}
+
+static void rellenar_desde_bets(Job *job, const uint64_t *bets, int n) {
+    int nums[MAXN], nn = 0, k = 0;
+    deducir_bets(bets, n, nums, &nn, &k);
+    if (nn < 1 || k < 1) return;
+    memcpy(job->base, nums, (size_t)nn * sizeof(int));
+    job->nbase = nn;
+    job->v = nn;
+    job->k = k;
+}
+
+static int garantia_del_cuerpo(const char *body, int k, int *t, int *m, char *err) {
+    const char *pay, *fin = NULL;
+    char tipo[64];
+    pay = json_valor(body, NULL, "payload");
+    if (!pay || *pay != '{' || !objeto_fin(pay, &fin)) { pay = body; fin = NULL; }
+    if (!json_str(pay, fin, "tipo", tipo, sizeof tipo)) tipo[0] = 0;
+    return tipo_de(tipo, k > 0 ? k : 6, t, m, err);
+}
+
 static void volcar(Opt *o, const Job *job, double cob) {
     uint64_t *src, *reales;
     int n, i;
@@ -2277,6 +2325,10 @@ static void estado_json(char *dst, int cap) {
             lp += snprintf(linea + lp, sizeof linea - lp, "%s%02d", j ? " " : "", nums[j]);
         pos += snprintf(dst + pos, cap - pos, "%s\"%s\"", i ? "," : "", linea);
     }
+    pos += snprintf(dst + pos, cap - pos, "],\"k\":%d,\"base\":%d,\"carga\":%d,\"numeros\":[",
+        g_k, g_nusados, g_carga);
+    for (i = 0; i < g_nusados && pos < cap - 16; i++)
+        pos += snprintf(dst + pos, cap - pos, "%s%d", i ? "," : "", g_usados[i]);
     pos += snprintf(dst + pos, cap - pos, "]}");
     LeaveCriticalSection(&g_cs);
 }
@@ -2388,7 +2440,17 @@ static void api_dispatch(SOCKET s, const char *body) {
     }
     if (strcmp(nombre, "garantias") == 0) {
         Job job;
-        if (!parse_datos(body, &job, err)) { responder_error(s, err); return; }
+        uint64_t *gb = NULL;
+        int gn = copiar_bets(&gb);
+        char errg[200] = "";
+        memset(&job, 0, sizeof job);
+        parse_datos(body, &job, err);
+        if (gn) rellenar_desde_bets(&job, gb, gn);
+        free(gb);
+        if (!garantia_del_cuerpo(body, job.k, &job.t, &job.m, errg)) {
+            responder_error(s, errg[0] ? errg : "Elige una garantía.");
+            return;
+        }
         texto_garantias(&job);
         responder_ok(s, 1, NULL);
         return;
@@ -2403,8 +2465,15 @@ static void api_dispatch(SOCKET s, const char *body) {
         else if (strcmp(nombre, "estadisticas") == 0) texto_estadisticas(b, n);
         if (strcmp(nombre, "analizar") == 0 || strcmp(nombre, "estadisticas") == 0) {
             Job job;
-            if (parse_datos(body, &job, err)) anotar_niveles(b, n, &job);
-            else anotar("No puedo contar la cobertura por aciertos: faltan la base y la garantía.");
+            char errg[200] = "";
+            memset(&job, 0, sizeof job);
+            parse_datos(body, &job, err);
+            rellenar_desde_bets(&job, b, n);
+            if (!garantia_del_cuerpo(body, job.k, &job.t, &job.m, errg))
+                anotar(errg[0] ? errg : "Elige una garantía.");
+            else if (job.v < 1 || job.m > job.v || job.t < 1 || job.t > job.k || job.t > job.m)
+                anotar("La garantía no cabe en los números del fichero.");
+            else anotar_niveles(b, n, &job);
         } else if (strcmp(nombre, "escrutar") == 0) {
             pay = json_valor(body, NULL, "payload");
             if (pay && *pay == '{') objeto_fin(pay, &fin); else pay = body, fin = NULL;
@@ -2412,7 +2481,9 @@ static void api_dispatch(SOCKET s, const char *body) {
             texto_escrutinio(b, n, premio);
         } else if (strcmp(nombre, "validar") == 0) {
             Job job;
-            if (!parse_datos(body, &job, err)) { free(b); responder_error(s, err); return; }
+            memset(&job, 0, sizeof job);
+            parse_datos(body, &job, err);
+            rellenar_desde_bets(&job, b, n);
             texto_validacion(b, n, &job);
         } else {
             Job job;
@@ -2446,8 +2517,13 @@ static void api_dispatch(SOCKET s, const char *body) {
             ofn.lpstrFilter = "Texto (*.txt)\0*.txt\0Todos (*.*)\0*.*\0";
             ofn.lpstrFile = file;
             ofn.nMaxFile = MAX_PATH;
-            ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_EXPLORER;
-            if (!GetOpenFileNameA(&ofn)) { responder_ok(s, 1, NULL); return; }
+            ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_EXPLORER | OFN_NOCHANGEDIR;
+            ofn.lpstrDefExt = "txt";
+            if (!GetOpenFileNameA(&ofn)) {
+                if (!CommDlgExtendedError()) { responder_ok(s, 1, NULL); return; }
+                responder_error(s, "No se ha podido abrir el archivo.");
+                return;
+            }
         }
         f = fopen(file, "rb");
         if (!f) { responder_error(s, "No se ha podido leer el archivo."); return; }
@@ -2470,11 +2546,16 @@ static void api_dispatch(SOCKET s, const char *body) {
             bets[n++] = b;
         }
         fclose(f);
-        publicar_bets(bets, n, n ? __builtin_popcountll(bets[0]) : 0, -1);
         {
-            char msg[MAX_PATH + 80];
-            if (quitadas) snprintf(msg, sizeof msg, "Cargadas %d apuestas desde %s. Quitadas %d repetidas.", n, file, quitadas);
-            else snprintf(msg, sizeof msg, "Cargadas %d apuestas desde %s", n, file);
+            int usados[MAXN], nu = 0, kk = 0;
+            char msg[MAX_PATH + 120];
+            deducir_bets(bets, n, usados, &nu, &kk);
+            publicar_bets(bets, n, kk, -1);
+            recordar_carga(usados, nu, kk);
+            if (quitadas)
+                snprintf(msg, sizeof msg, "Cargadas %d apuestas de %d números. Base %d. Quitadas %d repetidas. %s", n, kk, nu, quitadas, file);
+            else
+                snprintf(msg, sizeof msg, "Cargadas %d apuestas de %d números. Base %d. %s", n, kk, nu, file);
             anotar(msg);
         }
         responder_ok(s, 1, NULL);
