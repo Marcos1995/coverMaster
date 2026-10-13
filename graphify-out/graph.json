@@ -11892,7 +11892,7 @@
       "file_type": "code",
       "norm_label": "abrir_ventana()",
       "source_file": "PuntoX.c",
-      "source_location": "L2609"
+      "source_location": "L2502"
     },
     {
       "id": "puntox_acaba_txt",
@@ -11904,7 +11904,7 @@
       "file_type": "code",
       "norm_label": "acaba_txt()",
       "source_file": "PuntoX.c",
-      "source_location": "L1399"
+      "source_location": "L1390"
     },
     {
       "id": "puntox_agregar",
@@ -11952,7 +11952,7 @@
       "file_type": "code",
       "norm_label": "api_dispatch()",
       "source_file": "PuntoX.c",
-      "source_location": "L2368"
+      "source_location": "L2292"
     },
     {
       "id": "puntox_aplicar",
@@ -11976,7 +11976,7 @@
       "file_type": "code",
       "norm_label": "apuestas_de_url()",
       "source_file": "PuntoX.c",
-      "source_location": "L1273"
+      "source_location": "L1264"
     },
     {
       "id": "puntox_atender",
@@ -11988,7 +11988,7 @@
       "file_type": "code",
       "norm_label": "atender()",
       "source_file": "PuntoX.c",
-      "source_location": "L2556"
+      "source_location": "L2449"
     },
     {
       "id": "puntox_atender_hilo",
@@ -12000,7 +12000,7 @@
       "file_type": "code",
       "norm_label": "atender_hilo()",
       "source_file": "PuntoX.c",
-      "source_location": "L2549"
+      "source_location": "L2442"
     },
     {
       "id": "puntox_bajar_si_ciento",
@@ -12012,7 +12012,7 @@
       "file_type": "code",
       "norm_label": "bajar_si_ciento()",
       "source_file": "PuntoX.c",
-      "source_location": "L2026"
+      "source_location": "L1950"
     },
     {
       "id": "puntox_bench",
@@ -12024,7 +12024,7 @@
       "file_type": "code",
       "norm_label": "bench()",
       "source_file": "PuntoX.c",
-      "source_location": "L2681"
+      "source_location": "L2574"
     },
     {
       "id": "puntox_bits_sorteo",
@@ -12036,7 +12036,7 @@
       "file_type": "code",
       "norm_label": "bits_sorteo()",
       "source_file": "PuntoX.c",
-      "source_location": "L1577"
+      "source_location": "L1568"
     },
     {
       "id": "puntox_borrar_arbol",
@@ -12048,7 +12048,7 @@
       "file_type": "code",
       "norm_label": "borrar_arbol()",
       "source_file": "PuntoX.c",
-      "source_location": "L1428"
+      "source_location": "L1419"
     },
     {
       "id": "puntox_buscar_cobertura",
@@ -12060,7 +12060,7 @@
       "file_type": "code",
       "norm_label": "buscar_cobertura()",
       "source_file": "PuntoX.c",
-      "source_location": "L1946"
+      "source_location": "L1870"
     },
     {
       "id": "puntox_buscar_local",
@@ -12084,7 +12084,7 @@
       "file_type": "code",
       "norm_label": "buscar_navegador()",
       "source_file": "PuntoX.c",
-      "source_location": "L2597"
+      "source_location": "L2490"
     },
     {
       "id": "puntox_buscar_url",
@@ -12096,7 +12096,7 @@
       "file_type": "code",
       "norm_label": "buscar_url()",
       "source_file": "PuntoX.c",
-      "source_location": "L1286"
+      "source_location": "L1277"
     },
     {
       "id": "puntox_cargar_ap",
@@ -12108,7 +12108,7 @@
       "file_type": "code",
       "norm_label": "cargar_ap()",
       "source_file": "PuntoX.c",
-      "source_location": "L1775"
+      "source_location": "L1699"
     },
     {
       "id": "puntox_clonar_ap",
@@ -12120,7 +12120,7 @@
       "file_type": "code",
       "norm_label": "clonar_ap()",
       "source_file": "PuntoX.c",
-      "source_location": "L1765"
+      "source_location": "L1689"
     },
     {
       "id": "puntox_cmp_fila",
@@ -12180,7 +12180,7 @@
       "file_type": "code",
       "norm_label": "copiar_bets()",
       "source_file": "PuntoX.c",
-      "source_location": "L1538"
+      "source_location": "L1529"
     },
     {
       "id": "puntox_crecer",
@@ -12228,7 +12228,7 @@
       "file_type": "code",
       "norm_label": "decir_nivel()",
       "source_file": "PuntoX.c",
-      "source_location": "L1743"
+      "source_location": "L1667"
     },
     {
       "id": "puntox_deducir_bets",
@@ -12252,7 +12252,7 @@
       "file_type": "code",
       "norm_label": "descargar_reducida()",
       "source_file": "PuntoX.c",
-      "source_location": "L1457"
+      "source_location": "L1448"
     },
     {
       "id": "puntox_dir_descarga",
@@ -12264,7 +12264,7 @@
       "file_type": "code",
       "norm_label": "dir_descarga()",
       "source_file": "PuntoX.c",
-      "source_location": "L1445"
+      "source_location": "L1436"
     },
     {
       "id": "puntox_distribucion_floja",
@@ -12276,7 +12276,7 @@
       "file_type": "code",
       "norm_label": "distribucion_floja()",
       "source_file": "PuntoX.c",
-      "source_location": "L1796"
+      "source_location": "L1720"
     },
     {
       "id": "puntox_elegir_grupos",
@@ -12288,7 +12288,7 @@
       "file_type": "code",
       "norm_label": "elegir_grupos()",
       "source_file": "PuntoX.c",
-      "source_location": "L1819"
+      "source_location": "L1743"
     },
     {
       "id": "puntox_emitir_grupos",
@@ -12300,7 +12300,7 @@
       "file_type": "code",
       "norm_label": "emitir_grupos()",
       "source_file": "PuntoX.c",
-      "source_location": "L1840"
+      "source_location": "L1764"
     },
     {
       "id": "puntox_escalar",
@@ -12336,7 +12336,7 @@
       "file_type": "code",
       "norm_label": "estadisticas_json()",
       "source_file": "PuntoX.c",
-      "source_location": "L1589"
+      "source_location": "L1580"
     },
     {
       "id": "puntox_estado_json",
@@ -12348,7 +12348,7 @@
       "file_type": "code",
       "norm_label": "estado_json()",
       "source_file": "PuntoX.c",
-      "source_location": "L2269"
+      "source_location": "L2193"
     },
     {
       "id": "puntox_estrategia",
@@ -12360,7 +12360,7 @@
       "file_type": "code",
       "norm_label": "estrategia()",
       "source_file": "PuntoX.c",
-      "source_location": "L1896"
+      "source_location": "L1820"
     },
     {
       "id": "puntox_fijar_mejor",
@@ -12372,7 +12372,7 @@
       "file_type": "code",
       "norm_label": "fijar_mejor()",
       "source_file": "PuntoX.c",
-      "source_location": "L1788"
+      "source_location": "L1712"
     },
     {
       "id": "puntox_fijar_nota",
@@ -12423,18 +12423,6 @@
       "source_location": "L619"
     },
     {
-      "id": "puntox_garantia_del_cuerpo",
-      "label": "garantia_del_cuerpo()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 39,
-      "community_name": "PuntoX.c",
-      "file_type": "code",
-      "norm_label": "garantia_del_cuerpo()",
-      "source_file": "PuntoX.c",
-      "source_location": "L1222"
-    },
-    {
       "id": "puntox_gcd_u",
       "label": "gcd_u()",
       "_callable": true,
@@ -12480,7 +12468,7 @@
       "file_type": "code",
       "norm_label": "grupos_aseguran()",
       "source_file": "PuntoX.c",
-      "source_location": "L1813"
+      "source_location": "L1737"
     },
     {
       "id": "puntox_guardar_mejor",
@@ -12504,7 +12492,7 @@
       "file_type": "code",
       "norm_label": "guardar_opt()",
       "source_file": "PuntoX.c",
-      "source_location": "L1244"
+      "source_location": "L1235"
     },
     {
       "id": "puntox_hilo",
@@ -12516,7 +12504,7 @@
       "file_type": "code",
       "norm_label": "hilo()",
       "source_file": "PuntoX.c",
-      "source_location": "L2082"
+      "source_location": "L2006"
     },
     {
       "id": "puntox_http_bajar",
@@ -12528,7 +12516,7 @@
       "file_type": "code",
       "norm_label": "http_bajar()",
       "source_file": "PuntoX.c",
-      "source_location": "L1302"
+      "source_location": "L1293"
     },
     {
       "id": "puntox_ir_al_exe",
@@ -12540,7 +12528,7 @@
       "file_type": "code",
       "norm_label": "ir_al_exe()",
       "source_file": "PuntoX.c",
-      "source_location": "L2747"
+      "source_location": "L2640"
     },
     {
       "id": "puntox_json_bool",
@@ -12564,7 +12552,7 @@
       "file_type": "code",
       "norm_label": "json_escape()",
       "source_file": "PuntoX.c",
-      "source_location": "L2252"
+      "source_location": "L2176"
     },
     {
       "id": "puntox_json_ints",
@@ -12612,7 +12600,7 @@
       "file_type": "code",
       "norm_label": "lanzar()",
       "source_file": "PuntoX.c",
-      "source_location": "L2213"
+      "source_location": "L2137"
     },
     {
       "id": "puntox_leer_int",
@@ -12696,7 +12684,7 @@
       "file_type": "code",
       "norm_label": "main()",
       "source_file": "PuntoX.c",
-      "source_location": "L2758"
+      "source_location": "L2651"
     },
     {
       "id": "puntox_mapear",
@@ -12852,7 +12840,7 @@
       "file_type": "code",
       "norm_label": "primer_txt()",
       "source_file": "PuntoX.c",
-      "source_location": "L1405"
+      "source_location": "L1396"
     },
     {
       "id": "puntox_progreso",
@@ -12888,7 +12876,7 @@
       "file_type": "code",
       "norm_label": "quitar_mientras()",
       "source_file": "PuntoX.c",
-      "source_location": "L1871"
+      "source_location": "L1795"
     },
     {
       "id": "puntox_raya",
@@ -12972,7 +12960,7 @@
       "file_type": "code",
       "norm_label": "responder()",
       "source_file": "PuntoX.c",
-      "source_location": "L2313"
+      "source_location": "L2237"
     },
     {
       "id": "puntox_responder_error",
@@ -12984,7 +12972,7 @@
       "file_type": "code",
       "norm_label": "responder_error()",
       "source_file": "PuntoX.c",
-      "source_location": "L2324"
+      "source_location": "L2248"
     },
     {
       "id": "puntox_responder_ok",
@@ -12996,7 +12984,7 @@
       "file_type": "code",
       "norm_label": "responder_ok()",
       "source_file": "PuntoX.c",
-      "source_location": "L2331"
+      "source_location": "L2255"
     },
     {
       "id": "puntox_restaurar",
@@ -13056,7 +13044,7 @@
       "file_type": "code",
       "norm_label": "send_todo()",
       "source_file": "PuntoX.c",
-      "source_location": "L2303"
+      "source_location": "L2227"
     },
     {
       "id": "puntox_servir",
@@ -13068,7 +13056,7 @@
       "file_type": "code",
       "norm_label": "servir()",
       "source_file": "PuntoX.c",
-      "source_location": "L2630"
+      "source_location": "L2523"
     },
     {
       "id": "puntox_servir_html",
@@ -13080,7 +13068,7 @@
       "file_type": "code",
       "norm_label": "servir_html()",
       "source_file": "PuntoX.c",
-      "source_location": "L2351"
+      "source_location": "L2275"
     },
     {
       "id": "puntox_subir_una",
@@ -13092,7 +13080,7 @@
       "file_type": "code",
       "norm_label": "subir_una()",
       "source_file": "PuntoX.c",
-      "source_location": "L1752"
+      "source_location": "L1676"
     },
     {
       "id": "puntox_texto_escrutinio",
@@ -13104,19 +13092,7 @@
       "file_type": "code",
       "norm_label": "texto_escrutinio()",
       "source_file": "PuntoX.c",
-      "source_location": "L1553"
-    },
-    {
-      "id": "puntox_texto_garantias",
-      "label": "texto_garantias()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 39,
-      "community_name": "PuntoX.c",
-      "file_type": "code",
-      "norm_label": "texto_garantias()",
-      "source_file": "PuntoX.c",
-      "source_location": "L1731"
+      "source_location": "L1544"
     },
     {
       "id": "puntox_texto_validacion",
@@ -13128,7 +13104,7 @@
       "file_type": "code",
       "norm_label": "texto_validacion()",
       "source_file": "PuntoX.c",
-      "source_location": "L1683"
+      "source_location": "L1619"
     },
     {
       "id": "puntox_ticket_de_sorteo",
@@ -13140,7 +13116,7 @@
       "file_type": "code",
       "norm_label": "ticket_de_sorteo()",
       "source_file": "PuntoX.c",
-      "source_location": "L1859"
+      "source_location": "L1783"
     },
     {
       "id": "puntox_tipo_de",
@@ -13176,7 +13152,7 @@
       "file_type": "code",
       "norm_label": "unir_ruta()",
       "source_file": "PuntoX.c",
-      "source_location": "L1294"
+      "source_location": "L1285"
     },
     {
       "id": "puntox_valida",
@@ -13200,7 +13176,7 @@
       "file_type": "code",
       "norm_label": "volcar()",
       "source_file": "PuntoX.c",
-      "source_location": "L1231"
+      "source_location": "L1222"
     },
     {
       "id": "lottooptimizerv3_11_descargar_reducida_lotoideas",
@@ -16018,54 +15994,6 @@
       "type": "external"
     },
     {
-      "id": "commdlg",
-      "label": "commdlg",
-      "_origin": "semantic",
-      "community": 17,
-      "community_name": "LottoOptimizerV3_13.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "commdlg",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ctype",
-      "label": "ctype",
-      "_origin": "semantic",
-      "community": 17,
-      "community_name": "LottoOptimizerV3_13.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ctype",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "limits",
-      "label": "limits",
-      "_origin": "semantic",
-      "community": 17,
-      "community_name": "LottoOptimizerV3_13.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "limits",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "shellapi",
-      "label": "shellapi",
-      "_origin": "semantic",
-      "community": 17,
-      "community_name": "LottoOptimizerV3_13.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "shellapi",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "stdint",
       "label": "stdint",
       "_origin": "semantic",
@@ -16074,42 +16002,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "stdint",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "stdio",
-      "label": "stdio",
-      "_origin": "semantic",
-      "community": 17,
-      "community_name": "LottoOptimizerV3_13.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "stdio",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "stdlib",
-      "label": "stdlib",
-      "_origin": "semantic",
-      "community": 17,
-      "community_name": "LottoOptimizerV3_13.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "stdlib",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "string",
-      "label": "string",
-      "_origin": "semantic",
-      "community": 17,
-      "community_name": "LottoOptimizerV3_13.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "string",
       "source_file": "",
       "type": "external"
     },
@@ -16126,11 +16018,95 @@
       "type": "external"
     },
     {
+      "id": "commdlg",
+      "label": "commdlg",
+      "_origin": "semantic",
+      "community": 21,
+      "community_name": "LottoOptimizerV3_12.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "commdlg",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ctype",
+      "label": "ctype",
+      "_origin": "semantic",
+      "community": 21,
+      "community_name": "LottoOptimizerV3_12.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ctype",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "limits",
+      "label": "limits",
+      "_origin": "semantic",
+      "community": 21,
+      "community_name": "LottoOptimizerV3_12.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "limits",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "shellapi",
+      "label": "shellapi",
+      "_origin": "semantic",
+      "community": 21,
+      "community_name": "LottoOptimizerV3_12.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "shellapi",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "stdio",
+      "label": "stdio",
+      "_origin": "semantic",
+      "community": 21,
+      "community_name": "LottoOptimizerV3_12.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "stdio",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "stdlib",
+      "label": "stdlib",
+      "_origin": "semantic",
+      "community": 21,
+      "community_name": "LottoOptimizerV3_12.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "stdlib",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "string",
+      "label": "string",
+      "_origin": "semantic",
+      "community": 21,
+      "community_name": "LottoOptimizerV3_12.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "string",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "windows",
       "label": "windows",
       "_origin": "semantic",
-      "community": 17,
-      "community_name": "LottoOptimizerV3_13.c",
+      "community": 21,
+      "community_name": "LottoOptimizerV3_12.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "windows",
@@ -16141,8 +16117,8 @@
       "id": "winhttp",
       "label": "winhttp",
       "_origin": "semantic",
-      "community": 17,
-      "community_name": "LottoOptimizerV3_13.c",
+      "community": 21,
+      "community_name": "LottoOptimizerV3_12.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "winhttp",
@@ -16153,8 +16129,8 @@
       "id": "winsock2",
       "label": "winsock2",
       "_origin": "semantic",
-      "community": 17,
-      "community_name": "LottoOptimizerV3_13.c",
+      "community": 21,
+      "community_name": "LottoOptimizerV3_12.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "winsock2",
@@ -16165,8 +16141,8 @@
       "id": "ws2tcpip",
       "label": "ws2tcpip",
       "_origin": "semantic",
-      "community": 17,
-      "community_name": "LottoOptimizerV3_13.c",
+      "community": 21,
+      "community_name": "LottoOptimizerV3_12.c",
       "external": true,
       "file_type": "concept",
       "norm_label": "ws2tcpip",
@@ -40760,7 +40736,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2621",
+      "source_location": "L2514",
       "weight": 1.0
     },
     {
@@ -40820,7 +40796,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2370",
+      "source_location": "L2294",
       "weight": 1.0
     },
     {
@@ -40832,7 +40808,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2376",
+      "source_location": "L2300",
       "weight": 1.0
     },
     {
@@ -40844,7 +40820,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2376",
+      "source_location": "L2300",
       "weight": 1.0
     },
     {
@@ -40856,7 +40832,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2377",
+      "source_location": "L2301",
       "weight": 1.0
     },
     {
@@ -40868,7 +40844,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2378",
+      "source_location": "L2302",
       "weight": 1.0
     },
     {
@@ -40880,7 +40856,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2380",
+      "source_location": "L2304",
       "weight": 1.0
     },
     {
@@ -40892,7 +40868,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2385",
+      "source_location": "L2309",
       "weight": 1.0
     },
     {
@@ -40904,7 +40880,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2386",
+      "source_location": "L2310",
       "weight": 1.0
     },
     {
@@ -40916,7 +40892,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2392",
+      "source_location": "L2316",
       "weight": 1.0
     },
     {
@@ -40928,7 +40904,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2396",
+      "source_location": "L2321",
       "weight": 1.0
     },
     {
@@ -40940,7 +40916,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2399",
+      "source_location": "L2324",
       "weight": 1.0
     },
     {
@@ -40952,7 +40928,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2404",
+      "source_location": "L2329",
       "weight": 1.0
     },
     {
@@ -40964,43 +40940,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2411",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_api_dispatch",
-      "target": "puntox_rellenar_desde_bets",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2415",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_api_dispatch",
-      "target": "puntox_garantia_del_cuerpo",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2417",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_api_dispatch",
-      "target": "puntox_texto_garantias",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2421",
+      "source_location": "L2339",
       "weight": 1.0
     },
     {
@@ -41012,7 +40952,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2451",
+      "source_location": "L2340",
       "weight": 1.0
     },
     {
@@ -41024,7 +40964,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2458",
+      "source_location": "L2351",
       "weight": 1.0
     },
     {
@@ -41036,7 +40976,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2459",
+      "source_location": "L2352",
       "weight": 1.0
     },
     {
@@ -41048,7 +40988,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2461",
+      "source_location": "L2354",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_api_dispatch",
+      "target": "puntox_rellenar_desde_bets",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L2359",
       "weight": 1.0
     },
     {
@@ -41060,7 +41012,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2467",
+      "source_location": "L2360",
       "weight": 1.0
     },
     {
@@ -41072,7 +41024,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2474",
+      "source_location": "L2367",
       "weight": 1.0
     },
     {
@@ -41084,7 +41036,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2515",
+      "source_location": "L2408",
       "weight": 1.0
     },
     {
@@ -41096,7 +41048,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2532",
+      "source_location": "L2425",
       "weight": 1.0
     },
     {
@@ -41108,7 +41060,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2533",
+      "source_location": "L2426",
       "weight": 1.0
     },
     {
@@ -41120,7 +41072,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2534",
+      "source_location": "L2427",
       "weight": 1.0
     },
     {
@@ -41132,7 +41084,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2573",
+      "source_location": "L2466",
       "weight": 1.0
     },
     {
@@ -41144,7 +41096,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2587",
+      "source_location": "L2480",
       "weight": 1.0
     },
     {
@@ -41156,7 +41108,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2591",
+      "source_location": "L2484",
       "weight": 1.0
     },
     {
@@ -41168,7 +41120,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2551",
+      "source_location": "L2444",
       "weight": 1.0
     },
     {
@@ -41180,287 +41132,11 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2030",
+      "source_location": "L1954",
       "weight": 1.0
     },
     {
       "source": "puntox_bajar_si_ciento",
-      "target": "puntox_decir_nivel",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2031",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bajar_si_ciento",
-      "target": "puntox_aplicar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2038",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bajar_si_ciento",
-      "target": "puntox_cubrir_objetivo",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2041",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bajar_si_ciento",
-      "target": "puntox_clonar_ap",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2056",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bajar_si_ciento",
-      "target": "puntox_fijar_mejor",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2060",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bajar_si_ciento",
-      "target": "puntox_optimizar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2063",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bajar_si_ciento",
-      "target": "puntox_restaurar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2065",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bajar_si_ciento",
-      "target": "puntox_cargar_ap",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2068",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bajar_si_ciento",
-      "target": "puntox_cob_de",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2078",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bajar_si_ciento",
-      "target": "puntox_progreso",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2078",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bajar_si_ciento",
-      "target": "puntox_volcar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2079",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bench",
-      "target": "puntox_filtros_init",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2688",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bench",
-      "target": "puntox_opt_nuevo",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2692",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bench",
-      "target": "puntox_agregar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2694",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bench",
-      "target": "puntox_cob_de",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2696",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bench",
-      "target": "puntox_opt_free",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2699",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bench",
-      "target": "puntox_muestra",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2705",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bench",
-      "target": "puntox_paso",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2720",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_bench",
-      "target": "puntox_optimizar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L2738",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_borrar_arbol",
-      "target": "puntox_borrar_arbol",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L1438",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_buscar_cobertura",
-      "target": "puntox_anotar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L1951",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_buscar_cobertura",
-      "target": "puntox_cubrir_objetivo",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L1952",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_buscar_cobertura",
-      "target": "puntox_subir_una",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L1953",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_buscar_cobertura",
       "target": "puntox_decir_nivel",
       "relation": "calls",
       "_origin": "ast",
@@ -41472,6 +41148,282 @@
       "weight": 1.0
     },
     {
+      "source": "puntox_bajar_si_ciento",
+      "target": "puntox_aplicar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1962",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bajar_si_ciento",
+      "target": "puntox_cubrir_objetivo",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1965",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bajar_si_ciento",
+      "target": "puntox_clonar_ap",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1980",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bajar_si_ciento",
+      "target": "puntox_fijar_mejor",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1984",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bajar_si_ciento",
+      "target": "puntox_optimizar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1987",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bajar_si_ciento",
+      "target": "puntox_restaurar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1989",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bajar_si_ciento",
+      "target": "puntox_cargar_ap",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1992",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bajar_si_ciento",
+      "target": "puntox_cob_de",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L2002",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bajar_si_ciento",
+      "target": "puntox_progreso",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L2002",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bajar_si_ciento",
+      "target": "puntox_volcar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L2003",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bench",
+      "target": "puntox_filtros_init",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L2581",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bench",
+      "target": "puntox_opt_nuevo",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L2585",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bench",
+      "target": "puntox_agregar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L2587",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bench",
+      "target": "puntox_cob_de",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L2589",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bench",
+      "target": "puntox_opt_free",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L2592",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bench",
+      "target": "puntox_muestra",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L2598",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bench",
+      "target": "puntox_paso",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L2613",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bench",
+      "target": "puntox_optimizar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L2631",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_borrar_arbol",
+      "target": "puntox_borrar_arbol",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1429",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_buscar_cobertura",
+      "target": "puntox_anotar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1875",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_buscar_cobertura",
+      "target": "puntox_cubrir_objetivo",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1876",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_buscar_cobertura",
+      "target": "puntox_subir_una",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1877",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_buscar_cobertura",
+      "target": "puntox_decir_nivel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1879",
+      "weight": 1.0
+    },
+    {
       "source": "puntox_buscar_cobertura",
       "target": "puntox_fijar_mejor",
       "relation": "calls",
@@ -41480,7 +41432,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1958",
+      "source_location": "L1882",
       "weight": 1.0
     },
     {
@@ -41492,7 +41444,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1959",
+      "source_location": "L1883",
       "weight": 1.0
     },
     {
@@ -41504,7 +41456,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1968",
+      "source_location": "L1892",
       "weight": 1.0
     },
     {
@@ -41516,7 +41468,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1970",
+      "source_location": "L1894",
       "weight": 1.0
     },
     {
@@ -41528,7 +41480,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1985",
+      "source_location": "L1909",
       "weight": 1.0
     },
     {
@@ -41540,7 +41492,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2003",
+      "source_location": "L1927",
       "weight": 1.0
     },
     {
@@ -41552,7 +41504,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2010",
+      "source_location": "L1934",
       "weight": 1.0
     },
     {
@@ -41564,7 +41516,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2018",
+      "source_location": "L1942",
       "weight": 1.0
     },
     {
@@ -41576,7 +41528,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2020",
+      "source_location": "L1944",
       "weight": 1.0
     },
     {
@@ -41588,7 +41540,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2021",
+      "source_location": "L1945",
       "weight": 1.0
     },
     {
@@ -41696,7 +41648,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1777",
+      "source_location": "L1701",
       "weight": 1.0
     },
     {
@@ -41708,7 +41660,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1780",
+      "source_location": "L1704",
       "weight": 1.0
     },
     {
@@ -41720,7 +41672,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1781",
+      "source_location": "L1705",
       "weight": 1.0
     },
     {
@@ -41732,7 +41684,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1782",
+      "source_location": "L1706",
       "weight": 1.0
     },
     {
@@ -41768,7 +41720,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1745",
+      "source_location": "L1669",
       "weight": 1.0
     },
     {
@@ -41780,7 +41732,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1747",
+      "source_location": "L1671",
       "weight": 1.0
     },
     {
@@ -41792,7 +41744,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1748",
+      "source_location": "L1672",
       "weight": 1.0
     },
     {
@@ -41804,7 +41756,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1749",
+      "source_location": "L1673",
       "weight": 1.0
     },
     {
@@ -41816,7 +41768,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1467",
+      "source_location": "L1458",
       "weight": 1.0
     },
     {
@@ -41828,7 +41780,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1468",
+      "source_location": "L1459",
       "weight": 1.0
     },
     {
@@ -41840,7 +41792,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1469",
+      "source_location": "L1460",
       "weight": 1.0
     },
     {
@@ -41852,7 +41804,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1476",
+      "source_location": "L1467",
       "weight": 1.0
     },
     {
@@ -41864,7 +41816,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1494",
+      "source_location": "L1485",
       "weight": 1.0
     },
     {
@@ -41876,7 +41828,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1808",
+      "source_location": "L1732",
       "weight": 1.0
     },
     {
@@ -41888,7 +41840,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1827",
+      "source_location": "L1751",
       "weight": 1.0
     },
     {
@@ -41900,7 +41852,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1829",
+      "source_location": "L1753",
       "weight": 1.0
     },
     {
@@ -41912,7 +41864,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1849",
+      "source_location": "L1773",
       "weight": 1.0
     },
     {
@@ -41924,7 +41876,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1850",
+      "source_location": "L1774",
       "weight": 1.0
     },
     {
@@ -41936,7 +41888,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1854",
+      "source_location": "L1778",
       "weight": 1.0
     },
     {
@@ -42020,7 +41972,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1604",
+      "source_location": "L1591",
       "weight": 1.0
     },
     {
@@ -42032,7 +41984,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1611",
+      "source_location": "L1598",
       "weight": 1.0
     },
     {
@@ -42044,7 +41996,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2273",
+      "source_location": "L2197",
       "weight": 1.0
     },
     {
@@ -42056,7 +42008,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2290",
+      "source_location": "L2214",
       "weight": 1.0
     },
     {
@@ -42068,7 +42020,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1899",
+      "source_location": "L1823",
       "weight": 1.0
     },
     {
@@ -42080,7 +42032,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1904",
+      "source_location": "L1828",
       "weight": 1.0
     },
     {
@@ -42092,7 +42044,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1905",
+      "source_location": "L1829",
       "weight": 1.0
     },
     {
@@ -42104,7 +42056,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1909",
+      "source_location": "L1833",
       "weight": 1.0
     },
     {
@@ -42116,7 +42068,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1912",
+      "source_location": "L1836",
       "weight": 1.0
     },
     {
@@ -42128,7 +42080,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1922",
+      "source_location": "L1846",
       "weight": 1.0
     },
     {
@@ -42140,7 +42092,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1922",
+      "source_location": "L1846",
       "weight": 1.0
     },
     {
@@ -42152,7 +42104,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1926",
+      "source_location": "L1850",
       "weight": 1.0
     },
     {
@@ -42164,7 +42116,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1937",
+      "source_location": "L1861",
       "weight": 1.0
     },
     {
@@ -42176,7 +42128,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1938",
+      "source_location": "L1862",
       "weight": 1.0
     },
     {
@@ -42188,7 +42140,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1939",
+      "source_location": "L1863",
       "weight": 1.0
     },
     {
@@ -42200,7 +42152,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1941",
+      "source_location": "L1865",
       "weight": 1.0
     },
     {
@@ -42212,7 +42164,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1942",
+      "source_location": "L1866",
       "weight": 1.0
     },
     {
@@ -42224,7 +42176,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1789",
+      "source_location": "L1713",
       "weight": 1.0
     },
     {
@@ -42236,7 +42188,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1790",
+      "source_location": "L1714",
       "weight": 1.0
     },
     {
@@ -42309,54 +42261,6 @@
       "context": "call",
       "source_file": "PuntoX.c",
       "source_location": "L453",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_garantia_del_cuerpo",
-      "target": "puntox_json_valor",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L1225",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_garantia_del_cuerpo",
-      "target": "puntox_objeto_fin",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L1226",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_garantia_del_cuerpo",
-      "target": "puntox_json_str",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L1227",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_garantia_del_cuerpo",
-      "target": "puntox_tipo_de",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L1228",
       "weight": 1.0
     },
     {
@@ -42524,7 +42428,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1816",
+      "source_location": "L1740",
       "weight": 1.0
     },
     {
@@ -42548,7 +42452,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1251",
+      "source_location": "L1242",
       "weight": 1.0
     },
     {
@@ -42560,12 +42464,48 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1254",
+      "source_location": "L1245",
       "weight": 1.0
     },
     {
       "source": "puntox_guardar_opt",
       "target": "puntox_anotar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1248",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_guardar_opt",
+      "target": "puntox_mapear",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1251",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_guardar_opt",
+      "target": "puntox_escribir",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L1252",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_guardar_opt",
+      "target": "puntox_publicar_bets",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -42577,42 +42517,6 @@
     },
     {
       "source": "puntox_guardar_opt",
-      "target": "puntox_mapear",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L1260",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_guardar_opt",
-      "target": "puntox_escribir",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L1261",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_guardar_opt",
-      "target": "puntox_publicar_bets",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L1266",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_guardar_opt",
       "target": "puntox_fijar_nota",
       "relation": "calls",
       "_origin": "ast",
@@ -42620,7 +42524,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1267",
+      "source_location": "L1258",
       "weight": 1.0
     },
     {
@@ -42632,7 +42536,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2089",
+      "source_location": "L2013",
       "weight": 1.0
     },
     {
@@ -42644,7 +42548,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2090",
+      "source_location": "L2014",
       "weight": 1.0
     },
     {
@@ -42656,7 +42560,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2098",
+      "source_location": "L2022",
       "weight": 1.0
     },
     {
@@ -42668,7 +42572,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2099",
+      "source_location": "L2023",
       "weight": 1.0
     },
     {
@@ -42680,7 +42584,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2101",
+      "source_location": "L2025",
       "weight": 1.0
     },
     {
@@ -42692,7 +42596,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2112",
+      "source_location": "L2036",
       "weight": 1.0
     },
     {
@@ -42704,7 +42608,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2123",
+      "source_location": "L2047",
       "weight": 1.0
     },
     {
@@ -42716,7 +42620,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2134",
+      "source_location": "L2058",
       "weight": 1.0
     },
     {
@@ -42728,7 +42632,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2136",
+      "source_location": "L2060",
       "weight": 1.0
     },
     {
@@ -42740,7 +42644,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2137",
+      "source_location": "L2061",
       "weight": 1.0
     },
     {
@@ -42752,7 +42656,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2153",
+      "source_location": "L2077",
       "weight": 1.0
     },
     {
@@ -42764,7 +42668,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2156",
+      "source_location": "L2080",
       "weight": 1.0
     },
     {
@@ -42776,7 +42680,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2157",
+      "source_location": "L2081",
       "weight": 1.0
     },
     {
@@ -42788,7 +42692,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2160",
+      "source_location": "L2084",
       "weight": 1.0
     },
     {
@@ -42800,7 +42704,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2162",
+      "source_location": "L2086",
       "weight": 1.0
     },
     {
@@ -42812,7 +42716,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2170",
+      "source_location": "L2094",
       "weight": 1.0
     },
     {
@@ -42824,7 +42728,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2173",
+      "source_location": "L2097",
       "weight": 1.0
     },
     {
@@ -42836,7 +42740,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2174",
+      "source_location": "L2098",
       "weight": 1.0
     },
     {
@@ -42848,7 +42752,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2178",
+      "source_location": "L2102",
       "weight": 1.0
     },
     {
@@ -42860,7 +42764,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2205",
+      "source_location": "L2129",
       "weight": 1.0
     },
     {
@@ -42872,7 +42776,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1335",
+      "source_location": "L1326",
       "weight": 1.0
     },
     {
@@ -42944,7 +42848,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2220",
+      "source_location": "L2144",
       "weight": 1.0
     },
     {
@@ -42956,7 +42860,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2222",
+      "source_location": "L2146",
       "weight": 1.0
     },
     {
@@ -43004,7 +42908,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2763",
+      "source_location": "L2656",
       "weight": 1.0
     },
     {
@@ -43016,7 +42920,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2765",
+      "source_location": "L2658",
       "weight": 1.0
     },
     {
@@ -43028,7 +42932,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2768",
+      "source_location": "L2661",
       "weight": 1.0
     },
     {
@@ -43484,7 +43388,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1417",
+      "source_location": "L1408",
       "weight": 1.0
     },
     {
@@ -43496,7 +43400,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1418",
+      "source_location": "L1409",
       "weight": 1.0
     },
     {
@@ -43520,7 +43424,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1873",
+      "source_location": "L1797",
       "weight": 1.0
     },
     {
@@ -43532,7 +43436,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1879",
+      "source_location": "L1803",
       "weight": 1.0
     },
     {
@@ -43544,7 +43448,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1882",
+      "source_location": "L1806",
       "weight": 1.0
     },
     {
@@ -43556,7 +43460,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1883",
+      "source_location": "L1807",
       "weight": 1.0
     },
     {
@@ -43652,7 +43556,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2318",
+      "source_location": "L2242",
       "weight": 1.0
     },
     {
@@ -43664,7 +43568,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2327",
+      "source_location": "L2251",
       "weight": 1.0
     },
     {
@@ -43676,7 +43580,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2328",
+      "source_location": "L2252",
       "weight": 1.0
     },
     {
@@ -43688,7 +43592,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2333",
+      "source_location": "L2257",
       "weight": 1.0
     },
     {
@@ -43700,7 +43604,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2335",
+      "source_location": "L2259",
       "weight": 1.0
     },
     {
@@ -43736,7 +43640,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2654",
+      "source_location": "L2547",
       "weight": 1.0
     },
     {
@@ -43748,7 +43652,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2669",
+      "source_location": "L2562",
       "weight": 1.0
     },
     {
@@ -43760,7 +43664,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2356",
+      "source_location": "L2280",
       "weight": 1.0
     },
     {
@@ -43772,7 +43676,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1755",
+      "source_location": "L1679",
       "weight": 1.0
     },
     {
@@ -43784,7 +43688,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1757",
+      "source_location": "L1681",
       "weight": 1.0
     },
     {
@@ -43796,7 +43700,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1758",
+      "source_location": "L1682",
       "weight": 1.0
     },
     {
@@ -43808,7 +43712,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1558",
+      "source_location": "L1549",
       "weight": 1.0
     },
     {
@@ -43820,31 +43724,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1559",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_texto_garantias",
-      "target": "puntox_buscar_url",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L1732",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_texto_garantias",
-      "target": "puntox_anotar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "PuntoX.c",
-      "source_location": "L1739",
+      "source_location": "L1550",
       "weight": 1.0
     },
     {
@@ -43856,7 +43736,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1689",
+      "source_location": "L1625",
       "weight": 1.0
     },
     {
@@ -43868,7 +43748,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1694",
+      "source_location": "L1630",
       "weight": 1.0
     },
     {
@@ -43880,7 +43760,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1710",
+      "source_location": "L1646",
       "weight": 1.0
     },
     {
@@ -43892,7 +43772,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1862",
+      "source_location": "L1786",
       "weight": 1.0
     },
     {
@@ -43928,7 +43808,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1239",
+      "source_location": "L1230",
       "weight": 1.0
     },
     {
@@ -43940,7 +43820,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1240",
+      "source_location": "L1231",
       "weight": 1.0
     },
     {
@@ -43952,7 +43832,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L1241",
+      "source_location": "L1232",
       "weight": 1.0
     },
     {
@@ -46184,7 +46064,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "PuntoX.c",
-      "source_location": "L2349",
+      "source_location": "L2273",
       "weight": 1.0
     },
     {
@@ -51752,7 +51632,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L2368",
+      "source_location": "L2292",
       "weight": 1.0
     },
     {
@@ -51776,7 +51656,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L2556",
+      "source_location": "L2449",
       "weight": 1.0
     },
     {
@@ -51788,7 +51668,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L2549",
+      "source_location": "L2442",
       "weight": 1.0
     },
     {
@@ -51800,7 +51680,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L2026",
+      "source_location": "L1950",
       "weight": 1.0
     },
     {
@@ -51812,7 +51692,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L2026",
+      "source_location": "L1950",
       "weight": 1.0
     },
     {
@@ -51824,7 +51704,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1577",
+      "source_location": "L1568",
       "weight": 1.0
     },
     {
@@ -51836,7 +51716,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1946",
+      "source_location": "L1870",
       "weight": 1.0
     },
     {
@@ -51848,7 +51728,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1946",
+      "source_location": "L1870",
       "weight": 1.0
     },
     {
@@ -51872,7 +51752,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1775",
+      "source_location": "L1699",
       "weight": 1.0
     },
     {
@@ -51884,7 +51764,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1765",
+      "source_location": "L1689",
       "weight": 1.0
     },
     {
@@ -51932,7 +51812,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1743",
+      "source_location": "L1667",
       "weight": 1.0
     },
     {
@@ -51944,7 +51824,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1743",
+      "source_location": "L1667",
       "weight": 1.0
     },
     {
@@ -51956,7 +51836,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1840",
+      "source_location": "L1764",
       "weight": 1.0
     },
     {
@@ -51980,7 +51860,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1589",
+      "source_location": "L1580",
       "weight": 1.0
     },
     {
@@ -51992,7 +51872,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1896",
+      "source_location": "L1820",
       "weight": 1.0
     },
     {
@@ -52004,7 +51884,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1896",
+      "source_location": "L1820",
       "weight": 1.0
     },
     {
@@ -52016,7 +51896,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1788",
+      "source_location": "L1712",
       "weight": 1.0
     },
     {
@@ -52088,7 +51968,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1244",
+      "source_location": "L1235",
       "weight": 1.0
     },
     {
@@ -52100,7 +51980,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1244",
+      "source_location": "L1235",
       "weight": 1.0
     },
     {
@@ -52112,7 +51992,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L2082",
+      "source_location": "L2006",
       "weight": 1.0
     },
     {
@@ -52256,7 +52136,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1871",
+      "source_location": "L1795",
       "weight": 1.0
     },
     {
@@ -52268,7 +52148,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1871",
+      "source_location": "L1795",
       "weight": 1.0
     },
     {
@@ -52328,7 +52208,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L2313",
+      "source_location": "L2237",
       "weight": 1.0
     },
     {
@@ -52340,7 +52220,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L2324",
+      "source_location": "L2248",
       "weight": 1.0
     },
     {
@@ -52352,7 +52232,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L2331",
+      "source_location": "L2255",
       "weight": 1.0
     },
     {
@@ -52376,7 +52256,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L2303",
+      "source_location": "L2227",
       "weight": 1.0
     },
     {
@@ -52388,7 +52268,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L2351",
+      "source_location": "L2275",
       "weight": 1.0
     },
     {
@@ -52400,19 +52280,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1752",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox_texto_garantias",
-      "target": "puntox_c_job",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "parameter_type",
-      "source_file": "PuntoX.c",
-      "source_location": "L1731",
+      "source_location": "L1676",
       "weight": 1.0
     },
     {
@@ -52424,7 +52292,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1683",
+      "source_location": "L1619",
       "weight": 1.0
     },
     {
@@ -52436,7 +52304,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1859",
+      "source_location": "L1783",
       "weight": 1.0
     },
     {
@@ -52448,7 +52316,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1294",
+      "source_location": "L1285",
       "weight": 1.0
     },
     {
@@ -52472,7 +52340,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1231",
+      "source_location": "L1222",
       "weight": 1.0
     },
     {
@@ -52484,7 +52352,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "PuntoX.c",
-      "source_location": "L1231",
+      "source_location": "L1222",
       "weight": 1.0
     },
     {
@@ -52808,7 +52676,7 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "PuntoX.c",
-      "source_location": "L2549",
+      "source_location": "L2442",
       "weight": 1.0
     },
     {
@@ -52820,7 +52688,7 @@
       "confidence_score": 1.0,
       "context": "return_type",
       "source_file": "PuntoX.c",
-      "source_location": "L2082",
+      "source_location": "L2006",
       "weight": 1.0
     },
     {
@@ -64145,7 +64013,7 @@
     },
     {
       "source": "puntox",
-      "target": "puntox_garantia_del_cuerpo",
+      "target": "puntox_volcar",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -64156,24 +64024,13 @@
     },
     {
       "source": "puntox",
-      "target": "puntox_volcar",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L1231",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
       "target": "puntox_guardar_opt",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1244",
+      "source_location": "L1235",
       "weight": 1.0
     },
     {
@@ -64184,7 +64041,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1273",
+      "source_location": "L1264",
       "weight": 1.0
     },
     {
@@ -64195,7 +64052,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1286",
+      "source_location": "L1277",
       "weight": 1.0
     },
     {
@@ -64206,7 +64063,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1294",
+      "source_location": "L1285",
       "weight": 1.0
     },
     {
@@ -64217,7 +64074,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1302",
+      "source_location": "L1293",
       "weight": 1.0
     },
     {
@@ -64239,7 +64096,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1399",
+      "source_location": "L1390",
       "weight": 1.0
     },
     {
@@ -64250,7 +64107,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1405",
+      "source_location": "L1396",
       "weight": 1.0
     },
     {
@@ -64261,7 +64118,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1428",
+      "source_location": "L1419",
       "weight": 1.0
     },
     {
@@ -64272,7 +64129,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1445",
+      "source_location": "L1436",
       "weight": 1.0
     },
     {
@@ -64283,7 +64140,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1457",
+      "source_location": "L1448",
       "weight": 1.0
     },
     {
@@ -64305,7 +64162,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1538",
+      "source_location": "L1529",
       "weight": 1.0
     },
     {
@@ -64316,7 +64173,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1553",
+      "source_location": "L1544",
       "weight": 1.0
     },
     {
@@ -64327,7 +64184,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1577",
+      "source_location": "L1568",
       "weight": 1.0
     },
     {
@@ -64338,7 +64195,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1589",
+      "source_location": "L1580",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_texto_validacion",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L1619",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_decir_nivel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L1667",
       "weight": 1.0
     },
     {
@@ -64354,13 +64233,57 @@
     },
     {
       "source": "puntox",
-      "target": "puntox_texto_validacion",
+      "target": "puntox_subir_una",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1683",
+      "source_location": "L1676",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_clonar_ap",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L1689",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_cargar_ap",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L1699",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_fijar_mejor",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L1712",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_distribucion_floja",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L1720",
       "weight": 1.0
     },
     {
@@ -64376,18 +64299,18 @@
     },
     {
       "source": "puntox",
-      "target": "puntox_texto_garantias",
+      "target": "puntox_grupos_aseguran",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1731",
+      "source_location": "L1737",
       "weight": 1.0
     },
     {
       "source": "puntox",
-      "target": "puntox_decir_nivel",
+      "target": "puntox_elegir_grupos",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -64398,57 +64321,35 @@
     },
     {
       "source": "puntox",
-      "target": "puntox_subir_una",
+      "target": "puntox_emitir_grupos",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1752",
+      "source_location": "L1764",
       "weight": 1.0
     },
     {
       "source": "puntox",
-      "target": "puntox_clonar_ap",
+      "target": "puntox_ticket_de_sorteo",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1765",
+      "source_location": "L1783",
       "weight": 1.0
     },
     {
       "source": "puntox",
-      "target": "puntox_cargar_ap",
+      "target": "puntox_quitar_mientras",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1775",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_fijar_mejor",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L1788",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_distribucion_floja",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L1796",
+      "source_location": "L1795",
       "weight": 1.0
     },
     {
@@ -64464,68 +64365,24 @@
     },
     {
       "source": "puntox",
-      "target": "puntox_grupos_aseguran",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L1813",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_elegir_grupos",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L1819",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_emitir_grupos",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L1840",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_ticket_de_sorteo",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L1859",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_quitar_mientras",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L1871",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
       "target": "puntox_estrategia",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1896",
+      "source_location": "L1820",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_buscar_cobertura",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L1870",
       "weight": 1.0
     },
     {
@@ -64541,13 +64398,13 @@
     },
     {
       "source": "puntox",
-      "target": "puntox_buscar_cobertura",
+      "target": "puntox_bajar_si_ciento",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L1946",
+      "source_location": "L1950",
       "weight": 1.0
     },
     {
@@ -64563,24 +64420,13 @@
     },
     {
       "source": "puntox",
-      "target": "puntox_bajar_si_ciento",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L2026",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
       "target": "puntox_hilo",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L2082",
+      "source_location": "L2006",
       "weight": 1.0
     },
     {
@@ -64602,7 +64448,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L2213",
+      "source_location": "L2137",
       "weight": 1.0
     },
     {
@@ -64613,7 +64459,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L2252",
+      "source_location": "L2176",
       "weight": 1.0
     },
     {
@@ -64624,7 +64470,62 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L2269",
+      "source_location": "L2193",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_send_todo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L2227",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_responder",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L2237",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_responder_error",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L2248",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_responder_ok",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L2255",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_servir_html",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L2275",
       "weight": 1.0
     },
     {
@@ -64640,68 +64541,35 @@
     },
     {
       "source": "puntox",
-      "target": "puntox_send_todo",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L2303",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_responder",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L2313",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_responder_error",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L2324",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_responder_ok",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L2331",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_servir_html",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L2351",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
       "target": "puntox_api_dispatch",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L2368",
+      "source_location": "L2292",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_atender_hilo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L2442",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_atender",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L2449",
       "weight": 1.0
     },
     {
@@ -64717,6 +64585,39 @@
     },
     {
       "source": "puntox",
+      "target": "puntox_buscar_navegador",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L2490",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_abrir_ventana",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L2502",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
+      "target": "puntox_servir",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PuntoX.c",
+      "source_location": "L2523",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox",
       "target": "puntox_json_ints",
       "relation": "contains",
       "_origin": "ast",
@@ -64728,57 +64629,35 @@
     },
     {
       "source": "puntox",
-      "target": "puntox_atender_hilo",
+      "target": "puntox_bench",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L2549",
+      "source_location": "L2574",
       "weight": 1.0
     },
     {
       "source": "puntox",
-      "target": "puntox_atender",
+      "target": "puntox_ir_al_exe",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L2556",
+      "source_location": "L2640",
       "weight": 1.0
     },
     {
       "source": "puntox",
-      "target": "puntox_buscar_navegador",
+      "target": "puntox_main",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L2597",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_abrir_ventana",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L2609",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_servir",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L2630",
+      "source_location": "L2651",
       "weight": 1.0
     },
     {
@@ -64790,39 +64669,6 @@
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
       "source_location": "L267",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_bench",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L2681",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_ir_al_exe",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L2747",
-      "weight": 1.0
-    },
-    {
-      "source": "puntox",
-      "target": "puntox_main",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PuntoX.c",
-      "source_location": "L2758",
       "weight": 1.0
     },
     {
@@ -66096,5 +65942,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9a7ad31d0b2e4ceadc69d4488c51e78175816815"
+  "built_at_commit": "37cf04dbbc9e3d8201cd4cb21995632acad98ceb"
 }

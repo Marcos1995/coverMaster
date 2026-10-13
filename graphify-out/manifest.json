@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "PROJECT.md": {
-    "mtime": 1791820933.372481,
-    "seen": 1791821007.4613824,
-    "ast_hash": "fd80e625fc735a6623a9bbd534fd10e4",
+    "mtime": 1791920008.5870402,
+    "seen": 1791920316.424196,
+    "ast_hash": "69c9cdf9d342741baffee7239be7c361",
     "semantic_hash": ""
   },
   "README.md": {
@@ -780,15 +780,15 @@
     "semantic_hash": ""
   },
   "PuntoX.c": {
-    "mtime": 1791820257.6152544,
-    "seen": 1791820395.1221144,
-    "ast_hash": "6dacda09ad797a967b578680534af93e",
+    "mtime": 1791920059.2360978,
+    "seen": 1791920316.424196,
+    "ast_hash": "60d4cf8c16b001c442b1bcb49de93dcc",
     "semantic_hash": ""
   },
   "PuntoX_html.inc": {
-    "mtime": 1791820273.1766074,
-    "seen": 1791820395.1221144,
-    "ast_hash": "6b0a0e66d8f73faacc64fbc701a625ac",
+    "mtime": 1791920098.5034916,
+    "seen": 1791920316.424196,
+    "ast_hash": "cb2683d1d2a7c26c22055fa62fae7691",
     "semantic_hash": ""
   },
   "LOTTO_v18_k6_t4_60.7358pct_20261012_150404.txt": {
@@ -822,9 +822,9 @@
     "semantic_hash": ""
   },
   "puntox.html": {
-    "mtime": 1791820258.093094,
-    "seen": 1791820395.1221144,
-    "ast_hash": "c406322eb00426acb19648a837ddc49d",
+    "mtime": 1791920006.74429,
+    "seen": 1791920316.424196,
+    "ast_hash": "5e1a0282692e7297a60c978620b48baf",
     "semantic_hash": ""
   }
 }

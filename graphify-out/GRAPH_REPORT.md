@@ -1,17 +1,17 @@
-# Graph Report - coverMaster  (2026-10-12)
+# Graph Report - coverMaster  (2026-10-13)
 
 ## Corpus Check
-- 40 files · ~253,013 words
+- 40 files · ~251,968 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 24 file(s) not represented in the graph (top: .exe 10, .pdb 9, .mdc 3)
+- Unclassified: 25 file(s) not represented in the graph (top: .exe 10, .pdb 10, .mdc 3)
 
 ## Summary
-- 1354 nodes · 4259 edges · 40 communities (28 shown, 12 thin omitted)
+- 1352 nodes · 4248 edges · 40 communities (28 shown, 12 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9a7ad31d`
+- Built from commit: `37cf04db`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -56,7 +56,7 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `api_dispatch()` - 29 edges
-2. `api_dispatch()` - 29 edges
+2. `api_dispatch()` - 27 edges
 3. `api_dispatch()` - 27 edges
 4. `api_dispatch()` - 27 edges
 5. `api_dispatch()` - 27 edges
@@ -136,16 +136,16 @@ Cohesion: 0.50
 Nodes (3): Docs, Project, Setup
 
 ### Community 17 - "LottoOptimizerV3_13.c"
-Cohesion: 0.05
-Nodes (94): commdlg, ctype, limits, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar() (+86 more)
+Cohesion: 0.07
+Nodes (83): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), atender() (+75 more)
 
 ### Community 20 - "LottoOptimizerV3_14.c"
 Cohesion: 0.06
 Nodes (99): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), apuestas_de_url() (+91 more)
 
 ### Community 21 - "LottoOptimizerV3_12.c"
-Cohesion: 0.07
-Nodes (76): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), atender() (+68 more)
+Cohesion: 0.06
+Nodes (87): commdlg, ctype, limits, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar() (+79 more)
 
 ### Community 22 - "main"
 Cohesion: 0.16
@@ -193,7 +193,7 @@ Nodes (8): Avaro, Corte, Estrategias, Grupos, Patrón 24, Patrón 27, Steiner, V
 
 ### Community 39 - "PuntoX.c"
 Cohesion: 0.06
-Nodes (116): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), apuestas_de_url() (+108 more)
+Nodes (114): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), apuestas_de_url() (+106 more)
 
 ## Knowledge Gaps
 - **55 isolated node(s):** `1. Root cause`, `2. Compare`, `3. Hypothesis`, `4. Fix`, `Red flags → back to step 1` (+50 more)

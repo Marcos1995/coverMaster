@@ -1219,15 +1219,6 @@ static void rellenar_desde_bets(Job *job, const uint64_t *bets, int n) {
     job->k = k;
 }
 
-static int garantia_del_cuerpo(const char *body, int k, int *t, int *m, char *err) {
-    const char *pay, *fin = NULL;
-    char tipo[64];
-    pay = json_valor(body, NULL, "payload");
-    if (!pay || *pay != '{' || !objeto_fin(pay, &fin)) { pay = body; fin = NULL; }
-    if (!json_str(pay, fin, "tipo", tipo, sizeof tipo)) tipo[0] = 0;
-    return tipo_de(tipo, k > 0 ? k : 6, t, m, err);
-}
-
 static void volcar(Opt *o, const Job *job, double cob) {
     uint64_t *src, *reales;
     int n, i;
@@ -1585,99 +1576,44 @@ static uint64_t bits_sorteo(const Job *job, const int *c, int m) {
     return bits;
 }
 
-/* Tabla fija: aciertos 0..6, % de cada uno, total de sorteos y cobertura al t. */
-static void estadisticas_json(char *dst, int cap, const uint64_t *bets, int n, const Job *job, char *linea, int lcap) {
-    int c[MAXN], i, j, h, v, m, t, num, pmin = 99, pmax = 0, pos, primero;
-    int freq[MAXN + 1];
-    long long suma_min = 0, suma_max = 0, suma = 0;
-    int pares = 0, impares = 0, puede = 1;
-    uint64_t total, visto = 0, exact[7];
-    double cob_t = 0;
+/* Popup: combinaciones C(v, m) y cuántas cubre la lista al menos a t. */
+static void estadisticas_json(char *dst, int cap, const uint64_t *bets, int n, const Job *job) {
+    int c[MAXN], i, j, v, m, t, puede = 1;
+    uint64_t total, cubiertas = 0;
+    double cob = 0;
     v = job->v;
     m = job->m;
     t = job->t;
     if (m < 1) m = 1;
     if (m > v) m = v;
     if (v > MAXN) v = MAXN;
-    if (t < 0) t = 0;
-    if (t > 6) t = 6;
+    if (t < 1) t = 1;
     total = combinaciones(v, m);
-    memset(exact, 0, sizeof exact);
-    memset(freq, 0, sizeof freq);
-    if (!total || total > 20000000ull) puede = 0;
+    if (!total || total == UINT64_MAX) puede = 0;
+    else if (!n) cubiertas = 0;
+    else if (total > 20000000ull) puede = 0;
     else {
         for (i = 0; i < m; i++) c[i] = i;
         for (;;) {
             uint64_t bits = bits_sorteo(job, c, m);
-            int best = 0;
-            for (j = 0; j < n && best < 6; j++) {
-                int ac = __builtin_popcountll(bets[j] & bits);
-                if (ac > best) best = ac;
+            int cubre = 0;
+            for (j = 0; j < n; j++) {
+                if (__builtin_popcountll(bets[j] & bits) >= t) { cubre = 1; break; }
             }
-            if (best > 6) best = 6;
-            exact[best]++;
-            visto++;
+            if (cubre) cubiertas++;
             for (i = m - 1; i >= 0 && c[i] == v - m + i; i--) ;
             if (i < 0) break;
             c[i]++;
             for (j = i + 1; j < m; j++) c[j] = c[j - 1] + 1;
         }
     }
-    for (i = 0; i < n; i++) {
-        int s = 0, p = 0;
-        for (num = 1; num <= MAXN; num++) if (bets[i] & (1ull << (num - 1))) {
-            freq[num]++;
-            s += num;
-            if (num % 2 == 0) { p++; pares++; }
-            else impares++;
-        }
-        if (i == 0 || s < suma_min) suma_min = s;
-        if (i == 0 || s > suma_max) suma_max = s;
-        suma += s;
-        if (p < pmin) pmin = p;
-        if (p > pmax) pmax = p;
-    }
-    if (puede && visto) {
-        uint64_t desde = 0;
-        for (h = t; h <= 6; h++) desde += exact[h];
-        cob_t = 100.0 * (double)desde / (double)visto;
-        snprintf(linea, lcap, "Estadísticas. Cobertura al %d: %.4f%% de %llu sorteos.", t, cob_t, (unsigned long long)visto);
-    } else snprintf(linea, lcap, "Estadísticas. Hay demasiados sorteos para la cobertura. Los números de las apuestas sí están.");
-    pos = snprintf(dst, cap,
-        "{\"ok\":true,\"tabla\":{\"total\":%llu,\"t\":%d,\"m\":%d,\"puede\":%s,\"cobertura\":%.4f,"
-        "\"apuestas\":%d,\"suma_min\":%lld,\"suma_max\":%lld,\"suma_media\":%.2f,\"pares\":%d,\"impares\":%d,\"pmin\":%d,\"pmax\":%d,\"aciertos\":[",
-        (unsigned long long)(puede ? visto : 0), t, m, puede ? "true" : "false", cob_t,
-        n, suma_min, suma_max, n ? (double)suma / n : 0.0, pares, impares, pmin == 99 ? 0 : pmin, pmax);
-    if (puede) {
-        for (h = 6; h >= 0 && pos < cap - 96; h--) {
-            uint64_t desde = 0;
-            int k;
-            double pct = visto ? 100.0 * (double)exact[h] / (double)visto : 0;
-            double cob;
-            for (k = h; k <= 6; k++) desde += exact[k];
-            cob = visto ? 100.0 * (double)desde / (double)visto : 0;
-            pos += snprintf(dst + pos, cap - pos, "%s{\"h\":%d,\"sorteos\":%llu,\"pct\":%.4f,\"cob\":%.4f}",
-                h == 6 ? "" : ",", h, (unsigned long long)exact[h], pct, cob);
-        }
-    }
-    pos += snprintf(dst + pos, cap - pos, "],\"numeros\":[");
-    primero = 1;
-    if (job->nbase > 0) {
-        for (i = 0; i < job->nbase && pos < cap - 64; i++) {
-            num = job->base[i];
-            if (num < 1 || num > MAXN) continue;
-            pos += snprintf(dst + pos, cap - pos, "%s{\"n\":%d,\"veces\":%d,\"pct\":%.4f}",
-                primero ? "" : ",", num, freq[num], n ? 100.0 * freq[num] / n : 0);
-            primero = 0;
-        }
-    } else {
-        for (num = 1; num <= MAXN && pos < cap - 64; num++) if (freq[num]) {
-            pos += snprintf(dst + pos, cap - pos, "%s{\"n\":%d,\"veces\":%d,\"pct\":%.4f}",
-                primero ? "" : ",", num, freq[num], n ? 100.0 * freq[num] / n : 0);
-            primero = 0;
-        }
-    }
-    snprintf(dst + pos, cap - pos, "]}}");
+    if (puede && total) cob = 100.0 * (double)cubiertas / (double)total;
+    snprintf(dst, cap,
+        "{\"ok\":true,\"popup\":{\"total\":\"%llu\",\"cubiertas\":\"%llu\",\"cobertura\":%.4f,"
+        "\"puede\":%s,\"t\":%d,\"m\":%d,\"v\":%d,\"k\":%d,\"apuestas\":%d}}",
+        (unsigned long long)(total == UINT64_MAX ? 0 : total),
+        (unsigned long long)(puede ? cubiertas : 0), cob,
+        puede ? "true" : "false", t, m, v, job->k, n);
 }
 
 static void texto_validacion(uint64_t *bets, int n, Job *job) {
@@ -1726,18 +1662,6 @@ static void texto_validacion(uint64_t *bets, int n, Job *job) {
         snprintf(buf, sizeof buf, "Válidas: %d apuestas de %d números.", n, job->k);
     }
     anotar(buf);
-}
-
-static void texto_garantias(Job *job) {
-    const char *url = job->ngrupos ? NULL : buscar_url(job->v, job->k, job->t, job->m);
-    char buf[900];
-    int pos = snprintf(buf, sizeof buf, "Base de %d números, apuestas de %d.\nGarantía pedida: %d si %d.\nApuestas cargadas: %d.",
-        job->v, job->k, job->t, job->m, g_apuestas);
-    if (url) pos += snprintf(buf + pos, sizeof buf - pos, "\nHay reducida récord pública de Lotoideas:\n%s", url);
-    else pos += snprintf(buf + pos, sizeof buf - pos, "\nNo hay zip de Lotoideas para estos datos.");
-    if (g_cob[0]) pos += snprintf(buf + pos, sizeof buf - pos, "\nCobertura %s: %s.", g_nota[0] ? g_nota : "contada", g_cob);
-    anotar(buf);
-    (void)pos;
 }
 
 static void decir_nivel(Opt *o, const Job *job) {
@@ -2393,7 +2317,8 @@ static void api_dispatch(SOCKET s, const char *body) {
         responder_ok(s, 1, NULL);
         return;
     }
-    raya(nombre);
+    if (strcmp(nombre, "estadisticas") != 0 && strcmp(nombre, "garantias") != 0 && strcmp(nombre, "analizar") != 0)
+        raya(nombre);
     if (strcmp(nombre, "parar") == 0) {
         InterlockedExchange(&g_parar, 1);
         anotar("Parar. Se guarda el mejor récord.");
@@ -2405,56 +2330,24 @@ static void api_dispatch(SOCKET s, const char *body) {
         else responder_ok(s, 1, NULL);
         return;
     }
-    if (strcmp(nombre, "garantias") == 0) {
+    if (strcmp(nombre, "estadisticas") == 0 || strcmp(nombre, "garantias") == 0 || strcmp(nombre, "analizar") == 0) {
         Job job;
-        uint64_t *gb = NULL;
-        int gn = copiar_bets(&gb);
-        char errg[200] = "";
-        memset(&job, 0, sizeof job);
-        parse_datos(body, &job, err);
-        if (gn) rellenar_desde_bets(&job, gb, gn);
-        free(gb);
-        if (!garantia_del_cuerpo(body, job.k, &job.t, &job.m, errg)) {
-            responder_error(s, errg[0] ? errg : "Elige una garantía.");
-            return;
-        }
-        texto_garantias(&job);
-        responder_ok(s, 1, NULL);
+        uint64_t *b = NULL;
+        int n;
+        char js[480];
+        if (!parse_datos(body, &job, err)) { responder_error(s, err[0] ? err : "Revisa la base, k y la garantía."); return; }
+        n = copiar_bets(&b);
+        estadisticas_json(js, (int)sizeof js, b, n, &job);
+        free(b);
+        responder(s, "200 OK", "application/json; charset=utf-8", js, (int)strlen(js));
         return;
     }
-    if (strcmp(nombre, "escrutar") == 0 || strcmp(nombre, "analizar") == 0 || strcmp(nombre, "estadisticas") == 0
-        || strcmp(nombre, "validar") == 0 || strcmp(nombre, "guardar") == 0) {
+    if (strcmp(nombre, "escrutar") == 0 || strcmp(nombre, "validar") == 0 || strcmp(nombre, "guardar") == 0) {
         uint64_t *b = NULL;
         int n = copiar_bets(&b);
         const char *pay, *fin = NULL;
         if (!n) { free(b); responder_error(s, "Primero calcula, carga o usa una reducida."); return; }
-        if (strcmp(nombre, "analizar") == 0 || strcmp(nombre, "estadisticas") == 0) {
-            Job job;
-            char *js = (char *)malloc(48000);
-            char errg[200] = "", linea[180];
-            memset(&job, 0, sizeof job);
-            parse_datos(body, &job, err);
-            rellenar_desde_bets(&job, b, n);
-            if (!js) { free(b); responder_error(s, "sin memoria"); return; }
-            if (!garantia_del_cuerpo(body, job.k, &job.t, &job.m, errg)) {
-                free(js);
-                free(b);
-                responder_error(s, errg[0] ? errg : "Elige una garantía.");
-                return;
-            }
-            if (job.v < 1 || job.m > job.v || job.t < 1 || job.t > job.k || job.t > job.m) {
-                free(js);
-                free(b);
-                responder_error(s, "La garantía no cabe en los números del fichero.");
-                return;
-            }
-            estadisticas_json(js, 48000, b, n, &job, linea, (int)sizeof linea);
-            anotar(linea);
-            responder(s, "200 OK", "application/json; charset=utf-8", js, (int)strlen(js));
-            free(js);
-            free(b);
-            return;
-        } else if (strcmp(nombre, "escrutar") == 0) {
+        if (strcmp(nombre, "escrutar") == 0) {
             pay = json_valor(body, NULL, "payload");
             if (pay && *pay == '{') objeto_fin(pay, &fin); else pay = body, fin = NULL;
             json_str(pay, fin, "premio", premio, sizeof premio);

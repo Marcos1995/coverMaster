@@ -163,7 +163,7 @@
     .kpis { display: flex; flex-wrap: wrap; gap: .35rem; }
     .kpis > div { flex: 0 0 auto; width: auto; justify-content: flex-start; gap: .6rem; }
     .kpis strong { font-size: 14px; font-weight: 700; }
-    #ayuda-dlg, #recurso-dlg {
+    #ayuda-dlg, #recurso-dlg, #est-dlg {
       width: min(36rem, calc(100vw - 1.5rem));
       max-height: min(78vh, 36rem);
       overflow: auto;
@@ -173,25 +173,25 @@
       background: #eaffeb;
       color: #032612;
     }
-    #ayuda-dlg::backdrop, #recurso-dlg::backdrop { background: rgba(3, 38, 18, .5); }
+    #ayuda-dlg::backdrop, #recurso-dlg::backdrop, #est-dlg::backdrop { background: rgba(3, 38, 18, .5); }
     #ayuda-dlg h2, #recurso-dlg h2 { margin: 0 0 .6rem; font-size: 1.25rem; }
+    #est-dlg h2 { margin: 0 0 .35rem; font-size: 1.7rem; font-weight: 800; letter-spacing: -0.03em; }
     #ayuda-dlg h3 { margin: .7rem 0 .15rem; font-size: .8rem; letter-spacing: .02em; }
     #ayuda-dlg p, #recurso-dlg p { margin: 0 0 .25rem; font-size: 13px; line-height: 1.4; }
     #recurso-dlg .fila { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem; }
     #recurso-dlg button:focus-visible { outline: 2px solid #032612; outline-offset: 2px; }
-    html[data-tema="oscuro"] #ayuda-dlg, html[data-tema="oscuro"] #recurso-dlg { background: #06331c; color: #E8F7EE; }
+    #est-dlg p { margin: 0 0 .7rem; font-size: 13px; line-height: 1.4; }
+    #est-dlg .est-cifra { background: #18E667; color: #032612; border-radius: 12px; padding: .7rem .85rem; margin: 0 0 .45rem; }
+    #est-dlg .est-cifra span { display: block; font-size: 12px; font-weight: 700; }
+    #est-dlg .est-cifra strong { display: block; font-size: clamp(1.7rem, 8vw, 2.6rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em; overflow-wrap: anywhere; }
+    html[data-tema="oscuro"] #ayuda-dlg, html[data-tema="oscuro"] #recurso-dlg, html[data-tema="oscuro"] #est-dlg { background: #06331c; color: #E8F7EE; }
+    html[data-tema="oscuro"] #est-dlg .est-cifra { background: #18E667; color: #032612; }
     html[data-tema="oscuro"] #recurso-dlg button:focus-visible { outline-color: #18E667; }
     #actividad { font-size: 13px; line-height: 1.35; }
     #paneles { flex: 1 1 0; min-height: 0; display: flex; flex-direction: row; align-items: stretch; gap: .35rem; margin-top: .35rem; }
     #caja-apuestas { flex: 0 0 16rem; width: 16rem; min-width: 0; min-height: 0; overflow: auto; margin: 0; }
     #caja-registro { flex: 1 1 0; min-width: 0; min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: .25rem; }
     #paneles #actividad { flex: 1 1 auto; min-width: 0; min-height: 8rem; margin: 0; }
-    #est-titulo { margin: 0; font-size: 1.05rem; font-weight: 800; line-height: 1.2; color: #032612; background: #18E667; padding: .15rem .35rem; }
-    .tabla-fija { width: 100%; border-collapse: collapse; font-size: 13px; color: #032612; margin: 0 0 .35rem; }
-    .tabla-fija th, .tabla-fija td { text-align: left; padding: 0 .35rem; white-space: nowrap; background: #18E667; }
-    .tabla-fija th button { cursor: pointer; border: 0; background: transparent; color: inherit; font: inherit; font-weight: 700; padding: 0; }
-    .tabla-fija th button:focus-visible { outline: 2px solid #032612; outline-offset: 1px; }
-    .tabla-fija caption { caption-side: top; text-align: left; font-size: 11px; font-weight: 800; color: #032612; background: #18E667; padding: .1rem .35rem; }
     @media (max-width: 720px) {
       #caja-apuestas { flex-basis: 46%; width: auto; }
     }
@@ -257,7 +257,6 @@
 <button type="button" data-accion="escrutar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Escrutar</button>
 <input id="premio" placeholder="Combinación ganadora" title="Combinación que se escruta" class="bg-surface-container-lowest border border-on-surface/20 rounded text-on-surface">
 <button type="button" id="azar-premio" title="Escribe una combinación al azar de k números" class="bg-primary-container text-[#032612] px-2 py-1 rounded text-[11px] font-bold">Generar</button>
-<button type="button" data-accion="garantias" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Garantías</button>
 <button type="button" data-accion="validar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Validar</button>
 <button type="button" data-accion="estadisticas" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Estadísticas</button>
 <button type="button" data-accion="cargar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Cargar</button>
@@ -355,36 +354,6 @@
 <p id="nota-cobertura">La cobertura cuenta todos los sorteos de la base, no una muestra.</p>
 </div>
 <div id="caja-registro">
-<div id="caja-estadisticas" hidden>
-<p id="est-titulo"></p>
-<table class="tabla-fija" id="tabla-aciertos">
-<caption>Aciertos en cada sorteo. Cobertura es el porcentaje con al menos esos aciertos.</caption>
-<thead><tr>
-<th><button type="button" data-col="0">Aciertos</button></th>
-<th><button type="button" data-col="1">Sorteos</button></th>
-<th><button type="button" data-col="2">%</button></th>
-<th><button type="button" data-col="3">Cobertura</button></th>
-</tr></thead>
-<tbody></tbody>
-</table>
-<table class="tabla-fija" id="tabla-resumen">
-<caption>De las apuestas</caption>
-<thead><tr>
-<th><button type="button" data-col="0">Dato</button></th>
-<th><button type="button" data-col="1">Valor</button></th>
-</tr></thead>
-<tbody></tbody>
-</table>
-<table class="tabla-fija" id="tabla-numeros">
-<caption>Cada número de la base</caption>
-<thead><tr>
-<th><button type="button" data-col="0">Número</button></th>
-<th><button type="button" data-col="1">Veces</button></th>
-<th><button type="button" data-col="2">% de las apuestas</button></th>
-</tr></thead>
-<tbody></tbody>
-</table>
-</div>
 <pre id="actividad" class="min-h-0 overflow-auto bg-[#032612] text-[#18E667] rounded-lg p-2 whitespace-pre-wrap"></pre>
 </div>
 </div>
@@ -404,11 +373,25 @@
 <h3>Escrutar y Generar</h3>
 <p>El recuadro largo es la combinación ganadora. Generar escribe ahí una apuesta al azar de k números: si hay números marcados, salen de esos; si no, del 1 al 49. Escrutar compara la reducida con esa combinación.</p>
 <h3>El resto de acciones</h3>
-<p>Garantías dice qué premios cubre la lista. Estadísticas junta el análisis en una tabla fija del panel derecho: aciertos del 6 al 0, cuántos sorteos caen en cada uno, el porcentaje, la cobertura (al menos esos aciertos) y el total de sorteos. Debajo, las apuestas y cada número de la base. Validar comprueba que cumple la garantía. Cargar abre un archivo de apuestas y marca los números que trae, la base y cuántos van en cada fila. La garantía (4 si 6, 5 si 6…) la eliges tú. Estadísticas y escrutar usan esa lista, también si cargas otro archivo después. Guardar escribe el sistema propio. Usar récord carga la reducida conocida (la de Lotoideas, si existe para esa base). Mejorar récord intenta superarla.</p>
+<p>Estadísticas abre un aviso con dos cifras de lo que está puesto ahora: las combinaciones totales de la base y la garantía, y la cobertura de esas combinaciones con las apuestas que hay en ese momento. Validar comprueba que la lista cumple. Cargar abre un archivo de apuestas y marca los números que trae, la base y cuántos van en cada fila. La garantía (4 si 6, 5 si 6…) la eliges tú. Escrutar usa esa lista, también si cargas otro archivo después. Guardar escribe el sistema propio. Usar récord carga la reducida conocida (la de Lotoideas, si existe para esa base). Mejorar récord intenta superarla.</p>
 <h3>Filtros</h3>
 <p>Están siempre a la vista y no se cierran. La casilla activa el filtro. Mín y máx son los límites: sumas de la apuesta, cantidad de pares, de bajos (la mitad baja del bombo), de distancias, de seguidos, de decenas distintas y de terminaciones. Si el mínimo o el máximo se dejan vacíos, ese lado no limita. Grupos va en su recuadro, una línea por grupo: números, un mínimo y un máximo de aciertos, separados por punto y coma. Debajo, Apuestas condicionadas: números que tienen que salir en cada apuesta.</p>
 <h3>Registro</h3>
-<p>El recuadro verde es lo que va haciendo el programa. Cada clic empieza con una raya y el nombre de la acción, y el resultado se queda en el registro. A la izquierda van las apuestas y a la derecha el registro. La línea de arriba, mientras optimiza, es el ciclo en vivo: la cobertura récord y la temperatura. La cobertura es el porcentaje de sorteos de m números sacados de la base en los que alguna apuesta acierta al menos t. Se cuentan todos esos sorteos, no una muestra de 50.000. La temperatura nace en 1 y baja en cada ciclo; al pasar de 0,0001 ya no cambia qué mutaciones se aceptan, y con cuatro decimales se lee 0,0000. Una apuesta repetida no entra. Limpiar vacía ese registro. La página no se desplaza: si el texto no cabe, se mueve solo dentro del registro o de la tabla.</p>
+<p>El recuadro verde es lo que va haciendo el programa: calcular, cargar, guardar, validar y escrutar. Cada una de esas acciones empieza con una raya y el nombre, y el resultado se queda en el registro. Estadísticas no escribe ahí: sale en su aviso. A la izquierda van las apuestas y a la derecha el registro. La línea de arriba, mientras optimiza, es el ciclo en vivo: la cobertura récord y la temperatura. La cobertura es el porcentaje de sorteos de m números sacados de la base en los que alguna apuesta acierta al menos t. Se cuentan todos esos sorteos, no una muestra de 50.000. La temperatura nace en 1 y baja en cada ciclo; al pasar de 0,0001 ya no cambia qué mutaciones se aceptan, y con cuatro decimales se lee 0,0000. Una apuesta repetida no entra. Limpiar vacía ese registro. La página no se desplaza: si el texto no cabe, se mueve solo dentro del registro o de la tabla.</p>
+<form method="dialog"><button type="submit" class="mt-2 bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Cerrar</button></form>
+</dialog>
+<dialog id="est-dlg" aria-labelledby="est-titulo">
+<h2 id="est-titulo" tabindex="-1">Estadísticas</h2>
+<p id="est-leyenda"></p>
+<div class="est-cifra">
+<span>Combinaciones totales</span>
+<strong id="est-total">—</strong>
+</div>
+<div class="est-cifra">
+<span>Cobertura</span>
+<strong id="est-cob">—</strong>
+<span id="est-de"></span>
+</div>
 <form method="dialog"><button type="submit" class="mt-2 bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Cerrar</button></form>
 </dialog>
 <dialog id="recurso-dlg" aria-labelledby="recurso-titulo">
@@ -574,7 +557,6 @@
       });
       document.getElementById("limpiar").addEventListener("click", async function () {
         document.getElementById("actividad").textContent = "";
-        document.getElementById("caja-estadisticas").hidden = true;
         if (!window.pywebview || !window.pywebview.api) return;
         try { await window.pywebview.api.limpiar(leer()); } catch (e) {}
       });
@@ -658,68 +640,27 @@
       document.querySelectorAll("#tabla-apuestas th button").forEach(function (b) {
         b.addEventListener("click", function () { ordenarLista(+b.getAttribute("data-col")); });
       });
-      var ordenTablas = {};
-      function celda(valor, texto) {
-        return "<td data-n=\"" + valor + "\">" + texto + "</td>";
+      function miles(s) {
+        var t = String(s == null ? "" : s);
+        return t.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
       }
-      function ordenarTabla(id, col) {
-        var tb = document.querySelector("#" + id + " tbody");
-        var filas = Array.prototype.slice.call(tb.querySelectorAll("tr"));
-        var prev = ordenTablas[id] || { col: -1, dir: 1 };
-        var dir = prev.col === col ? -prev.dir : -1;
-        ordenTablas[id] = { col: col, dir: dir };
-        filas.sort(function (a, b) {
-          var da = a.children[col].getAttribute("data-n") || "";
-          var db = b.children[col].getAttribute("data-n") || "";
-          var na = Number(da), nb = Number(db);
-          var c = (da !== "" && !isNaN(na) && !isNaN(nb)) ? na - nb : da.localeCompare(db, "es");
-          return dir < 0 ? -c : c;
-        });
-        filas.forEach(function (tr) { tb.appendChild(tr); });
-        tb.parentNode.querySelectorAll("th button").forEach(function (b, i) {
-          b.setAttribute("aria-sort", i === col ? (dir < 0 ? "descending" : "ascending") : "none");
-        });
-      }
-      document.querySelectorAll(".tabla-fija th button").forEach(function (b) {
-        b.addEventListener("click", function () { ordenarTabla(b.closest("table").id, +b.getAttribute("data-col")); });
-      });
-      function pct(n) { return Number(n).toFixed(4) + "%"; }
-      function pintarEstadisticas(t) {
-        var caja = document.getElementById("caja-estadisticas");
-        var ac = document.querySelector("#tabla-aciertos tbody");
-        var re = document.querySelector("#tabla-resumen tbody");
-        var nu = document.querySelector("#tabla-numeros tbody");
-        var html = "", i, fila;
+      function pct(n) { return Number(n).toFixed(4).replace(".", ",") + " %"; }
+      function abrirEstadisticas(t) {
+        var dlg = document.getElementById("est-dlg");
         if (!t) return;
-        document.getElementById("est-titulo").textContent = t.puede
-          ? "Total de sorteos: " + t.total + ". Cobertura al " + t.t + ": " + pct(t.cobertura) + "."
-          : "Hay demasiados sorteos para la cobertura. Los números de las apuestas sí están.";
-        (t.aciertos || []).forEach(function (f) {
-          html += "<tr>" + celda(f.h, String(f.h)) + celda(f.sorteos, String(f.sorteos)) + celda(f.pct, pct(f.pct)) + celda(f.cob, pct(f.cob)) + "</tr>";
-        });
-        ac.innerHTML = html;
-        fila = [
-          ["Apuestas", t.apuestas, String(t.apuestas)],
-          ["Suma mínima", t.suma_min, String(t.suma_min)],
-          ["Suma máxima", t.suma_max, String(t.suma_max)],
-          ["Suma media", t.suma_media, Number(t.suma_media).toFixed(2)],
-          ["Pares", t.pares, String(t.pares)],
-          ["Impares", t.impares, String(t.impares)],
-          ["Pares por apuesta, mínimo", t.pmin, String(t.pmin)],
-          ["Pares por apuesta, máximo", t.pmax, String(t.pmax)]
-        ];
-        html = "";
-        for (i = 0; i < fila.length; i++) html += "<tr>" + celda(fila[i][0], fila[i][0]) + celda(fila[i][1], fila[i][2]) + "</tr>";
-        re.innerHTML = html;
-        html = "";
-        (t.numeros || []).forEach(function (f) {
-          var nombre = f.n < 10 ? "0" + f.n : String(f.n);
-          html += "<tr>" + celda(f.n, nombre) + celda(f.veces, String(f.veces)) + celda(f.pct, pct(f.pct)) + "</tr>";
-        });
-        nu.innerHTML = html;
-        ordenTablas = {};
-        document.querySelectorAll(".tabla-fija th button").forEach(function (b) { b.setAttribute("aria-sort", "none"); });
-        caja.hidden = false;
+        document.getElementById("est-leyenda").textContent = "Base de " + t.v + " números, apuestas de " + t.k + ". Garantía " + t.t + " si " + t.m + ". Apuestas ahora: " + t.apuestas + ".";
+        document.getElementById("est-total").textContent = t.total && t.total !== "0" ? miles(t.total) : "—";
+        if (t.puede) {
+          document.getElementById("est-cob").textContent = pct(t.cobertura);
+          document.getElementById("est-de").textContent = miles(t.cubiertas) + " de " + miles(t.total) + ".";
+        } else {
+          document.getElementById("est-cob").textContent = "—";
+          document.getElementById("est-de").textContent = t.total && t.total !== "0"
+            ? "Hay demasiadas combinaciones para contar la cobertura."
+            : "El total no cabe.";
+        }
+        if (!dlg.open) dlg.showModal();
+        document.getElementById("est-titulo").focus();
       }
       function pintarEstado(e) {
         if (!e) return;
@@ -772,7 +713,7 @@
         if (!window.pywebview || !window.pywebview.api) { sinPrograma(); return; }
         try {
           var r = await window.pywebview.api[nombre](datos || leer());
-          if (r && r.tabla) pintarEstadisticas(r.tabla);
+          if (r && r.popup) abrirEstadisticas(r.popup);
           if (r && r.ok === false && r.error) aviso("Error", r.error);
         } catch (e) {
           aviso("Error", "No llega la respuesta del programa.");
