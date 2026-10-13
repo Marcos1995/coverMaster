@@ -1,4 +1,4 @@
-/* Punto X — el programa oficial, sin número de versión. */
+/* Lotto Master — el programa oficial, sin número de versión. El fuente sigue llamándose PuntoX.c. */
 #define WIN32_LEAN_AND_MEAN
 #define _CRT_SECURE_NO_WARNINGS
 #include <winsock2.h>
@@ -1232,34 +1232,6 @@ static void volcar(Opt *o, const Job *job, double cob) {
     fijar_nota(o->total_sorteos, o->exacto || o->cob_vista >= 0);
 }
 
-static void guardar_opt(Opt *o, Job *job, const char *marca) {
-    uint64_t *src, *reales;
-    int n, i;
-    double cob;
-    int medido;
-    char nombre[260], msg[320];
-    if (o->mejor_n > 0) { src = o->mejor; n = o->mejor_n; cob = o->mejor_cob; }
-    else { src = o->ap; n = o->nap; cob = cob_de(o); }
-    medido = o->exacto;
-    if (!o->exacto) {
-        double real = cubrir_lista(src, n, o->v, o->m, o->t, o->total_sorteos);
-        if (real >= 0) { cob = real; medido = 1; }
-    }
-    if (!n) { anotar("No hay apuestas que guardar."); return; }
-    reales = (uint64_t *)malloc((size_t)n * sizeof(uint64_t));
-    if (!reales) { anotar("Error: sin memoria."); return; }
-    for (i = 0; i < n; i++) reales[i] = mapear(job, src[i]);
-    if (!escribir(reales, n, job->v, job->k, job->t, cob, marca, nombre)) {
-        free(reales);
-        anotar("Error: no se ha podido guardar.");
-        return;
-    }
-    publicar_bets(reales, n, job->k, cob);
-    fijar_nota(o->total_sorteos, medido);
-    g_v = job->v; g_t = job->t;
-    snprintf(msg, sizeof msg, "Has guardado el fichero. %s", nombre);
-    anotar(msg);
-}
 
 static int apuestas_de_url(const char *url) {
     const char *p;
@@ -2013,7 +1985,6 @@ static DWORD WINAPI hilo(LPVOID p) {
     if (strcmp(job->modo, "usar") == 0) {
         uint64_t *absb = NULL, *reales;
         int n = 0, i;
-        char nombre[260], msg[320];
         anotar(job->url);
         if (!descargar_reducida(job->url, job->v, job->k, &absb, &n, err)) {
             char m[240];
@@ -2024,14 +1995,9 @@ static DWORD WINAPI hilo(LPVOID p) {
             if (!reales) anotar("Error: sin memoria.");
             else {
                 for (i = 0; i < n; i++) reales[i] = mapear(job, absb[i]);
-                if (!escribir(reales, n, job->v, job->k, job->t, 0, "lotoideas", nombre)) anotar("Error: no se ha podido guardar.");
-                else {
-                    publicar_bets(reales, n, job->k, -1);
-                    g_v = job->v; g_t = job->t;
-                    snprintf(msg, sizeof msg, "Archivo: %s", nombre);
-                    anotar(msg);
-                    anotar("Guardada la reducida récord de Lotoideas, sin cambiarla.");
-                }
+                publicar_bets(reales, n, job->k, -1);
+                g_v = job->v; g_t = job->t;
+                anotar("Lista del récord en pantalla. Pulsa Guardar si la quieres en un fichero.");
             }
             free(absb);
         }
@@ -2053,7 +2019,7 @@ static DWORD WINAPI hilo(LPVOID p) {
                 uint64_t *absb = NULL;
                 int n = 0, i;
                 anotar(job->url);
-                anotar("Si el recocido no la supera, se guarda la lista de Lotoideas.");
+                anotar("Si el recocido no la supera, se queda la lista de Lotoideas.");
                 if (!descargar_reducida(job->url, job->v, job->k, &absb, &n, err)) {
                     char m[240];
                     snprintf(m, sizeof m, "Error: %s", err[0] ? err : "descarga");
@@ -2062,7 +2028,7 @@ static DWORD WINAPI hilo(LPVOID p) {
                     for (i = 0; i < n && !g_parar; i++) agregar(o, absb[i]);
                     free(absb);
                     if (o->nap && !g_parar) optimizar(o, job, -1);
-                    guardar_opt(o, job, NULL);
+                    if (o->nap) volcar(o, job, o->mejor_n > 0 ? o->mejor_cob : cob_de(o));
                 }
             } else if (job->modo_p) {
                 if (job->usar_record && job->porc >= 99.9995 && job->url[0] && !job->filtros.activo) {
@@ -2090,7 +2056,7 @@ static DWORD WINAPI hilo(LPVOID p) {
                     estrategia(o, job, job->porc, 8000);
                     if (job->via == 2 && job->ciclos && !g_parar) buscar_cobertura(o, job);
                 }
-                guardar_opt(o, job, NULL);
+                if (o->nap) volcar(o, job, o->mejor_n > 0 ? o->mejor_cob : cob_de(o));
             } else {
                 int cantidad = job->cantidad >= 1 ? job->cantidad : 20;
                 if (job->via == 0) {
@@ -2128,7 +2094,7 @@ static DWORD WINAPI hilo(LPVOID p) {
                         }
                     }
                 }
-                guardar_opt(o, job, NULL);
+                if (o->nap) volcar(o, job, o->mejor_n > 0 ? o->mejor_cob : cob_de(o));
             }
             opt_free(o);
         }
@@ -2543,7 +2509,7 @@ static void abrir_ventana(int puerto) {
     } else snprintf(perfil, sizeof perfil, ".\\edge-perfil");
     CreateDirectoryA(perfil, NULL);
     if (!buscar_navegador(edge)) { ShellExecuteA(NULL, "open", url, NULL, NULL, SW_SHOWNORMAL); return; }
-    snprintf(cmd, sizeof cmd, "\"%s\" --app=%s --window-size=1100,860 --user-data-dir=\"%s\" --no-first-run --disable-sync", edge, url, perfil);
+    snprintf(cmd, sizeof cmd, "\"%s\" --app=%s --window-size=1040,680 --user-data-dir=\"%s\" --no-first-run --disable-sync", edge, url, perfil);
     memset(&si, 0, sizeof si);
     si.cb = sizeof si;
     memset(&pi, 0, sizeof pi);

@@ -1,17 +1,17 @@
-# Graph Report - coverMaster  (2026-10-13)
+# Graph Report - coverMaster  (2026-10-14)
 
 ## Corpus Check
-- 40 files · ~251,967 words
+- 40 files · ~255,475 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 25 file(s) not represented in the graph (top: .exe 10, .pdb 10, .mdc 3)
 
 ## Summary
-- 1353 nodes · 4254 edges · 40 communities (28 shown, 12 thin omitted)
+- 1352 nodes · 4242 edges · 40 communities (28 shown, 12 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bb88a344`
+- Built from commit: `7acb362b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -193,7 +193,7 @@ Nodes (8): Avaro, Corte, Estrategias, Grupos, Patrón 24, Patrón 27, Steiner, V
 
 ### Community 39 - "PuntoX.c"
 Cohesion: 0.06
-Nodes (115): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), apuestas_de_url() (+107 more)
+Nodes (114): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), apuestas_de_url() (+106 more)
 
 ## Knowledge Gaps
 - **55 isolated node(s):** `1. Root cause`, `2. Compare`, `3. Hypothesis`, `4. Fix`, `Red flags → back to step 1` (+50 more)

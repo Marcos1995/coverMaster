@@ -18,7 +18,7 @@
 - `LottoOptimizerV3_18.c` es el 17, con tres vías: fuerza bruta, estrategia o ambas. La estrategia junta grupos de números cuando esa cuenta ya cubre; si no, cada sorteo descubierto entra como apuesta. El 17 no cambia. La ventana se llama Loto 3.18. Basta `LottoOptimizerV3_18.exe`.
 - `LottoOptimizerV3_19.c` es el 18. Apuestas y cobertura no van a la vez: la que no usas queda en blanco. Al 100 % de cobertura se mira el récord; con un número de apuestas, no. Al cambiar la base se marcan los números del 1 a ese. Fuerza bruta, estrategia y ambas van al principio de la fila. El 18 no cambia. La ventana se llama Loto 3.19. Basta `LottoOptimizerV3_19.exe`.
 - `LottoOptimizerV3_20.c` es el 19. Por apuestas o por cobertura se ve en dos botones con una o en medio. Al cargar un TXT marca los números del fichero, pone la base (cuántos distintos) y k (números por fila). La garantía la eliges tú. Estadísticas (ya no hay Análisis aparte) pinta en el panel derecho una tabla fija: aciertos del 6 al 0, sorteos, porcentaje, cobertura al menos esos aciertos, el total de sorteos, y cada número de la base. Validar, garantías y escrutar usan esa lista, también al cargar otro archivo. El 19 no cambia. La ventana se llama Loto 3.20. Basta `LottoOptimizerV3_20.exe`.
-- Punto X es el programa oficial, sin número. El fuente es `PuntoX.c` (el mismo que el 20 el día que se fijó) y la pantalla es `puntox.html`. La ventana se llama Punto X. El fichero que se entrega se llama `LottoMaster.exe`. Los numerados del 10 al 20 no se siguen. Cada cambio de este repo adjunta ese exe en el chat de Telegram. Estadísticas abre un aviso con las combinaciones totales y la cobertura. No hay registro: la línea verde dice qué pasa, y guardar, validar y escrutar salen en un aviso corto. La ventana reparte el sitio: la rejilla de números llena la izquierda y, a la derecha, los filtros y las apuestas en fichas.
+- Lotto Master es el programa oficial, sin número. El fuente sigue siendo `PuntoX.c` y la pantalla `puntox.html`. La ventana se llama Lotto Master. El fichero que se entrega se llama `LottoMaster.exe`. Los numerados del 10 al 20 no se siguen. Cada cambio de este repo adjunta ese exe en el chat de Telegram. Estadísticas abre un aviso con las combinaciones totales y la cobertura. No hay registro: la línea verde dice qué pasa, y guardar, validar y escrutar salen en un aviso corto. El fichero solo se escribe al pulsar Guardar. Los números del 1 al 49 son celdas fijas, y la ventana abre a 1040×680: a la izquierda la rejilla y a la derecha los filtros y las apuestas.
 - `cuatro_grupos.py` prueba el reparto en cuatro grupos. En 24 al 4 si 6 cubre el 100 % con 277 y no baja de 143: cada pareja pide 25 y las seis no se mezclan.
 - `records.py` guarda las estrategias (grupos, corte, Steiner, patrón 27, patrón 24, avaro) y las pasa de menos sorteos a más. 12 al 4 si 6 son 6 apuestas de grupos, 0 fallos en 924. 49 al 3 si 6 es 77+86=163. 24 al 4 si 6 son 143. Detalle en `docs/ESTRATEGIAS.md`.
 - Lectura del algoritmo: `docs/LottoOptimizerV3_10.md`. El 11 usa esa lógica.
@@ -36,7 +36,7 @@
 - El 18 es el mismo C. La pantalla va dentro de `LottoOptimizerV3_18.exe`. Vista: https://marcos1995.github.io/coverMaster/v18.html
 - El 19 es el mismo C. La pantalla va dentro de `LottoOptimizerV3_19.exe`. Vista: https://marcos1995.github.io/coverMaster/v19.html
 - El 20 es el mismo C. La pantalla va dentro de `LottoOptimizerV3_20.exe`. Vista: https://marcos1995.github.io/coverMaster/v20.html
-- Punto X es el oficial, sin número. `LottoMaster.exe` lleva `puntox.html` dentro. En Telegram va adjunto, solo en este repo.
+- Lotto Master es el oficial, sin número. `LottoMaster.exe` lleva `puntox.html` dentro. En Telegram va adjunto, solo en este repo.
 
 ## Comandos utiles
 - Instalar:
@@ -66,7 +66,7 @@
 - Recompilar el 18: `zig cc -O2 -std=c11 -o LottoOptimizerV3_18.exe LottoOptimizerV3_18.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
 - Recompilar el 19: `zig cc -O2 -std=c11 -o LottoOptimizerV3_19.exe LottoOptimizerV3_19.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
 - Recompilar el 20: `zig cc -O2 -std=c11 -o LottoOptimizerV3_20.exe LottoOptimizerV3_20.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
-- Recompilar Punto X: `zig cc -O2 -std=c11 -o LottoMaster.exe PuntoX.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
+- Recompilar Lotto Master: `zig cc -O2 -std=c11 -o LottoMaster.exe PuntoX.c -lwinhttp -lws2_32 -lcomdlg32 -lgdi32 -luser32 -lshell32`
 - Grafo: `graphify update .` (paquete `graphifyy`; ejecutable en `%USERPROFILE%\.local\bin`)
 
 ## Notas para el agente
