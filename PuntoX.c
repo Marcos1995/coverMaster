@@ -1257,7 +1257,7 @@ static void guardar_opt(Opt *o, Job *job, const char *marca) {
     publicar_bets(reales, n, job->k, cob);
     fijar_nota(o->total_sorteos, medido);
     g_v = job->v; g_t = job->t;
-    snprintf(msg, sizeof msg, "Archivo: %s", nombre);
+    snprintf(msg, sizeof msg, "Has guardado el fichero. %s", nombre);
     anotar(msg);
 }
 
@@ -1541,28 +1541,26 @@ static int copiar_bets(uint64_t **out) {
     return n;
 }
 
-static void texto_escrutinio(uint64_t *bets, int n, const char *premio) {
-    int nums[MAXN], cn, i, kmax = 0, conteo[MAXN + 1];
+static int texto_escrutinio(uint64_t *bets, int n, const char *premio, int t, char *cifra, int cc, char *detalle, int dc) {
+    int nums[MAXN], cn, i, mejor = 0, cuantos = 0;
     uint64_t prem = 0;
-    char buf[2048];
-    int pos = 0;
+    char linea[160];
     cn = analizar_numeros(premio, nums, MAXN);
-    if (cn < 1) { anotar("Error: Escribe la combinación ganadora."); return; }
+    if (cn < 1) return 0;
     for (i = 0; i < cn; i++) {
-        if (nums[i] < 1 || nums[i] > MAXN) { anotar("Error: Escribe la combinación ganadora."); return; }
+        if (nums[i] < 1 || nums[i] > MAXN) return 0;
         prem |= 1ull << (nums[i] - 1);
     }
-    memset(conteo, 0, sizeof conteo);
     for (i = 0; i < n; i++) {
         int ac = __builtin_popcountll(bets[i] & prem);
-        int kb = __builtin_popcountll(bets[i]);
-        if (ac > MAXN) ac = MAXN;
-        conteo[ac]++;
-        if (kb > kmax) kmax = kb;
+        if (ac > mejor) { mejor = ac; cuantos = 1; }
+        else if (ac == mejor) cuantos++;
     }
-    pos += snprintf(buf + pos, sizeof buf - pos, "Escrutinio de %d apuestas.", n);
-    for (i = kmax; i >= 0; i--) pos += snprintf(buf + pos, sizeof buf - pos, "\n  %d aciertos: %d", i, conteo[i]);
-    anotar(buf);
+    snprintf(cifra, cc, "%s", (t > 0 && mejor >= t) ? "Has ganado" : "No llega");
+    snprintf(detalle, dc, "Mejor acierto: %d. Apuestas con ese acierto: %d.", mejor, cuantos);
+    snprintf(linea, sizeof linea, "%s. %s", cifra, detalle);
+    anotar(linea);
+    return 1;
 }
 
 static uint64_t bits_sorteo(const Job *job, const int *c, int m) {
@@ -1616,13 +1614,13 @@ static void estadisticas_json(char *dst, int cap, const uint64_t *bets, int n, c
         puede ? "true" : "false", t, m, v, job->k, n);
 }
 
-static void texto_validacion(uint64_t *bets, int n, Job *job) {
+static int texto_validacion(uint64_t *bets, int n, Job *job, char *cifra, int cc, char *detalle, int dc) {
     int i, problemas = 0;
     char buf[4096];
     int pos;
     uint64_t *vistos;
     int nv = 0;
-    if (!n) { anotar("No hay apuestas que validar."); return; }
+    if (!n) return 0;
     vistos = (uint64_t *)malloc((size_t)n * sizeof(uint64_t));
     pos = snprintf(buf, sizeof buf, "Problemas:");
     for (i = 0; i < n && problemas < 40; i++) {
@@ -1659,9 +1657,15 @@ static void texto_validacion(uint64_t *bets, int n, Job *job) {
     }
     free(vistos);
     if (!problemas) {
-        snprintf(buf, sizeof buf, "Válidas: %d apuestas de %d números.", n, job->k);
+        snprintf(cifra, cc, "Válidas");
+        snprintf(detalle, dc, "%d apuestas de %d números.", n, job->k);
+        anotar(detalle);
+    } else {
+        snprintf(cifra, cc, "Hay problemas");
+        snprintf(detalle, dc, "%s", buf);
+        anotar("Hay problemas en la lista.");
     }
-    anotar(buf);
+    return 1;
 }
 
 static void decir_nivel(Opt *o, const Job *job) {
@@ -2192,19 +2196,14 @@ static int json_escape(char *dst, int cap, const char *s) {
 
 static void estado_json(char *dst, int cap) {
     char esc[480];
-    int i, desde, pos = 0;
+    int i, pos = 0;
     EnterCriticalSection(&g_cs);
     json_escape(esc, sizeof esc, g_ahora);
     pos += snprintf(dst + pos, cap - pos, "{\"ahora\":\"%s\",", esc);
     json_escape(esc, sizeof esc, g_linea);
-    pos += snprintf(dst + pos, cap - pos, "\"linea\":\"%s\",\"log\":[", esc);
-    desde = g_nlog > 80 ? g_nlog - 80 : 0;
-    for (i = desde; i < g_nlog && pos < cap - 80; i++) {
-        json_escape(esc, sizeof esc, g_log[i]);
-        pos += snprintf(dst + pos, cap - pos, "%s\"%s\"", i == desde ? "" : ",", esc);
-    }
+    pos += snprintf(dst + pos, cap - pos, "\"linea\":\"%s\",", esc);
     json_escape(esc, sizeof esc, g_cob);
-    pos += snprintf(dst + pos, cap - pos, "],\"apuestas\":%d,\"cobertura\":\"%s\",", g_apuestas, esc);
+    pos += snprintf(dst + pos, cap - pos, "\"apuestas\":%d,\"cobertura\":\"%s\",", g_apuestas, esc);
     json_escape(esc, sizeof esc, g_nota);
     pos += snprintf(dst + pos, cap - pos, "\"sobre\":\"%s\",\"exacto\":%s,\"ocupado\":%s,\"lista\":[",
         esc, g_exacto ? "true" : "false", g_ocupado ? "true" : "false");
@@ -2260,6 +2259,18 @@ static void responder_ok(SOCKET s, int ok, const char *err) {
         snprintf(buf, sizeof buf, "{\"ok\":false,\"error\":\"%s\"}", esc);
         responder(s, "200 OK", "application/json; charset=utf-8", buf, (int)strlen(buf));
     }
+}
+
+static void responder_hecho(SOCKET s, const char *titulo, const char *cifra, const char *detalle) {
+    char *buf, et[160], ec[240], ed[5000];
+    buf = (char *)malloc(5600);
+    if (!buf) { responder_ok(s, 1, NULL); return; }
+    json_escape(et, sizeof et, titulo ? titulo : "");
+    json_escape(ec, sizeof ec, cifra ? cifra : "");
+    json_escape(ed, sizeof ed, detalle ? detalle : "");
+    snprintf(buf, 5600, "{\"ok\":true,\"hecho\":{\"titulo\":\"%s\",\"cifra\":\"%s\",\"detalle\":\"%s\"}}", et, ec, ed);
+    responder(s, "200 OK", "application/json; charset=utf-8", buf, (int)strlen(buf));
+    free(buf);
 }
 
 static const char SHIM[] =
@@ -2348,29 +2359,49 @@ static void api_dispatch(SOCKET s, const char *body) {
         const char *pay, *fin = NULL;
         if (!n) { free(b); responder_error(s, "Primero calcula, carga o usa una reducida."); return; }
         if (strcmp(nombre, "escrutar") == 0) {
+            Job job;
+            char cifra[40], detalle[120];
+            memset(&job, 0, sizeof job);
+            parse_datos(body, &job, err);
             pay = json_valor(body, NULL, "payload");
             if (pay && *pay == '{') objeto_fin(pay, &fin); else pay = body, fin = NULL;
             json_str(pay, fin, "premio", premio, sizeof premio);
-            texto_escrutinio(b, n, premio);
-        } else if (strcmp(nombre, "validar") == 0) {
+            if (!texto_escrutinio(b, n, premio, job.t, cifra, (int)sizeof cifra, detalle, (int)sizeof detalle)) {
+                free(b);
+                responder_error(s, "Escribe la combinación ganadora.");
+                return;
+            }
+            free(b);
+            responder_hecho(s, "Escrutinio", cifra, detalle);
+            return;
+        }
+        if (strcmp(nombre, "validar") == 0) {
             Job job;
+            char cifra[40], detalle[2400];
             memset(&job, 0, sizeof job);
             parse_datos(body, &job, err);
             rellenar_desde_bets(&job, b, n);
-            texto_validacion(b, n, &job);
-        } else {
+            if (!texto_validacion(b, n, &job, cifra, (int)sizeof cifra, detalle, (int)sizeof detalle)) {
+                free(b);
+                responder_error(s, "No hay apuestas que validar.");
+                return;
+            }
+            free(b);
+            responder_hecho(s, "Validar", cifra, detalle);
+            return;
+        }
+        {
             Job job;
-            char nombre_f[260], msg[300];
+            char nombre_f[260];
             int v, k, t;
             if (!parse_datos(body, &job, err)) { v = g_v ? g_v : 8; k = g_k ? g_k : 6; t = g_t ? g_t : 1; }
             else { v = job.v; k = job.k; t = job.t; }
             if (!escribir(b, n, v, k, t, 0, "propio", nombre_f)) { free(b); responder_error(s, "No se ha podido guardar."); return; }
-            snprintf(msg, sizeof msg, "Sistema propio guardado: %s", nombre_f);
-            anotar(msg);
+            anotar("Has guardado el fichero.");
+            free(b);
+            responder_hecho(s, "Guardar", "Has guardado el fichero", nombre_f);
+            return;
         }
-        free(b);
-        responder_ok(s, 1, NULL);
-        return;
     }
     if (strcmp(nombre, "cargar") == 0) {
         char file[MAX_PATH] = "";
