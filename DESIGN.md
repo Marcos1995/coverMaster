@@ -7,3 +7,4 @@ Expresivo y verde. Titular display grande (Public Sans, muy negro). La cifra pri
 - Pantalla del 12 (`index.html`): `a2b3005027f84817acfc3f242c94259a`
 - Pantalla del 13 (`v13.html`): `43b008aa74f1401b8a63df20ac2c9b55`
 - Pantalla del 14, tabla de apuestas: `7800bf7f0ea6419fbfaf6ddce6f58ba5`
+- Pantalla de Punto X, rejilla y fichas: `0bf07b6f4a064514b85b77a09e3de7d0`

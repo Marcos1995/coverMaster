@@ -136,15 +136,11 @@
     .tema .luna { right: .22rem; }
     .tema .punto { position: absolute; top: 2px; left: 2px; width: 1.15rem; height: 1.15rem; border-radius: 999px; background: #18E667; transition: left .2s ease; }
     html[data-tema="oscuro"] .tema .punto { left: calc(100% - 1.15rem - 2px); }
-    #loto-grid { width: max-content; grid-template-columns: repeat(7, 2rem); gap: .22rem; }
-    #loto-grid button { width: 2rem; height: 2rem; font-size: 12px; line-height: 1; padding: 0; }
+    #loto-grid { width: 100%; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); grid-template-rows: repeat(7, minmax(0, 1fr)); gap: .28rem; }
+    #loto-grid button { width: 100%; height: 100%; min-height: 0; font-size: clamp(11px, 1.5vw, 15px); font-weight: 800; line-height: 1; padding: 0; border-radius: 12px; background: #fff; color: #032612; border: 1px solid #6b7b6a; }
     #loto-grid button.on { background: #18E667 !important; color: #032612 !important; border: 2px solid #032612 !important; }
     #calcular { background: #0A3D22 !important; color: #18E667 !important; }
-    #linea { flex-basis: 100%; }
-    @media (max-width: 520px) {
-      #loto-grid { grid-template-columns: repeat(7, 1.7rem); }
-      #loto-grid button { width: 1.7rem; height: 1.7rem; font-size: 11px; }
-    }
+    #linea { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     input:not([type="checkbox"]):not([type="radio"]), select {
       box-sizing: border-box !important;
       font-size: 13px !important;
@@ -155,14 +151,35 @@
     }
     .caja { width: 3.4rem !important; text-align: center; }
     #premio { width: 18rem !important; max-width: 100%; text-align: left; font-variant-numeric: tabular-nums; }
-    #grupos, #incluir { display: block !important; width: 16rem !important; max-width: 100%; margin-top: .2rem; text-align: left; }
+    #grupos, #incluir { display: block !important; width: 100% !important; max-width: 100%; margin-top: .2rem; text-align: left; grid-column: 1 / -1; }
     #rotulo-numeros, #rotulo-filtros { font-size: 15px; font-weight: 700; }
-    @media (max-width: 720px) {
-      #zona { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) minmax(12rem, 1fr); }
+    #zona { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: .5rem; padding: 0 .45rem .45rem; }
+    .panel { min-width: 0; min-height: 0; display: flex; flex-direction: column; gap: .4rem; background: #fff; border: 1px solid rgba(3, 38, 18, .12); border-radius: 16px; padding: .5rem; overflow: hidden; }
+    .panel-num { overflow: hidden; }
+    .panel-ap { align-self: start; max-height: 100%; overflow: auto; }
+    #content-filtros { display: grid; grid-template-columns: 1fr 1fr; gap: .15rem .4rem; }
+    .estado { display: flex; align-items: baseline; gap: .45rem; background: #18E667; color: #032612; border-radius: 12px; padding: .35rem .6rem; flex: none; }
+    .estado #ahora { font-size: clamp(1.15rem, 2vw, 1.6rem); font-weight: 800; letter-spacing: -0.03em; }
+    #cuerpo-apuestas { flex: 1; min-height: 0; overflow: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(9.4rem, 1fr)); gap: .35rem; align-content: start; }
+    .boleto { display: flex; align-items: center; justify-content: space-between; gap: .35rem; background: #0A3D22; color: #18E667; border: 0; border-radius: 10px; padding: .4rem .5rem; font-weight: 800; font-variant-numeric: tabular-nums; text-align: left; }
+    .boleto .bn { font-size: 11px; opacity: .8; }
+    #vacio { margin: .2rem 0 0; font-size: 13px; font-weight: 700; }
+    .ordena { display: flex; gap: .35rem; flex: none; }
+    .ordena button { border: 0; background: transparent; font: inherit; font-weight: 800; font-size: 12px; cursor: pointer; padding: 0 .15rem; }
+    @media (max-width: 800px) {
+      html, body { overflow: auto; }
+      #zona { grid-template-columns: 1fr; }
+      .panel-num { min-height: 22rem; }
     }
-    .kpis { display: flex; flex-wrap: wrap; gap: .35rem; }
-    .kpis > div { flex: 0 0 auto; width: auto; justify-content: flex-start; gap: .6rem; }
-    .kpis strong { font-size: 14px; font-weight: 700; }
+    @media (prefers-reduced-motion: no-preference) {
+      .panel { animation: entra .4s ease both; }
+      #rotulo-numeros { animation: escala .4s ease both; }
+    }
+    @keyframes entra { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    @keyframes escala { from { transform: scale(.96); } to { transform: none; } }
+    .kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem; }
+    .kpis > div { width: auto; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: .15rem; border-radius: 12px; padding: .55rem .7rem; min-height: 4.2rem; }
+    .kpis strong { font-size: clamp(1.35rem, 2.2vw, 1.9rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
     #ayuda-dlg, #recurso-dlg, #est-dlg, #hecho-dlg {
       width: min(36rem, calc(100vw - 1.5rem));
       max-height: min(78vh, 36rem);
@@ -190,13 +207,10 @@
     html[data-tema="oscuro"] #ayuda-dlg, html[data-tema="oscuro"] #recurso-dlg, html[data-tema="oscuro"] #est-dlg, html[data-tema="oscuro"] #hecho-dlg { background: #06331c; color: #E8F7EE; }
     html[data-tema="oscuro"] #est-dlg .est-cifra, html[data-tema="oscuro"] #hecho-dlg .est-cifra { background: #18E667; color: #032612; }
     html[data-tema="oscuro"] #recurso-dlg button:focus-visible { outline-color: #18E667; }
-    #paneles { flex: 1 1 0; min-height: 0; overflow: auto; margin-top: .35rem; }
-    #caja-apuestas { min-width: 0; min-height: 0; }
-    #tabla-apuestas { width: max-content; max-width: 100%; border-collapse: collapse; font-size: 13px; color: #032612; }
-    #tabla-apuestas th, #tabla-apuestas td { text-align: left; padding: 0 .35rem; white-space: nowrap; background: #18E667; }
-    #tabla-apuestas th button { cursor: pointer; border: 0; background: transparent; color: inherit; font: inherit; font-weight: 700; padding: 0; }
-    #tabla-apuestas th button:focus-visible { outline: 2px solid #032612; outline-offset: 1px; }
-    #nota-cobertura { margin: .15rem 0 0; font-size: 10px; line-height: 1.2; color: #032612; }
+    #paneles, #caja-apuestas { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: .35rem; }
+    .panel-ap:not(:has(.boleto)) #paneles { flex: none; }
+    .ordena button:focus-visible { outline: 2px solid #032612; outline-offset: 2px; }
+    #nota-cobertura { margin: 0; font-size: 11px; line-height: 1.25; font-weight: 700; }
     #ciclos { position: relative; }
     #ciclos .pulgar { position: absolute; top: 2px; left: 2px; width: .75rem; height: .75rem; border-radius: 999px; background: #032612; }
     #ciclos[aria-checked="true"] .pulgar { left: calc(100% - .75rem - 2px); }
@@ -218,7 +232,7 @@
     html[data-tema="oscuro"] .bg-surface-container-high { background-color: #0A3D22 !important; }
     html[data-tema="oscuro"] .text-on-surface,
     html[data-tema="oscuro"] .text-primary { color: #E8F7EE !important; }
-    html[data-tema="oscuro"] #loto-grid button { color: #E8F7EE !important; background: #0A3D22 !important; }
+    html[data-tema="oscuro"] #loto-grid button { color: #E8F7EE !important; background: #0A3D22 !important; border: 1px solid #18E667 !important; }
     html[data-tema="oscuro"] #loto-grid button.on { background: #18E667 !important; color: #032612 !important; }
     html[data-tema="oscuro"] .text-on-surface-variant { color: #9fd2ad !important; }
     html[data-tema="oscuro"] .bg-primary-container { background-color: #18E667 !important; }
@@ -228,6 +242,10 @@
     html[data-tema="oscuro"] .modo { background: #0A3D22; color: #E8F7EE; border-color: #18E667; }
     html[data-tema="oscuro"] .modo-on { background: #18E667; color: #032612; border-color: #032612; }
     html[data-tema="oscuro"] .elige-o { color: #18E667; }
+    html[data-tema="oscuro"] .panel { background: #06331c; border-color: #18E667; }
+    html[data-tema="oscuro"] .boleto { background: #18E667; color: #032612; }
+    html[data-tema="oscuro"] .estado { background: #18E667; color: #032612; }
+    html[data-tema="oscuro"] #nota-cobertura, html[data-tema="oscuro"] #vacio { color: #E8F7EE; }
   </style>
 
 </head>
@@ -298,25 +316,33 @@
 <p id="via-aviso">Usas ambas: primero los grupos y después el recocido.</p>
 </section>
 <section class="kpis px-2 py-1 shrink-0">
-<div class="bg-primary-container text-[#032612] rounded px-2 py-1 flex items-center">
-<strong id="kpi-apuestas">0</strong><span class="text-[11px] font-semibold">apuestas</span>
+<div class="bg-primary-container text-[#032612] flex items-center">
+<strong id="kpi-apuestas">0</strong><span class="text-[12px] font-semibold">apuestas</span>
 </div>
-<div class="bg-surface-container-lowest rounded px-2 py-1 border border-on-surface/10 flex items-center">
-<strong id="kpi-base" class="text-primary">0</strong><span class="text-[11px]">en la base</span>
+<div class="bg-surface-container-lowest border border-on-surface/10 flex items-center">
+<strong id="kpi-base" class="text-primary">0</strong><span class="text-[12px]">en la base</span>
 </div>
-<div class="bg-surface-container-lowest rounded px-2 py-1 border border-on-surface/10 flex items-center">
-<strong id="kpi-cob">—</strong><span class="text-[11px]">cobertura</span><span id="kpi-sobre" class="text-[10px]"></span>
+<div class="bg-surface-container-lowest border border-on-surface/10 flex items-center">
+<strong id="kpi-cob">—</strong><span class="text-[12px]">cobertura</span><span id="kpi-sobre" class="text-[11px]"></span>
 </div>
 </section>
-<div id="zona" class="flex-1 min-h-0 grid grid-cols-[auto_minmax(0,1fr)] gap-2 px-2 pb-2">
-<section class="min-h-0 overflow-y-auto">
-<div class="flex items-center justify-between mb-1">
+<div id="zona">
+<section class="panel panel-num">
+<div class="flex items-center justify-between">
 <span id="rotulo-numeros">Números</span>
-<span id="counter-badge" class="text-[10px] bg-surface-container-high px-1 rounded font-bold">0</span>
+<span id="counter-badge" class="text-[11px] bg-surface-container-high px-2 py-0.5 rounded-full font-bold">0</span>
 </div>
 <div id="loto-grid" class="grid"></div>
-<p id="rotulo-filtros" class="mt-1 mb-0">Filtros</p>
-<div id="content-filtros" class="text-[11px] space-y-0.5 mt-1">
+</section>
+<section class="panel panel-ap">
+<div class="estado">
+<span class="text-[10px] font-bold tracking-wide">AHORA</span>
+<span id="ahora">Listo</span>
+<span id="linea" class="text-[12px] font-medium">Esperando.</span>
+<span id="pulso" class="ml-auto w-2 h-2 rounded-full bg-[#032612] shrink-0"></span>
+</div>
+<p id="rotulo-filtros" class="mb-0">Filtros</p>
+<div id="content-filtros" class="text-[11px]">
 <label class="flex items-center gap-1"><input type="checkbox" id="f-suma"> Sumas <input id="suma0" placeholder="mín" aria-label="Suma mínima" class="caja bg-surface-container rounded"> <input id="suma1" placeholder="máx" aria-label="Suma máxima" class="caja bg-surface-container rounded"></label>
 <label class="flex items-center gap-1"><input type="checkbox" id="f-pares"> Pares <input id="pares0" placeholder="mín" aria-label="Pares mínimo" class="caja bg-surface-container rounded"> <input id="pares1" placeholder="máx" aria-label="Pares máximo" class="caja bg-surface-container rounded"></label>
 <label class="flex items-center gap-1"><input type="checkbox" id="f-bajos"> Bajos <input id="bajos0" placeholder="mín" aria-label="Bajos mínimo" class="caja bg-surface-container rounded"> <input id="bajos1" placeholder="máx" aria-label="Bajos máximo" class="caja bg-surface-container rounded"></label>
@@ -327,25 +353,16 @@
 <input id="grupos" placeholder="Grupos: números ; mínimo ; máximo" class="bg-surface-container rounded">
 <input id="incluir" placeholder="Apuestas condicionadas" class="bg-surface-container rounded">
 </div>
-</section>
-<section class="min-h-0 bg-primary-container text-[#032612] rounded-xl p-2 flex flex-col overflow-hidden">
-<div class="shrink-0 flex flex-col gap-0.5">
-<div class="flex items-center gap-2 min-w-0">
-<span class="text-[10px] font-bold tracking-wide">AHORA</span>
-<span id="ahora" class="text-xl font-extrabold leading-none">Listo</span>
-<span id="pulso" class="ml-auto w-2 h-2 rounded-full bg-[#032612] shrink-0"></span>
-</div>
-<span id="linea" class="text-[12px] font-medium leading-snug">Esperando.</span>
-</div>
 <div id="paneles">
 <div id="caja-apuestas">
-<table id="tabla-apuestas">
-<thead><tr>
-<th><button type="button" data-col="0">N</button></th>
-<th><button type="button" data-col="1">Apuesta</button></th>
-</tr></thead>
-<tbody id="cuerpo-apuestas"></tbody>
-</table>
+<div id="tabla-apuestas">
+<div class="ordena">
+<button type="button" data-col="0">N</button>
+<button type="button" data-col="1">Apuesta</button>
+</div>
+<div id="cuerpo-apuestas"></div>
+</div>
+<p id="vacio">Todavía no hay apuestas.</p>
 <p id="nota-cobertura">La cobertura cuenta todos los sorteos de la base, no una muestra.</p>
 </div>
 </div>
@@ -369,7 +386,7 @@
 <h3>Filtros</h3>
 <p>Están siempre a la vista y no se cierran. La casilla activa el filtro. Mín y máx son los límites: sumas de la apuesta, cantidad de pares, de bajos (la mitad baja del bombo), de distancias, de seguidos, de decenas distintas y de terminaciones. Si el mínimo o el máximo se dejan vacíos, ese lado no limita. Grupos va en su recuadro, una línea por grupo: números, un mínimo y un máximo de aciertos, separados por punto y coma. Debajo, Apuestas condicionadas: números que tienen que salir en cada apuesta.</p>
 <h3>Ahora</h3>
-<p>El recuadro verde dice en una línea qué está pasando: la cobertura, si ha guardado o si hay un error. Las apuestas van debajo. No hay un registro de todo lo que ha ido diciendo. Estadísticas, el récord, guardar, validar y escrutar salen en un aviso. La cobertura es el porcentaje de sorteos de m números sacados de la base en los que alguna apuesta acierta al menos t. Se cuentan todos esos sorteos, no una muestra de 50.000. La temperatura nace en 1 y baja en cada ciclo; al pasar de 0,0001 ya no cambia qué mutaciones se aceptan, y con cuatro decimales se lee 0,0000. Una apuesta repetida no entra. La página no se desplaza: si la tabla no cabe, se mueve solo dentro de ella.</p>
+<p>El recuadro verde dice en una línea qué está pasando: la cobertura, si ha guardado o si hay un error. Las apuestas van a la derecha, en fichas. No hay un registro de todo lo que ha ido diciendo. Estadísticas, el récord, guardar, validar y escrutar salen en un aviso. La cobertura es el porcentaje de sorteos de m números sacados de la base en los que alguna apuesta acierta al menos t. Se cuentan todos esos sorteos, no una muestra de 50.000. La temperatura nace en 1 y baja en cada ciclo; al pasar de 0,0001 ya no cambia qué mutaciones se aceptan, y con cuatro decimales se lee 0,0000. Una apuesta repetida no entra. La página no se desplaza: si la tabla no cabe, se mueve solo dentro de ella.</p>
 <form method="dialog"><button type="submit" class="mt-2 bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Cerrar</button></form>
 </dialog>
 <dialog id="est-dlg" aria-labelledby="est-titulo">
@@ -606,13 +623,14 @@
         for (i = 0; i < lista.length; i++) {
           var n = String(i + 1);
           var ap = String(lista[i]).replace(/[&<>"]/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]; });
-          html += "<tr><td data-n=\"" + n + "\">" + n + "</td><td data-n=\"" + ap + "\">" + ap + "</td></tr>";
+          html += "<div class=\"boleto\"><span class=\"bn\" data-n=\"" + n + "\">" + n + "</span><span class=\"ba\" data-n=\"" + ap + "\">" + ap + "</span></div>";
         }
         tb.innerHTML = html;
+        document.getElementById("vacio").hidden = lista.length > 0;
       }
       function ordenarLista(col) {
         var tb = document.getElementById("cuerpo-apuestas");
-        var filas = Array.prototype.slice.call(tb.querySelectorAll("tr"));
+        var filas = Array.prototype.slice.call(tb.querySelectorAll(".boleto"));
         var dir = ordenLista.col === col ? -ordenLista.dir : -1;
         ordenLista = { col: col, dir: dir };
         filas.sort(function (a, b) {
@@ -628,11 +646,11 @@
           td.setAttribute("data-n", String(i + 1));
           tb.appendChild(tr);
         });
-        tb.parentNode.querySelectorAll("th button").forEach(function (b, i) {
+        document.querySelectorAll(".ordena button").forEach(function (b, i) {
           b.setAttribute("aria-sort", i === col ? (dir < 0 ? "descending" : "ascending") : "none");
         });
       }
-      document.querySelectorAll("#tabla-apuestas th button").forEach(function (b) {
+      document.querySelectorAll(".ordena button").forEach(function (b) {
         b.addEventListener("click", function () { ordenarLista(+b.getAttribute("data-col")); });
       });
       function miles(s) {

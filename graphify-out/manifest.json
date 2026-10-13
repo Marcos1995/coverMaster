@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "PROJECT.md": {
-    "mtime": 1791922485.7932425,
-    "seen": 1791922632.7962317,
-    "ast_hash": "698fbeb8177a930b361a1012453acf4f",
+    "mtime": 1791927171.547462,
+    "seen": 1791927603.2575374,
+    "ast_hash": "74f4cf306394f042f3ef87bea86d90f6",
     "semantic_hash": ""
   },
   "README.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "DESIGN.md": {
-    "mtime": 1791663649.7235408,
-    "seen": 1791663711.6109736,
-    "ast_hash": "d69a5112fbb5e942bbb65cfcce518118",
+    "mtime": 1791927167.8689446,
+    "seen": 1791927603.2575374,
+    "ast_hash": "d216555aac2fb802935ee38aa9e871c5",
     "semantic_hash": ""
   },
   "LottoOptimizerV3_12.c": {
@@ -786,9 +786,9 @@
     "semantic_hash": ""
   },
   "PuntoX_html.inc": {
-    "mtime": 1791922593.2143111,
-    "seen": 1791922632.7947304,
-    "ast_hash": "10690f9de9103222aa742fa7d7f2bcfb",
+    "mtime": 1791927384.870218,
+    "seen": 1791927603.2575374,
+    "ast_hash": "31d668c2e91dd6a617cc845cbacdfc34",
     "semantic_hash": ""
   },
   "LOTTO_v18_k6_t4_60.7358pct_20261012_150404.txt": {
@@ -822,9 +822,33 @@
     "semantic_hash": ""
   },
   "puntox.html": {
-    "mtime": 1791922582.38912,
-    "seen": 1791922632.7962317,
-    "ast_hash": "c258f063fd233cf5fe5803c0d0f43343",
+    "mtime": 1791927354.931138,
+    "seen": 1791927603.2575374,
+    "ast_hash": "6a06a104e8526350a66515da99ca7672",
+    "semantic_hash": ""
+  },
+  "LOTTO_v18_k5_t3_100.0000pct_20261013_230746.txt": {
+    "mtime": 1791925666.4969332,
+    "seen": 1791927603.2575374,
+    "ast_hash": "2cd8e8f89ab8b5df8d0327cfd6a06822",
+    "semantic_hash": ""
+  },
+  "LOTTO_v18_k6_t5_7.8647pct_20261013_230712.txt": {
+    "mtime": 1791925632.0542476,
+    "seen": 1791927603.2575374,
+    "ast_hash": "9339c8cdc7e1fb92b8186dd491ea8a3f",
+    "semantic_hash": ""
+  },
+  "LOTTO_v18_k6_t5_lotoideas_20261013_230718.txt": {
+    "mtime": 1791925638.478891,
+    "seen": 1791927603.2575374,
+    "ast_hash": "ce961ffb56ba8cb65928ae7975086fca",
+    "semantic_hash": ""
+  },
+  "LOTTO_v8_k6_t5_100.0000pct_20261013_230625.txt": {
+    "mtime": 1791925585.249134,
+    "seen": 1791927603.2575374,
+    "ast_hash": "505c603560cba623f960ae27c4d51d5b",
     "semantic_hash": ""
   }
 }
