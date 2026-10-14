@@ -143,7 +143,7 @@ static const char *titulo_accion(const char *nombre) {
     if (!strcmp(nombre, "validar")) return "Validar";
     if (!strcmp(nombre, "estadisticas")) return "Estadísticas";
     if (!strcmp(nombre, "cargar")) return "Cargar";
-    if (!strcmp(nombre, "guardar")) return "Guardar";
+    if (!strcmp(nombre, "guardar")) return "Guardar apuestas";
     if (!strcmp(nombre, "usar")) return "Usar récord";
     if (!strcmp(nombre, "mejorar")) return "Mejorar récord";
     return nombre;
@@ -1139,12 +1139,31 @@ static int cmp_fila(const void *A, const void *B) {
     return a->k - b->k;
 }
 
-static int escribir(uint64_t *bets, int n, int v, int k, int t, double cob, const char *marca, char *nombre) {
-    Fila *filas;
+static int volcar_apuestas(const char *ruta, const Fila *filas, int n, int dos, char sep) {
     FILE *f;
-    SYSTEMTIME st;
     int i, j;
-    (void)v;
+    f = fopen(ruta, "wb");
+    if (!f) return 0;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < filas[i].k; j++) {
+            if (j) fputc(sep, f);
+            fprintf(f, dos ? "%02d" : "%d", filas[i].n[j]);
+        }
+        fputc('\n', f);
+    }
+    fclose(f);
+    return 1;
+}
+
+/* Solo las apuestas, una por línea. txt, csv o los dos. dos=0 escribe 1; dos=1 escribe 01. */
+static int escribir(uint64_t *bets, int n, int v, int k, int t, int dos, char sep, int txt, int csv, char *nombre, int cap) {
+    Fila *filas;
+    SYSTEMTIME st;
+    int i, j, puesto = 0;
+    char ruta[260];
+    if (cap < 8) return 0;
+    if (!txt && !csv) txt = 1;
+    if (sep != ',') sep = ' ';
     filas = (Fila *)malloc((size_t)n * sizeof(Fila));
     if (!filas) return 0;
     for (i = 0; i < n; i++) {
@@ -1153,19 +1172,25 @@ static int escribir(uint64_t *bets, int n, int v, int k, int t, double cob, cons
     }
     qsort(filas, (size_t)n, sizeof(Fila), cmp_fila);
     GetLocalTime(&st);
-    if (marca && marca[0])
-        snprintf(nombre, 240, "LOTTO_v%d_k%d_t%d_%s_%04d%02d%02d_%02d%02d%02d.txt",
-            v, k, t, marca, st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond);
-    else
-        snprintf(nombre, 240, "LOTTO_v%d_k%d_t%d_%.4fpct_%04d%02d%02d_%02d%02d%02d.txt",
-            v, k, t, cob, st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond);
-    f = fopen(nombre, "wb");
-    if (!f) { free(filas); return 0; }
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < filas[i].k; j++) fprintf(f, "%s%02d", j ? " " : "", filas[i].n[j]);
-        fputc('\n', f);
+    nombre[0] = 0;
+    if (txt) {
+        int w;
+        snprintf(ruta, sizeof ruta, "LOTTO_v%d_k%d_t%d_propio_%04d%02d%02d_%02d%02d%02d.txt",
+            v, k, t, st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond);
+        if (!volcar_apuestas(ruta, filas, n, dos, sep)) { free(filas); return 0; }
+        w = snprintf(nombre + puesto, cap - puesto, "%s", ruta);
+        if (w < 0 || w >= cap - puesto) { free(filas); return 0; }
+        puesto += w;
     }
-    fclose(f);
+    if (csv) {
+        int w;
+        snprintf(ruta, sizeof ruta, "LOTTO_v%d_k%d_t%d_propio_%04d%02d%02d_%02d%02d%02d.csv",
+            v, k, t, st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond);
+        if (!volcar_apuestas(ruta, filas, n, dos, sep)) { free(filas); return 0; }
+        if (puesto > 0 && puesto < cap - 1) nombre[puesto++] = '\n';
+        w = snprintf(nombre + puesto, cap - puesto, "%s", ruta);
+        if (w < 0 || w >= cap - puesto) { free(filas); return 0; }
+    }
     free(filas);
     return 1;
 }
@@ -2358,14 +2383,29 @@ static void api_dispatch(SOCKET s, const char *body) {
         }
         {
             Job job;
-            char nombre_f[260];
-            int v, k, t;
+            char nombre_f[540], cifras[8], sepbuf[8], formato[12];
+            const char *pay, *fin = NULL;
+            int v, k, t, dos, txt, csv;
+            char sep;
             if (!parse_datos(body, &job, err)) { v = g_v ? g_v : 8; k = g_k ? g_k : 6; t = g_t ? g_t : 1; }
             else { v = job.v; k = job.k; t = job.t; }
-            if (!escribir(b, n, v, k, t, 0, "propio", nombre_f)) { free(b); responder_error(s, "No se ha podido guardar."); return; }
-            anotar("Has guardado el fichero.");
+            pay = json_valor(body, NULL, "payload");
+            if (!pay || *pay != '{' || !objeto_fin(pay, &fin)) pay = body, fin = NULL;
+            if (!json_str(pay, fin, "cifras", cifras, sizeof cifras)) strcpy(cifras, "2");
+            if (!json_str(pay, fin, "sep", sepbuf, sizeof sepbuf)) { sepbuf[0] = ' '; sepbuf[1] = 0; }
+            if (!json_str(pay, fin, "formato", formato, sizeof formato)) strcpy(formato, "txt");
+            dos = cifras[0] != '1';
+            sep = sepbuf[0] == ',' ? ',' : ' ';
+            txt = strcmp(formato, "csv") != 0;
+            csv = strcmp(formato, "txt") != 0;
+            if (!escribir(b, n, v, k, t, dos, sep, txt, csv, nombre_f, (int)sizeof nombre_f)) {
+                free(b);
+                responder_error(s, "No se ha podido guardar.");
+                return;
+            }
+            anotar("Has guardado las apuestas.");
             free(b);
-            responder_hecho(s, "Guardar", "Has guardado el fichero", nombre_f);
+            responder_hecho(s, "Guardar apuestas", "Apuestas guardadas", nombre_f);
             return;
         }
     }

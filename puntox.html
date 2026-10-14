@@ -140,6 +140,8 @@
     #loto-grid button { width: 2.15rem; height: 2.15rem; min-height: 0; font-size: 12px; font-weight: 800; line-height: 1; padding: 0; border-radius: 8px; background: #fff; color: #032612; border: 1px solid #6b7b6a; }
     #loto-grid button.on { background: #18E667 !important; color: #032612 !important; border: 2px solid #032612 !important; }
     #calcular { background: #0A3D22 !important; color: #18E667 !important; }
+    #revisar-botones { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem; min-width: 0; max-width: 100%; }
+    #guardar { background: #18E667 !important; color: #032612 !important; border: 2px solid #032612 !important; border-radius: .35rem; font-size: 13px !important; font-weight: 800 !important; padding: .28rem .7rem !important; cursor: pointer; }
     #linea { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     input:not([type="checkbox"]):not([type="radio"]), select {
       box-sizing: border-box !important;
@@ -150,7 +152,7 @@
       width: auto;
     }
     .caja { width: 3.4rem !important; text-align: center; }
-    #premio { width: 18rem !important; max-width: 100%; text-align: left; font-variant-numeric: tabular-nums; }
+    #premio { width: min(18rem, 100%) !important; max-width: 100% !important; text-align: left; font-variant-numeric: tabular-nums; }
     #grupos, #incluir { display: block !important; width: 100% !important; max-width: 100%; margin-top: .2rem; text-align: left; grid-column: 1 / -1; }
     #rotulo-numeros, #rotulo-filtros { font-size: 15px; font-weight: 700; }
     #zona { flex: 1; min-height: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .5rem; padding: 0 .45rem .45rem; align-items: start; }
@@ -160,9 +162,10 @@
     #content-filtros { display: grid; grid-template-columns: 1fr 1fr; gap: .15rem .4rem; }
     .estado { display: flex; align-items: baseline; gap: .45rem; background: #18E667; color: #032612; border-radius: 12px; padding: .35rem .6rem; flex: none; }
     .estado #ahora { font-size: clamp(1.15rem, 2vw, 1.6rem); font-weight: 800; letter-spacing: -0.03em; }
-    #cuerpo-apuestas { flex: 1; min-height: 0; overflow: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(9.4rem, 1fr)); gap: .35rem; align-content: start; }
-    .boleto { display: flex; align-items: center; justify-content: space-between; gap: .35rem; background: #0A3D22; color: #18E667; border: 0; border-radius: 10px; padding: .4rem .5rem; font-weight: 800; font-variant-numeric: tabular-nums; text-align: left; }
-    .boleto .bn { font-size: 11px; opacity: .8; }
+    #cuerpo-apuestas { flex: 1; min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: .28rem; align-items: stretch; }
+    .boleto { display: flex; align-items: center; justify-content: flex-start; gap: .55rem; flex: none; box-sizing: border-box; min-width: 100%; width: max-content; background: #0A3D22; color: #18E667; border: 0; border-radius: 10px; padding: .35rem .55rem; font-weight: 800; font-variant-numeric: tabular-nums; text-align: left; white-space: nowrap; }
+    .boleto .bn { flex: none; width: 3rem; text-align: right; font-size: 12px; opacity: .85; }
+    .boleto .ba { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; font-weight: 700; white-space: nowrap; letter-spacing: .04em; }
     #vacio { margin: .2rem 0 0; font-size: 13px; font-weight: 700; }
     .ordena { display: flex; gap: .35rem; flex: none; }
     .ordena button { border: 0; background: transparent; font: inherit; font-weight: 800; font-size: 12px; cursor: pointer; padding: 0 .15rem; }
@@ -170,6 +173,9 @@
       html, body { overflow: auto; }
       #zona { grid-template-columns: 1fr; }
       .panel-num, .panel-ap { width: auto; max-height: none; }
+      #barra { display: flex; flex-wrap: wrap; max-width: 100%; }
+      #revisar-botones { flex: 1 0 100%; width: 100%; }
+      #premio { width: min(11rem, 100%) !important; }
     }
     @media (prefers-reduced-motion: no-preference) {
       .panel { animation: entra .4s ease both; }
@@ -180,7 +186,7 @@
     .kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem; }
     .kpis > div { width: auto; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: .1rem; border-radius: 12px; padding: .4rem .65rem; min-height: 3.2rem; }
     .kpis strong { font-size: clamp(1.35rem, 2.2vw, 1.9rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
-    #ayuda-dlg, #recurso-dlg, #est-dlg, #hecho-dlg {
+    #ayuda-dlg, #recurso-dlg, #est-dlg, #hecho-dlg, #guardar-dlg {
       width: min(36rem, calc(100vw - 1.5rem));
       max-height: min(78vh, 36rem);
       overflow: auto;
@@ -190,13 +196,17 @@
       background: #eaffeb;
       color: #032612;
     }
-    #ayuda-dlg::backdrop, #recurso-dlg::backdrop, #est-dlg::backdrop, #hecho-dlg::backdrop { background: rgba(3, 38, 18, .5); }
-    #ayuda-dlg h2, #recurso-dlg h2, #hecho-dlg h2 { margin: 0 0 .6rem; font-size: 1.25rem; }
+    #ayuda-dlg::backdrop, #recurso-dlg::backdrop, #est-dlg::backdrop, #hecho-dlg::backdrop, #guardar-dlg::backdrop { background: rgba(3, 38, 18, .5); }
+    #ayuda-dlg h2, #recurso-dlg h2, #hecho-dlg h2, #guardar-dlg h2 { margin: 0 0 .6rem; font-size: 1.25rem; }
     #est-dlg h2 { margin: 0 0 .35rem; font-size: 1.7rem; font-weight: 800; letter-spacing: -0.03em; }
     #ayuda-dlg h3 { margin: .7rem 0 .15rem; font-size: .8rem; letter-spacing: .02em; }
     #ayuda-dlg p, #recurso-dlg p { margin: 0 0 .25rem; font-size: 13px; line-height: 1.4; }
-    #recurso-dlg .fila { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem; }
-    #recurso-dlg button:focus-visible { outline: 2px solid #032612; outline-offset: 2px; }
+    #recurso-dlg .fila, #guardar-dlg .fila { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem; }
+    #recurso-dlg button:focus-visible, #guardar-dlg button:focus-visible { outline: 2px solid #032612; outline-offset: 2px; }
+    #guardar-dlg p { margin: 0 0 .55rem; font-size: 13px; line-height: 1.4; }
+    #guardar-dlg fieldset { border: 0; margin: 0 0 .45rem; padding: 0; }
+    #guardar-dlg legend { font-size: 12px; font-weight: 800; margin-bottom: .15rem; }
+    #guardar-dlg label { display: flex; align-items: center; gap: .4rem; font-size: 14px; font-weight: 700; margin: .12rem 0; }
     #est-dlg p { margin: 0 0 .7rem; font-size: 13px; line-height: 1.4; }
     #est-dlg .est-cifra { background: #18E667; color: #032612; border-radius: 12px; padding: .7rem .85rem; margin: 0 0 .45rem; }
     #est-dlg .est-cifra span { display: block; font-size: 12px; font-weight: 700; }
@@ -204,9 +214,9 @@
     #hecho-dlg .est-cifra { background: #18E667; color: #032612; border-radius: 12px; padding: .7rem .85rem; margin: 0 0 .45rem; }
     #hecho-dlg .est-cifra strong { display: block; font-size: clamp(1.6rem, 7vw, 2.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; overflow-wrap: break-word; }
     #hecho-dlg .est-cifra span { white-space: pre-wrap; font-size: 14px; }
-    html[data-tema="oscuro"] #ayuda-dlg, html[data-tema="oscuro"] #recurso-dlg, html[data-tema="oscuro"] #est-dlg, html[data-tema="oscuro"] #hecho-dlg { background: #06331c; color: #E8F7EE; }
+    html[data-tema="oscuro"] #ayuda-dlg, html[data-tema="oscuro"] #recurso-dlg, html[data-tema="oscuro"] #est-dlg, html[data-tema="oscuro"] #hecho-dlg, html[data-tema="oscuro"] #guardar-dlg { background: #06331c; color: #E8F7EE; }
     html[data-tema="oscuro"] #est-dlg .est-cifra, html[data-tema="oscuro"] #hecho-dlg .est-cifra { background: #18E667; color: #032612; }
-    html[data-tema="oscuro"] #recurso-dlg button:focus-visible { outline-color: #18E667; }
+    html[data-tema="oscuro"] #recurso-dlg button:focus-visible, html[data-tema="oscuro"] #guardar-dlg button:focus-visible { outline-color: #18E667; }
     #paneles, #caja-apuestas { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: .35rem; }
     .panel-ap:not(:has(.boleto)) #paneles { flex: none; }
     .ordena button:focus-visible { outline: 2px solid #032612; outline-offset: 2px; }
@@ -264,7 +274,7 @@
 </button>
 </div>
 </header>
-<section class="px-2 py-1 flex flex-wrap items-center gap-1 shrink-0 border-b border-on-surface/10 bg-surface-container-low">
+<section id="barra" class="px-2 py-1 flex flex-wrap items-center gap-1 shrink-0 border-b border-on-surface/10 bg-surface-container-low">
 <button id="calcular" type="button" class="bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Calcular</button>
 <button id="parar" type="button" disabled class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Parar</button>
 <div id="revisar-botones" class="flex flex-wrap items-center gap-1">
@@ -274,9 +284,9 @@
 <button type="button" data-accion="validar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Validar</button>
 <button type="button" data-accion="estadisticas" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Estadísticas</button>
 <button type="button" data-accion="cargar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Cargar</button>
-<button type="button" data-accion="guardar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Guardar</button>
 <button type="button" data-accion="usar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Usar récord</button>
 <button type="button" data-accion="mejorar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Mejorar récord</button>
+<button type="button" id="guardar" data-accion="guardar">Guardar apuestas</button>
 </div>
 </section>
 <section class="px-2 py-1 flex flex-wrap items-center gap-2 shrink-0 border-b border-on-surface/10 text-[11px]">
@@ -336,7 +346,6 @@
 </section>
 <section class="panel panel-ap">
 <div class="estado">
-<span class="text-[10px] font-bold tracking-wide">AHORA</span>
 <span id="ahora">Listo</span>
 <span id="linea" class="text-[12px] font-medium">Esperando.</span>
 <span id="pulso" class="ml-auto w-2 h-2 rounded-full bg-[#032612] shrink-0"></span>
@@ -378,15 +387,15 @@
 <h3>Garantía, ciclos y tamaño</h3>
 <p>El desplegable (5 si 6, 4 si 6…) es el premio que quieres asegurar. Ciclos, encendido, repite el recocido. Eliges una sola cosa: o Por apuestas (escribes el número) o Por cobertura (escribes el %). La otra queda en blanco. Al 100 % de cobertura se mira si hay récord. Con un número de apuestas, no.</p>
 <h3>Calcular y Parar</h3>
-<p>Calcular es el botón. El récord de Lotoideas solo se ofrece en modo cobertura, y solo si pides el 100 %. Si lo usas, no calcula: descarga esa lista, cambia el 1, el 2, el 3… por los números que tienes marcados, en orden, y la muestra. No escribe un fichero: eso lo hace Guardar. Si buscas el mínimo, va quitando apuestas mientras el porcentaje se mantiene. En modo apuestas no sale el récord: parte de las columnas que has escrito y, si llega al 100 %, baja hasta que con una menos ya no llegue. Mejorar récord sí busca. Parar corta y se queda con el mejor.</p>
+<p>Calcular es el botón. El récord de Lotoideas solo se ofrece en modo cobertura, y solo si pides el 100 %. Si lo usas, no calcula: descarga esa lista, cambia el 1, el 2, el 3… por los números que tienes marcados, en orden, y la muestra. No escribe un fichero: eso lo hace Guardar apuestas. Si buscas el mínimo, va quitando apuestas mientras el porcentaje se mantiene. En modo apuestas no sale el récord: parte de las columnas que has escrito y, si llega al 100 %, baja hasta que con una menos ya no llegue. Mejorar récord sí busca. Parar corta y se queda con el mejor.</p>
 <h3>Escrutar y Generar</h3>
 <p>El recuadro largo es la combinación ganadora. Generar escribe ahí una apuesta al azar de k números: si hay números marcados, salen de esos; si no, del 1 al 49. Escrutar compara la reducida con esa combinación.</p>
 <h3>El resto de acciones</h3>
-<p>Estadísticas abre un aviso con dos cifras de lo que está puesto ahora: las combinaciones totales de la base y la garantía, y la cobertura de esas combinaciones con las apuestas que hay en ese momento. Validar abre un aviso: válidas, o las apuestas que fallan. Escrutar abre un aviso: has ganado si el mejor acierto llega a la garantía, o no llega. Guardar abre un aviso con el fichero. Cargar abre un archivo de apuestas y marca los números que trae, la base y cuántos van en cada fila. La garantía (4 si 6, 5 si 6…) la eliges tú. Usar récord pregunta en un aviso si usas esa lista. Mejorar récord intenta superarla.</p>
+<p>Estadísticas abre un aviso con dos cifras de lo que está puesto ahora: las combinaciones totales de la base y la garantía, y la cobertura de esas combinaciones con las apuestas que hay en ese momento. Validar abre un aviso: válidas, o las apuestas que fallan. Escrutar abre un aviso: has ganado si el mejor acierto llega a la garantía, o no llega. Guardar apuestas es el último botón: pregunta si cada número va con dos cifras (01) o con una (1), si van separados por un espacio o por una coma, y si el fichero es texto, CSV o los dos. Solo escribe las apuestas, una por línea. Cargar abre un archivo de apuestas y marca los números que trae, la base y cuántos van en cada fila. La garantía (4 si 6, 5 si 6…) la eliges tú. Usar récord pregunta en un aviso si usas esa lista. Mejorar récord intenta superarla.</p>
 <h3>Filtros</h3>
 <p>Están siempre a la vista y no se cierran. La casilla activa el filtro. Mín y máx son los límites: sumas de la apuesta, cantidad de pares, de bajos (la mitad baja del bombo), de distancias, de seguidos, de decenas distintas y de terminaciones. Si el mínimo o el máximo se dejan vacíos, ese lado no limita. Grupos va en su recuadro, una línea por grupo: números, un mínimo y un máximo de aciertos, separados por punto y coma. Debajo, Apuestas condicionadas: números que tienen que salir en cada apuesta.</p>
 <h3>Ahora</h3>
-<p>El recuadro verde dice en una línea qué está pasando: la cobertura, si ha guardado o si hay un error. Las apuestas van a la derecha, en fichas. No hay un registro de todo lo que ha ido diciendo. Estadísticas, el récord, guardar, validar y escrutar salen en un aviso. La cobertura es el porcentaje de sorteos de m números sacados de la base en los que alguna apuesta acierta al menos t. Se cuentan todos esos sorteos, no una muestra de 50.000. La temperatura nace en 1 y baja en cada ciclo; al pasar de 0,0001 ya no cambia qué mutaciones se aceptan, y con cuatro decimales se lee 0,0000. Una apuesta repetida no entra. La página no se desplaza: si la tabla no cabe, se mueve solo dentro de ella.</p>
+<p>El recuadro verde dice qué está pasando: la cobertura, si ha guardado o si hay un error. No repite la palabra ahora. Las apuestas van a la derecha, una debajo de otra, con el mismo tamaño: el último número no salta de fila. No hay un registro de todo lo que ha ido diciendo. Estadísticas, el récord, guardar, validar y escrutar salen en un aviso. La cobertura es el porcentaje de sorteos de m números sacados de la base en los que alguna apuesta acierta al menos t. Se cuentan todos esos sorteos, no una muestra de 50.000. La temperatura nace en 1 y baja en cada ciclo; al pasar de 0,0001 ya no cambia qué mutaciones se aceptan, y con cuatro decimales se lee 0,0000. Una apuesta repetida no entra. La página no se desplaza: si la lista no cabe, se mueve solo dentro de ella.</p>
 <form method="dialog"><button type="submit" class="mt-2 bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Cerrar</button></form>
 </dialog>
 <dialog id="est-dlg" aria-labelledby="est-titulo">
@@ -417,6 +426,30 @@
 <div class="fila">
 <button type="button" id="recurso-si" class="bg-[#18E667] text-[#032612] px-3 py-1 rounded text-[12px] font-bold">Récord</button>
 <button type="button" id="recurso-no" class="bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Las mías</button>
+</div>
+</dialog>
+<dialog id="guardar-dlg" aria-labelledby="guardar-titulo">
+<h2 id="guardar-titulo" tabindex="-1">Guardar apuestas</h2>
+<p>Solo se guardan las apuestas, una por línea.</p>
+<fieldset>
+<legend>Cifras</legend>
+<label><input type="radio" name="cifras" value="2" checked> Dos cifras, el 1 queda 01</label>
+<label><input type="radio" name="cifras" value="1"> Una cifra, el 1 queda 1 y el 11 queda 11</label>
+</fieldset>
+<fieldset>
+<legend>Entre números</legend>
+<label><input type="radio" name="sep" value=" " checked> Espacio</label>
+<label><input type="radio" name="sep" value=","> Coma</label>
+</fieldset>
+<fieldset>
+<legend>Fichero</legend>
+<label><input type="radio" name="formato" value="txt" checked> Texto</label>
+<label><input type="radio" name="formato" value="csv"> CSV</label>
+<label><input type="radio" name="formato" value="ambos"> Los dos</label>
+</fieldset>
+<div class="fila">
+<button type="button" id="guardar-si" class="bg-[#18E667] text-[#032612] px-3 py-1 rounded text-[12px] font-bold">Guardar</button>
+<button type="button" id="guardar-no" class="bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Cancelar</button>
 </div>
 </dialog>
 <script>
@@ -719,6 +752,29 @@
           document.getElementById("recurso-si").focus();
         });
       }
+      function preguntarGuardar() {
+        return new Promise(function (resolver) {
+          var dlg = document.getElementById("guardar-dlg");
+          var listo = false;
+          function cerrar(valor) {
+            if (listo) return;
+            listo = true;
+            dlg.close();
+            resolver(valor);
+          }
+          document.getElementById("guardar-si").onclick = function () {
+            var cifras = "2", sep = " ", formato = "txt";
+            dlg.querySelectorAll("input[name=cifras]").forEach(function (r) { if (r.checked) cifras = r.value; });
+            dlg.querySelectorAll("input[name=sep]").forEach(function (r) { if (r.checked) sep = r.value; });
+            dlg.querySelectorAll("input[name=formato]").forEach(function (r) { if (r.checked) formato = r.value; });
+            cerrar({ cifras: cifras, sep: sep, formato: formato });
+          };
+          document.getElementById("guardar-no").onclick = function () { cerrar(null); };
+          dlg.oncancel = function () { cerrar(null); };
+          dlg.showModal();
+          document.getElementById("guardar-titulo").focus();
+        });
+      }
       async function llamar(nombre, datos) {
         if (!nombre) return;
         if (!window.pywebview || !window.pywebview.api) { sinPrograma(); return; }
@@ -757,8 +813,23 @@
       document.getElementById("parar").addEventListener("click", function () { llamar("parar"); });
       document.getElementById("revisar-botones").addEventListener("click", function (ev) {
         var btn = ev.target.closest("button");
+        var accion;
         if (!btn || !btn.getAttribute("data-accion")) return;
-        llamar(btn.getAttribute("data-accion"));
+        accion = btn.getAttribute("data-accion");
+        if (accion === "guardar") {
+          if (!firmaLista) { aviso("Guardar apuestas", "Primero calcula, carga o usa una reducida."); return; }
+          preguntarGuardar().then(function (op) {
+            var datos;
+            if (!op) return;
+            datos = leer();
+            datos.cifras = op.cifras;
+            datos.sep = op.sep;
+            datos.formato = op.formato;
+            llamar("guardar", datos);
+          });
+          return;
+        }
+        llamar(accion);
       });
       window.addEventListener("pywebviewready", function () {
         setInterval(async function () {
