@@ -141,6 +141,7 @@
     #loto-grid button.on { background: #18E667 !important; color: #032612 !important; border: 2px solid #032612 !important; }
     #calcular { background: #0A3D22 !important; color: #18E667 !important; }
     #revisar-botones { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem; min-width: 0; max-width: 100%; }
+    #guardar-junto { display: inline-flex; flex: 0 0 auto; align-items: center; gap: .25rem; white-space: nowrap; }
     #guardar { background: #18E667 !important; color: #032612 !important; border: 2px solid #032612 !important; border-radius: .35rem; font-size: 13px !important; font-weight: 800 !important; padding: .28rem .7rem !important; cursor: pointer; }
     #linea { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     input:not([type="checkbox"]):not([type="radio"]), select {
@@ -154,12 +155,12 @@
     .caja { width: 3.4rem !important; text-align: center; }
     #premio { width: min(18rem, 100%) !important; max-width: 100% !important; text-align: left; font-variant-numeric: tabular-nums; }
     #grupos, #incluir { display: block !important; width: 100% !important; max-width: 100%; margin-top: .2rem; text-align: left; grid-column: 1 / -1; }
-    #rotulo-numeros, #rotulo-filtros { font-size: 15px; font-weight: 700; }
-    #zona { flex: 1; min-height: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .5rem; padding: 0 .45rem .45rem; align-items: start; }
+    #rotulo-numeros, #rotulo-filtros, #rotulo-apuestas { font-size: 15px; font-weight: 700; }
+    #zona { flex: 1; min-height: 0; display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr); gap: .5rem; padding: 0 .45rem .45rem; align-items: stretch; }
     .panel { min-width: 0; min-height: 0; display: flex; flex-direction: column; gap: .4rem; background: #fff; border: 1px solid rgba(3, 38, 18, .12); border-radius: 16px; padding: .5rem; overflow: hidden; }
     .panel-num { width: max-content; overflow: hidden; }
-    .panel-ap { align-self: stretch; max-height: 100%; overflow: auto; }
-    #content-filtros { display: grid; grid-template-columns: 1fr 1fr; gap: .15rem .4rem; }
+    .panel-filtros, .panel-ap { align-self: stretch; max-height: 100%; overflow: auto; }
+    #content-filtros { display: flex; flex-direction: column; gap: .2rem; }
     .estado { display: flex; align-items: baseline; gap: .45rem; background: #18E667; color: #032612; border-radius: 12px; padding: .35rem .6rem; flex: none; }
     .estado #ahora { font-size: clamp(1.15rem, 2vw, 1.6rem); font-weight: 800; letter-spacing: -0.03em; }
     #cuerpo-apuestas { flex: 1; min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: .28rem; align-items: stretch; }
@@ -172,9 +173,8 @@
     @media (max-width: 800px) {
       html, body { overflow: auto; }
       #zona { grid-template-columns: 1fr; }
-      .panel-num, .panel-ap { width: auto; max-height: none; }
+      .panel-num, .panel-filtros, .panel-ap { width: auto; max-height: none; }
       #barra { display: flex; flex-wrap: wrap; max-width: 100%; }
-      #revisar-botones { flex: 1 0 100%; width: 100%; }
       #premio { width: min(11rem, 100%) !important; }
     }
     @media (prefers-reduced-motion: no-preference) {
@@ -285,8 +285,10 @@
 <button type="button" data-accion="estadisticas" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Estadísticas</button>
 <button type="button" data-accion="cargar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Cargar</button>
 <button type="button" data-accion="usar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Usar récord</button>
+<span id="guardar-junto">
 <button type="button" data-accion="mejorar" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Mejorar récord</button>
 <button type="button" id="guardar" data-accion="guardar">Guardar apuestas</button>
+</span>
 </div>
 </section>
 <section class="px-2 py-1 flex flex-wrap items-center gap-2 shrink-0 border-b border-on-surface/10 text-[11px]">
@@ -344,7 +346,7 @@
 </div>
 <div id="loto-grid" class="grid"></div>
 </section>
-<section class="panel panel-ap">
+<section class="panel panel-filtros">
 <div class="estado">
 <span id="ahora">Listo</span>
 <span id="linea" class="text-[12px] font-medium">Esperando.</span>
@@ -362,6 +364,9 @@
 <input id="grupos" placeholder="Grupos: números ; mínimo ; máximo" class="bg-surface-container rounded">
 <input id="incluir" placeholder="Apuestas condicionadas" class="bg-surface-container rounded">
 </div>
+</section>
+<section class="panel panel-ap">
+<p id="rotulo-apuestas" class="mb-0">Apuestas</p>
 <div id="paneles">
 <div id="caja-apuestas">
 <div id="tabla-apuestas">
@@ -381,9 +386,9 @@
 <dialog id="ayuda-dlg" aria-labelledby="ayuda-titulo">
 <h2 id="ayuda-titulo" tabindex="-1">Cómo funciona</h2>
 <h3>Números</h3>
-<p>Toca un número para marcarlo o quitarlo. El contador dice cuántos hay. Eso no cambia Base.</p>
+<p>Toca un número para marcarlo o quitarlo. El contador y Base pasan a ser cuántos hay marcados. Si había 8 y marcas uno más, Base queda en 9.</p>
 <h3>Base, k y Al azar</h3>
-<p>Base es cuántos números tiene el sistema. Al cambiarla se marcan solos del 1 a ese número. Al azar marca exactamente esos, distintos, del 1 al 49. Si después cambias la base, vuelven a ser del 1 a ese número. Vaciar los quita todos. k es cuántos números lleva cada apuesta: no puede ser mayor que la base, ni que los números marcados si los hay.</p>
+<p>Base es cuántos números tiene el sistema. Si la escribes, se marcan solos del 1 a ese número. Si marcas o quitas en la rejilla, Base se pone al total marcado. Al azar marca exactamente esos, distintos, del 1 al 49. Si después cambias la base, vuelven a ser del 1 a ese número. Vaciar los quita todos y Base queda en 0. k es cuántos números lleva cada apuesta: no puede ser mayor que la base, ni que los números marcados si los hay.</p>
 <h3>Garantía, ciclos y tamaño</h3>
 <p>El desplegable (5 si 6, 4 si 6…) es el premio que quieres asegurar. Ciclos, encendido, repite el recocido. Eliges una sola cosa: o Por apuestas (escribes el número) o Por cobertura (escribes el %). La otra queda en blanco. Al 100 % de cobertura se mira si hay récord. Con un número de apuestas, no.</p>
 <h3>Calcular y Parar</h3>
@@ -395,7 +400,7 @@
 <h3>Filtros</h3>
 <p>Están siempre a la vista y no se cierran. La casilla activa el filtro. Mín y máx son los límites: sumas de la apuesta, cantidad de pares, de bajos (la mitad baja del bombo), de distancias, de seguidos, de decenas distintas y de terminaciones. Si el mínimo o el máximo se dejan vacíos, ese lado no limita. Grupos va en su recuadro, una línea por grupo: números, un mínimo y un máximo de aciertos, separados por punto y coma. Debajo, Apuestas condicionadas: números que tienen que salir en cada apuesta.</p>
 <h3>Ahora</h3>
-<p>El recuadro verde dice qué está pasando: la cobertura, si ha guardado o si hay un error. No repite la palabra ahora. Las apuestas van a la derecha, una debajo de otra, con el mismo tamaño: el último número no salta de fila. No hay un registro de todo lo que ha ido diciendo. Estadísticas, el récord, guardar, validar y escrutar salen en un aviso. La cobertura es el porcentaje de sorteos de m números sacados de la base en los que alguna apuesta acierta al menos t. Se cuentan todos esos sorteos, no una muestra de 50.000. La temperatura nace en 1 y baja en cada ciclo; al pasar de 0,0001 ya no cambia qué mutaciones se aceptan, y con cuatro decimales se lee 0,0000. Una apuesta repetida no entra. La página no se desplaza: si la lista no cabe, se mueve solo dentro de ella.</p>
+<p>El recuadro verde dice qué está pasando: la cobertura, si ha guardado o si hay un error. No repite la palabra ahora. Los filtros ocupan la mitad y las apuestas la otra mitad, una debajo de otra, con fondo oscuro y texto verde. El último número no salta de fila. No hay un registro de todo lo que ha ido diciendo. Estadísticas, el récord, guardar, validar y escrutar salen en un aviso. La cobertura es el porcentaje de sorteos de m números sacados de la base en los que alguna apuesta acierta al menos t. Se cuentan todos esos sorteos, no una muestra de 50.000. La temperatura nace en 1 y baja en cada ciclo; al pasar de 0,0001 ya no cambia qué mutaciones se aceptan, y con cuatro decimales se lee 0,0000. Una apuesta repetida no entra. La página no se desplaza: si la lista no cabe, se mueve solo dentro de ella.</p>
 <form method="dialog"><button type="submit" class="mt-2 bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Cerrar</button></form>
 </dialog>
 <dialog id="est-dlg" aria-labelledby="est-titulo">
@@ -478,10 +483,16 @@
         document.getElementById("kpi-base").textContent = String(n);
         document.getElementById("counter-badge").textContent = String(n);
       }
+      function syncBase() {
+        aplicando = true;
+        document.getElementById("base").value = String(marcados().length);
+        aplicando = false;
+        baseKpi();
+      }
       nums.forEach(function (b) {
         b.addEventListener("click", function () {
           pintar(b, b.getAttribute("aria-pressed") !== "true");
-          baseKpi();
+          syncBase();
         });
       });
       function aviso(titulo, texto) {
@@ -494,12 +505,12 @@
         var elegidos = {};
         while (Object.keys(elegidos).length < n) elegidos[1 + Math.floor(Math.random() * 49)] = 1;
         nums.forEach(function (b) { pintar(b, !!elegidos[+b.dataset.n]); });
-        baseKpi();
+        syncBase();
         aviso("Listo", n + " números.");
       });
       document.getElementById("vaciar").addEventListener("click", function () {
         nums.forEach(function (b) { pintar(b, false); });
-        baseKpi();
+        syncBase();
         aviso("Listo", "Ningún número.");
       });
       var aplicando = false;
