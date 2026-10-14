@@ -342,13 +342,13 @@ static int cmp_int(const void *A, const void *B) {
 
 static int tipo_de(const char *nombre, int k, int *t, int *m, char *err) {
     static const struct { const char *e; int t, m; } T[] = {
-        {"5 si 6", 5, 6}, {"4 si 6", 4, 6}, {"3 si 6", 3, 6},
+        {"6 si 6", 6, 6}, {"5 si 6", 5, 6}, {"4 si 6", 4, 6}, {"3 si 6", 3, 6},
         {"5 si 5", 5, 5}, {"4 si 5", 4, 5}, {"3 si 5", 3, 5},
         {"4 si 4", 4, 4}, {"3 si 4", 3, 4}, {"3 si 3", 3, 3},
         {"Al 5 (n-1)", 0, 0},
     };
     int i;
-    for (i = 0; i < 10; i++) if (strcmp(nombre, T[i].e) == 0) {
+    for (i = 0; i < (int)(sizeof T / sizeof T[0]); i++) if (strcmp(nombre, T[i].e) == 0) {
         if (T[i].t == 0) {
             if (k < 2) { snprintf(err, 180, "Con Al 5 (n-1), k tiene que ser al menos 2."); return 0; }
             *t = k - 1; *m = k; return 1;
@@ -2640,6 +2640,7 @@ static int bench(void) {
         estadisticas_json(js, (int)sizeof js, &una, 1, &job);
         printf("%s\n", js);
         if (!strstr(js, "\"cubiertas\":\"1\"") || !strstr(js, "\"cubiertas\":\"7\"") || !strstr(js, "\"cobertura\":70.0000")) return 1;
+        if (!tipo_de("6 si 6", 6, &job.t, &job.m, js) || job.t != 6 || job.m != 6) return 1;
     }
     Opt *o;
     uint64_t b;

@@ -325,7 +325,7 @@
 <button id="vaciar" type="button" class="bg-surface-container-lowest text-on-surface border border-on-surface/20 px-2 py-1 rounded text-[11px] font-semibold">Vaciar</button>
 <label class="sr-only" for="tipo">Garantía</label>
 <select id="tipo" class="bg-surface-container text-on-surface font-bold rounded px-1 py-1 border border-on-surface/20 text-[11px]">
-<option selected>5 si 6</option><option>4 si 6</option><option>3 si 6</option>
+<option>6 si 6</option><option selected>5 si 6</option><option>4 si 6</option><option>3 si 6</option>
 <option>5 si 5</option><option>4 si 5</option><option>3 si 5</option>
 <option>4 si 4</option><option>3 si 4</option><option>3 si 3</option>
 <option>Al 5 (n-1)</option>
@@ -398,13 +398,13 @@
 <h3>Base, k y Al azar</h3>
 <p>Base es cuántos números tiene el sistema. Si la escribes, se marcan solos del 1 a ese número. Si marcas o quitas en la rejilla, Base se pone al total marcado. Al azar marca exactamente esos, distintos, del 1 al 49. Si después cambias la base, vuelven a ser del 1 a ese número. Vaciar los quita todos y Base queda en 0. k es cuántos números lleva cada apuesta: no puede ser mayor que la base, ni que los números marcados si los hay.</p>
 <h3>Garantía, ciclos y tamaño</h3>
-<p>El desplegable (5 si 6, 4 si 6…) es el premio que quieres asegurar. Ciclos, encendido, repite el recocido. Eliges una sola cosa: o Por apuestas (escribes el número) o Por cobertura (escribes el %). La otra queda en blanco. Al 100 % de cobertura se mira si hay récord. Con un número de apuestas, no.</p>
+<p>El desplegable (6 si 6, 5 si 6, 4 si 6…) es el premio que quieres asegurar. Ciclos, encendido, repite el recocido. Eliges una sola cosa: o Por apuestas (escribes el número) o Por cobertura (escribes el %). La otra queda en blanco. Al 100 % de cobertura se mira si hay récord. Con un número de apuestas, no.</p>
 <h3>Calcular y Parar</h3>
 <p>Calcular es el botón. El récord de Lotoideas solo se ofrece en modo cobertura, y solo si pides el 100 %. Si lo usas, no calcula: descarga esa lista, cambia el 1, el 2, el 3… por los números que tienes marcados, en orden, y la muestra. No escribe un fichero: eso lo hace Guardar apuestas. Si buscas el mínimo, va quitando apuestas mientras el porcentaje se mantiene. En modo apuestas no sale el récord: parte de las columnas que has escrito y, si llega al 100 %, baja hasta que con una menos ya no llegue. Mejorar récord sí busca. Parar corta y se queda con el mejor.</p>
 <h3>Escrutar y Generar</h3>
 <p>El recuadro largo es la combinación ganadora. Generar escribe ahí una apuesta al azar de k números: si hay números marcados, salen de esos; si no, del 1 al 49. Escrutar compara la reducida con esa combinación.</p>
 <h3>El resto de acciones</h3>
-<p>Estadísticas abre un aviso con las combinaciones totales y la cobertura de la garantía. Debajo, una tabla con la cobertura al k, al siguiente y así hasta al 1: si k es 8, sale al 8, al 7, al 6, al 5, al 4, al 3, al 2 y al 1. Validar abre un aviso: válidas, o las apuestas que fallan. Escrutar abre un aviso: has ganado si el mejor acierto llega a la garantía, o no llega. Guardar apuestas es el último botón: pregunta si cada número va con dos cifras (01) o con una (1), si van separados por un espacio o por una coma, y si el fichero es texto, CSV o los dos. Solo escribe las apuestas, una por línea. Cargar abre un archivo de apuestas y marca los números que trae, la base y cuántos van en cada fila. La garantía (4 si 6, 5 si 6…) la eliges tú. Usar récord pregunta en un aviso si usas esa lista. Mejorar récord intenta superarla.</p>
+<p>Estadísticas abre un aviso con las combinaciones totales y la cobertura de la garantía. Debajo, una tabla con la cobertura al k, al siguiente y así hasta al 1: si k es 8, sale al 8, al 7, al 6, al 5, al 4, al 3, al 2 y al 1. Validar abre un aviso: válidas, o las apuestas que fallan. Escrutar abre un aviso: has ganado si el mejor acierto llega a la garantía, o no llega. Guardar apuestas es el último botón: pregunta si cada número va con dos cifras (01) o con una (1), si van separados por un espacio o por una coma, y si el fichero es texto, CSV o los dos. Solo escribe las apuestas, una por línea. Cargar abre un archivo de apuestas y marca los números que trae, la base y cuántos van en cada fila. La garantía (6 si 6, 5 si 6, 4 si 6…) la eliges tú. Usar récord pregunta en un aviso si usas esa lista. Mejorar récord intenta superarla.</p>
 <h3>Filtros</h3>
 <p>Están siempre a la vista y no se cierran. La casilla activa el filtro. Mín y máx son los límites: sumas de la apuesta, cantidad de pares, de bajos (la mitad baja del bombo), de distancias, de seguidos, de decenas distintas y de terminaciones. Si el mínimo o el máximo se dejan vacíos, ese lado no limita. Grupos va en su recuadro, una línea por grupo: números, un mínimo y un máximo de aciertos, separados por punto y coma. Debajo, Apuestas condicionadas: números que tienen que salir en cada apuesta.</p>
 <h3>Ahora</h3>

@@ -1,17 +1,17 @@
 # Graph Report - coverMaster  (2026-10-14)
 
 ## Corpus Check
-- 40 files · ~257,408 words
+- 40 files · ~257,460 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 26 file(s) not represented in the graph (top: .pdb 11, .exe 10, .mdc 3)
 
 ## Summary
-- 1354 nodes · 4246 edges · 40 communities (28 shown, 12 thin omitted)
+- 1354 nodes · 4247 edges · 40 communities (28 shown, 12 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1556d941`
+- Built from commit: `09c62c8c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -145,7 +145,7 @@ Nodes (99): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(
 
 ### Community 21 - "LottoOptimizerV3_12.c"
 Cohesion: 0.07
-Nodes (80): ctype, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar() (+72 more)
+Nodes (79): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), atender() (+71 more)
 
 ### Community 22 - "main"
 Cohesion: 0.16
@@ -156,8 +156,8 @@ Cohesion: 0.06
 Nodes (107): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), anotar_niveles(), api_dispatch(), aplicar() (+99 more)
 
 ### Community 26 - "LottoOptimizerV3_15.c"
-Cohesion: 0.05
-Nodes (109): commdlg, limits, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch() (+101 more)
+Cohesion: 0.06
+Nodes (107): limits, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar() (+99 more)
 
 ### Community 30 - "apuesta_pasa_filtros"
 Cohesion: 1.00
@@ -181,7 +181,7 @@ Nodes (115): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar
 
 ### Community 36 - "LottoOptimizerV3_20.c"
 Cohesion: 0.06
-Nodes (116): abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch(), aplicar(), apuestas_de_url() (+108 more)
+Nodes (119): commdlg, ctype, abrir_ventana(), acaba_txt(), agregar(), analizar_numeros(), anotar(), api_dispatch() (+111 more)
 
 ### Community 37 - "records.py"
 Cohesion: 0.08

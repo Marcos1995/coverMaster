@@ -12516,7 +12516,7 @@
       "file_type": "code",
       "norm_label": "ir_al_exe()",
       "source_file": "PuntoX.c",
-      "source_location": "L2708"
+      "source_location": "L2709"
     },
     {
       "id": "puntox_json_bool",
@@ -12672,7 +12672,7 @@
       "file_type": "code",
       "norm_label": "main()",
       "source_file": "PuntoX.c",
-      "source_location": "L2719"
+      "source_location": "L2720"
     },
     {
       "id": "puntox_mapear",
@@ -16017,18 +16017,6 @@
       "type": "external"
     },
     {
-      "id": "ctype",
-      "label": "ctype",
-      "_origin": "semantic",
-      "community": 21,
-      "community_name": "LottoOptimizerV3_12.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ctype",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "stdio",
       "label": "stdio",
       "_origin": "semantic",
@@ -16041,14 +16029,14 @@
       "type": "external"
     },
     {
-      "id": "string",
-      "label": "string",
+      "id": "windows",
+      "label": "windows",
       "_origin": "semantic",
       "community": 21,
       "community_name": "LottoOptimizerV3_12.c",
       "external": true,
       "file_type": "concept",
-      "norm_label": "string",
+      "norm_label": "windows",
       "source_file": "",
       "type": "external"
     },
@@ -16061,18 +16049,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "winhttp",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "commdlg",
-      "label": "commdlg",
-      "_origin": "semantic",
-      "community": 26,
-      "community_name": "LottoOptimizerV3_15.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "commdlg",
       "source_file": "",
       "type": "external"
     },
@@ -16125,6 +16101,18 @@
       "type": "external"
     },
     {
+      "id": "string",
+      "label": "string",
+      "_origin": "semantic",
+      "community": 26,
+      "community_name": "LottoOptimizerV3_15.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "string",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "wchar",
       "label": "wchar",
       "_origin": "semantic",
@@ -16137,30 +16125,6 @@
       "type": "external"
     },
     {
-      "id": "windows",
-      "label": "windows",
-      "_origin": "semantic",
-      "community": 26,
-      "community_name": "LottoOptimizerV3_15.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "windows",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "winsock2",
-      "label": "winsock2",
-      "_origin": "semantic",
-      "community": 26,
-      "community_name": "LottoOptimizerV3_15.c",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "winsock2",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "ws2tcpip",
       "label": "ws2tcpip",
       "_origin": "semantic",
@@ -16169,6 +16133,42 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ws2tcpip",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "commdlg",
+      "label": "commdlg",
+      "_origin": "semantic",
+      "community": 36,
+      "community_name": "LottoOptimizerV3_20.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "commdlg",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ctype",
+      "label": "ctype",
+      "_origin": "semantic",
+      "community": 36,
+      "community_name": "LottoOptimizerV3_20.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ctype",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "winsock2",
+      "label": "winsock2",
+      "_origin": "semantic",
+      "community": 36,
+      "community_name": "LottoOptimizerV3_20.c",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "winsock2",
       "source_file": "",
       "type": "external"
     },
@@ -41316,6 +41316,18 @@
     },
     {
       "source": "puntox_bench",
+      "target": "puntox_tipo_de",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "PuntoX.c",
+      "source_location": "L2643",
+      "weight": 1.0
+    },
+    {
+      "source": "puntox_bench",
       "target": "puntox_filtros_init",
       "relation": "calls",
       "_origin": "ast",
@@ -41323,7 +41335,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2649",
+      "source_location": "L2650",
       "weight": 1.0
     },
     {
@@ -41335,7 +41347,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2653",
+      "source_location": "L2654",
       "weight": 1.0
     },
     {
@@ -41347,7 +41359,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2655",
+      "source_location": "L2656",
       "weight": 1.0
     },
     {
@@ -41359,7 +41371,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2657",
+      "source_location": "L2658",
       "weight": 1.0
     },
     {
@@ -41371,7 +41383,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2660",
+      "source_location": "L2661",
       "weight": 1.0
     },
     {
@@ -41383,7 +41395,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2666",
+      "source_location": "L2667",
       "weight": 1.0
     },
     {
@@ -41395,7 +41407,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2681",
+      "source_location": "L2682",
       "weight": 1.0
     },
     {
@@ -41407,7 +41419,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2699",
+      "source_location": "L2700",
       "weight": 1.0
     },
     {
@@ -42859,7 +42871,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2724",
+      "source_location": "L2725",
       "weight": 1.0
     },
     {
@@ -42871,7 +42883,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2726",
+      "source_location": "L2727",
       "weight": 1.0
     },
     {
@@ -42883,7 +42895,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "PuntoX.c",
-      "source_location": "L2729",
+      "source_location": "L2730",
       "weight": 1.0
     },
     {
@@ -64655,7 +64667,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L2708",
+      "source_location": "L2709",
       "weight": 1.0
     },
     {
@@ -64666,7 +64678,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PuntoX.c",
-      "source_location": "L2719",
+      "source_location": "L2720",
       "weight": 1.0
     },
     {
@@ -65940,5 +65952,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1556d9415b74d8d62379a5db3e6be2353e472dc2"
+  "built_at_commit": "09c62c8cc4772116000dcf5f5c3417a2fbf29dc0"
 }
