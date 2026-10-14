@@ -1,17 +1,17 @@
 # Graph Report - coverMaster  (2026-10-14)
 
 ## Corpus Check
-- 40 files · ~256,479 words
+- 40 files · ~257,408 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 26 file(s) not represented in the graph (top: .pdb 11, .exe 10, .mdc 3)
 
 ## Summary
-- 1354 nodes · 4245 edges · 40 communities (28 shown, 12 thin omitted)
+- 1354 nodes · 4246 edges · 40 communities (28 shown, 12 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bf054468`
+- Built from commit: `1556d941`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

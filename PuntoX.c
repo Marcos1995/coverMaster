@@ -1571,18 +1571,22 @@ static uint64_t bits_sorteo(const Job *job, const int *c, int m) {
     return bits;
 }
 
-/* Popup: combinaciones C(v, m) y cuántas cubre la lista al menos a t. */
+/* Popup: combinaciones C(v, m), la cobertura al t, y al k, al k-1, … al 1. */
 static void estadisticas_json(char *dst, int cap, const uint64_t *bets, int n, const Job *job) {
-    int c[MAXN], i, j, v, m, t, puede = 1;
-    uint64_t total, cubiertas = 0;
+    int c[MAXN], i, j, v, m, t, hi, puede = 1, pos, primero;
+    uint64_t total, cubiertas = 0, exact[MAXN + 1], almenos[MAXN + 1];
     double cob = 0;
+    memset(exact, 0, sizeof exact);
     v = job->v;
     m = job->m;
     t = job->t;
+    hi = job->k;
     if (m < 1) m = 1;
     if (m > v) m = v;
     if (v > MAXN) v = MAXN;
     if (t < 1) t = 1;
+    if (hi < 1) hi = 1;
+    if (hi > MAXN) hi = MAXN;
     total = combinaciones(v, m);
     if (!total || total == UINT64_MAX) puede = 0;
     else if (!n) cubiertas = 0;
@@ -1591,24 +1595,42 @@ static void estadisticas_json(char *dst, int cap, const uint64_t *bets, int n, c
         for (i = 0; i < m; i++) c[i] = i;
         for (;;) {
             uint64_t bits = bits_sorteo(job, c, m);
-            int cubre = 0;
+            int mejor = 0;
             for (j = 0; j < n; j++) {
-                if (__builtin_popcountll(bets[j] & bits) >= t) { cubre = 1; break; }
+                int ac = __builtin_popcountll(bets[j] & bits);
+                if (ac > mejor) mejor = ac;
             }
-            if (cubre) cubiertas++;
+            if (mejor > hi) mejor = hi;
+            exact[mejor]++;
             for (i = m - 1; i >= 0 && c[i] == v - m + i; i--) ;
             if (i < 0) break;
             c[i]++;
             for (j = i + 1; j < m; j++) c[j] = c[j - 1] + 1;
         }
     }
+    almenos[hi] = exact[hi];
+    for (i = hi - 1; i >= 1; i--) almenos[i] = almenos[i + 1] + exact[i];
+    if (puede && n && t <= hi) cubiertas = almenos[t];
     if (puede && total) cob = 100.0 * (double)cubiertas / (double)total;
-    snprintf(dst, cap,
+    pos = snprintf(dst, cap,
         "{\"ok\":true,\"popup\":{\"total\":\"%llu\",\"cubiertas\":\"%llu\",\"cobertura\":%.4f,"
-        "\"puede\":%s,\"t\":%d,\"m\":%d,\"v\":%d,\"k\":%d,\"apuestas\":%d}}",
+        "\"puede\":%s,\"t\":%d,\"m\":%d,\"v\":%d,\"k\":%d,\"apuestas\":%d,\"niveles\":[",
         (unsigned long long)(total == UINT64_MAX ? 0 : total),
         (unsigned long long)(puede ? cubiertas : 0), cob,
         puede ? "true" : "false", t, m, v, job->k, n);
+    primero = 1;
+    for (i = hi; i >= 1 && pos < cap - 80; i--) {
+        if (puede && total) {
+            double pc = 100.0 * (double)almenos[i] / (double)total;
+            pos += snprintf(dst + pos, cap - pos, "%s{\"h\":%d,\"cubiertas\":\"%llu\",\"cobertura\":%.4f}",
+                primero ? "" : ",", i, (unsigned long long)almenos[i], pc);
+        } else {
+            pos += snprintf(dst + pos, cap - pos, "%s{\"h\":%d,\"cubiertas\":\"\",\"cobertura\":-1}",
+                primero ? "" : ",", i);
+        }
+        primero = 0;
+    }
+    snprintf(dst + pos, cap - pos, "]}}");
 }
 
 static int texto_validacion(uint64_t *bets, int n, Job *job, char *cifra, int cc, char *detalle, int dc) {
@@ -2336,7 +2358,7 @@ static void api_dispatch(SOCKET s, const char *body) {
         Job job;
         uint64_t *b = NULL;
         int n;
-        char js[480];
+        char js[8192];
         if (!parse_datos(body, &job, err)) { responder_error(s, err[0] ? err : "Revisa la base, k y la garantía."); return; }
         n = copiar_bets(&b);
         estadisticas_json(js, (int)sizeof js, b, n, &job);
@@ -2610,6 +2632,15 @@ static int servir(int puerto_fijo, int abrir) {
 
 static int bench(void) {
     Job job;
+    {
+        char js[2000];
+        uint64_t una = (1ull << 0) | (1ull << 1);
+        memset(&job, 0, sizeof job);
+        job.v = 5; job.k = 2; job.t = 2; job.m = 2;
+        estadisticas_json(js, (int)sizeof js, &una, 1, &job);
+        printf("%s\n", js);
+        if (!strstr(js, "\"cubiertas\":\"1\"") || !strstr(js, "\"cubiertas\":\"7\"") || !strstr(js, "\"cobertura\":70.0000")) return 1;
+    }
     Opt *o;
     uint64_t b;
     double cob, t0, t1;

@@ -211,11 +211,19 @@
     #est-dlg .est-cifra { background: #18E667; color: #032612; border-radius: 12px; padding: .7rem .85rem; margin: 0 0 .45rem; }
     #est-dlg .est-cifra span { display: block; font-size: 12px; font-weight: 700; }
     #est-dlg .est-cifra strong { display: block; font-size: clamp(1.7rem, 8vw, 2.6rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em; overflow-wrap: anywhere; }
+    #est-dlg { max-height: min(92vh, 48rem); }
+    #est-dlg table { width: 100%; border-collapse: collapse; margin: 0 0 .6rem; }
+    #est-dlg caption { caption-side: top; text-align: left; font-size: 12px; font-weight: 800; padding: .15rem 0 .35rem; }
+    #est-dlg th, #est-dlg td { padding: .35rem .45rem; text-align: left; background: #fff; color: #032612; border-bottom: 1px solid rgba(3, 38, 18, .12); font-variant-numeric: tabular-nums; }
+    #est-dlg th button { border: 0; background: transparent; font: inherit; font-weight: 800; cursor: pointer; padding: 0; color: inherit; }
+    #est-dlg th button:focus-visible { outline: 2px solid #032612; outline-offset: 2px; }
     #hecho-dlg .est-cifra { background: #18E667; color: #032612; border-radius: 12px; padding: .7rem .85rem; margin: 0 0 .45rem; }
     #hecho-dlg .est-cifra strong { display: block; font-size: clamp(1.6rem, 7vw, 2.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; overflow-wrap: break-word; }
     #hecho-dlg .est-cifra span { white-space: pre-wrap; font-size: 14px; }
     html[data-tema="oscuro"] #ayuda-dlg, html[data-tema="oscuro"] #recurso-dlg, html[data-tema="oscuro"] #est-dlg, html[data-tema="oscuro"] #hecho-dlg, html[data-tema="oscuro"] #guardar-dlg { background: #06331c; color: #E8F7EE; }
     html[data-tema="oscuro"] #est-dlg .est-cifra, html[data-tema="oscuro"] #hecho-dlg .est-cifra { background: #18E667; color: #032612; }
+    html[data-tema="oscuro"] #est-dlg th, html[data-tema="oscuro"] #est-dlg td { background: #0A3D22; color: #E8F7EE; border-bottom-color: rgba(24, 230, 103, .35); }
+    html[data-tema="oscuro"] #est-dlg th button:focus-visible { outline-color: #18E667; }
     html[data-tema="oscuro"] #recurso-dlg button:focus-visible, html[data-tema="oscuro"] #guardar-dlg button:focus-visible { outline-color: #18E667; }
     #paneles, #caja-apuestas { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: .35rem; }
     .panel-ap:not(:has(.boleto)) #paneles { flex: none; }
@@ -396,7 +404,7 @@
 <h3>Escrutar y Generar</h3>
 <p>El recuadro largo es la combinación ganadora. Generar escribe ahí una apuesta al azar de k números: si hay números marcados, salen de esos; si no, del 1 al 49. Escrutar compara la reducida con esa combinación.</p>
 <h3>El resto de acciones</h3>
-<p>Estadísticas abre un aviso con dos cifras de lo que está puesto ahora: las combinaciones totales de la base y la garantía, y la cobertura de esas combinaciones con las apuestas que hay en ese momento. Validar abre un aviso: válidas, o las apuestas que fallan. Escrutar abre un aviso: has ganado si el mejor acierto llega a la garantía, o no llega. Guardar apuestas es el último botón: pregunta si cada número va con dos cifras (01) o con una (1), si van separados por un espacio o por una coma, y si el fichero es texto, CSV o los dos. Solo escribe las apuestas, una por línea. Cargar abre un archivo de apuestas y marca los números que trae, la base y cuántos van en cada fila. La garantía (4 si 6, 5 si 6…) la eliges tú. Usar récord pregunta en un aviso si usas esa lista. Mejorar récord intenta superarla.</p>
+<p>Estadísticas abre un aviso con las combinaciones totales y la cobertura de la garantía. Debajo, una tabla con la cobertura al k, al siguiente y así hasta al 1: si k es 8, sale al 8, al 7, al 6, al 5, al 4, al 3, al 2 y al 1. Validar abre un aviso: válidas, o las apuestas que fallan. Escrutar abre un aviso: has ganado si el mejor acierto llega a la garantía, o no llega. Guardar apuestas es el último botón: pregunta si cada número va con dos cifras (01) o con una (1), si van separados por un espacio o por una coma, y si el fichero es texto, CSV o los dos. Solo escribe las apuestas, una por línea. Cargar abre un archivo de apuestas y marca los números que trae, la base y cuántos van en cada fila. La garantía (4 si 6, 5 si 6…) la eliges tú. Usar récord pregunta en un aviso si usas esa lista. Mejorar récord intenta superarla.</p>
 <h3>Filtros</h3>
 <p>Están siempre a la vista y no se cierran. La casilla activa el filtro. Mín y máx son los límites: sumas de la apuesta, cantidad de pares, de bajos (la mitad baja del bombo), de distancias, de seguidos, de decenas distintas y de terminaciones. Si el mínimo o el máximo se dejan vacíos, ese lado no limita. Grupos va en su recuadro, una línea por grupo: números, un mínimo y un máximo de aciertos, separados por punto y coma. Debajo, Apuestas condicionadas: números que tienen que salir en cada apuesta.</p>
 <h3>Ahora</h3>
@@ -415,6 +423,17 @@
 <strong id="est-cob">—</strong>
 <span id="est-de"></span>
 </div>
+<table id="est-tabla">
+<caption>Cobertura al menos esos aciertos</caption>
+<thead>
+<tr>
+<th><button type="button" data-col="0">Aciertos</button></th>
+<th><button type="button" data-col="1">Porcentaje</button></th>
+<th><button type="button" data-col="2">Sorteos</button></th>
+</tr>
+</thead>
+<tbody id="est-cuerpo"></tbody>
+</table>
 <form method="dialog"><button type="submit" class="mt-2 bg-[#0A3D22] text-[#18E667] px-3 py-1 rounded text-[12px] font-bold">Cerrar</button></form>
 </dialog>
 <dialog id="hecho-dlg" aria-labelledby="hecho-titulo">
@@ -716,9 +735,44 @@
             ? "Hay demasiadas combinaciones para contar la cobertura."
             : "El total no cabe.";
         }
+        pintarNiveles(t.niveles || []);
         if (!dlg.open) dlg.showModal();
         document.getElementById("est-titulo").focus();
       }
+      var ordenEst = { col: -1, dir: 1 };
+      function pintarNiveles(lista) {
+        var tb = document.getElementById("est-cuerpo");
+        var html = "";
+        (lista || []).forEach(function (row) {
+          var tiene = row.cobertura != null && row.cobertura >= 0;
+          var pctTxt = tiene ? pct(row.cobertura) : "—";
+          var nTxt = tiene ? miles(row.cubiertas) : "—";
+          html += "<tr><td data-n=\"" + row.h + "\">al " + row.h + "</td><td data-n=\"" + (tiene ? row.cobertura : "") + "\">" + pctTxt + "</td><td data-n=\"" + (tiene ? row.cubiertas : "") + "\">" + nTxt + "</td></tr>";
+        });
+        tb.innerHTML = html;
+        ordenEst = { col: -1, dir: 1 };
+        document.querySelectorAll("#est-tabla th button").forEach(function (b) { b.setAttribute("aria-sort", "none"); });
+      }
+      function ordenarEst(col) {
+        var tb = document.getElementById("est-cuerpo");
+        var filas = Array.prototype.slice.call(tb.querySelectorAll("tr"));
+        var dir = ordenEst.col === col ? -ordenEst.dir : -1;
+        ordenEst = { col: col, dir: dir };
+        filas.sort(function (a, b) {
+          var da = a.children[col].getAttribute("data-n") || "";
+          var db = b.children[col].getAttribute("data-n") || "";
+          var na = Number(da), nb = Number(db);
+          var c = (da !== "" && db !== "" && !isNaN(na) && !isNaN(nb)) ? na - nb : da.localeCompare(db, "es");
+          return dir < 0 ? -c : c;
+        });
+        filas.forEach(function (tr) { tb.appendChild(tr); });
+        document.querySelectorAll("#est-tabla th button").forEach(function (b, i) {
+          b.setAttribute("aria-sort", i === col ? (dir < 0 ? "descending" : "ascending") : "none");
+        });
+      }
+      document.querySelectorAll("#est-tabla th button").forEach(function (b) {
+        b.addEventListener("click", function () { ordenarEst(+b.getAttribute("data-col")); });
+      });
       function pintarEstado(e) {
         if (!e) return;
         document.getElementById("ahora").textContent = e.ahora || "Listo";
