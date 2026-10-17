@@ -48,27 +48,27 @@
     "semantic_hash": ""
   },
   ".cursor/skills/web-design/SKILL.md": {
-    "mtime": 1791575528.654344,
-    "seen": 1791583073.396257,
-    "ast_hash": "39e26a48ce021f51964569ca1533e119",
+    "mtime": 1792250978.0473993,
+    "seen": 1792252194.826927,
+    "ast_hash": "17711d158eaebfa1f7dfd190ad80c946",
     "semantic_hash": ""
   },
   ".cursor/skills/web-design/dashboard.md": {
-    "mtime": 1791575528.6702752,
-    "seen": 1791583073.396257,
-    "ast_hash": "bc383d52ff798c162c0ca3ac1775776f",
+    "mtime": 1792250978.0790944,
+    "seen": 1792252194.826927,
+    "ast_hash": "9018e55f141fc57e29363fa030dcf904",
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791575528.7021794,
-    "seen": 1791583073.396257,
-    "ast_hash": "9d6990f052140d965d6c26810ce34eba",
+    "mtime": 1792250978.0932066,
+    "seen": 1792252194.826927,
+    "ast_hash": "eab47c20bc345153038783c028fd117d",
     "semantic_hash": ""
   },
   "PROJECT.md": {
-    "mtime": 1791978766.3874717,
-    "seen": 1791978789.935696,
-    "ast_hash": "0f46f5236e36978fab538e8693ae8e0b",
+    "mtime": 1792251844.8816912,
+    "seen": 1792252194.826927,
+    "ast_hash": "2545bd0c10181fe334d415abf29c31a2",
     "semantic_hash": ""
   },
   "README.md": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "docs/DECISIONES.md": {
-    "mtime": 1791969503.3494341,
-    "seen": 1791969609.78777,
-    "ast_hash": "9dc145f7159c278de2f68c2bfac40d91",
+    "mtime": 1792251848.825727,
+    "seen": 1792252194.826927,
+    "ast_hash": "9bc7237bda15f8e31667d274710c58cb",
     "semantic_hash": ""
   },
   "LottoOptimizerV3_11.py": {
@@ -780,15 +780,15 @@
     "semantic_hash": ""
   },
   "PuntoX.c": {
-    "mtime": 1791978775.9586644,
-    "seen": 1791978789.935696,
-    "ast_hash": "d48309202e77c2a16867fe49fe2ddf11",
+    "mtime": 1792251843.7661574,
+    "seen": 1792252194.826927,
+    "ast_hash": "872579cd640270116c620db6401fb37a",
     "semantic_hash": ""
   },
   "PuntoX_html.inc": {
-    "mtime": 1791978784.6999092,
-    "seen": 1791978789.935696,
-    "ast_hash": "d7385626cb199c2977850b6c794b7f05",
+    "mtime": 1792252104.4346135,
+    "seen": 1792252194.826927,
+    "ast_hash": "91d2b15d39e50b2107e257426d02d69f",
     "semantic_hash": ""
   },
   "LOTTO_v18_k6_t4_60.7358pct_20261012_150404.txt": {
@@ -822,9 +822,9 @@
     "semantic_hash": ""
   },
   "puntox.html": {
-    "mtime": 1791978775.6766489,
-    "seen": 1791978789.935696,
-    "ast_hash": "90ef8625b7075923c5b7da1bd4d5e622",
+    "mtime": 1792252097.8517005,
+    "seen": 1792252194.826927,
+    "ast_hash": "5d0cc868f1c366192dd289c67669b030",
     "semantic_hash": ""
   },
   "LOTTO_v18_k5_t3_100.0000pct_20261013_230746.txt": {
@@ -849,6 +849,12 @@
     "mtime": 1791925585.249134,
     "seen": 1791927603.2575374,
     "ast_hash": "505c603560cba623f960ae27c4d51d5b",
+    "semantic_hash": ""
+  },
+  "LOTTO_v14_k6_t5_propio_20261014_144354.txt": {
+    "mtime": 1791981834.488902,
+    "seen": 1792252194.826927,
+    "ast_hash": "23db04e8d2888aa0a03c900f5fa7215e",
     "semantic_hash": ""
   }
 }

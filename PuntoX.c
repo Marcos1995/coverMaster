@@ -27,6 +27,8 @@ typedef struct {
     int activo;
     int suma_min, suma_max, pares_min, pares_max, bajos_min, bajos_max;
     int dist_min, dist_max, seguidos_max, decena_max, term_max;
+    int dist_modo, nhuecos;
+    int hueco_min[MAXN], hueco_max[MAXN];
     int incluir[MAXN];
     int nincluir;
 } Filtros;
@@ -86,10 +88,12 @@ static uint64_t rnd64(void) {
 }
 
 static void filtros_init(Filtros *f) {
+    int i;
     memset(f, 0, sizeof *f);
     f->suma_min = f->suma_max = f->pares_min = f->pares_max = INT_MIN;
     f->bajos_min = f->bajos_max = f->dist_min = f->dist_max = INT_MIN;
     f->seguidos_max = f->decena_max = f->term_max = INT_MIN;
+    for (i = 0; i < MAXN; i++) f->hueco_min[i] = f->hueco_max[i] = INT_MIN;
 }
 
 static void poner_ahora(const char *linea) {
@@ -412,12 +416,83 @@ static int parse_grupos(const char *texto, const int *base, int nbase, int v, in
     return 1;
 }
 
-static void filtros_desde(const char *payload, const char *fin, const char *incluir, Filtros *f) {
+static int rango_dist(const char *s, const char *fin, int *mn, int *mx, char *err) {
+    char buf[64];
+    int n = 0, dashes = 0, dash_at = -1;
+    while (s < fin && (*s == ' ' || *s == '\t')) s++;
+    while (fin > s && (fin[-1] == ' ' || fin[-1] == '\t' || fin[-1] == '\r' || fin[-1] == '\n')) fin--;
+    *mn = *mx = INT_MIN;
+    if (s >= fin) return 1;
+    for (; s < fin; s++) {
+        char c = *s;
+        if (c == ' ' || c == '\t') continue;
+        if (n >= 60) {
+            snprintf(err, 180, "Distancias: escribe 25 para el total, o 3-7;4-6 para cada hueco.");
+            return 0;
+        }
+        if (c == '-') { dashes++; dash_at = n; }
+        else if (c < '0' || c > '9') {
+            snprintf(err, 180, "Distancias: escribe 25 para el total, o 3-7;4-6 para cada hueco.");
+            return 0;
+        }
+        buf[n++] = c;
+    }
+    buf[n] = 0;
+    if (!n) return 1;
+    if (dashes > 1) {
+        snprintf(err, 180, "Distancias: escribe 25 para el total, o 3-7;4-6 para cada hueco.");
+        return 0;
+    }
+    if (!dashes) { *mx = atoi(buf); return 1; }
+    if (dash_at > 0) { buf[dash_at] = 0; *mn = atoi(buf); }
+    if (dash_at + 1 < n) *mx = atoi(buf + dash_at + 1);
+    if (*mn != INT_MIN && *mx != INT_MIN && *mn > *mx) {
+        snprintf(err, 180, "En distancias el mínimo no puede superar al máximo.");
+        return 0;
+    }
+    return 1;
+}
+
+static int parse_dist(const char *s, int k, Filtros *f, char *err) {
+    const char *p;
+    int n = 0;
+    while (*s == ' ' || *s == '\t') s++;
+    if (!*s) return 1;
+    if (k < 2) { snprintf(err, 180, "La distancia pide al menos dos números."); return 0; }
+    if (!strchr(s, ';')) {
+        if (!rango_dist(s, s + strlen(s), &f->dist_min, &f->dist_max, err)) return 0;
+        if (f->dist_min != INT_MIN || f->dist_max != INT_MIN) f->dist_modo = 1;
+        return 1;
+    }
+    p = s;
+    while (*p && n < MAXN) {
+        const char *semi = strchr(p, ';');
+        const char *hasta = semi ? semi : p + strlen(p);
+        if (!rango_dist(p, hasta, &f->hueco_min[n], &f->hueco_max[n], err)) return 0;
+        n++;
+        if (!semi) { p = hasta; break; }
+        p = semi + 1;
+    }
+    if (*p) {
+        snprintf(err, 180, "Con %d números hay %d huecos, del 1 al 2 en adelante.", k, k - 1);
+        return 0;
+    }
+    while (n > 0 && f->hueco_min[n - 1] == INT_MIN && f->hueco_max[n - 1] == INT_MIN) n--;
+    if (n > k - 1) {
+        snprintf(err, 180, "Con %d números hay %d huecos, del 1 al 2 en adelante.", k, k - 1);
+        return 0;
+    }
+    f->nhuecos = n;
+    if (n) f->dist_modo = 2;
+    return 1;
+}
+
+static int filtros_desde(const char *payload, const char *fin, const char *incluir, int k, Filtros *f, char *err) {
     const char *fo = NULL, *ff = NULL;
     const char *v = json_valor(payload, fin, "filtros");
     filtros_init(f);
     if (v && *v == '{') objeto_fin(v, &ff), fo = v;
-    if (!fo) return;
+    if (!fo) return 1;
     if (json_bool(fo, ff, "suma")) {
         leer_int(fo, ff, "suma0", &f->suma_min, 0);
         leer_int(fo, ff, "suma1", &f->suma_max, 0);
@@ -434,9 +509,10 @@ static void filtros_desde(const char *payload, const char *fin, const char *incl
         f->activo = 1;
     }
     if (json_bool(fo, ff, "dist")) {
-        leer_int(fo, ff, "dist0", &f->dist_min, 0);
-        leer_int(fo, ff, "dist1", &f->dist_max, 0);
+        char txt[320];
         f->activo = 1;
+        if (!json_str(fo, ff, "distxt", txt, (int)sizeof txt)) txt[0] = 0;
+        if (!parse_dist(txt, k, f, err)) return 0;
     }
     if (json_bool(fo, ff, "seguidos")) {
         leer_int(fo, ff, "seguidos0", &f->seguidos_max, 0);
@@ -452,6 +528,7 @@ static void filtros_desde(const char *payload, const char *fin, const char *incl
     }
     f->nincluir = analizar_numeros(incluir, f->incluir, MAXN);
     if (f->nincluir) f->activo = 1;
+    return 1;
 }
 
 static int parse_datos(const char *json, Job *job, char *err) {
@@ -482,7 +559,7 @@ static int parse_datos(const char *json, Job *job, char *err) {
     json_str(pay, fin, "grupos", grupos, sizeof grupos);
     json_str(pay, fin, "incluir", incluir, sizeof incluir);
     if (!parse_grupos(grupos, job->base, job->nbase, job->v, job->k, job->grupos, &job->ngrupos, err)) return 0;
-    filtros_desde(pay, fin, incluir, &job->filtros);
+    if (!filtros_desde(pay, fin, incluir, job->k, &job->filtros, err)) return 0;
     if (!leer_int(pay, fin, "cantidad", &job->cantidad, 0)) { snprintf(err, 180, "Dato numérico no válido."); return 0; }
     job->porc = leer_porc(pay, fin);
     job->ciclos = json_bool(pay, fin, "ciclos");
@@ -527,15 +604,18 @@ static int pasa_filtros(int *nums, int nr, const Filtros *f, int v) {
         int fin[10] = {0};
         for (i = 0; i < nr; i++) if (++fin[nums[i] % 10] > f->term_max) return 0;
     }
-    if (nr >= 2 && (f->dist_min != INT_MIN || f->dist_max != INT_MIN)) {
-        int mn = 999, mx = 0;
-        for (i = 1; i < nr; i++) {
-            int d = nums[i] - nums[i - 1];
-            if (d < mn) mn = d;
-            if (d > mx) mx = d;
+    if (f->dist_modo == 1 && nr >= 2) {
+        int d = nums[nr - 1] - nums[0];
+        if (f->dist_min != INT_MIN && d < f->dist_min) return 0;
+        if (f->dist_max != INT_MIN && d > f->dist_max) return 0;
+    } else if (f->dist_modo == 2 && nr >= 2) {
+        int n = nr - 1;
+        if (n > f->nhuecos) n = f->nhuecos;
+        for (i = 0; i < n; i++) {
+            int d = nums[i + 1] - nums[i];
+            if (f->hueco_min[i] != INT_MIN && d < f->hueco_min[i]) return 0;
+            if (f->hueco_max[i] != INT_MIN && d > f->hueco_max[i]) return 0;
         }
-        if (f->dist_min != INT_MIN && mn < f->dist_min) return 0;
-        if (f->dist_max != INT_MIN && mx > f->dist_max) return 0;
     }
     for (i = 0; i < f->nincluir; i++) {
         int j, ok = 0;
@@ -2717,6 +2797,36 @@ static void ir_al_exe(void) {
     SetCurrentDirectoryW(g_dir);
 }
 
+static int probar_dist(void) {
+    Filtros f;
+    char err[180];
+    int total_ok[] = {1, 4, 8, 14, 19, 26};
+    int total_no[] = {1, 2, 3, 4, 5, 27};
+    int huecos[] = {10, 13, 17, 22, 26, 30};
+    int corto[] = {10, 12, 17, 22, 26, 30};
+    int bajo[] = {1, 3, 5, 7, 9, 10};
+    filtros_init(&f);
+    f.activo = 1;
+    if (!parse_dist("25", 6, &f, err) || !pasa_filtros(total_ok, 6, &f, 49)) return 1;
+    if (pasa_filtros(total_no, 6, &f, 49)) return 2;
+    filtros_init(&f);
+    f.activo = 1;
+    if (!parse_dist("10-25", 6, &f, err) || !pasa_filtros(total_ok, 6, &f, 49)) return 3;
+    if (pasa_filtros(bajo, 6, &f, 49) || pasa_filtros(total_no, 6, &f, 49)) return 4;
+    filtros_init(&f);
+    f.activo = 1;
+    if (!parse_dist("3-7;4-6;5-8;4-6;3-9", 6, &f, err) || !pasa_filtros(huecos, 6, &f, 49)) return 5;
+    if (pasa_filtros(corto, 6, &f, 49)) return 6;
+    filtros_init(&f);
+    f.activo = 1;
+    if (!parse_dist("3-;4-6", 6, &f, err) || !pasa_filtros(huecos, 6, &f, 49)) return 7;
+    if (parse_dist("3-1", 6, &f, err)) return 8;
+    if (parse_dist("1-2;1-2;1-2;1-2;1-2;1-2", 6, &f, err)) return 9;
+    if (parse_dist("abc", 6, &f, err)) return 10;
+    printf("dist ok\n");
+    return 0;
+}
+
 int main(int argc, char **argv) {
     int i, puerto = 0, solo = 0;
     g_rng ^= (uint64_t)GetTickCount64() ^ ((uint64_t)GetCurrentProcessId() << 17);
@@ -2725,6 +2835,7 @@ int main(int argc, char **argv) {
     ir_al_exe();
     for (i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--bench") == 0) return bench();
+        if (strcmp(argv[i], "--dist") == 0) return probar_dist();
         if (strcmp(argv[i], "--servir") == 0 && i + 1 < argc) { puerto = atoi(argv[++i]); solo = 1; }
     }
     return servir(puerto, !solo);
